@@ -1,0 +1,11 @@
+{
+ "peak": 1000.0,
+ "last_equity": 1000.0,
+ "day": "2026-10-03",
+ "day_start": 1000.0,
+ "week": "2026-W40",
+ "week_start": 1000.0,
+ "consec_losses": 0,
+ "halted": false,
+ "halt_reason": ""
+}

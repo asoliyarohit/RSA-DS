@@ -46,11 +46,11 @@ def train(P, cutoff_pos, cal):
     return mu, sd, models
 
 
-def calls(frames, vix, start, end=None, calendar_block=None, news=True):
+def calls(frames, vix, start, end=None, calendar_block=None, news=True, model_start="2026-04-07"):
     P = panel(frames, vix); cal = frames["SPY"].index
     days = [d for d in cal if d >= pd.Timestamp(start) and (end is None or d <= pd.Timestamp(end))]
-    i0 = cal.get_loc(days[0])
-    mu, sd, models = train(P, i0 - 2, cal)                       # frozen: labels known as of T0-1
+    i0 = cal.get_loc(pd.Timestamp(model_start))
+    mu, sd, models = train(P, i0 - 2, cal)                       # FROZEN model: labels known as of model_start-1 (sim and live share it)
     g = gdelt.load() if news else pd.DataFrame()
     zt = {}
     for col in ("stock market|tone", "earnings|tone"):
@@ -61,8 +61,8 @@ def calls(frames, vix, start, end=None, calendar_block=None, news=True):
         if col in g.columns:
             x = g[col]; zv[col] = (x - x.rolling(60, min_periods=20).mean()) / x.rolling(60, min_periods=20).std()
     rows = []
-    for n, T in enumerate(days):
-        i = cal.get_loc(T); t = cal[i - 1]
+    for T in days:
+        i = cal.get_loc(T); t = cal[i - 1]; n = i - i0
         vx = float(np.exp(P["SPY"].loc[t, "vixz"] * 0 + np.log(vix.reindex(cal).ffill().loc[t])))
         for kind, key, date_in, lag in (("CLOSE", "y_co", t, 2), ("OPEN", "y_oc", T, 1)):
             nd = cal[i - lag] if i - lag >= 0 else t

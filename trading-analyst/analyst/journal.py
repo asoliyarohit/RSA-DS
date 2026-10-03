@@ -18,6 +18,7 @@ FIELDS = {
     "quotes": ["ts_utc", "instrument", "bid", "ask", "mid", "spread_bps", "note"],
     "trades": ["ts_utc", "instrument", "side", "entry", "exit", "fee_bps", "gross_bps", "net_bps", "note"],
     "calls": ["date", "ticker", "dir", "strength", "bucket", "open_ref", "settled", "net_bps"],
+    "council": ["date_in", "kind", "instrument", "dir", "S", "stop_pct", "notional_x", "settled", "net_bps"],
 }
 
 
@@ -123,7 +124,43 @@ def report():
         print("  -> update PROFILES['revolut'].spread_bps in analyst/cfd.py to the median above, then re-run backtest/arena.")
     print("\n== Your real fills ==")
     print("  " + (str(stats(tr["net_bps"])) if len(tr) else "none yet"))
-    print("\n== Forward paper track record of the daily call (settled from real prices) ==")
+    cr = council_record()
+    print("\n== LIVE paper track record of the frozen COUNCIL model (settled from real prices) ==")
+    print("  " + (str(stats(cr["net_bps"].astype(float))) if len(cr) else "none settled yet") + f"  | gate needs {100} settled + positive mean + t>1.65")
+    print("\n== (old) daycall paper record ==")
     s = ca[ca["settled"] == 1]
     print("  " + (str(stats(s["net_bps"].astype(float))) if len(s) else "none settled yet"))
     print("  Judge the system only when n >= 100 settled calls; fewer than that is noise.")
+
+
+def log_council(c: pd.DataFrame):
+    have = _read("council")
+    seen = set(zip(have["date_in"].astype(str), have["kind"])) if len(have) else set()
+    for r in c[c["dir"] != 0].itertuples():
+        key = (str(pd.Timestamp(r.date_in).date()), r.kind)
+        if key in seen:
+            continue
+        _append("council", {"date_in": key[0], "kind": r.kind, "instrument": r.instrument, "dir": int(r.dir), "S": round(r.S, 3),
+                            "stop_pct": round(r.stop_pct, 5), "notional_x": round(r.notional_x, 3), "settled": 0})
+
+
+def settle_council():
+    from arena import judge
+    from . import council_sim as cs, data
+    c = _read("council")
+    todo = c[c["settled"] == 0]
+    if todo.empty:
+        return
+    idx = {s: data.load(s, refresh=True) for s in cs.IDX}
+    sig = todo.assign(date_in=pd.to_datetime(todo["date_in"]), score=1.0)[["instrument", "date_in", "kind", "dir", "stop_pct", "score"]]
+    t = judge.fills(sig, idx)
+    for i, r in todo.iterrows():
+        m = t[(t["instrument"] == r["instrument"]) & (t["date"] == pd.Timestamp(r["date_in"])) & (t["setup"] == r["kind"])]
+        if len(m):
+            c.loc[i, ["settled", "net_bps"]] = [1, round(float(m.iloc[0]["ret"]) * 1e4, 1)]
+    c.to_csv(_path("council"), index=False)
+
+
+def council_record() -> pd.DataFrame:
+    c = _read("council")
+    return c[c["settled"] == 1]

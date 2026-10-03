@@ -33,6 +33,12 @@ It limits how fast you can lose; it cannot create an edge.
 `python -m analyst intraday call|report`: daily archive of free 5m/60m bars (committed under data/intraday so history grows) and the pre-registered intraday tests.
 Result so far: first-hour->last-half-hour (721 days) and opening-range breakout (60 days) have no net edge on SPY/QQQ/DIA/GLD.
 
+## LIVE forward test of the frozen council model (the only thing that can earn real money here)
+`python -m analyst council call --equity <balance>`  - run ~15:50 ET for the CLOSE call (sell at next open) and pre-market for the OPEN call.
+`python -m analyst council settle`                   - scores logged paper calls against real prices; run daily after the close.
+Frozen model (trained to 2026-04-06, indices SPY/QQQ/DIA, 180-day sim: +18.6 bps/trade, t 1.68, NOT significant). `analyst/guard.py` keeps real-money risk at 0
+until 100 settled live trades show a positive mean with t>1.65. Refresh news with `python -m analyst.gdelt` (needs ~3 min; stale news is ignored). Reports: `reports/sim_180d.md`.
+
 ## What the evidence says (honest)
 | Setup | Out-of-sample result | Verdict |
 |---|---|---|

@@ -143,10 +143,19 @@ def cmd_intraday(args):
     intraday.collect() if args.action == "call" else intraday.test()
 
 
+def cmd_council(args):
+    from . import council_live, journal
+    if args.action == "settle":
+        journal.settle_council(); journal.report()
+    else:
+        args.log = args.action in ("log", "call")
+        council_live.live(args)
+
+
 def main():
     ap = argparse.ArgumentParser(prog="analyst")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall), ("journal", cmd_journal), ("guard", cmd_guard), ("intraday", cmd_intraday)):
+    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall), ("journal", cmd_journal), ("guard", cmd_guard), ("intraday", cmd_intraday), ("council", cmd_council)):
         p = sp.add_parser(name); p.set_defaults(fn=fn)
         p.add_argument("--leverage", type=float, default=0.0, help="override broker leverage cap")
         p.add_argument("--broker", choices=list(PROFILES), default="revolut")
@@ -159,7 +168,7 @@ def main():
         p.add_argument("--equity", type=float, default=1000.0)
         p.add_argument("--date", default=None, help="session to review, default last bar")
         p.add_argument("--gap-atr", dest="gap_atr", type=float, default=2.0)
-        p.add_argument("action", nargs="?", default="report", choices=["quote", "trade", "call", "settle", "report", "status", "check", "record", "reset"], help="journal action")
+        p.add_argument("action", nargs="?", default="report", choices=["quote", "trade", "call", "settle", "report", "status", "check", "record", "reset", "log"], help="journal action")
         p.add_argument("--instrument", default=""); p.add_argument("--bid", type=float); p.add_argument("--ask", type=float)
         p.add_argument("--side", choices=["buy", "sell"]); p.add_argument("--entry", type=float); p.add_argument("--exit", type=float)
         p.add_argument("--equity-after", dest="equity_after", type=float); p.add_argument("--no-news", action="store_true")

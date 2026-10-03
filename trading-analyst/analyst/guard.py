@@ -53,10 +53,9 @@ def _roll(s: dict, equity: float, day: Date):
 
 
 def evidence_ok() -> tuple[bool, str]:
-    """Real money only after >=100 settled paper calls with positive mean and t>1.65."""
+    """Real money only after >=100 settled LIVE paper trades of the frozen council model with positive mean and t>1.65."""
     from . import journal
-    c = journal._read("calls")
-    c = c[c["settled"] == 1]
+    c = journal.council_record()
     n = len(c)
     if n < EVIDENCE_N:
         return False, f"paper record has {n}/{EVIDENCE_N} settled calls"

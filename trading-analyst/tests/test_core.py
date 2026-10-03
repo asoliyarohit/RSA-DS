@@ -157,3 +157,20 @@ def test_judge_ignores_nonpositive_prices():
     sig = pd.DataFrame([{"instrument": "CL=F", "date_in": idx[3], "kind": "OPEN", "dir": -1, "stop_pct": 0.05, "score": 1.0},
                         {"instrument": "CL=F", "date_in": idx[2], "kind": "CLOSE", "dir": -1, "stop_pct": 0.05, "score": 1.0}])
     assert judge.fills(sig, {"CL=F": f}).empty
+
+
+def test_council_live_helpers():
+    from analyst import council_live as cl
+    assert cl.next_session(pd.Timestamp("2026-10-02")) == pd.Timestamp("2026-10-05")        # Friday -> Monday
+    assert cl.next_session(pd.Timestamp("2026-10-05")) == pd.Timestamp("2026-10-06")
+    L = pd.Timestamp("2026-10-02")
+    assert cl.close_call_is_timely(L, pd.Timestamp("2026-10-02 19:50", tz="UTC"))             # 15:50 ET: placeable
+    assert not cl.close_call_is_timely(L, pd.Timestamp("2026-10-03 12:00", tz="UTC"))          # next day: too late
+
+
+def test_council_journal_roundtrip(tmp_path, monkeypatch):
+    from analyst import journal as j
+    monkeypatch.setattr(j, "REPORTS", tmp_path)
+    c = pd.DataFrame([{"date_in": pd.Timestamp("2026-10-05"), "kind": "OPEN", "instrument": "SPY", "dir": 1, "S": 1.9, "stop_pct": 0.01, "notional_x": 1.2}])
+    j.log_council(c); j.log_council(c)                                                           # duplicate must be ignored
+    assert len(j._read("council")) == 1 and len(j.council_record()) == 0
