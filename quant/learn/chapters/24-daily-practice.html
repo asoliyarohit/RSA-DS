@@ -1,0 +1,278 @@
+<article class="chapter" id="ch24" data-no="24" data-title="Daily Practice" data-tag="Fresh 20 questions every day">
+<h1>Daily Practice</h1>
+<p class="oneline">In one line: 20 fresh exam-style questions every day, one at a time, and after each answer you see which trap the wrong options were built from.</p>
+
+<section class="card" aria-live="polite"><p class="big" id="ch24-day">Daily Practice</p><p class="prog" id="ch24-dsub"></p></section>
+
+<section class="card"><h2><span class="n">1</span>How to use this (10 to 15 minutes)</h2>
+<ul>
+<li><b>Same time every day.</b> 10 to 15 minutes. Do one block of 5, or all four blocks if you have time.</li>
+<li><b>Pen and paper ready.</b> Write every step before you tap an answer. Never hold two numbers in your head.</li>
+<li><b>Skip is allowed.</b> A skip counts 0. Guess only if you can cross out options first (see the 20% rule below).</li>
+<li><b>After a wrong answer, read the trap line.</b> It names the mistake that gives that wrong number.</li>
+<li><b>Next day, tap "Redo my errors" first.</b> Then do the new set.</li>
+</ul>
+<p class="prog">Same date gives the same 20 questions, so you can come back to them. "Practice again" makes a new set.</p></section>
+
+<section class="card" id="ch24-app"><h2><span class="n">2</span>Today's set</h2>
+
+<div id="ch24-start">
+<p id="ch24-setinfo" class="prog"></p>
+<p>Order: quadratics and simplification, then series, then table (DI) questions, then word problems. Blocks of 5 with a short break.</p>
+<label style="font-weight:400"><input type="checkbox" id="ch24-tmr"> Show a timer for each question</label>
+<p style="margin:12px 0;display:flex;flex-wrap:wrap;gap:8px"><button type="button" id="ch24-go">Start today's 20</button> <button type="button" class="ghost" id="ch24-redo">Redo my errors (0)</button></p>
+<p class="prog" id="ch24-store"></p>
+</div>
+
+<div id="ch24-qs" class="hid">
+<p class="prog" id="ch24-pos"></p>
+<p class="prog" id="ch24-tim" aria-live="off"></p>
+<p id="ch24-qt" style="font-weight:600;margin:.4em 0;white-space:pre-line"></p>
+<div id="ch24-tbl" class="tw"></div>
+<div id="ch24-opts" class="opts"></div>
+<p style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" class="ghost" id="ch24-skip">Skip (0 marks)</button> <button type="button" id="ch24-next" class="hid">Next</button></p>
+<div id="ch24-fb" class="fb hid" aria-live="polite"></div>
+<p class="prog" id="ch24-run"></p>
+</div>
+
+<div id="ch24-brk" class="hid">
+<p class="big" id="ch24-brkt">Block done</p>
+<p class="tip"><b>Stand up, drink a glass of water, then come back.</b></p>
+<p class="prog" id="ch24-brks"></p>
+<p style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" id="ch24-cont">Next block of 5</button> <button type="button" class="ghost" id="ch24-stop">Stop here, see score</button></p>
+</div>
+
+<div id="ch24-end" class="hid">
+<p class="big" id="ch24-endt"></p>
+<div id="ch24-ends"></div>
+<p class="tip"><b>Break-even 20%:</b> a wrong answer costs 0.3125 and a right one earns 1.25. A guess pays off only if your chance of being right is above 0.3125 ÷ (1.25 + 0.3125) = 20%. Blind guessing on 5 options is exactly 20%, so it gains nothing on average. Cross out options first.</p>
+<p style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" id="ch24-again">Practice again (new set)</button> <button type="button" class="ghost" id="ch24-redo2">Redo my errors</button></p>
+</div>
+</section>
+
+<section class="card"><h2><span class="n">3</span>How the score works</h2>
+<div class="box">Right +1.25 · Wrong −0.3125 · Skip 0</div>
+<p>This is the official PFRDA Phase I marking: Quant has 20 questions for 25 marks, and a wrong answer loses one quarter of the marks of that question.</p>
+<p class="prog">The topic mix (about 6 table questions, 3 quadratic, 3 series, 2 simplification, 6 word problems) is our choice, based on what memory-based exam analyses reported for 2022 and 2025. It is not an official syllabus.</p>
+<div class="mem"><b>Memorise this</b><br>1. Write every step on paper.<br>2. % change: divide by the OLD value.<br>3. Successive % changes multiply, they never add.<br>4. Speed in km/h × 5/18 = m/s.<br>5. Guess only above 20% chance.</div></section>
+
+<script>(function(){
+/*GEN-START*/
+var GEN=(function(){
+function seedFn(s){var h=1779033703^s.length;for(var i=0;i<s.length;i++){h=Math.imul(h^s.charCodeAt(i),3432918353);h=h<<13|h>>>19}h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);return (h^h>>>16)>>>0}
+function rng(seed){var a=seedFn(seed);function f(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
+ return{f:f,i:function(x,y){return x+Math.floor(f()*(y-x+1))},pick:function(r){return r[Math.floor(f()*r.length)]},shuf:function(r){r=r.slice();for(var i=r.length-1;i>0;i--){var j=Math.floor(f()*(i+1)),t=r[i];r[i]=r[j];r[j]=t}return r}}}
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=a%b;a=b;b=t}return a}
+function r2(x){return Math.round(x*100)/100}
+function grp(n){var s=String(n);if(s.length<=3)return s;var l=s.slice(-3),r=s.slice(0,-3);return r.replace(/\B(?=(\d{2})+(?!\d))/g,',')+','+l}
+function fmt(x){x=r2(x);var neg=x<0;x=Math.abs(x);var ip=Math.floor(x),fp=Math.round((x-ip)*100),s=grp(ip);if(fp)s+='.'+(fp<10?'0':'')+fp;s=s.replace(/(\.\d)0$/,'$1');return (neg?'−':'')+s}
+var U={pct:function(v){return fmt(v)+'%'},rs:function(v){var t=fmt(v);return '₹'+(/\.\d$/.test(t)?t+'0':t)},s:function(v){return fmt(v)+' seconds'},d:function(v){return fmt(v)+' days'},n:function(v){return fmt(v)}};
+/* build 4 options: correct + first 3 valid, distinct planted mistakes */
+function mc(R,o,corr,mist,unit){var cs=unit(corr),used=[cs],out=[];
+ for(var i=0;i<mist.length&&out.length<3;i++){var v=mist[i][0];if(!isFinite(v)||v<=0)continue;var s=unit(v);if(used.indexOf(s)>=0)continue;used.push(s);out.push({v:v,s:s,w:mist[i][1]})}
+ if(out.length<3)return null;
+ var all=R.shuf([{v:corr,s:cs,w:''}].concat(out));
+ o.opts=all.map(function(x){return x.s});o.vals=all.map(function(x){return r2(x.v)});o.why=all.map(function(x){return x.w});
+ o.a=all.findIndex(function(x){return x.w===''});return o}
+function mcStr(R,o,corr,mist){/* corr/mist entries: [string,value,label] */var used=[corr[0]],out=[];
+ for(var i=0;i<mist.length&&out.length<3;i++){if(used.indexOf(mist[i][0])>=0)continue;used.push(mist[i][0]);out.push({s:mist[i][0],v:mist[i][1],w:mist[i][2]})}
+ if(out.length<3)return null;var all=R.shuf([{s:corr[0],v:corr[1],w:''}].concat(out));
+ o.opts=all.map(function(x){return x.s});o.vals=all.map(function(x){return x.v});o.why=all.map(function(x){return x.w});o.a=all.findIndex(function(x){return x.w===''});return o}
+function retry(fn,R,arg){for(var t=0;t<2000;t++){var q=fn(R,arg);if(q)return q}throw new Error('generator failed')}
+
+/* ---------- DI mini tables ---------- */
+var CTX=[['NPS subscribers added (thousands)','Bank P','Bank Q'],['Pension accounts opened','Branch A','Branch B'],['Policies sold','Agent X','Agent Y'],['APY enrolments (hundreds)','District M','District N'],['Units produced','Plant 1','Plant 2']];
+var YRS=[2021,2022,2023,2024];
+function baseTable(R){var c=R.pick(CTX),rows=[[],[]];for(var r=0;r<2;r++)for(var j=0;j<4;j++)rows[r].push(5*R.i(8,120));return{c:c,rows:rows}}
+function tblOut(t){return{head:['Year'].concat(YRS.map(String)),rows:[[t.c[1]].concat(t.rows[0]),[t.c[2]].concat(t.rows[1])],cap:t.c[0]}}
+function diPctOf(R){var t=baseTable(R),j=R.i(0,3),b=20*R.i(4,30),pct=R.pick([20,25,40,60,75,80,120,125,150,175]),a=b*pct/100;t.rows[0][j]=a;t.rows[1][j]=b;
+ var A=t.c[1],B=t.c[2],jj=j>0?j-1:j+1,bo=t.rows[1][jj];
+ var o={k:'diPctOf',topic:'DI · percent of',p:{j:j,rows:t.rows},tbl:tblOut(t),q:'In '+YRS[j]+', the figure for '+A+' is what percent of the figure for '+B+'?',
+  sol:a+' ÷ '+b+' × 100 = '+fmt(pct)+'%. "What percent of '+B+'" means '+B+' is the base (bottom).'};
+ return mc(R,o,pct,[[b/a*100,'Flipped the base: '+b+' ÷ '+a+' (divided by '+A+' instead of '+B+').'],[a/(a+b)*100,'Used the total of both ('+(a+b)+') as the base.'],[Math.abs(a-b)/b*100,'Found the percent difference ('+Math.abs(a-b)+' ÷ '+b+'), not "what percent of".'],[a/bo*100,'Read the wrong year for '+B+' ('+YRS[jj]+': '+bo+').']],U.pct)}
+function diPctChg(R){var t=baseTable(R),j=R.i(0,2),old=20*R.i(3,30),up=R.f()<0.6,p=up?R.pick([10,15,20,25,30,40,50,60,75]):R.pick([10,15,20,25,30,40,50,60]),nw=old*(100+(up?p:-p))/100,row=R.i(0,1);
+ t.rows[row][j]=old;t.rows[row][j+1]=nw;var N=t.c[1+row],ch=Math.abs(nw-old),oth=t.rows[1-row][j],w=up?'increase':'decrease';
+ var o={k:'diPctChg',topic:'DI · percent change',p:{j:j,row:row,rows:t.rows,up:up},tbl:tblOut(t),q:'What is the percentage '+w+' in the figure for '+N+' from '+YRS[j]+' to '+YRS[j+1]+'?',
+  sol:'Change = '+ch+'. Divide by the OLD value ('+YRS[j]+'): '+ch+' ÷ '+old+' × 100 = '+fmt(p)+'%.'};
+ return mc(R,o,p,[[ch/nw*100,'Divided by the NEW value ('+nw+') instead of the old ('+old+').'],[nw/old*100,'Gave '+YRS[j+1]+' as a percent of '+YRS[j]+' ('+nw+' ÷ '+old+'), not the change.'],[ch,'Used the raw change ('+ch+') as if it were a percent.'],[ch/oth*100,'Divided by the other row\'s '+YRS[j]+' value ('+oth+').']],U.pct)}
+function diRatio(R){var t=baseTable(R),j=R.i(0,2),r1=R.i(1,9),r2_=R.i(1,9);if(r1===r2_||gcd(r1,r2_)!==1)return null;var k=R.i(2,12);
+ var sA=10*r1*k,sB=10*r2_*k;if(sA<20||sB<20)return null;var xA=5*R.i(Math.ceil(sA/20),Math.floor(sA*3/20)),xB=5*R.i(Math.ceil(sB/20),Math.floor(sB*3/20));
+ t.rows[0][j]=xA;t.rows[0][j+1]=sA-xA;t.rows[1][j]=xB;t.rows[1][j+1]=sB-xB;var A=t.c[1],B=t.c[2];
+ function rs(x,y){var g=gcd(x,y);return[(x/g)+' : '+(y/g),x/y]}
+ var o={k:'diRatio',topic:'DI · ratio',p:{j:j,rows:t.rows},tbl:tblOut(t),q:'What is the ratio of the total for '+A+' to the total for '+B+' over '+YRS[j]+' and '+YRS[j+1]+' together?',
+  sol:A+': '+xA+' + '+(sA-xA)+' = '+sA+'. '+B+': '+xB+' + '+(sB-xB)+' = '+sB+'. Ratio '+sA+' : '+sB+' = '+rs(sA,sB)[0]+'.'};
+ var m=[rs(sB,sA).concat(['Flipped the order ('+B+' : '+A+').']),rs(xA,xB).concat(['Used '+YRS[j]+' only (did not add both years).']),rs(sA-xA,sB-xB).concat(['Used '+YRS[j+1]+' only (did not add both years).']),rs(sA,sA+sB).concat(['Compared '+A+' with the grand total of both.'])];
+ return mcStr(R,o,rs(sA,sB),m)}
+
+/* ---------- quadratics ---------- */
+var REL={A:'x > y',B:'x ≥ y',C:'x < y',D:'x ≤ y',E:'x = y or relation cannot be established'};
+function cmpF(f,g){return f.n*g.d-g.n*f.d}
+function relOf(X,Y){var sx=X.slice().sort(cmpF),sy=Y.slice().sort(cmpF),ge=cmpF(sx[0],sy[sy.length-1]),le=cmpF(sx[sx.length-1],sy[0]);
+ if(ge>0)return'A';if(le<0)return'C';if(ge===0&&le===0)return'E';if(ge===0)return'B';if(le===0)return'D';return'E'}
+function fs(f){var n=f.n,d=f.d,g=gcd(n,d);n/=g;d/=g;return(n<0?'−':'')+Math.abs(n)+(d>1?'/'+d:'')}
+function rootF(R){var d=R.pick([1,1,1,2,3]),n;do{n=R.i(-9,9)}while(n===0||(d>1&&n%d===0));return{n:n,d:d}}
+function poly(a,b,c,v){var s=(a===1?'':a)+v+'²';if(b)s+=(b<0?' − ':' + ')+(Math.abs(b)===1?'':Math.abs(b))+v;if(c)s+=(c<0?' − ':' + ')+Math.abs(c);return s+' = 0'}
+function coef(r1,r2){var a=r1.d*r2.d,b=-(r1.d*r2.n+r2.d*r1.n),c=r1.n*r2.n,g=gcd(gcd(a,b),c);return[a/g,b/g,c/g]}
+function quad(R,target){var X=[rootF(R),rootF(R)],Y=[rootF(R),rootF(R)],sx=X.slice().sort(cmpF);if(target==='B')Y[0]={n:sx[0].n,d:sx[0].d};if(target==='D')Y[0]={n:sx[1].n,d:sx[1].d};var rel=relOf(X,Y);if(rel!==target)return null;
+ var cx=coef(X[0],X[1]),cy=coef(Y[0],Y[1]);
+ var neg=function(f){return{n:-f.n,d:f.d}},signRel=relOf(X.map(neg),Y.map(neg));
+ var mx=X.slice().sort(cmpF)[1],my=Y.slice().sort(cmpF)[1],c=cmpF(mx,my),bigRel=c>0?'A':c<0?'C':'E';
+ var xs=X.map(fs).join(' and '),ys=Y.map(fs).join(' and '),letters=['A','B','C','D','E'];
+ var gen={A:'needs every x root strictly above every y root.',B:'needs every x root above or equal to every y root, with at least one tie.',C:'needs every x root strictly below every y root.',D:'needs every x root below or equal to every y root, with at least one tie.',E:'is only for overlapping roots (some x above some y and some below), or all roots equal.'};
+ var why=letters.map(function(L){if(L===rel)return'';
+  if(L===signRel)return'Sign slip: you wrote the roots with the wrong signs (x = '+X.map(neg).map(fs).join(', ')+'; y = '+Y.map(neg).map(fs).join(', ')+'). The factor (x − 3) gives root +3, not −3.';
+  if(L===bigRel)return'Compared only the bigger roots ('+fs(mx)+' vs '+fs(my)+'). Every x root must be compared with every y root.';
+  return REL[L]+' '+gen[L]+' Here x = '+xs+', y = '+ys+'.'});
+ return{k:'quad',topic:'Quadratic · x vs y',p:{cx:cx,cy:cy},q:'I. '+poly(cx[0],cx[1],cx[2],'x')+'\nII. '+poly(cy[0],cy[1],cy[2],'y')+'\nWhat is the relation between x and y?',
+  opts:letters.map(function(L){return REL[L]}),vals:letters,why:why,a:letters.indexOf(rel),five:true,
+  sol:'Roots: x = '+xs+'; y = '+ys+'. Compare every x with every y: '+REL[rel]+'.'}}
+
+/* ---------- number series ---------- */
+function fitsAny(s){var n=s.length,ap=true,gp=true,d2=true;for(var i=2;i<n;i++){if(s[i]-s[i-1]!==s[1]-s[0])ap=false;if(s[i]*s[i-2]!==s[i-1]*s[i-1]||s[i-1]===0)gp=false;if(s[i]-2*s[i-1]+s[i-2]!==s[2]-2*s[1]+s[0])d2=false}return ap||gp||d2}
+function series(R,type){var t=[],i,name,rule;
+ if(type==='ap'){var a=R.i(3,60),d=R.i(3,19);for(i=0;i<7;i++)t.push(a+i*d);name='same gap';rule='add '+d+' each time'}
+ else if(type==='gp'){var r=R.pick([2,3]),a2=r===2?R.i(2,12):R.i(1,4);for(i=0;i<7;i++)t.push(a2*Math.pow(r,i));name='multiply';rule='multiply by '+r+' each time'}
+ else if(type==='sq'){var m=R.i(2,15),c=R.pick([0,0,1,-1,2,3]);for(i=0;i<7;i++)t.push((m+i)*(m+i)+c);name='squares';rule='squares '+m+'², '+(m+1)+'², … '+(c?(c>0?'plus ':'minus ')+Math.abs(c):'')}
+ else{var a3=R.i(5,40),d0=R.i(1,6),s=R.pick([1,2,3]);t.push(a3);for(i=0;i<6;i++)t.push(t[i]+d0+i*s);name='growing gap';rule='gaps '+d0+', '+(d0+s)+', '+(d0+2*s)+', … (gap grows by '+s+')'}
+ var miss=R.f()<0.4,pos=miss?R.i(1,4):5,shown=t.slice(0,miss?6:5),corr=t[pos],L=t[4],P=t[3],g=L-P,s2=(t[4]-t[3])-(t[3]-t[2]),mist;
+ if(!miss){if(type==='ap')mist=[[L+2*g,'Added the gap twice.'],[corr+10,'Carry slip: +10 in the last addition.'],[L+g+1,'Treated it as a growing gap (+1).']];
+  else if(type==='gp')mist=[[L+g,'Treated it as adding a fixed gap ('+g+'), but it multiplies.'],[L*(t[1]/t[0]+1),'Multiplied by '+(t[1]/t[0]+1)+' instead of '+(t[1]/t[0])+'.'],[corr*(t[1]/t[0]),'Jumped two steps.'],[corr+10,'Carry slip: +10.']];
+  else mist=[[L+g,'Repeated the last gap ('+g+') and forgot that the gaps grow.'],[L+g+2*s2,'Grew the gap twice.'],[corr+10,'Carry slip: +10 in the last addition.'],[corr-1,'Off by one in the last gap.']]}
+ else{var av=(t[pos-1]+t[pos+1])/2;mist=[];if(av===Math.floor(av))mist.push([av,'Averaged the two neighbours (assumed equal gaps).']);mist.push([t[6],'Found the next term after the series, not the missing one.']);mist.push([corr+10,'Carry slip: +10.']);mist.push([corr-10,'Carry slip: −10.']);mist.push([corr+1,'Off by one.'])}
+ mist=mist.filter(function(m){if(m[0]!==Math.floor(m[0])||m[0]<=0)return false;var full=t.slice(0,6);full[pos]=m[0];return !fitsAny(full)});
+ var disp=shown.map(function(x,k){return k===pos?'?':String(x)});if(!miss)disp.push('?');
+ var o={k:'series',topic:'Number series',p:{shown:shown,pos:pos,miss:miss},q:(miss?'Find the missing term: ':'Find the next term: ')+disp.join(', '),
+  sol:'Pattern ('+name+'): '+rule+'. So ? = '+corr+'.'};
+ return mc(R,o,corr,mist,U.n)}
+
+/* ---------- simplification / approximation ---------- */
+function simp(R){var B=R.i(2,9),C=R.i(2,9),Q=R.i(2,15),A=B*Q,E=R.i(2,9),D=R.i(E*E+1,E*E+60),corr=Q*C+D-E*E;
+ var o={k:'simp',topic:'Simplification',p:{A:A,B:B,C:C,D:D,E:E},q:A+' ÷ '+B+' × '+C+' + '+D+' − '+E+'² = ?',
+  sol:'Powers first: '+E+'² = '+(E*E)+'. Then ÷ and × left to right: '+A+' ÷ '+B+' = '+Q+', × '+C+' = '+(Q*C)+'. Then + and −: '+(Q*C)+' + '+D+' − '+(E*E)+' = '+corr+'.'};
+ return mc(R,o,corr,[[A/(B*C)+D-E*E,'Did × before ÷. They are equal rank: go left to right.'],[Q*C+D-2*E,'Read '+E+'² as '+E+' × 2.'],[Q*(C+D)-E*E,'Added before multiplying (BODMAS: × comes before +).'],[Q*C+D+E*E,'Sign slip: added the square.']],U.n)}
+function approx(R){var p=R.pick([20,25,40,60,75]),base=100*R.i(2,9),x=R.i(11,29),y=R.i(3,9);
+ var pn=R.i(1,4)*(R.f()<0.5?-1:1),bn=R.i(1,9)*(R.f()<0.5?-1:1),xn=R.i(1,4)*(R.f()<0.5?-1:1),yn=-R.i(1,4);
+ var pd=p+pn/100,bd=base+bn/10,xd=x+xn/100,yd=y+yn/100,part=p*base/100,corr=part+x*y;
+ var o={k:'approx',topic:'Approximation',p:{pd:pd,bd:bd,xd:xd,yd:yd},q:'Approximately what value should come in place of ?\n'+fmt(pd)+'% of '+fmt(bd)+' + '+fmt(xd)+' × '+fmt(yd)+' ≈ ?',
+  sol:'Round each number: '+p+'% of '+base+' = '+part+', and '+x+' × '+y+' = '+(x*y)+'. Total ≈ '+corr+'.'};
+ return mc(R,o,corr,[[(100-p)*base/100+x*y,'Found the remaining '+(100-p)+'% instead of '+p+'%.'],[(part+x)*y,'Added before multiplying ('+part+' + '+x+', then × '+y+').'],[part+x*(y-1),'Cut '+fmt(yd)+' down to '+(y-1)+' instead of rounding to '+y+'.'],[p*base/1000+x*y,'Decimal slip: took '+p+'% as '+(p/10)+'%.']],U.n)}
+
+/* ---------- single arithmetic topics ---------- */
+function sPct(R){var P=10000*R.i(2,9),a=R.pick([5,10,15,20,25]),b=R.pick([5,10,15,20,25]),corr=P*(100+a)*(100-b)/10000;
+ var o={k:'sPct',topic:'Percentage',p:{P:P,a:a,b:b},q:'A town has '+grp(P)+' people. The population rises by '+a+'% in year 1 and falls by '+b+'% in year 2. What is the population after 2 years?',
+  sol:grp(P)+' × '+fmt(1+a/100)+' = '+grp(P*(100+a)/100)+'. Then × '+fmt(1-b/100)+' = '+grp(corr)+'. Successive changes multiply.'};
+ return mc(R,o,corr,[[P*(100+a-b)/100,'Added the percentages (+'+a+' − '+b+' = '+(a-b)+'%). Successive changes multiply, they do not add.'],[P*(100+a)*(100+b)/10000,'Treated the fall as a rise.'],[P*(100+a)/100,'Forgot the second change.'],[P*(100-b)/100,'Forgot the first change.']],U.n)}
+function sAvg(R){var n=R.i(4,12),A=R.i(20,60),B=A+R.i(1,6),X=(n+1)*B-n*A;
+ var o={k:'sAvg',topic:'Average',p:{n:n,A:A,B:B},q:'The average of '+n+' numbers is '+A+'. One more number is added and the average becomes '+B+'. What is the new number?',
+  sol:'Old total = '+n+' × '+A+' = '+(n*A)+'. New total = '+(n+1)+' × '+B+' = '+((n+1)*B)+'. New number = '+((n+1)*B)+' − '+(n*A)+' = '+X+'.'};
+ return mc(R,o,X,[[n*(B-A),'Forgot that the new number also carries the new average: used only '+n+' × '+(B-A)+'.'],[B,'Assumed the new number equals the new average.'],[(n+1)*(B-A),'Multiplied only the change by '+(n+1)+' (forgot the totals).'],[B+(B-A),'Added the change once to the new average.']],U.n)}
+function sPart(R){var p=10000*R.i(2,9),q=10000*R.i(2,9),m=R.pick([3,4,6,8,9,10]),w1=p*12,w2=q*m,g=gcd(w1,w2),r1=w1/g,r2_=w2/g,T=(r1+r2_)*10*R.i(Math.ceil(1000/(r1+r2_)),Math.floor(30000/(r1+r2_)));if(T<10000)return null;var corr=T*r2_/(r1+r2_);
+ var o={k:'sPart',topic:'Partnership',p:{p:p,q:q,m:m,T:T},q:'A invests ₹'+grp(p)+' for 12 months. B invests ₹'+grp(q)+' for '+m+' months. The total profit is ₹'+grp(T)+'. What is B\'s share?',
+  sol:'Share ratio = capital × time: '+grp(p)+' × 12 : '+grp(q)+' × '+m+' = '+r1+' : '+r2_+'. B gets '+r2_+'/'+(r1+r2_)+' × '+grp(T)+' = ₹'+grp(corr)+'.'};
+ return mc(R,o,corr,[[T*q/(p+q),'Ignored time: split by capital only.'],[T*r1/(r1+r2_),'Gave A\'s share instead of B\'s.'],[T*m/(12+m),'Split by months only, ignoring capital.'],[T/2,'Split the profit equally.']],U.rs)}
+function sCI(R){var P=10000*R.i(1,8),r=R.pick([4,5,6,8,10,12,15,20]),corr=P*((100+r)*(100+r)-10000)/10000;
+ var o={k:'sCI',topic:'SI / CI',p:{P:P,r:r},q:'Find the compound interest on ₹'+grp(P)+' at '+r+'% per year for 2 years, compounded yearly.',
+  sol:'Amount = '+grp(P)+' × '+fmt(1+r/100)+' × '+fmt(1+r/100)+' = ₹'+fmt(P*(100+r)*(100+r)/10000)+'. Interest = amount − principal = ₹'+fmt(corr)+'.'};
+ return mc(R,o,corr,[[2*P*r/100,'Used simple interest (no interest on interest).'],[P*(100+r)*(100+r)/10000,'Gave the amount, not the interest.'],[P*r*r/10000,'Gave only the CI − SI difference.'],[P*r/100,'Took one year only.']],U.rs)}
+function sTrain(R){var s=R.pick([10,15,20,25,30]),v=s*18/5,t=R.i(8,30),tot=s*t,L=5*R.i(16,Math.floor(tot*0.7/5));if(L>=tot)return null;var M=tot-L;
+ var o={k:'sTrain',topic:'Speed · trains',p:{L:L,M:M,v:v},q:'A train '+L+' m long runs at '+v+' km/h. How long does it take to cross a platform '+M+' m long?',
+  sol:'Speed: '+v+' × 5/18 = '+s+' m/s. Distance = train + platform = '+L+' + '+M+' = '+tot+' m. Time = '+tot+' ÷ '+s+' = '+t+' seconds.'};
+ return mc(R,o,t,[[L/s,'Forgot to add the platform length.'],[tot/v,'Forgot to convert km/h to m/s (× 5/18).'],[tot/(v*18/5),'Converted the wrong way (× 18/5).'],[M/s,'Used only the platform length.']],U.s)}
+var WP=[];for(var wa=4;wa<=40;wa++)for(var wb=wa+1;wb<=60;wb++)if((wa*wb)%(wa+wb)===0)WP.push([wa,wb]);
+function sWork(R){var pr=R.pick(WP),a=pr[0],b=pr[1],corr=a*b/(a+b);
+ var o={k:'sWork',topic:'Time and work',p:{a:a,b:b},q:'A can finish a job in '+a+' days and B in '+b+' days. Working together, how many days will they take?',
+  sol:'Per day: 1/'+a+' + 1/'+b+' = '+(a+b)+'/'+(a*b)+'. Days = '+(a*b)+' ÷ '+(a+b)+' = '+corr+'.'};
+ return mc(R,o,corr,[[(a+b)/2,'Averaged the days.'],[a+b,'Added the days (rates add, days do not).'],[b-a,'Subtracted the days.'],[a*b/(b-a),'Subtracted the rates instead of adding.']],U.d)}
+function sPL(R){if(R.f()<0.5){var CP=100*R.i(4,90),p=R.pick([10,20,25,40,50]),SP=CP*(100+p)/100;
+  var o={k:'sPL1',topic:'Profit and loss',p:{SP:SP,p:p},q:'A shopkeeper sells an item for ₹'+grp(SP)+' and makes a profit of '+p+'%. What was the cost price?',
+   sol:'SP = CP × '+fmt(1+p/100)+'. So CP = '+grp(SP)+' ÷ '+fmt(1+p/100)+' = ₹'+grp(CP)+'. Profit % is on cost price.'};
+  return mc(R,o,CP,[[SP*(100-p)/100,'Took '+p+'% of the selling price (wrong base).'],[SP*100/(100-p),'Treated the profit as a loss.'],[SP-p,'Subtracted ₹'+p+', not '+p+'%.'],[SP*(100+p)/100,'Added the profit again.']],U.rs)}
+ var MP=400*R.i(2,25),d1=R.pick([10,20,25,30]),d2=R.pick([5,10,15,20]),S=MP*(100-d1)*(100-d2)/10000;
+ var o2={k:'sPL2',topic:'Profit and loss',p:{MP:MP,d1:d1,d2:d2},q:'An item marked ₹'+grp(MP)+' gets two successive discounts of '+d1+'% and '+d2+'%. What is the selling price?',
+  sol:grp(MP)+' × '+fmt(1-d1/100)+' = '+fmt(MP*(100-d1)/100)+'. Then × '+fmt(1-d2/100)+' = ₹'+fmt(S)+'.'};
+ return mc(R,o2,S,[[MP*(100-d1-d2)/100,'Added the discounts ('+(d1+d2)+'%). Successive discounts multiply.'],[MP*(100-d1)/100,'Applied only the first discount.'],[MP-S,'Gave the total discount, not the price.'],[MP*(100-d2)/100,'Applied only the second discount.']],U.rs)}
+
+function makeSet(seed){var R=rng(String(seed)),Q=[];
+ for(var i=0;i<3;i++)Q.push(retry(quad,R,R.pick(['A','B','C','D','E'])));
+ Q.push(retry(simp,R));Q.push(retry(approx,R));
+ R.shuf(['ap','gp','sq','inc']).slice(0,3).forEach(function(t){Q.push(retry(series,R,t))});
+ [diPctOf,diPctChg,diRatio,diPctOf,diPctChg,diRatio].forEach(function(f){Q.push(retry(f,R))});
+ R.shuf([sPct,sAvg,sPart,sCI,sTrain,sWork,sPL]).slice(0,6).forEach(function(f){Q.push(retry(f,R))});
+ /* order: 3 quad, 2 simp | 3 series, 2 DI | 4 DI, 1 single | 5 singles */
+ Q.forEach(function(q,k){q.id=seed+'#'+k});return Q}
+return{makeSet:makeSet,fmt:fmt,REL:REL};
+})();
+/*GEN-END*/
+
+var $=function(i){return document.getElementById(i)};
+if(!$('ch24-app'))return;
+function pad(n){return(n<10?'0':'')+n}
+var now=new Date(),dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+var left=Math.round((Date.UTC(2026,9,15)-Date.UTC(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+(function(){var t,s;if(left>12){t=left+' days to the exam';s='The 12-day countdown starts on 3 Oct 2026. Practise daily anyway.'}
+ else if(left>=1){t='Day '+(13-left)+' of 12';s=left===1?'Exam is tomorrow (15 Oct 2026). One block of 5 at most, then rest and sleep early.':left+' days to the PFRDA Phase I exam on 15 Oct 2026.'}
+ else if(left===0){t='Exam day';s='Today is 15 Oct 2026. One block of 5 as a warm-up at most, then stop. Trust your practice.'}
+ else{t='Exam passed';s='The Phase I exam was on 15 Oct 2026. The generator still makes a fresh set each day if you want to keep practising.'}
+ $('ch24-day').textContent=t;$('ch24-dsub').textContent=s})();
+
+/* storage: must never break the page */
+var KEY='ch24-errors',mem=[],canStore=true;
+function loadErr(){try{var v=localStorage.getItem(KEY);var a=v?JSON.parse(v):[];if(!Array.isArray(a))a=[];mem=a}catch(e){canStore=false}return mem}
+function saveErr(){try{localStorage.setItem(KEY,JSON.stringify(mem.slice(-60)))}catch(e){canStore=false}}
+loadErr();
+
+var round=0,set=[],mode='day',idx=0,res=[],t0=0,tick=null,answered=false;
+function seedNow(){return round?dateStr+'#'+round:dateStr}
+function refreshStart(){$('ch24-setinfo').textContent='Set for '+dateStr+(round?' · round '+(round+1):'')+' · 20 questions';
+ $('ch24-redo').textContent='Redo my errors ('+mem.length+')';$('ch24-redo').disabled=!mem.length;$('ch24-redo2').disabled=!mem.length;
+ $('ch24-store').textContent=canStore?'':'This browser is not saving data, so your error log lasts only until you close the page.'}
+function screen(id){['ch24-start','ch24-qs','ch24-brk','ch24-end'].forEach(function(s){$(s).classList.toggle('hid',s!==id)})}
+function begin(m){mode=m;stopTick();if(m==='redo'){set=mem.slice(0,20).map(function(q){return JSON.parse(JSON.stringify(q))})}else set=GEN.makeSet(seedNow());
+ if(!set.length)return;idx=0;res=[];show();screen('ch24-qs')}
+function stopTick(){if(tick){clearInterval(tick);tick=null}}
+function score(){var r=0,w=0,s=0,tt=0;res.forEach(function(x){if(x.o==='r')r++;else if(x.o==='w')w++;else s++;tt+=x.t});return{r:r,w:w,s:s,m:r*1.25-w*0.3125,tt:tt}}
+function runLine(){var c=score();$('ch24-run').textContent='So far: '+c.r+' right · '+c.w+' wrong · '+c.s+' skipped · marks '+c.m.toFixed(2)}
+function show(){var q=set[idx];answered=false;
+ $('ch24-pos').textContent=(mode==='redo'?'Redo · ':'')+'Question '+(idx+1)+' of '+set.length+' · block '+(Math.floor(idx/5)+1)+' of '+Math.ceil(set.length/5)+' · '+q.topic;
+ $('ch24-qt').textContent=q.q;
+ var tb=$('ch24-tbl');tb.innerHTML='';if(q.tbl){var cap=document.createElement('p');cap.className='cap';cap.textContent=q.tbl.cap;tb.appendChild(cap);var T=document.createElement('table'),hr=document.createElement('tr');
+  q.tbl.head.forEach(function(h){var th=document.createElement('th');th.textContent=h;hr.appendChild(th)});T.appendChild(hr);
+  q.tbl.rows.forEach(function(r){var tr=document.createElement('tr');r.forEach(function(c,k){var td=document.createElement(k?'td':'th');td.textContent=c;tr.appendChild(td)});T.appendChild(tr)});tb.appendChild(T)}
+ var ob=$('ch24-opts');ob.innerHTML='';q.opts.forEach(function(o,j){var b=document.createElement('button');b.type='button';b.textContent='ABCDE'[j]+'. '+o;b.onclick=function(){answer(j)};ob.appendChild(b)});
+ $('ch24-fb').className='fb hid';$('ch24-next').classList.add('hid');$('ch24-skip').classList.remove('hid');runLine();
+ t0=Date.now();stopTick();var tm=$('ch24-tim');tm.textContent='';if($('ch24-tmr').checked){tm.textContent='0 s';tick=setInterval(function(){tm.textContent=Math.floor((Date.now()-t0)/1000)+' s'},1000)}}
+function answer(j){if(answered)return;answered=true;stopTick();var q=set[idx],sec=Math.round((Date.now()-t0)/1000),bs=$('ch24-opts').querySelectorAll('button');
+ bs.forEach(function(b){b.disabled=true});var fb=$('ch24-fb'),o;fb.innerHTML='';
+ if(j===null){o='s';fb.className='fb no'}else{bs[q.a].classList.add('right');if(j===q.a){o='r';fb.className='fb ok'}else{o='w';bs[j].classList.add('wrong');fb.className='fb no'}}
+ res.push({o:o,t:sec,topic:q.topic});
+ var head=document.createElement('p');head.style.margin='0';head.textContent=(o==='r'?'Correct. +1.25. ':o==='w'?'Not quite. −0.3125. Answer '+'ABCDE'[q.a]+'. ':'Skipped. 0 marks. Answer '+'ABCDE'[q.a]+'. ')+q.sol+($('ch24-tmr').checked?' ('+sec+' s)':'');fb.appendChild(head);
+ if(o==='w'){var tr=document.createElement('p');tr.style.margin='.4em 0 0';tr.innerHTML='<b>Your trap:</b> ';tr.appendChild(document.createTextNode(q.why[j]));fb.appendChild(tr)}
+ var ul=document.createElement('ul');q.why.forEach(function(w,k){if(k===q.a||k===j&&o==='w')return;var li=document.createElement('li');li.textContent='Option '+'ABCDE'[k]+' ('+q.opts[k]+'): '+w;ul.appendChild(li)});
+ if(ul.children.length){var cap=document.createElement('p');cap.style.margin='.4em 0 0';cap.textContent='How the other wrong options were built:';fb.appendChild(cap);fb.appendChild(ul)}
+ /* error log */
+ var pos=-1;mem.forEach(function(x,k){if(x.id===q.id)pos=k});
+ if(o==='w'&&pos<0){mem.push(q);saveErr()}
+ if(o==='r'&&mode==='redo'&&pos>=0){mem.splice(pos,1);saveErr()}
+ $('ch24-skip').classList.add('hid');var nx=$('ch24-next');nx.textContent=idx===set.length-1?'See score':(idx%5===4?'Finish block':'Next question');nx.classList.remove('hid');runLine();nx.focus({preventScroll:true})}
+$('ch24-skip').onclick=function(){answer(null)};
+$('ch24-next').onclick=function(){idx++;if(idx>=set.length)return finish();if(idx%5===0){var c=score();$('ch24-brkt').textContent='Block '+(idx/5)+' of '+Math.ceil(set.length/5)+' done';$('ch24-brks').textContent=c.r+' right · '+c.w+' wrong · '+c.s+' skipped · marks '+c.m.toFixed(2);screen('ch24-brk');$('ch24-app').scrollIntoView();return}show()};
+$('ch24-cont').onclick=function(){show();screen('ch24-qs')};
+$('ch24-stop').onclick=function(){finish()};
+function finish(){stopTick();var c=score(),n=res.length,att=c.r+c.w;
+ $('ch24-endt').textContent='Marks '+c.m.toFixed(2)+' of '+(n*1.25).toFixed(2);
+ var d=$('ch24-ends');d.innerHTML='';function line(t){var p=document.createElement('p');p.textContent=t;d.appendChild(p)}
+ line(c.r+' right · '+c.w+' wrong · '+c.s+' skipped, out of '+n+(n<set.length?' done (set has '+set.length+')':'')+'.');
+ if(att)line('Accuracy on attempted: '+Math.round(c.r/att*100)+'%. Average time: '+Math.round(c.tt/n)+' s per question (a common coaching suggestion is about 1 minute each).');
+ var miss={};res.forEach(function(x){if(x.o!=='r')miss[x.topic]=(miss[x.topic]||0)+1});var ks=Object.keys(miss);
+ line(ks.length?'Work on: '+ks.map(function(k){return k+' ('+miss[k]+')'}).join(', ')+'.':'No misses. Well done.');
+ line('Error log: '+mem.length+' question'+(mem.length===1?'':'s')+' saved. Redo them tomorrow before the new set.');
+ refreshStart();screen('ch24-end');$('ch24-app').scrollIntoView()}
+$('ch24-go').onclick=function(){begin('day')};
+$('ch24-redo').onclick=$('ch24-redo2').onclick=function(){if(mem.length)begin('redo')};
+$('ch24-again').onclick=function(){round++;refreshStart();begin('day')};
+refreshStart();
+})();</script>
+
+<p class="src"><b>Sources:</b> Marks, 20 questions, 15 Oct 2026 date: official PFRDA 2026 notification (see Start Here). Topic weights: memory-based exam analyses for 2022 and 2025 (<a href="https://edutap.in/pfrda-grade-a/exam-analysis/">edutap</a>). Attempt order (quadratics, simplification, series first, then DI, then arithmetic), error log and redoing wrong questions within 24 hours: coaching and topper opinion (<a href="https://www.practicemock.com/blog/rbi-grade-b-phase-1-quantitative-aptitude-preparation-strategy/">practicemock</a>, <a href="https://www.practicemock.com/blog/analyse-mock-tests-nabard-grade-a-exam/">practicemock mock analysis</a>), written for RBI and NABARD, not PFRDA. Every answer is computed in code and was checked by an independent test over 2,000 daily seeds.<br>
+<b>UNVERIFIED:</b> whether the real paper uses 4 or 5 options (5 used here only for x vs y questions); that these question styles match the 2026 paper; the 1-minute-per-question figure (coaching suggestion).</p>
+</article>

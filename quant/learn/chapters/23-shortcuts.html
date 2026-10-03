@@ -1,0 +1,423 @@
+<article class="chapter" id="ch23" data-no="23" data-title="Shortcuts and Tricks" data-tag="Coaching tricks, each Python-verified">
+<h1>Shortcuts and Tricks</h1>
+<p class="oneline">In one line: these are the tricks coaching sites teach, but only the ones that survived a Python test, each with the exact moment it breaks.</p>
+<div class="tip"><b>How to read this chapter.</b> "Coaching says it is fast" is their <b>opinion</b>. "It gives the right answer" is a <b>fact</b> only because we tested it in Python over thousands of cases. Every trick has a <b>When it fails</b> line. Read that line twice: it is where marks are lost.</div>
+
+<!-- ============ LESSON 1 ============ -->
+<div class="lesson" id="ch23-l1">
+<h3>Lesson 1 · Number-crunching tricks (DI, simplification, percentage, P&amp;L)</h3>
+<p class="oneline">In one line: swap, split, multiply factors, cross-multiply, round smartly, and check with digit sums.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A DI table says sales were ₹1,962 crore, and a product had ₹588 crore. "What percent?" Dividing 588 by 1,962 by hand takes a minute. Rounding both to 600 and 2,000 gives 30% in five seconds. The exact answer is 29.97%.</p>
+<p class="cap">The trick worked here because both numbers were rounded <b>up</b> by about the same amount. Card 3 shows when that goes wrong.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">A shortcut is just a faster route to the <b>same</b> answer.</div>
+<div class="st">If it ever gives a different answer, it is not a shortcut. It is a trap.</div>
+<div class="st">So every trick below was tested in Python over a wide range of numbers.</div>
+<div class="st">Each trick has conditions. Outside them, it breaks. Learn the condition with the trick.</div>
+<div class="st">Open one trick at a time below. Read it, try the example, then stop.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The tricks (tap one to open)</h2>
+<details><summary><b>T1. Swap the percent: A% of B = B% of A</b></summary>
+<div class="box">A% of B = B% of A</div>
+<p><b>Example:</b> 64% of 25 = 25% of 64 = 64 ÷ 4 = <b>16</b>.</p>
+<p><b>When it fails:</b> never for plain "A% of B" (tested all A, B from 0 to 300). It only helps if one of the two is an easy percent (25, 50, 20, 10).</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.practicemock.com/blog/speed-maths-shortcuts-for-banking-exams/">practicemock.com speed maths</a> · <a href="https://guidely.in/blog/percentage-tricks-and-shortcuts">guidely.in percentage tricks</a></p></details>
+
+<details><summary><b>T2. Fraction families and double-half</b></summary>
+<div class="box">k/n as a percent = k × (1/n as a percent). Halve n's percent when n doubles.</div>
+<p><b>Example:</b> 1/8 = 12.5%, so 3/8 = 3 × 12.5 = <b>37.5%</b>. 1/8 = 12.5% so 1/16 = <b>6.25%</b>.</p>
+<p><b>When it fails:</b> the maths never fails (tested n = 1 to 50). The risk is rounding: 1/9 = 11.11% is rounded, so 5/9 = 55.56%, not 55.55%. Keep 2 decimals only at the end.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.oliveboard.in/blog/fraction-percentage-table/">oliveboard.in fraction-percentage table</a></p></details>
+
+<details><summary><b>T3. Split the percent (10% and 1% first)</b></summary>
+<div class="box">10% = move the decimal 1 place left. 1% = 2 places. Build the rest.</div>
+<p><b>Example:</b> 62% of 740. 10% = 74, so 60% = 444. 1% = 7.4, so 2% = 14.8. Total = <b>458.8</b>.</p>
+<p><b>When it fails:</b> never as maths. It fails in practice when you add a part twice. Write the parts down.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.pw.live/banking/exams/approximation">pw.live approximation</a> · <a href="https://www.practicemock.com/blog/speed-maths-shortcuts-for-banking-exams/">practicemock.com speed maths</a></p></details>
+
+<details><summary><b>T4. Two changes in a row: a + b + ab/100</b></summary>
+<div class="box">Net % = a + b + (a × b)/100. Use minus for falls and discounts.<br>Two discounts: a + b − (a × b)/100.</div>
+<p><b>Example:</b> discounts 20% and 10%: 20 + 10 − 2 = <b>28%</b>, not 30%. Up 10% then down 10%: 10 − 10 − 1 = <b>−1%</b>.</p>
+<p><b>When it fails:</b> only when you forget the sign. A fall or a discount is a negative number. Tested for every whole a, b from −99 to 200. Only two steps: for three steps, use the formula twice.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://prepinsta.com/successive-discount-formula/">prepinsta.com successive discount</a> · <a href="https://www.oliveboard.in/blog/profit-and-loss/">oliveboard.in profit and loss</a></p></details>
+
+<details><summary><b>T5. Compare fractions without dividing</b></summary>
+<div class="box">a/b &gt; c/d exactly when a × d &gt; b × c (b and d positive).</div>
+<p><b>Example:</b> 17/23 or 22/31? 17 × 31 = 527, 23 × 22 = 506. 527 is bigger, so <b>17/23 is bigger</b>.</p>
+<p><b>When it fails:</b> if a denominator is negative or zero. In DI, values are positive, so it holds.</p>
+<p class="src">Coaching-page technique (cross-multiplication for proportions), verified in Python. <a href="https://www.oliveboard.in/blog/ratio-proportion-questions/">oliveboard.in ratio and proportion</a></p></details>
+
+<details><summary><b>T6. Round smartly (approximation)</b></summary>
+<div class="box">For A ÷ B: round both the <b>same</b> way.<br>For A × B: round one up and one down.</div>
+<p><b>Example:</b> 588 ÷ 1,962 ≈ 600 ÷ 2,000 = 30% (exact 29.97%). 49 × 205 ≈ 50 × 200 = 10,000 (exact 10,045).</p>
+<p><b>When it fails:</b> when the options are close. If each number is rounded by up to 2% in opposite directions, the answer can be off by about 4% (Python worst case 4.04%). If two options are within 4% of each other, compute exactly.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.pw.live/banking/exams/approximation">pw.live approximation</a> · <a href="https://www.bankexamstoday.com/2013/09/data-interpretation-tricks-techniques.html">bankexamstoday.com DI tricks</a></p></details>
+
+<details><summary><b>T7. Digit-sum check (casting out nines)</b></summary>
+<div class="box">Add digits until one digit is left. Digit sum of A × B = digit sum of (digit sum A × digit sum B). Same for +. For −, add 9 if needed.</div>
+<p><b>Example:</b> 238 × 47. Digit sums 4 and 2. 4 × 2 = 8. Option 11,186 has digit sum 1+1+1+8+6 = 17 → <b>8</b>. Matches.</p>
+<p><b>When it fails:</b> (1) division: it does not work (10 ÷ 2: digit sums give nothing useful). (2) Swapped digits: 11,168 also gives 8. (3) Missing zeros: 120 and 102 both give 3. (4) Whole numbers only. Use it to <b>cut</b> options, not to pick one.</p>
+<p class="src">Coaching-page technique, verified in Python (200,000 random pairs). <a href="https://theshortcutmaths.com/blog/digital-sum-method-simplification-shortcut">theshortcutmaths.com digital sum</a></p></details>
+
+<details><summary><b>T8. Dishonest dealer (false weight)</b></summary>
+<div class="box">Gain % = (true − false) ÷ false × 100</div>
+<p><b>Example:</b> sells at cost price but gives 900 g for 1 kg: 100 ÷ 900 = <b>11.11%</b>.</p>
+<p><b>When it fails:</b> only when he sells at cost price. If he also adds a markup or loss, use (100 ± x) × true ÷ false − 100. Dividing by the true weight (100 ÷ 1000 = 10%) is the classic wrong option.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.oliveboard.in/blog/profit-and-loss/">oliveboard.in profit and loss</a></p></details>
+</section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Successive discounts of 25% and 20% on ₹1,200. Pay how much?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Single discount = 25 + 20 − (25 × 20)/100.</div>
+<div class="st">Step 2. = 45 − 5 = 40%.</div>
+<div class="st">Step 3. Pay 60% of 1,200 = <b>₹720</b>.</div>
+<div class="st">Check with factors: 1,200 × 0.75 × 0.80 = 720.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>Which is larger: 13/17 or 16/21?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Cross-multiply: 13 × 21 = 273.</div>
+<div class="st">Step 2. 17 × 16 = 272.</div>
+<div class="st">Step 3. 273 &gt; 272, so <b>13/17 is larger</b> (only just).</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Question: 588 ÷ 1,962 as a percent. Options: 29.97% and 28.9%.</div>
+<div class="st">Wrong move: round 588 down to 580 and 1,962 up to 2,000. You get 29%, and you might pick the wrong one when options are close.</div>
+<div class="st">Right: for division, round both the same way (600 and 2,000). The errors cancel and you get 30%, close to 29.97%.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Mental-math shortcut: speed drill</h2>
+<p class="prog">Say the answer out loud before you tap Show. Aim: under 5 seconds each.</p>
+<div class="drill"><script type="application/json">[["64% of 25","16"],["3/8 = ?%","37.5%"],["5/8 = ?%","62.5%"],["1/16 = ?%","6.25%"],["Discounts 20% then 10% = one discount of?","28%"],["+20% then +20% = ?","+44%"],["+10% then −10% = ?","−1%"],["12% of 50","6"],["Digit sum of 4,786","7"],["900 g sold as 1 kg at cost: gain?","11.11%"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: compare and check</h2>
+<b>Which fraction is bigger?</b>
+<label for="ch23-a">a (top of first)</label><input id="ch23-a" type="number" value="17" inputmode="numeric">
+<label for="ch23-b">b (bottom of first)</label><input id="ch23-b" type="number" value="23" inputmode="numeric">
+<label for="ch23-c">c (top of second)</label><input id="ch23-c" type="number" value="22" inputmode="numeric">
+<label for="ch23-d">d (bottom of second)</label><input id="ch23-d" type="number" value="31" inputmode="numeric">
+<div class="stepbox" style="margin-top:10px" id="ch23-s1"></div>
+<hr><b>Digit-sum check of a product</b>
+<label for="ch23-x">First number</label><input id="ch23-x" type="number" value="238" inputmode="numeric">
+<label for="ch23-y">Second number</label><input id="ch23-y" type="number" value="47" inputmode="numeric">
+<label for="ch23-z">Option you want to test</label><input id="ch23-z" type="number" value="11186" inputmode="numeric">
+<div class="stepbox" style="margin-top:10px" id="ch23-s2"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+function ds(n){n=Math.abs(Math.round(n));return n===0?0:1+(n-1)%9}
+function lab(){var a=parseFloat($('ch23-a').value),b=parseFloat($('ch23-b').value),c=parseFloat($('ch23-c').value),d=parseFloat($('ch23-d').value),t=$('ch23-s1');
+if([a,b,c,d].some(isNaN)||!(b>0)||!(d>0)){t.innerHTML='<div class="st">Enter four numbers; bottoms must be above 0.</div>'}else{var l=a*d,r=b*c;
+t.innerHTML='<div class="st">1. a × d = '+a+' × '+d+' = '+l+'</div><div class="st">2. b × c = '+b+' × '+c+' = '+r+'</div><div class="st">3. <b>'+(l>r?a+'/'+b+' is bigger':l<r?c+'/'+d+' is bigger':'They are equal')+'</b></div>'}
+var x=parseFloat($('ch23-x').value),y=parseFloat($('ch23-y').value),z=parseFloat($('ch23-z').value),s=$('ch23-s2');
+if([x,y,z].some(isNaN)||[x,y,z].some(function(v){return v<0||v!==Math.floor(v)})){s.innerHTML='<div class="st">Whole numbers 0 or more only (digit sums need whole numbers).</div>';return}
+var p=ds(ds(x)*ds(y)),q=ds(z);
+s.innerHTML='<div class="st">1. Digit sums: '+ds(x)+' and '+ds(y)+'</div><div class="st">2. Multiply and reduce: '+p+'</div><div class="st">3. Option digit sum: '+q+'</div><div class="st"><b>'+(p===q?'Match: the option survives (it may still be wrong if digits are swapped).':'No match: cross this option out.')+'</b></div>'}
+['ch23-a','ch23-b','ch23-c','ch23-d','ch23-x','ch23-y','ch23-z'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"Find the approximate value of 24.98% of 1,601 + 3,199 ÷ 40.01." (round, then compute)</li>
+<li>"Two successive discounts of 20% and 15% equal a single discount of?"</li>
+<li>In DI: "Which year has the highest ratio of X to Y?" (cross-multiply instead of dividing)</li>
+<li>"A shopkeeper uses a 900 g weight for 1 kg and sells at cost price. Find his gain %."</li></ul>
+<div class="tip"><b>How wrong options are built.</b> Adding discounts (30% instead of 28%), dividing by the true weight in false-weight questions, and options that are rounding errors away from the right answer.</div></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official).</p>
+<div class="quiz"><script type="application/json">[
+{"q":"36% of 25 = ?","o":["8","9","12","6"],"a":1,"e":"Swap: 25% of 36 = 36 ÷ 4 = 9.","t":["Took 32% of 25 by mistake (32 ÷ 4)","","Took a third of 36 instead of a quarter","Took 24% (a quarter of 24)"]},
+{"q":"Successive discounts of 30% and 20% equal one discount of?","o":["50%","46%","40%","44%"],"a":3,"e":"30 + 20 − (30 × 20)/100 = 50 − 6 = 44%.","t":["Added the discounts","Subtracted 4 instead of 6","Subtracted 10 for no reason",""]},
+{"q":"Which is larger: 13/17 or 16/21?","o":["16/21","Both are equal","13/17","Cannot tell without decimals"],"a":2,"e":"13 × 21 = 273 and 17 × 16 = 272. 273 is bigger, so 13/17.","t":["Looked at the bigger numbers, not the value","273 and 272 are close but not equal","","Cross-multiplying decides it exactly"]},
+{"q":"A dealer sells at cost price but uses 800 g for 1 kg. Gain %?","o":["25%","20%","80%","12.5%"],"a":0,"e":"(1000 − 800) ÷ 800 × 100 = 25%. Divide by the false weight.","t":["","Divided 200 by the true weight 1000","Wrote the false weight as the answer","Halved 25 for no reason"]},
+{"q":"Use digit sums: 347 × 28 = ?","o":["9726","9716","9816","9706"],"a":1,"e":"Digit sums 5 and 1, so the product has digit sum 5. Only 9716 (9+7+1+6 = 23 → 5) matches. Exact: 9716.","t":["Digit sum 6: cross it out","","Digit sum 6: cross it out","Digit sum 4: cross it out"]}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) 36% of 25 via the swap. (2) Two discounts 20% and 10%. (3) How to compare 5/7 and 7/10 without dividing. (4) What digit sums cannot catch.</div>
+<div class="mem"><b>Memorise this</b><br>1. A% of B = B% of A.<br>2. Two changes: a + b + ab/100 (falls are minus).<br>3. a/b vs c/d: compare a×d with b×c.<br>4. Divide: round both the same way. Multiply: one up, one down.<br>5. Digit sums cut options; they fail for division and swapped digits.</div></section>
+
+<p class="src"><b>Sources:</b> each trick's source line is in Card 3 (coaching pages: practicemock, guidely, oliveboard, pw.live, prepinsta, theshortcutmaths, bankexamstoday). All tricks and every worked number: verified in Python (exhaustive ranges for T1, T2, T4; 200,000 random cases for T5, T7). Statements that a trick is "fast" are the coaching pages' opinion.<br><b>UNVERIFIED:</b> how much time any trick saves in the real exam (no data).</p>
+</div>
+
+<!-- ============ LESSON 2 ============ -->
+<div class="lesson" id="ch23-l2">
+<h3>Lesson 2 · Quadratic and number-series tricks</h3>
+<p class="oneline">In one line: read root signs from the equation, find roots by "product and sum", and spot series by what the differences do.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>Two auto-rickshaw meters. One always shows positive numbers, the other always negative. You do not need to read them exactly to know which is bigger. The sign rule does that for quadratics: sometimes signs alone settle "x vs y".</p>
+<p class="cap">Quadratic equations were reported as 5 questions in 2025 (reported in memory-based exam analyses). Number series were reported as 5 in 2022 (same type of source).</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Write the equation as ax² + bx + c = 0 with <b>a positive</b>. If a is negative, multiply everything by −1 first.</div>
+<div class="st">Look only at the signs of b and c.</div>
+<div class="st">c positive: both roots have the same sign. b decides which: b minus means both positive, b plus means both negative.</div>
+<div class="st">c negative: one root is positive, one negative.</div>
+<div class="st">If both x-roots are positive and both y-roots negative, x &gt; y. Done without solving.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The tricks (tap one to open)</h2>
+<details><summary><b>T9. The sign table</b></summary>
+<div class="tw"><table><tr><th>Sign of b</th><th>Sign of c</th><th>Roots</th></tr>
+<tr><td>+</td><td>+</td><td>both negative</td></tr>
+<tr><td>−</td><td>+</td><td>both positive</td></tr>
+<tr><td>+</td><td>−</td><td>one each; the negative one is bigger in size</td></tr>
+<tr><td>−</td><td>−</td><td>one each; the positive one is bigger in size</td></tr></table></div>
+<p><b>Example:</b> x² − 14x + 45 = 0 is (−, +): both positive (5, 9). y² + 7y + 6 = 0 is (+, +): both negative (−1, −6). So <b>x &gt; y</b>.</p>
+<p><b>When it fails:</b> (1) if a is negative and you read the signs raw (−5x² + x + 1 has roots 0.56 and −0.36, not both negative): make a positive first. (2) If there are no real roots (b² − 4ac &lt; 0). (3) If b or c is 0. (4) When x and y roots have the same signs, signs alone cannot decide: solve. Python: 57,354 equations with a from 1 to 12, all matched.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.bankexamstoday.com/2018/07/short-tricks-to-solve-quadratic.html">bankexamstoday.com quadratic sign rules</a> · <a href="https://www.pw.live/banking/exams/quadratic-equation">pw.live quadratic equation</a></p></details>
+
+<details><summary><b>T10. Quick roots: product a×c, sum b, flip signs, divide by a</b></summary>
+<div class="box">Find p and q with p × q = a × c and p + q = b. Roots = −p/a and −q/a.</div>
+<p><b>Example:</b> 2y² + 3y − 5 = 0. a × c = −10. Pair: 5 and −2 (sum 3). Flip: −5 and 2. Divide by 2: <b>−2.5 and 1</b>.</p>
+<p><b>When it fails:</b> if no whole-number pair exists (the roots are not "nice"). Then use the formula or the sign table only. Tested for a from 1 to 9 and all pairs from −30 to 30.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.bankexamstoday.com/2017/09/quadratic-equations-Tricks-With-Examples.html">bankexamstoday.com quadratic tricks</a></p></details>
+
+<details><summary><b>T11. Both constants negative → "cannot be established"</b></summary>
+<div class="box">If c/a is negative in <b>both</b> equations, the answer is always "relationship cannot be established".</div>
+<p><b>Example:</b> x² − x − 6 = 0 (roots 3, −2) and y² + 2y − 8 = 0 (roots 2, −4). x = 3 is above y = 2, but x = −2 is below y = 2. No single relation.</p>
+<p><b>Why it is true:</b> each equation has one negative and one positive root. The biggest x is positive, so it beats the smallest y; the smallest x is negative, so it loses to the biggest y.</p>
+<p><b>When it fails:</b> never, given both c/a are negative (Python: 100,000 random pairs). It only applies to the 2-roots-each "x vs y" format.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.pw.live/banking/exams/quadratic-equation">pw.live quadratic equation</a></p></details>
+
+<details><summary><b>T12. Number series: one checking routine</b></summary>
+<div class="box">1. Differences. 2. Differences of differences. 3. Do differences multiply (×a pattern)? 4. Squares/cubes/primes. 5. Split odd and even positions.</div>
+<p><b>Verified facts behind it:</b> (a) if each term is ×a + b of the last, the differences multiply by a every time. (b) If the terms come from n² or n³ formulas, the 2nd or 3rd differences are constant.</p>
+<p><b>Example:</b> 3, 7, 15, 31, 63, ? Differences 4, 8, 16, 32: each ×2. Next difference 64, so <b>127</b> (rule ×2 + 1).</p>
+<p><b>When it fails:</b> the order of checks is the coaching pages' <b>opinion</b> ("if gaps grow fast, test multiplication"). Mixed rules like ×1, ×2, ×3 or alternating + and × will not show in step 3; that is why step 5 exists.</p>
+<p class="src">Coaching-page technique, verified in Python (20,000 random ×a+b series; 5,000 polynomial series). <a href="https://www.practicemock.com/blog/sbi-po-number-series/">practicemock.com number series</a> · <a href="https://cracku.in/blog/number-series-tricks-for-ibps-po-exam/">cracku.in number series tricks</a></p></details>
+</section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>x² − 9x + 20 = 0 and y² + 9y + 20 = 0. Relation?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. a = 1 for both (positive). Good.</div>
+<div class="st">Step 2. x: signs (−, +) → both roots positive.</div>
+<div class="st">Step 3. y: signs (+, +) → both roots negative.</div>
+<div class="st">Step 4. Every positive beats every negative: <b>x &gt; y</b>. (Roots: x = 4, 5; y = −4, −5.)</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>Series: 2, 5, 4, 9, 8, 17, ?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Differences: +3, −1, +5, −1, +9. No clean pattern.</div>
+<div class="st">Step 2. Split positions. Odd: 2, 4, 8. Even: 5, 9, 17.</div>
+<div class="st">Step 3. Odd positions double. The missing term is 7th (odd), so <b>16</b>.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">x² + 11x + 30 = 0 and y² + 13y + 42 = 0. Both (+, +), so all roots negative.</div>
+<div class="st">Wrong move: "same signs, so cannot be established". Or guess "x &gt; y".</div>
+<div class="st">Right: solve. x = −5, −6. y = −6, −7. The smallest x equals the biggest y (−6), so <b>x ≥ y</b>, not x &gt; y.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Mental-math shortcut: speed drill</h2>
+<p class="prog">Write the sign table on your rough sheet first. Then drill. Aim: under 5 seconds each.</p>
+<div class="drill"><script type="application/json">[["Signs (+b, +c): roots?","Both negative"],["Signs (−b, +c): roots?","Both positive"],["Signs (+b, −c): roots?","One each; the negative one bigger in size"],["Signs (−b, −c): roots?","One each; the positive one bigger in size"],["c/a negative in both equations","Cannot be established"],["Roots of x² − 7x + 12","3 and 4"],["Roots of x² + 5x + 6","−2 and −3"],["Differences 4, 8, 16, 32 mean?","×2 + k rule; next difference 64"],["2nd differences constant mean?","A square-type (n²) rule"],["a is negative: first step?","Multiply the whole equation by −1"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: x vs y relation finder</h2>
+<p class="prog">Equation for x: a x² + b x + c = 0</p>
+<label for="ch23-xa">a</label><input id="ch23-xa" type="number" value="1" inputmode="decimal">
+<label for="ch23-xb">b</label><input id="ch23-xb" type="number" value="-9" inputmode="decimal">
+<label for="ch23-xc">c</label><input id="ch23-xc" type="number" value="20" inputmode="decimal">
+<p class="prog">Equation for y</p>
+<label for="ch23-ya">a</label><input id="ch23-ya" type="number" value="1" inputmode="decimal">
+<label for="ch23-yb">b</label><input id="ch23-yb" type="number" value="9" inputmode="decimal">
+<label for="ch23-yc">c</label><input id="ch23-yc" type="number" value="20" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch23-s3"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(3)}
+function sg(a,b,c){if(a<0){a=-a;b=-b;c=-c}if(b===0||c===0)return 'b or c is 0: table does not apply';var k=(b>0?'+':'−')+(c>0?'+':'−');return {'++':'both negative','−+':'both positive','+−':'one each, negative bigger in size','−−':'one each, positive bigger in size'}[k]}
+function rt(a,b,c){var D=b*b-4*a*c;if(D<0)return null;var s=Math.sqrt(D);return [(-b-s)/(2*a),(-b+s)/(2*a)].sort(function(p,q){return p-q})}
+function rel(X,Y){var e=1e-9;if(X[0]>Y[1]+e)return 'x > y';if(X[0]>=Y[1]-e)return 'x ≥ y';if(X[1]<Y[0]-e)return 'x < y';if(X[1]<=Y[0]+e)return 'x ≤ y';return 'cannot be established'}
+function lab(){var v=['xa','xb','xc','ya','yb','yc'].map(function(k){return parseFloat($('ch23-'+k).value)}),t=$('ch23-s3');
+if(v.some(isNaN)||v[0]===0||v[3]===0){t.innerHTML='<div class="st">Enter all six numbers; a cannot be 0.</div>';return}
+var X=rt(v[0],v[1],v[2]),Y=rt(v[3],v[4],v[5]);
+var h='<div class="st">1. Sign rule for x: '+(X?sg(v[0],v[1],v[2]):'not usable (no real roots)')+'. For y: '+(Y?sg(v[3],v[4],v[5]):'not usable (no real roots)')+'.</div>';
+if(!X||!Y){t.innerHTML=h+'<div class="st">2. '+(!X?'x':'y')+' has no real roots (b² − 4ac &lt; 0). The trick does not apply.</div>';return}
+h+='<div class="st">2. Roots: x = '+f(X[0])+', '+f(X[1])+' · y = '+f(Y[0])+', '+f(Y[1])+'</div>';
+h+='<div class="st">3. Relation: <b>'+rel(X,Y)+'</b></div>';
+if(v[2]/v[0]<0&&v[5]/v[3]<0)h+='<div class="st">Both c/a negative: T11 says "cannot be established" without solving.</div>';
+t.innerHTML=h}
+['xa','xb','xc','ya','yb','yc'].forEach(function(k){$('ch23-'+k).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"I. 2x² − 7x + 6 = 0, II. 3y² − 11y + 10 = 0. Choose: x &gt; y / x &lt; y / x ≥ y / x ≤ y / x = y or relation cannot be established."</li>
+<li>"Find the wrong number in the series: 3, 7, 15, 31, 65, 127."</li>
+<li>"What will come in place of the question mark? 4, 9, 19, 39, 79, ?"</li></ul>
+<div class="tip"><b>How wrong options are built.</b> "x &gt; y" when one root pair touches (should be ≥), and "cannot be established" for same-sign roots that actually separate.</div></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official).</p>
+<div class="quiz"><script type="application/json">[
+{"q":"I. x² − 9x + 20 = 0  II. y² + 9y + 20 = 0","o":["x > y","x < y","x ≥ y","Cannot be established"],"a":0,"e":"x: (−, +) both positive (4, 5). y: (+, +) both negative (−4, −5). So x > y.","t":["","Read the signs the wrong way round","No root is shared, so it is strictly greater","Signs fully separate the roots here"]},
+{"q":"I. x² − 2x − 15 = 0  II. y² + 3y − 10 = 0","o":["x > y","x ≤ y","Cannot be established","x ≥ y"],"a":2,"e":"Both constants are negative (c/a < 0 in both), so no relation. Roots: x = 5, −3; y = 2, −5.","t":["x = −3 is below y = 2","x = 5 is above y = 2","","x = −3 is below y = 2"]},
+{"q":"Roots of 2x² − 7x + 6 = 0 (quick method)?","o":["−1.5, −2","3, 4","1.5, −2","1.5, 2"],"a":3,"e":"a × c = 12. Pair with sum −7: −3, −4. Flip: 3, 4. Divide by 2: 1.5, 2.","t":["Forgot to flip the signs","Forgot to divide by a = 2","Flipped only one sign",""]},
+{"q":"4, 9, 19, 39, 79, ?","o":["119","159","158","160"],"a":1,"e":"Differences 5, 10, 20, 40 double, so next difference is 80: 79 + 80 = 159 (rule ×2 + 1).","t":["Added 40 again (did not double)","","Used ×2 without the +1","Used ×2 + 2"]},
+{"q":"I. x² + 11x + 30 = 0  II. y² + 13y + 42 = 0","o":["x ≥ y","x > y","x ≤ y","Cannot be established"],"a":0,"e":"x = −5, −6; y = −6, −7. Smallest x (−6) equals largest y (−6): x ≥ y.","t":["","Missed that −6 appears in both","Compared the wrong way round","Same signs do not mean no relation: solve"]}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) The 4-row sign table. (2) What to do if a is negative. (3) When are both c negative useful? (4) The 5-step series routine.</div>
+<div class="mem"><b>Memorise this</b><br>1. Make a positive. Then c + : same signs (b − → both +, b + → both −).<br>2. c − : one each.<br>3. Both c/a negative → cannot be established.<br>4. Roots: pair with product ac, sum b; flip; ÷ a.<br>5. Series: diff → 2nd diff → diffs multiply? → n²/n³ → split odd/even.</div></section>
+
+<p class="src"><b>Sources:</b> each trick's source line is in Card 3 (bankexamstoday, pw.live, practicemock, cracku). Question counts: <a href="https://edutap.in/pfrda-grade-a/exam-analysis/">edutap exam analysis</a> (reported in memory-based exam analyses). All rules and worked numbers verified in Python. The order of series checks is coaching opinion.<br><b>UNVERIFIED:</b> that the real paper's quadratics always have whole-number or "nice" roots.</p>
+</div>
+
+<!-- ============ LESSON 3 ============ -->
+<div class="lesson" id="ch23-l3">
+<h3>Lesson 3 · Word-problem formulas (speed, trains, work, mixture, interest, ratio, ages, averages)</h3>
+<p class="oneline">In one line: one ready formula per question type, each with the condition that makes it legal.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A Rajdhani at 72 km/h crosses a 150 m platform. The question is in metres and seconds. Multiply 72 by 5/18 and you have 20 m/s. The rest is one division.</p>
+<p class="cap">Trains, time and work, partnership, SI/CI, ages and averages were each reported as 1 question in 2025 (reported in memory-based exam analyses).</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Each formula below is a normal method squashed into one line.</div>
+<div class="st">Squashing needs a condition: equal distances, annual compounding, same start time, and so on.</div>
+<div class="st">Before using a formula, find its condition in the question. If it is missing, use the long method.</div>
+<div class="st">Open one formula below, do its example, then stop.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The tricks (tap one to open)</h2>
+<details><summary><b>T13. km/h to m/s: × 5/18</b></summary>
+<div class="box">m/s = km/h × 5/18. Back: × 18/5.</div>
+<p><b>Example:</b> 72 km/h = 72 ÷ 18 × 5 = <b>20 m/s</b>. 18→5, 36→10, 54→15, 90→25, 108→30.</p>
+<p><b>When it fails:</b> never (1 km/h = 1000 m ÷ 3600 s). The answer is a whole number only when km/h is a multiple of 18 (Python, 0 to 999).</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.oliveboard.in/blog/problems-based-on-trains/">oliveboard.in trains</a></p></details>
+
+<details><summary><b>T14. Trains crossing</b></summary>
+<div class="box">Time = (sum of lengths) ÷ (x + y) if opposite, ÷ (x − y) if same direction.<br>Pole or person: length of train only. Platform: train + platform.<br>Equal-length trains with pole times t₁, t₂: opposite 2t₁t₂/(t₁ + t₂); same direction 2t₁t₂/(t₁ − t₂).</div>
+<p><b>Example:</b> 120 m and 180 m trains at 50 and 40 km/h, opposite. 90 km/h = 25 m/s. 300 ÷ 25 = <b>12 s</b>.</p>
+<p><b>When it fails:</b> mixed units (km/h with metres). Equal-length formula: only if the two trains really are the same length.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://byjus.com/govt-exams/train-problems/">byjus.com train problems</a> · <a href="https://www.oliveboard.in/blog/problems-based-on-trains/">oliveboard.in trains</a></p></details>
+
+<details><summary><b>T15. Meet, then finish: speeds = √t₂ : √t₁</b></summary>
+<div class="box">Two start <b>at the same time</b> towards each other. After meeting, first takes t₁, second takes t₂ to finish. Speed 1 : Speed 2 = √t₂ : √t₁.</div>
+<p><b>Example:</b> after meeting, 9 h and 4 h. Speeds = √4 : √9 = <b>2 : 3</b>.</p>
+<p><b>When it fails:</b> if they start at different times, or speeds change. Python: 50,000 random cases matched.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://byjus.com/govt-exams/train-problems/">byjus.com train problems</a></p></details>
+
+<details><summary><b>T16. Average speed over equal distances: 2xy/(x + y)</b></summary>
+<div class="box">Same distance at x and y: average = 2xy/(x + y). Same <b>time</b> at x and y: (x + y)/2.</div>
+<p><b>Example:</b> to office at 60 km/h, back at 40 km/h: 2 × 60 × 40 ÷ 100 = <b>48 km/h</b>, not 50.</p>
+<p><b>When it fails:</b> if the distances differ. Then use total distance ÷ total time.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.geeksforgeeks.org/aptitude/speed-time-distance/">geeksforgeeks.org speed time distance</a></p></details>
+
+<details><summary><b>T17. Time and work: LCM units, or ab/(a + b)</b></summary>
+<div class="box">Total work = LCM of the days. Each person's units/day = total ÷ days. Two people together: ab/(a + b) days.</div>
+<p><b>Example:</b> A 10 days, B 15 days. LCM 30. A does 3, B does 2 per day. Together 5 per day: 30 ÷ 5 = <b>6 days</b> (= 150/25).</p>
+<p><b>When it fails:</b> if someone leaves or joins midway (then add work done in parts), or rates change. Tested a, b from 1 to 60.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.oliveboard.in/blog/time-and-work-questions/">oliveboard.in time and work</a> · <a href="https://testbook.com/blog/shortcut-method-to-solve-time-and-work-problems/">testbook.com time and work</a></p></details>
+
+<details><summary><b>T18. Mixture: alligation and replacement</b></summary>
+<div class="box">Cheaper : dearer = (dearer − mean) : (mean − cheaper).<br>Remove b from a, refill, n times: original left = a × (1 − b/a)ⁿ.</div>
+<p><b>Example:</b> tea ₹30 and ₹50, want ₹36. (50 − 36) : (36 − 30) = 14 : 6 = <b>7 : 3</b>. 40 L milk, take out 10 L and refill with water twice: 40 × (3/4)² = <b>22.5 L</b>.</p>
+<p><b>When it fails:</b> alligation needs the mean strictly between the two values. Replacement needs the same amount removed each time and refilled with the other liquid. <b>Warning:</b> the cited Oliveboard page prints these two examples as 7:1 and 24.75 L. Python gives 7:3 and 22.5 L. This is why we test.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.oliveboard.in/blog/mixture-alligation-short-tricks/">oliveboard.in mixture and alligation</a></p></details>
+
+<details><summary><b>T19. SI/CI: 2-year and 3-year differences</b></summary>
+<div class="box">CI − SI (2 years) = P(r/100)².<br>CI − SI (3 years) = P(r/100)² × (3 + r/100).<br>2-year CI rate = 2r + r²/100.</div>
+<p><b>Example:</b> ₹5,000 at 10%: 2-year difference = 5,000 × 0.01 = <b>₹50</b>. 3-year = 50 × 3.1 = <b>₹155</b>. 2-year CI rate at 10% = <b>21%</b>.</p>
+<p><b>When it fails:</b> if compounding is not yearly, if the rate changes between years, or if SI and CI use different sums or rates. Tested r from 1 to 50.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.ibpsguide.com/useful-shortcuts-for-simple-interest-compound-interest-ibps-exams-2017/">ibpsguide.com SI/CI shortcuts</a> · <a href="https://www.geeksforgeeks.org/maths/shortcuts-and-tricks-for-compound-interest/">geeksforgeeks.org CI shortcuts</a> · 2r + r²/100 is T4 with a = b = r (<a href="https://www.practicemock.com/blog/speed-maths-shortcuts-for-banking-exams/">practicemock.com</a>)</p></details>
+
+<details><summary><b>T20. Ratio chain and partnership</b></summary>
+<div class="box">A:B = a:b and B:C = c:d → A:B:C = a×c : b×c : b×d.<br>Partnership profit share = capital × time.</div>
+<p><b>Example:</b> A:B = 2:3, B:C = 4:5 → <b>8:12:15</b>. A puts ₹30,000 for 12 months, B ₹40,000 for 6 months: 3,60,000 : 2,40,000 = <b>3 : 2</b>.</p>
+<p><b>When it fails:</b> chain: never (tested 20,000). Partnership: capital × time is the rule the questions use; if a working partner takes a salary first, remove it before sharing. Keep time in the same unit.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.oliveboard.in/blog/ratio-proportion-questions/">oliveboard.in ratio</a> · <a href="https://www.oliveboard.in/blog/partnership-questions/">oliveboard.in partnership</a></p></details>
+
+<details><summary><b>T21. Ages: the gap never changes, plus the ratio formula</b></summary>
+<div class="box">Age gap is the same every year.<br>Now a:b, after n years c:d → one part k = n × (d − c) ÷ (b × c − a × d). Ages = a×k and b×k.</div>
+<p><b>Example:</b> now 3:4, after 8 years 7:8. k = 8 × 1 ÷ (28 − 24) = 2. Ages <b>6 and 8</b> (check: 14:16 = 7:8).</p>
+<p><b>When it fails:</b> if k comes out zero or negative, the data are inconsistent; re-read the question. For "n years ago", use −n. Tested every ratio with parts 1 to 9 and n from 1 to 20.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.ibpsguide.com/important-aptitude-shortcuts-and-mind-tricks-for-problems-on-ages-ibps-po-2017-18/">ibpsguide.com ages</a> · <a href="https://www.oliveboard.in/blog/problems-on-ages/">oliveboard.in ages</a></p></details>
+
+<details><summary><b>T22. Averages: replace or add one person</b></summary>
+<div class="box">Replace one of n: new person = old person + n × (rise in average).<br>Add one to n: newcomer = new average + n × (rise).</div>
+<p><b>Example:</b> 8 men; a 60 kg man is replaced and the average rises 2 kg. New man = 60 + 8 × 2 = <b>76 kg</b>.</p>
+<p><b>When it fails:</b> using the wrong n. Replace: n is the group size. Add: n is the <b>old</b> size. A fall in average is a negative rise. Python: 50,000 random groups.</p>
+<p class="src">Coaching-page technique, verified in Python. <a href="https://www.ibpsguide.com/important-aptitude-shortcuts-and-mind-tricks-for-problems-on-ages-ibps-po-2017-18/">ibpsguide.com (average type)</a></p></details>
+</section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Two trains start together towards each other. After meeting, A takes 4 h 48 min and B takes 3 h 20 min. A runs at 45 km/h. Speed of B?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Same start time: T15 applies. t_A = 4.8 h, t_B = 10/3 h.</div>
+<div class="st">Step 2. A : B = √t_B : √t_A, so B = A × √(t_A ÷ t_B).</div>
+<div class="st">Step 3. t_A ÷ t_B = 4.8 ÷ 3.333 = 1.44. √1.44 = 1.2.</div>
+<div class="st">Step 4. B = 45 × 1.2 = <b>54 km/h</b>.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>A class of 30 has average weight 40 kg. The teacher joins and the average rises by 1 kg. Teacher's weight?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Add one: newcomer = new average + old size × rise.</div>
+<div class="st">Step 2. = 41 + 30 × 1 = <b>71 kg</b>.</div>
+<div class="st">Check: 31 × 41 = 1,271; 30 × 40 = 1,200; 1,271 − 1,200 = 71.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Rice ₹40/kg and ₹60/kg mixed to sell at ₹52/kg (cost). Ratio cheaper : dearer?</div>
+<div class="st">Wrong move: (52 − 40) : (60 − 52) = 12 : 8 = 3 : 2. That puts the cheaper rice's difference on the cheaper rice.</div>
+<div class="st">Right: the cheaper share uses the <b>dearer</b> gap: (60 − 52) : (52 − 40) = 8 : 12 = <b>2 : 3</b>. The mean is closer to ₹60, so there is more of the dearer rice.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Mental-math shortcut: speed drill</h2>
+<p class="prog">Aim: under 5 seconds each.</p>
+<div class="drill"><script type="application/json">[["36 km/h = ? m/s","10"],["54 km/h = ? m/s","15"],["72 km/h = ? m/s","20"],["108 km/h = ? m/s","30"],["20 m/s = ? km/h","72"],["Equal distances at 30 and 60 km/h: average?","40 km/h"],["Equal distances at 40 and 60 km/h: average?","48 km/h"],["A 20 days, B 30 days, together?","12 days"],["CI − SI, 2 years, ₹10,000 at 10%","₹100"],["2-year CI rate at 20%","44%"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: CI − SI and speed converter</h2>
+<label for="ch23-p">Principal (₹)</label><input id="ch23-p" type="number" value="5000" inputmode="decimal">
+<label for="ch23-r">Rate % per year (yearly compounding)</label><input id="ch23-r" type="number" value="10" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch23-s4"></div>
+<hr>
+<label for="ch23-k">Speed in km/h</label><input id="ch23-k" type="number" value="72" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch23-s5"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(2)}
+function lab(){var P=parseFloat($('ch23-p').value),r=parseFloat($('ch23-r').value),t=$('ch23-s4');
+if(!(P>0)||!(r>0)){t.innerHTML='<div class="st">Enter a principal and a rate above 0.</div>'}else{var q=r/100,d2=P*q*q,d3=d2*(3+q),c2=P*(Math.pow(1+q,2)-1),s2=P*q*2;
+t.innerHTML='<div class="st">1. 2-year shortcut: P(r/100)² = '+P+' × '+f(q*q*10000)/10000+' = <b>₹'+f(d2)+'</b></div><div class="st">2. Long way check: CI '+f(c2)+' − SI '+f(s2)+' = '+f(c2-s2)+'</div><div class="st">3. 3-year shortcut: '+f(d2)+' × '+f(3+q)+' = <b>₹'+f(d3)+'</b></div><div class="st">4. 2-year CI rate: 2r + r²/100 = <b>'+f(2*r+r*r/100)+'%</b></div>'}
+var k=parseFloat($('ch23-k').value),s=$('ch23-s5');if(isNaN(k)){s.innerHTML='';return}
+s.innerHTML='<div class="st">'+k+' × 5/18 = <b>'+f(k*5/18)+' m/s</b>'+(k%18===0?' (multiple of 18: whole number)':'')+'</div>'}
+['ch23-p','ch23-r','ch23-k'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"The difference between CI and SI on a sum for 2 years at 8% is ₹64. Find the sum." (Sum = 64 ÷ 0.0064 = ₹10,000.)</li>
+<li>"A train 240 m long crosses a pole in 12 s. How long to cross a 360 m platform?"</li>
+<li>"A and B start a business with ₹x and ₹y; B leaves after 4 months…"</li>
+<li>"The ratio of ages of A and B is 5:7. After 6 years it will be 3:4…"</li></ul>
+<div class="tip"><b>How wrong options are built.</b> (x + y)/2 for average speed, the alligation ratio flipped, and forgetting to convert km/h.</div></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official).</p>
+<div class="quiz"><script type="application/json">[
+{"q":"90 km/h = ? m/s","o":["25","324","15","30"],"a":0,"e":"90 ÷ 18 × 5 = 25.","t":["","Multiplied by 18/5 instead of 5/18","Used 54 km/h","Used 108 km/h"]},
+{"q":"A finishes a job in 12 days, B in 24 days. Together?","o":["18 days","36 days","8 days","6 days"],"a":2,"e":"12 × 24 ÷ 36 = 8. (LCM 24: A does 2, B does 1 per day, 24 ÷ 3 = 8.)","t":["Averaged the days","Added the days","","Halved 12"]},
+{"q":"₹8,000 at 5% per year for 2 years: CI − SI?","o":["₹40","₹20","₹80","₹2"],"a":1,"e":"8,000 × (5/100)² = 8,000 × 0.0025 = ₹20.","t":["Used 5/100 once, then halved","","Used 1% of 8,000","Dropped a zero"]},
+{"q":"Rice at ₹40/kg and ₹60/kg is mixed to make ₹52/kg. Cheaper : dearer?","o":["3:2","1:2","2:1","2:3"],"a":3,"e":"(60 − 52) : (52 − 40) = 8 : 12 = 2 : 3.","t":["Put each gap on the wrong rice","Guessed","Flipped the answer",""]},
+{"q":"Two trains start together towards each other. After meeting they take 16 h and 9 h. Speed of first : second?","o":["16:9","4:3","3:4","9:16"],"a":2,"e":"√9 : √16 = 3 : 4. The one that takes longer is slower.","t":["Used times, not square roots, and not flipped","Forgot to flip","","Flipped but forgot the square roots"]},
+{"q":"Ages are 5:7 now and will be 3:4 after 6 years. Elder's present age?","o":["42","35","48","30"],"a":0,"e":"k = 6 × (4 − 3) ÷ (7 × 3 − 5 × 4) = 6. Ages 30 and 42. Check: 36 : 48 = 3 : 4.","t":["","Used 7 × 5","That is the elder's age after 6 years","That is the younger's age"]}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) 54 km/h in m/s. (2) Average of 60 and 40 over equal distances. (3) CI − SI for 2 years. (4) Alligation: which gap goes with the cheaper item?</div>
+<div class="mem"><b>Memorise this</b><br>1. × 5/18; multiples of 18 give whole m/s.<br>2. Equal distances: 2xy/(x + y). Work together: ab/(a + b).<br>3. Cheaper : dearer = (dearer − mean) : (mean − cheaper).<br>4. CI − SI: 2 yr P(r/100)², 3 yr × (3 + r/100).<br>5. Replace one: new = old + n × rise.</div></section>
+
+<p class="src"><b>Sources:</b> each trick's source line is in Card 3 (oliveboard, byjus, geeksforgeeks, testbook, ibpsguide, practicemock). Question counts: <a href="https://edutap.in/pfrda-grade-a/exam-analysis/">edutap exam analysis</a> (reported in memory-based exam analyses). Every formula and worked number verified in Python. The Oliveboard mixture page's printed answers (7:1, 24.75 L) disagree with Python (7:3, 22.5 L).<br><b>UNVERIFIED:</b> how often each formula's exact question type appears in this exam.</p>
+</div>
+
+<p class="src"><b>Dropped after testing:</b> (1) Digit-sum check for division: fails (10 ÷ 2). (2) Rule of 72 for doubling time: only approximate (off by 2.3 years at 1%, 0.27 years at 50%), so not stated as a trick. (3) Sign table read on raw signs when a is negative: fails (−5x² + x + 1); kept only with "make a positive first".</p>
+</article>
