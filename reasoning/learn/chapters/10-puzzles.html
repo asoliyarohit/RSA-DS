@@ -1,0 +1,344 @@
+<article class="chapter" id="ch10" data-no="10" data-title="Puzzles" data-tag="Slots, tables and chains · brute-force checked · 3 lessons">
+<h1>Puzzles (floor, box, day, month, comparison)</h1>
+<p class="oneline">In one line: every puzzle here is the same game: put names into slots, one each, and let each clue cross out options. Learn the slot arithmetic once and three lessons follow from it.</p>
+<section class="lesson" id="ch10-l1"><h2 class="lt">Lesson 1 · Floor and box puzzles (slot order)</h2><p class="oneline">In one line: a floor or box puzzle is five names to be placed into five numbered slots, and every clue crosses out some slots.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>Your cousin's building in Pune has 5 floors and one family per floor. Someone says: "The Sharmas live above the Iyers" and "the Khans are on the top floor". You do not need to see the building. You only need five empty slots and a pencil.</p><div class="bars" role="img" aria-label="Five floors, 5 at the top and 1 at the bottom"><div class="row"><span class="a" style="width:20%">5 top</span><span class="b" style="width:20%">4</span><span class="a" style="width:20%">3</span><span class="b" style="width:20%">2</span><span class="a" style="width:20%">1 bottom</span></div></div><p class="cap">Floors are counted from the bottom, so floor 1 is the lowest. A stack of boxes works the same way: position 1 is the bottom box.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">A puzzle gives a few names and the same number of slots (floors, or places in a stack). Convention for this chapter: every name gets exactly one slot, and every slot gets exactly one name.</div><div class="st">Number the slots from the bottom. Draw them as a column from top to bottom: 5, 4, 3, 2, 1.</div><div class="st">Clue words are just slot arithmetic. "On the top floor" means slot 5. "Immediately above B" means B's number plus 1. "Above B" means any higher number.</div><div class="st">"Between B and C" means strictly in the middle: a number between theirs, and B and C may come in either order. "Neighbouring" (or "next to") means the numbers differ by 1, on either side.</div><div class="st">Step A: write in the fixed clues first ("on the top floor", "on floor 2"). They are your anchors.</div><div class="st">Step B: treat "X immediately above Y" as one glued two-block. Find where a two-block still fits in the empty slots.</div><div class="st">Step C: whenever a name has only one slot left, write it in. Repeat until all are placed.</div><div class="st">Step D: re-read every clue against your finished picture. One broken clue means redo.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">n names in n slots can be arranged in n! ways (5! = 120). Every clue deletes some of those 120.</div><div class="box">A immediately above B: slot(A) = slot(B) + 1. A above B: slot(A) &gt; slot(B).</div><div class="box">A between B and C: slot(A) is strictly between slot(B) and slot(C). Exactly k between A and B: the slot numbers differ by k + 1.</div><div class="box">Neighbouring: slots differ by 1. Slots strictly between p and q (p &lt; q) = q − p − 1.</div><p class="src">The n! count: Wikipedia "Permutation". Clue-deduction style, and "immediately to the right" versus "next to": Wikipedia "Logic puzzle" and "Zebra Puzzle". The slot arithmetic and the one-name-per-slot convention: derived, Python-checked (all 120 arrangements enumerated).</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Five people (Asha, Bala, Charu, Dev, Esha) live on floors 1 to 5, one per floor. Dev lives on the top floor. Charu lives immediately above Bala. Esha lives on floor 2. Charu lives above Asha. Who lives on floor 3?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Anchors: Dev = floor 5. Esha = floor 2.</div><div class="st">Step 2. Free floors: 1, 3, 4. Free names: Asha, Bala, Charu.</div><div class="st">Step 3. Charu is immediately above Bala, so they need two consecutive free floors. Among 1, 3, 4 the only such pair is 3 and 4. So Bala = 3, Charu = 4.</div><div class="st">Step 4. Asha gets the last floor, 1. Check: Charu (4) above Asha (1). Yes.</div><div class="st">Step 5. Answer: <b>Bala</b> (floor 3). Picture: 5 Dev, 4 Charu, 3 Bala, 2 Esha, 1 Asha.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Five boxes (Red, Blue, Green, Yellow, Pink) are stacked, position 1 at the bottom. Pink is at the top. Red is directly above Blue. Exactly one box is between Green and Pink. Yellow is somewhere above Blue. Which box is at the bottom?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Anchor: Pink = position 5.</div><div class="st">Step 2. Exactly one box between Green and Pink: positions differ by 2, so Green = 3.</div><div class="st">Step 3. Free positions 1, 2, 4 for Red, Blue, Yellow. Red directly above Blue needs consecutive positions: only 1 and 2. So Blue = 1, Red = 2.</div><div class="st">Step 4. Yellow takes position 4. Check: Yellow (4) above Blue (1). Yes.</div><div class="st">Step 5. Answer: <b>Blue</b> at the bottom. Stack from the top: Pink, Yellow, Green, Red, Blue.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Clue: "Asha lives above Bala" in a 5-floor building.</div><div class="st">Wrong move: read it as "directly above" and put Asha exactly one floor up.</div><div class="st">Python count: of all 120 arrangements, 60 fit "above" but only 24 fit "immediately above". The wrong reading throws away 36 valid arrangements.</div><div class="st">Second trap, counting between. Floors 1 and 5: how many floors are between? Not 4, not 5. Floors 2, 3, 4 = <b>3</b> (that is 5 − 1 − 1).</div><div class="st">Third trap, direction. "A is immediately above B" gives A the BIGGER number. Say it as an equation: A = B + 1.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: biggest clue first, then test options</h2><div class="tip"><b>Order of attack.</b> (1) Clues that name an exact slot, or top or bottom. (2) Glued pairs and "exactly k between". (3) "Between" and "above". (4) "Not" clues last, to trim what is left.<br><b>Option test.</b> If the question gives options, put an option in and scan the clues. One broken clue kills it. This can be quicker than solving the whole puzzle.<br><b>Partial is fine.</b> Ask whether the question needs the full order. Sometimes it does not (see quiz Q5).</div><h3>Speed drill</h3><p class="prog">Say the answer aloud before you tap Show.</p><div class="drill"><script type="application/json">[["5 floors. \"Top floor\" is floor?", "5"], ["B on floor 2. A is immediately above B. A is on floor?", "3"], ["A is on floor 1. Exactly 2 floors between A and B. B is on floor?", "4"], ["B is on floor 4. A is above B (5 floors). A is on floor?", "5 only"], ["B on floor 1, C on floor 5. A is between them. A can be on?", "2, 3 or 4"], ["A is on floor 3. B is a neighbour. B is on?", "2 or 4"], ["A is on floor 1. B is NOT next to A. B can be on?", "3, 4 or 5"], ["How many floors lie between floor 1 and floor 5?", "3 (5 − 1 − 1)"], ["How many floors are above floor 2 in a 5-floor building?", "3 (floors 3, 4, 5)"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: clue switchboard (floors)</h2><p class="prog">Names: Asha, Bala, Charu, Dev, Esha on floors 1 to 5. Tick clues one at a time. A tick means that floor is still possible for that name.</p><div id="ch10-l1lab"></div><div class="tw" id="ch10-l1lab-t"></div><div class="stepbox" style="margin-top:10px" id="ch10-l1lab-o"></div><script>(function(){
+function labHolds(p,c){var t=c[0];
+if(t==='on')return p[c[1]]===c[2];
+if(t==='not_on')return p[c[1]]!==c[2];
+if(t==='top')return p[c[1]]===Object.keys(p).length;
+if(t==='bottom')return p[c[1]]===1;
+if(t==='imm_above')return p[c[1]]===p[c[2]]+1;
+if(t==='above')return p[c[1]]>p[c[2]];
+if(t==='between'){var lo=Math.min(p[c[2]],p[c[3]]),hi=Math.max(p[c[2]],p[c[3]]);return lo<p[c[1]]&&p[c[1]]<hi}
+if(t==='adj')return Math.abs(p[c[1]]-p[c[2]])===1;
+if(t==='not_adj')return Math.abs(p[c[1]]-p[c[2]])!==1;
+if(t==='gap')return Math.abs(p[c[1]]-p[c[2]])-1===c[3];
+return false}
+function labSolve(items,clues){var n=items.length,out=[],used=[],cur=[];
+function rec(i){if(i===n){var p={};for(var k=0;k<n;k++)p[items[k]]=cur[k];if(clues.every(function(c){return labHolds(p,c)}))out.push(p);return}
+for(var s=1;s<=n;s++){if(!used[s]){used[s]=true;cur[i]=s;rec(i+1);used[s]=false}}}
+rec(0);return out}
+
+var D={"items": ["Asha", "Bala", "Charu", "Dev", "Esha"], "labels": ["F1", "F2", "F3", "F4", "F5"], "clues": [["top", "Dev"], ["imm_above", "Charu", "Bala"], ["on", "Esha", 2], ["above", "Charu", "Asha"]], "texts": ["Dev lives on the top floor.", "Charu lives on the floor immediately above Bala.", "Esha lives on floor 2.", "Charu lives above Asha (not necessarily immediately)."], "on": [0, 1]};function $(i){return document.getElementById(i)}
+var box=$("ch10-l1lab"),tb=$("ch10-l1lab-t"),o=$("ch10-l1lab-o"),h="";
+D.texts.forEach(function(t,k){h+='<label style="display:flex;gap:8px;align-items:flex-start;margin:6px 0"><input type="checkbox" id="ch10-l1lab-c'+k+'"'+(D.on.indexOf(k)>=0?" checked":"")+' style="width:auto;margin-top:4px"><span>'+t+'</span></label>'});box.innerHTML=h;
+function run(){var cl=[];D.clues.forEach(function(c,k){if($("ch10-l1lab-c"+k).checked)cl.push(c)});var S=labSolve(D.items,cl);
+var t='<table><tr><th>Name</th>'+D.labels.map(function(l){return"<th>"+l+"</th>"}).join("")+"</tr>";
+D.items.forEach(function(it){t+="<tr><td>"+it+"</td>";for(var s=1;s<=D.items.length;s++){var ok=S.some(function(p){return p[it]===s});t+="<td>"+(ok?"\u2713":"\u00b7")+"</td>"}t+="</tr>"});tb.innerHTML=t+"</table>";
+var m;if(S.length===0)m="<b>0 arrangements</b>: these clues contradict each other.";else if(S.length===1)m="<b>1 arrangement left: solved.</b> Each name has exactly one \u2713.";else m="<b>"+S.length+" of "+(function(){var f=1;for(var i=2;i<=D.items.length;i++)f*=i;return f})()+" arrangements fit.</b> A \u2713 means that place is still possible; a dot means it is ruled out.";
+o.innerHTML='<div class="st">'+m+'</div><div class="st">Ticked clues: '+cl.length+' of '+D.clues.length+'. Tick one more and watch the \u2713 marks disappear.</div>'}
+D.texts.forEach(function(t,k){$("ch10-l1lab-c"+k).addEventListener("change",run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper. Real sets may use more people than our five; the method is the same.</p><ul><li>"Six friends live on six floors of a building. P lives above Q but not on the top floor. R lives on an even floor. ... Who lives on the third floor?"</li><li>"Five boxes are stacked one over another. Box M is directly above N. Exactly two boxes are between P and Q. ... Which box is at the top?"</li><li>Question shapes: who is on slot k, which slot is X on, how many are between X and Y, who is immediately above X, which statement is true.</li></ul><p class="prog">Word clues: "immediately", "directly", "just" mean +1. "Above", "higher", "over" mean bigger, any gap. "Between" is strict. "Not necessarily" adds no information.</p><div class="tip"><b>How wrong options are built.</b> In our quiz they are the neighbours of the right answer (one slot off, or the same count counted wrongly). After solving, re-read the question: above or below, who or which floor.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this guide; the official wording is 1/4 of the marks assigned, and your call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Cross out one option and the odds improve.</p><div class="quiz"><script type="application/json">[
+{
+"q": "Pooja lives on the bottom floor (floor 1). Naveen lives on the floor immediately above Qadir. Meena lives above Naveen (not necessarily immediately). Omkar and Pooja live on neighbouring floors. Who lives on floor 4?",
+"o": [
+"Meena",
+"Omkar",
+"Qadir",
+"Naveen"
+],
+"a": 3,
+"e": "Answer Naveen. Working: use the clues to place everyone (arrangement from lowest slot to highest: Floor 1: Pooja Floor 2: Omkar Floor 3: Qadir Floor 4: Naveen Floor 5: Meena).",
+"t": [
+"Meena lives on floor 5. That is not the one asked about.",
+"Omkar lives on floor 2. That is not the one asked about.",
+"Qadir lives on floor 3. That is not the one asked about.",
+""
+]
+},
+{
+"q": "Omkar lives on floor 3. Pooja lives somewhere between Omkar and Meena (they may be in either order). Meena lives above Omkar (not necessarily immediately). Qadir lives on the floor immediately above Naveen. On which floor does Qadir live?",
+"o": [
+"Floor 2",
+"Floor 3",
+"Floor 4",
+"Floor 5"
+],
+"a": 0,
+"e": "Answer Floor 2. Working: use the clues to place everyone (arrangement from lowest slot to highest: Floor 1: Naveen Floor 2: Qadir Floor 3: Omkar Floor 4: Pooja Floor 5: Meena).",
+"t": [
+"",
+"Floor 3 belongs to Omkar, not Qadir.",
+"Floor 4 belongs to Pooja, not Qadir.",
+"Floor 5 belongs to Meena, not Qadir."
+]
+},
+{
+"q": "Exactly 2 floors between Meena and Qadir. Naveen lives on the top floor. Omkar lives above Pooja (not necessarily immediately). Qadir lives on the floor immediately above Omkar. How many floors lie between Meena and Naveen?",
+"o": [
+2,
+3,
+4,
+5
+],
+"a": 1,
+"e": "Answer 3. Working: use the clues to place everyone (arrangement from lowest slot to highest: Floor 1: Meena Floor 2: Pooja Floor 3: Omkar Floor 4: Qadir Floor 5: Naveen).",
+"t": [
+"2 does not match the arrangement. Strictly between them there are 3.",
+"",
+"4 is the gap between the two slot numbers. The number strictly between is one less (4 − 1 = 3).",
+"5 also counts one of the two end people. Count only those strictly between."
+]
+},
+{
+"q": "The Pink box is at the top of the stack. The Red box is directly above the Blue box. Exactly 1 box between the Green box and the Pink box. The Yellow box is somewhere above the Blue box (not necessarily touching it). Which box is directly above the Green box?",
+"o": [
+"Red",
+"Yellow",
+"Blue",
+"Pink"
+],
+"a": 1,
+"e": "Answer Yellow. Working: use the clues to place everyone (arrangement from lowest slot to highest: Position 1: the Blue box Position 2: the Red box Position 3: the Green box Position 4: the Yellow box Position 5: the Pink box).",
+"t": [
+"The Red box is at position 2 from the bottom. That is not the one asked about.",
+"",
+"The Blue box is at position 1 from the bottom. That is not the one asked about.",
+"The Pink box is at position 5 from the bottom. That is not the one asked about."
+]
+},
+{
+"q": "The Yellow box is at position 2 from the bottom. The Red box is directly above the Yellow box. The Green box is at the top of the stack. The Pink box and the Blue box do not touch. How many boxes are above the Red box?",
+"o": [
+0,
+1,
+2,
+3
+],
+"a": 2,
+"e": "Answer 2. Working: use the clues to place everyone (the clues fix the asked item even though other places stay open; one valid arrangement: Position 1: the Blue box Position 2: the Yellow box Position 3: the Red box Position 4: the Pink box Position 5: the Green box).",
+"t": [
+"0 does not match: the number above is 2.",
+"1 does not match: the number above is 2.",
+"",
+"3 counts the Red box itself as well."
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) Which end is floor 1? (2) "A immediately above B" as an equation? (3) How many slots strictly between 1 and 5? (4) Which clues do I place first?</div><div class="mem"><b>Memorise this</b><br>1. Slots are numbered from the bottom; each name gets one slot.<br>2. Immediately above: A = B + 1. Above: A &gt; B, any gap.<br>3. Between B and C is strict; either order is allowed.<br>4. Strictly between slots p and q: q − p − 1.<br>5. Anchors first, glued pairs second, "not" clues last.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Logic_puzzle">Wikipedia: Logic puzzle</a> · <a href="https://en.wikipedia.org/wiki/Zebra_Puzzle">Wikipedia: Zebra Puzzle</a> · <a href="https://en.wikipedia.org/wiki/Permutation">Wikipedia: Permutation</a>. Slot arithmetic, trap counts (120, 60, 24) and every worked example and quiz answer: derived, Python-checked by enumerating all 120 arrangements.<br><b>UNVERIFIED:</b> how often floor and box puzzles appear in the real paper; the real wording and option count of PFRDA puzzle questions; whether real sets use more than five people.</p></section>
+<section class="lesson" id="ch10-l2"><h2 class="lt">Lesson 2 · Day and month puzzles (timelines)</h2><p class="oneline">In one line: a day or month puzzle is the same slot game on a calendar: Monday (or January) is slot 1, and "before" means a smaller number.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>A coaching centre in Jaipur books five guest teachers, one for each day from Monday to Friday. The notice board says: "Mr Lalit comes the day before Ms Kavya." You can already feel the week as five boxes in a row.</p><div class="bars" role="img" aria-label="Five days, Monday is slot 1 and Friday is slot 5"><div class="row"><span class="a" style="width:20%">Mon 1</span><span class="b" style="width:20%">Tue 2</span><span class="a" style="width:20%">Wed 3</span><span class="b" style="width:20%">Thu 4</span><span class="a" style="width:20%">Fri 5</span></div></div><p class="cap">Monday is slot 1. "Before" means a smaller number and "after" a bigger one. Months work the same way.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Conventions for this chapter: five working days, Monday to Friday (slots 1 to 5), one person per day. Months work the same: January to May as slots 1 to 5, one birthday per month.</div><div class="st">The week does not wrap round here. No day comes before Monday and none comes after Friday. A real puzzle states its own days, so read the stem first.</div><div class="st">Write the numbers under the day names: Mon 1, Tue 2, Wed 3, Thu 4, Fri 5. Now every clue is slot arithmetic you already know.</div><div class="st">"Before" or "earlier than" means a smaller number. "After" or "later than" means a bigger number. "The day immediately after" means +1. "The day before" means −1.</div><div class="st">"Exactly one day between A and B" means the numbers differ by 2. "Consecutive days" means they differ by 1.</div><div class="st">"Not on Tuesday" crosses out slot 2 for that person. When a person has one uncrossed slot, place them.</div><div class="st">Anchor first: use the fixed day or the "first day" or "last day" clue, then build outward.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Before: slot(A) &lt; slot(B). After: slot(A) &gt; slot(B). Immediately after: slot(A) = slot(B) + 1.</div><div class="box">Exactly k days (or months) between A and B: slots differ by k + 1.</div><div class="box">Days between X and Y = |slot X − slot Y| − 1.</div><div class="box">"A visits before B" says nothing about distance. Only words like "immediately", "next day" and "consecutive" mean 1 apart.</div><p class="src">Wikipedia "Constraint satisfaction problem": a constraint restricts which placements are allowed, and a solution satisfies all constraints at once. The slot translations of before, after and between: derived, Python-checked.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Five trainers (Kavya, Lalit, Mohan, Nisha, Ojas) each visit on a different day, Monday to Friday. Kavya visits the day immediately after Lalit. Kavya visits on Friday. Mohan visits between Kavya's and Ojas's visits. Exactly one day falls between Mohan's and Ojas's visits. Who visits on Tuesday?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Anchor: Kavya = Friday (5).</div><div class="st">Step 2. Lalit is the day before Kavya: Thursday (4).</div><div class="st">Step 3. Free days: Monday, Tuesday, Wednesday (1, 2, 3) for Mohan, Nisha, Ojas.</div><div class="st">Step 4. Mohan is between Kavya (Friday, the last day) and Ojas. So Ojas must be earlier than Mohan.</div><div class="st">Step 5. Exactly one day between them: Mohan = Ojas + 2. Among 1, 2, 3 only Ojas = 1, Mohan = 3 works.</div><div class="st">Step 6. Nisha gets Tuesday. Answer: <b>Nisha</b>. Week: Ojas, Nisha, Mohan, Lalit, Kavya.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Five friends (Kavya, Lalit, Mohan, Nisha, Ojas) were born in different months from January to May. Lalit was born in March. Mohan was born in a later month than Lalit. Exactly one month falls between Lalit's and Nisha's birth months. Kavya's birth month is between Lalit's and Ojas's. Who was born in February?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Anchor: Lalit = March (3).</div><div class="st">Step 2. Exactly one month between Lalit and Nisha: Nisha is January (1) or May (5).</div><div class="st">Step 3. Mohan is later than March: April or May.</div><div class="st">Step 4. Try Nisha = January. Then Kavya, Mohan, Ojas share Feb, April, May. Kavya between Lalit and Ojas fails in every case that also keeps Mohan in April or May (checked by enumeration). So Nisha is not January.</div><div class="st">Step 5. So Nisha = May, and Mohan = April.</div><div class="st">Step 6. Kavya and Ojas share January and February. Kavya must be between Lalit (March) and Ojas, so Kavya = February, Ojas = January.</div><div class="st">Step 7. Answer: <b>Kavya</b>. Order: Ojas, Kavya, Lalit, Mohan, Nisha.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Clue: "Mohan visits between Kavya's and Ojas's visits".</div><div class="st">Wrong move: assume Kavya comes first because her name is first.</div><div class="st">Python count: 40 of the 120 arrangements fit "between". In 20 of them Kavya comes first, in the other 20 Ojas comes first. Assuming one order drops half.</div><div class="st">Right: try both directions. Another clue (like "Kavya on Friday") usually kills one of them.</div><div class="st">Second trap, counting days. Days between Monday and Friday: Tuesday, Wednesday, Thursday = <b>3</b>, not 4.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: write numbers under the days</h2><div class="tip"><b>Routine.</b> Draw Mon 1 to Fri 5 once, then run a pencil down it. Fixed day first. Then "immediately after" pairs. Then "exactly k between". Then "before" and "after". "Not on" clues last.<br><b>Edge check.</b> The first and last days are special: nothing can come before Monday or after Friday. A clue that needs a day beyond the edge rules that placement out at once.</div><h3>Speed drill</h3><p class="prog">Say the answer aloud before you tap Show.</p><div class="drill"><script type="application/json">[["Day immediately after Tuesday?", "Wednesday"], ["Day immediately before Monday (Mon to Fri week)?", "None: Monday is first"], ["How many days between Monday and Friday?", "3 (Tue, Wed, Thu)"], ["A is before Wednesday. A can visit on?", "Monday or Tuesday"], ["A is after Thursday. A visits on?", "Friday only"], ["One day between A and B. A is on Monday. B is on?", "Wednesday"], ["A and B on consecutive days. A is on Friday. B is on?", "Thursday"], ["Month immediately after January?", "February"], ["How many months lie between January and May?", "3"], ["Birth month immediately after March?", "April"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: clue switchboard (days)</h2><p class="prog">The worked-example trainers. Tick clues one at a time and watch each name's possible days shrink.</p><div id="ch10-l2lab"></div><div class="tw" id="ch10-l2lab-t"></div><div class="stepbox" style="margin-top:10px" id="ch10-l2lab-o"></div><script>(function(){
+function labHolds(p,c){var t=c[0];
+if(t==='on')return p[c[1]]===c[2];
+if(t==='not_on')return p[c[1]]!==c[2];
+if(t==='top')return p[c[1]]===Object.keys(p).length;
+if(t==='bottom')return p[c[1]]===1;
+if(t==='imm_above')return p[c[1]]===p[c[2]]+1;
+if(t==='above')return p[c[1]]>p[c[2]];
+if(t==='between'){var lo=Math.min(p[c[2]],p[c[3]]),hi=Math.max(p[c[2]],p[c[3]]);return lo<p[c[1]]&&p[c[1]]<hi}
+if(t==='adj')return Math.abs(p[c[1]]-p[c[2]])===1;
+if(t==='not_adj')return Math.abs(p[c[1]]-p[c[2]])!==1;
+if(t==='gap')return Math.abs(p[c[1]]-p[c[2]])-1===c[3];
+return false}
+function labSolve(items,clues){var n=items.length,out=[],used=[],cur=[];
+function rec(i){if(i===n){var p={};for(var k=0;k<n;k++)p[items[k]]=cur[k];if(clues.every(function(c){return labHolds(p,c)}))out.push(p);return}
+for(var s=1;s<=n;s++){if(!used[s]){used[s]=true;cur[i]=s;rec(i+1);used[s]=false}}}
+rec(0);return out}
+
+var D={"items": ["Kavya", "Lalit", "Mohan", "Nisha", "Ojas"], "labels": ["Mon", "Tue", "Wed", "Thu", "Fri"], "clues": [["imm_above", "Kavya", "Lalit"], ["on", "Kavya", 5], ["between", "Mohan", "Kavya", "Ojas"], ["gap", "Mohan", "Ojas", 1]], "texts": ["Kavya visits the day immediately after Lalit.", "Kavya visits on Friday.", "Mohan visits on a day between Kavya's and Ojas's visits (either order).", "Exactly 1 day falls between Mohan's and Ojas's visits."], "on": [0, 1]};function $(i){return document.getElementById(i)}
+var box=$("ch10-l2lab"),tb=$("ch10-l2lab-t"),o=$("ch10-l2lab-o"),h="";
+D.texts.forEach(function(t,k){h+='<label style="display:flex;gap:8px;align-items:flex-start;margin:6px 0"><input type="checkbox" id="ch10-l2lab-c'+k+'"'+(D.on.indexOf(k)>=0?" checked":"")+' style="width:auto;margin-top:4px"><span>'+t+'</span></label>'});box.innerHTML=h;
+function run(){var cl=[];D.clues.forEach(function(c,k){if($("ch10-l2lab-c"+k).checked)cl.push(c)});var S=labSolve(D.items,cl);
+var t='<table><tr><th>Name</th>'+D.labels.map(function(l){return"<th>"+l+"</th>"}).join("")+"</tr>";
+D.items.forEach(function(it){t+="<tr><td>"+it+"</td>";for(var s=1;s<=D.items.length;s++){var ok=S.some(function(p){return p[it]===s});t+="<td>"+(ok?"\u2713":"\u00b7")+"</td>"}t+="</tr>"});tb.innerHTML=t+"</table>";
+var m;if(S.length===0)m="<b>0 arrangements</b>: these clues contradict each other.";else if(S.length===1)m="<b>1 arrangement left: solved.</b> Each name has exactly one \u2713.";else m="<b>"+S.length+" of "+(function(){var f=1;for(var i=2;i<=D.items.length;i++)f*=i;return f})()+" arrangements fit.</b> A \u2713 means that place is still possible; a dot means it is ruled out.";
+o.innerHTML='<div class="st">'+m+'</div><div class="st">Ticked clues: '+cl.length+' of '+D.clues.length+'. Tick one more and watch the \u2713 marks disappear.</div>'}
+D.texts.forEach(function(t,k){$("ch10-l2lab-c"+k).addEventListener("change",run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"Six friends were born in six different months. P was born two months before Q. R was born after S but before P. ... Who was born in the last month?"</li><li>"A seminar runs from Monday to Saturday, one speaker a day. X speaks the day after Y. Exactly two days are between Z and W. ... Who speaks on Thursday?"</li><li>Question shapes: who is on day k, on which day is X, how many days between, who comes just after X.</li></ul><p class="prog">Word clues: "earlier than", "prior to", "before" are smaller numbers. "Later than", "following", "after" are bigger. "Just before" and "the previous day" are −1. "Next day" is +1.</p><div class="tip"><b>Check the stem.</b> Our puzzles use Monday to Friday and January to May. If a real stem lists more days or months, use its list for the slot count.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this guide; the official wording is 1/4 of the marks assigned, and your call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Cross out one option and the odds improve.</p><div class="quiz"><script type="application/json">[
+{
+"q": "Lalit visits on a day between Kavya's and Mohan's visits (either order). Nisha visits on a later day than Mohan (not necessarily the next day). Ojas visits the day immediately after Kavya. Exactly 1 day falls between Nisha's and Lalit's visits. Who visits on Thursday?",
+"o": [
+"Kavya",
+"Lalit",
+"Mohan",
+"Nisha"
+],
+"a": 2,
+"e": "Answer Mohan. Working: use the clues to place everyone (arrangement from lowest slot to highest: Monday: Kavya Tuesday: Ojas Wednesday: Lalit Thursday: Mohan Friday: Nisha).",
+"t": [
+"Kavya visits on Monday. That is not the one asked about.",
+"Lalit visits on Wednesday. That is not the one asked about.",
+"",
+"Nisha visits on Friday. That is not the one asked about."
+]
+},
+{
+"q": "Ojas visits the day immediately after Nisha. Nisha visits on a later day than Lalit (not necessarily the next day). Lalit visits on a day between Kavya's and Mohan's visits (either order). Exactly 1 day falls between Kavya's and Ojas's visits. On which day does Kavya visit?",
+"o": [
+"Wednesday",
+"Tuesday",
+"Thursday",
+"Friday"
+],
+"a": 0,
+"e": "Answer Wednesday. Working: use the clues to place everyone (arrangement from lowest slot to highest: Monday: Mohan Tuesday: Lalit Wednesday: Kavya Thursday: Nisha Friday: Ojas).",
+"t": [
+"",
+"Tuesday belongs to Lalit, not Kavya.",
+"Thursday belongs to Nisha, not Kavya.",
+"Friday belongs to Ojas, not Kavya."
+]
+},
+{
+"q": "Mohan and Lalit were not born in consecutive months. Nisha's birth month is between Lalit's and Mohan's (either order). Ojas's birthday is in January, the first of the five months. Exactly 1 month falls between Mohan's and Ojas's birth months. Who was born in the month immediately after Mohan's?",
+"o": [
+"Kavya",
+"Lalit",
+"Ojas",
+"Nisha"
+],
+"a": 3,
+"e": "Answer Nisha. Working: use the clues to place everyone (arrangement from lowest slot to highest: January: Ojas February: Kavya March: Mohan April: Nisha May: Lalit).",
+"t": [
+"Kavya's birthday is in February. That is not the one asked about.",
+"Lalit's birthday is in May. That is not the one asked about.",
+"Ojas's birthday is in January. That is not the one asked about.",
+""
+]
+},
+{
+"q": "Kavya visits the day immediately after Lalit. Kavya visits on Friday. Mohan visits on a day between Kavya's and Ojas's visits (either order). Exactly 1 day falls between Mohan's and Ojas's visits. How many days fall between Nisha's and Lalit's visits?",
+"o": [
+0,
+1,
+2,
+3
+],
+"a": 1,
+"e": "Answer 1. Working: use the clues to place everyone (arrangement from lowest slot to highest: Monday: Ojas Tuesday: Nisha Wednesday: Mohan Thursday: Lalit Friday: Kavya).",
+"t": [
+"0 does not match the arrangement. Strictly between them there are 1.",
+"",
+"2 is the gap between the two slot numbers. The number strictly between is one less (2 − 1 = 1).",
+"3 also counts one of the two end people. Count only those strictly between."
+]
+},
+{
+"q": "Lalit's birth month is between Kavya's and Nisha's (either order). Ojas was born in the month immediately after Kavya's birth month. Lalit's birth month is between Kavya's and Mohan's (either order). Exactly 1 month falls between Kavya's and Nisha's birth months. How many of the five friends were born after Nisha?",
+"o": [
+0,
+1,
+2,
+3
+],
+"a": 3,
+"e": "Answer 3. Working: use the clues to place everyone (arrangement from lowest slot to highest: January: Mohan February: Nisha March: Lalit April: Kavya May: Ojas).",
+"t": [
+"0 does not match: the number above is 3.",
+"1 counts those BELOW, not above.",
+"2 does not match: the number above is 3.",
+""
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) Which slot number is Monday? (2) "Exactly one day between": how far apart are the numbers? (3) Days between Monday and Friday? (4) Does "between" fix the order of the two outer people?</div><div class="mem"><b>Memorise this</b><br>1. Number the days: Mon 1 to Fri 5.<br>2. Before is smaller, after is bigger, immediately after is +1.<br>3. Exactly k between: numbers differ by k + 1.<br>4. Between B and C allows both orders until another clue decides.<br>5. Fixed day first, "not" clues last.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem">Wikipedia: Constraint satisfaction problem</a> · <a href="https://en.wikipedia.org/wiki/Logic_puzzle">Wikipedia: Logic puzzle</a>. Slot translations, the 40-of-120 count, and every worked example and quiz answer: derived, Python-checked.<br><b>UNVERIFIED:</b> real PFRDA stems may use six or more days or months, or allow two events on one day; none of that is claimed here.</p></section>
+<section class="lesson" id="ch10-l3"><h2 class="lt">Lesson 3 · Table puzzles and comparison puzzles</h2><p class="oneline">In one line: when each person has two or more facts (colour, drink), draw a small table and fill what you know; when the clues only compare (taller, older), build a chain and ask what is fixed.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>Four friends order at a Kolkata cafe. Everyone likes a different colour and drinks a different drink. You hear: "The blue-lover drinks coffee" and "Ravi likes red". There is no order, no floors: just a table of who has what.</p><div class="tw"><table><tr><th>Person</th><th>Colour</th><th>Drink</th></tr><tr><td>Ravi</td><td>Red</td><td>?</td></tr><tr><td>Sita</td><td>?</td><td>?</td></tr><tr><td>Tarun</td><td>?</td><td>?</td></tr><tr><td>Uma</td><td>?</td><td>?</td></tr></table></div><p class="cap">Clues fill the question marks one at a time.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Convention: each person has exactly one value from each category (colour, drink), and no two people share a value.</div><div class="st">Draw a table. Rows are people, columns are categories. Start empty.</div><div class="st">A direct clue ("Ravi likes red") goes straight into its cell. It is settled for good.</div><div class="st">A "not" clue ("Tarun does not like blue") becomes a small X in that cell. X marks are knowledge too, but they do not place anyone yet.</div><div class="st">A link clue ("the blue-lover drinks coffee") says blue and coffee belong to the SAME person. Bracket them together. When one is placed, so is the other.</div><div class="st">Elimination: if a value is crossed out for every person but one, it belongs to that one.</div><div class="st">Comparison clues ("A is taller than B") are different. They give an order, not a table. Chain them: Esha &gt; Dev &gt; Charu &gt; Bala.</div><div class="st">Chains join at a shared name. "Asha &gt; Bala" and "Charu &gt; Bala" both hang from Bala, but say nothing about Asha versus Charu.</div><div class="st">Ask the question first. "Who is shortest?" only needs one name that has everyone above it, not the full order.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Table rule: each value belongs to exactly one person per category. A link puts two values in one row. A "not" crosses one cell.</div><div class="box">Chain rule: A &gt; B and B &gt; C give A &gt; C. The ">" carries through a chain.</div><div class="box">A person is definitely the shortest only if the clues put every other person above them, directly or through a chain. A person is definitely the tallest by the mirror rule.</div><div class="box">If both orders of two names can happen in some valid arrangement, the clues do not decide which is taller: "cannot tell".</div><p class="src">Table and one-value-each setup: Wikipedia "Logic puzzle" (grid and table puzzles) and "Zebra Puzzle". Chain rule and the "cannot tell" test: derived, Python-checked over all arrangements.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Ravi, Sita, Tarun, Uma each like a different colour (Red, Blue, Green, Yellow) and drink a different drink (Tea, Coffee, Milk, Juice). Ravi likes red. Uma drinks juice. The person who likes green drinks juice. The person who likes blue drinks coffee. Tarun does not like blue. Tarun does not drink tea. What does Ravi drink?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Write in: Ravi = Red. Uma = Juice.</div><div class="st">Step 2. Green and Juice are one person, and Uma drinks juice. So Uma likes Green.</div><div class="st">Step 3. Blue is not Ravi (red), not Uma (green), not Tarun (clue). So Sita likes Blue, and drinks Coffee.</div><div class="st">Step 4. Yellow is left for Tarun.</div><div class="st">Step 5. Tea and Milk are left for Ravi and Tarun. Tarun does not drink tea, so Tarun = Milk and Ravi = Tea.</div><div class="st">Step 6. Answer: <b>Tea</b>. Table: Ravi Red Tea; Sita Blue Coffee; Tarun Yellow Milk; Uma Green Juice.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Asha is taller than Bala. Charu is taller than Bala. Dev is taller than Charu. Esha is taller than Dev. Who is the shortest?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Chain the last three: Esha &gt; Dev &gt; Charu &gt; Bala.</div><div class="st">Step 2. Asha &gt; Bala: Asha sits somewhere above Bala. Her place in the chain is open.</div><div class="st">Step 3. Bala has everyone above. Answer: <b>Bala</b>.</div><div class="st">Step 4. Python check: 4 arrangements fit the clues. Bala is shortest in all 4. Asha is 2nd, 3rd, 4th or 5th shortest, so her place is not fixed, and the answer does not need it.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Same clues as above: Asha &gt; Bala, Charu &gt; Bala, Dev &gt; Charu, Esha &gt; Dev.</div><div class="st">Wrong move: "Asha is only named above Bala, so she must be second shortest."</div><div class="st">Python: in the 4 valid arrangements Asha is 2nd, 3rd, 4th or 5th shortest. Also, Asha is taller than Charu in some and shorter in others. The clues do not say.</div><div class="st">Right: never fill a gap with a guess. Ask "is there a valid arrangement the other way?" If yes, you cannot tell.</div><div class="st">Table trap: "Tarun does not like blue" is not a placement. Blue could still be any of three people until other clues cross them out.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: fill, cross, link; or draw one chain</h2><div class="tip"><b>Table puzzles.</b> Direct clues first. Then link clues that touch a placed value. Then eliminate: a value crossed out for all but one person goes to that person.<br><b>Comparison puzzles.</b> Draw one line, tallest on the left. Join clues at shared names. The tallest is the name with nobody above; the shortest is the name with nobody below. Check that the clues really connect everyone before you call it.</div><h3>Speed drill</h3><p class="prog">Say the answer aloud before you tap Show.</p><div class="drill"><script type="application/json">[["\"Ravi likes red\" goes where?", "Write red in Ravi's cell"], ["\"Tarun does not like blue\" goes where?", "A small X in Tarun's blue cell; no colour is fixed yet"], ["\"The blue-lover drinks coffee\" means?", "Blue and coffee are the same person"], ["A value is crossed out for 3 of 4 people", "It belongs to the 4th person"], ["A > B and B > C. Who is taller than C?", "A and B"], ["A > B and C > B (three people). A versus C?", "Cannot tell"], ["E > D > C > B in a chain. Shortest?", "B"], ["A > B and C > B (three people). Shortest?", "B"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: clue switchboard (heights)</h2><p class="prog">Rank 1 = shortest, rank 5 = tallest. Tick the four comparison clues one by one. Notice how many places Asha keeps.</p><div id="ch10-l3lab"></div><div class="tw" id="ch10-l3lab-t"></div><div class="stepbox" style="margin-top:10px" id="ch10-l3lab-o"></div><script>(function(){
+function labHolds(p,c){var t=c[0];
+if(t==='on')return p[c[1]]===c[2];
+if(t==='not_on')return p[c[1]]!==c[2];
+if(t==='top')return p[c[1]]===Object.keys(p).length;
+if(t==='bottom')return p[c[1]]===1;
+if(t==='imm_above')return p[c[1]]===p[c[2]]+1;
+if(t==='above')return p[c[1]]>p[c[2]];
+if(t==='between'){var lo=Math.min(p[c[2]],p[c[3]]),hi=Math.max(p[c[2]],p[c[3]]);return lo<p[c[1]]&&p[c[1]]<hi}
+if(t==='adj')return Math.abs(p[c[1]]-p[c[2]])===1;
+if(t==='not_adj')return Math.abs(p[c[1]]-p[c[2]])!==1;
+if(t==='gap')return Math.abs(p[c[1]]-p[c[2]])-1===c[3];
+return false}
+function labSolve(items,clues){var n=items.length,out=[],used=[],cur=[];
+function rec(i){if(i===n){var p={};for(var k=0;k<n;k++)p[items[k]]=cur[k];if(clues.every(function(c){return labHolds(p,c)}))out.push(p);return}
+for(var s=1;s<=n;s++){if(!used[s]){used[s]=true;cur[i]=s;rec(i+1);used[s]=false}}}
+rec(0);return out}
+
+var D={"items": ["Asha", "Bala", "Charu", "Dev", "Esha"], "labels": ["1 short", "2", "3", "4", "5 tall"], "clues": [["above", "Asha", "Bala"], ["above", "Charu", "Bala"], ["above", "Dev", "Charu"], ["above", "Esha", "Dev"]], "texts": ["Asha is taller than Bala.", "Charu is taller than Bala.", "Dev is taller than Charu.", "Esha is taller than Dev."], "on": [0]};function $(i){return document.getElementById(i)}
+var box=$("ch10-l3lab"),tb=$("ch10-l3lab-t"),o=$("ch10-l3lab-o"),h="";
+D.texts.forEach(function(t,k){h+='<label style="display:flex;gap:8px;align-items:flex-start;margin:6px 0"><input type="checkbox" id="ch10-l3lab-c'+k+'"'+(D.on.indexOf(k)>=0?" checked":"")+' style="width:auto;margin-top:4px"><span>'+t+'</span></label>'});box.innerHTML=h;
+function run(){var cl=[];D.clues.forEach(function(c,k){if($("ch10-l3lab-c"+k).checked)cl.push(c)});var S=labSolve(D.items,cl);
+var t='<table><tr><th>Name</th>'+D.labels.map(function(l){return"<th>"+l+"</th>"}).join("")+"</tr>";
+D.items.forEach(function(it){t+="<tr><td>"+it+"</td>";for(var s=1;s<=D.items.length;s++){var ok=S.some(function(p){return p[it]===s});t+="<td>"+(ok?"\u2713":"\u00b7")+"</td>"}t+="</tr>"});tb.innerHTML=t+"</table>";
+var m;if(S.length===0)m="<b>0 arrangements</b>: these clues contradict each other.";else if(S.length===1)m="<b>1 arrangement left: solved.</b> Each name has exactly one \u2713.";else m="<b>"+S.length+" of "+(function(){var f=1;for(var i=2;i<=D.items.length;i++)f*=i;return f})()+" arrangements fit.</b> A \u2713 means that place is still possible; a dot means it is ruled out.";
+o.innerHTML='<div class="st">'+m+'</div><div class="st">Ticked clues: '+cl.length+' of '+D.clues.length+'. Tick one more and watch the \u2713 marks disappear.</div>'}
+D.texts.forEach(function(t,k){$("ch10-l3lab-c"+k).addEventListener("change",run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"Four friends P, Q, R, S each like a different sport and live in a different city. P lives in Delhi. The person who likes chess lives in Pune. ... Who likes cricket?"</li><li>"A is older than B but younger than C. D is older than C. Who is the youngest?"</li><li>Question shapes: who has value X, what does person P have, who is the tallest or shortest, how many are older than X, "cannot be determined".</li></ul><p class="prog">If a question can end in "cannot be determined", test both directions before you pick it. Chapter 12 (Data Sufficiency) trains exactly this.</p><div class="tip"><b>How wrong options are built.</b> In our quiz each wrong option is another person who really has a different value, so checking the full table tells you why it fails.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this guide; the official wording is 1/4 of the marks assigned, and your call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Cross out one option and the odds improve.</p><div class="quiz"><script type="application/json">[
+{
+"q": "Ishaan studies maths. The person who studies physics lives in pune. Karan does not study physics. Leela lives in goa. Ishaan lives in kochi. Which city does Karan live in?",
+"o": [
+"Pune",
+"Goa",
+"Kochi",
+"Delhi"
+],
+"a": 3,
+"e": "Answer Delhi. Full solution: Ishaan: Maths, Kochi; Jaya: Physics, Pune; Karan: Chemistry, Delhi; Leela: Biology, Goa.",
+"t": [
+"Jaya lives in pune, not Karan.",
+"Leela lives in goa, not Karan.",
+"Ishaan lives in kochi, not Karan.",
+""
+]
+},
+{
+"q": "Anil travels by metro. The person who travels by bus works as a teacher. Chetan does not travel by bus. Divya works as a chef. The person who travels by bike works as a doctor. Who works as a doctor?",
+"o": [
+"Anil",
+"Bhavna",
+"Chetan",
+"Divya"
+],
+"a": 2,
+"e": "Answer Chetan. Full solution: Anil: Metro, Pilot; Bhavna: Bus, Teacher; Chetan: Bike, Doctor; Divya: Auto, Chef.",
+"t": [
+"Anil works as a pilot, not doctor.",
+"Bhavna works as a teacher, not doctor.",
+"",
+"Divya works as a chef, not doctor."
+]
+},
+{
+"q": "Dev is taller than Esha. Esha is taller than Asha. Asha is taller than Charu. Charu is taller than Bala. Who is the tallest?",
+"o": [
+"Asha",
+"Dev",
+"Esha",
+"Bala"
+],
+"a": 1,
+"e": "Answer Dev. Working: use the clues to place everyone (arrangement from lowest slot to highest: Rank 1: Bala Rank 2: Charu Rank 3: Asha Rank 4: Esha Rank 5: Dev).",
+"t": [
+"Asha is number 3 counting from the shortest. That is not the one asked about.",
+"",
+"Esha is number 4 counting from the shortest. That is not the one asked about.",
+"Bala is number 1 counting from the shortest. That is not the one asked about."
+]
+},
+{
+"q": "Asha is taller than Bala. Charu is taller than Bala. Dev is taller than Charu. Esha is taller than Dev. Who is the shortest?",
+"o": [
+"Bala",
+"Asha",
+"Charu",
+"Dev"
+],
+"a": 0,
+"e": "Answer Bala. Working: use the clues to place everyone (the clues fix the asked item even though other places stay open; one valid arrangement: Rank 1: Bala Rank 2: Asha Rank 3: Charu Rank 4: Dev Rank 5: Esha).",
+"t": [
+"",
+"Asha is number 2 counting from the shortest. That is not the one asked about.",
+"Charu is number 3 counting from the shortest. That is not the one asked about.",
+"Dev is number 4 counting from the shortest. That is not the one asked about."
+]
+},
+{
+"q": "Asha is taller than Bala. Charu is taller than Asha. Dev is taller than Charu. Bala is taller than Esha. How many of the five are shorter than Asha?",
+"o": [
+1,
+2,
+3,
+4
+],
+"a": 1,
+"e": "Answer 2. Working: use the clues to place everyone (arrangement from lowest slot to highest: Rank 1: Esha Rank 2: Bala Rank 3: Asha Rank 4: Charu Rank 5: Dev).",
+"t": [
+"1 does not match: the number shorter is 2.",
+"",
+"3 counts Asha itself as well.",
+"4 does not match: the number shorter is 2."
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) Where does a "not" clue go? (2) What does a link clue tell me? (3) A &gt; B and C &gt; B: do I know A versus C? (4) How do I know someone is definitely the shortest?</div><div class="mem"><b>Memorise this</b><br>1. Table: direct clue fills, "not" crosses, link joins two values in one row.<br>2. Last value left for a person goes to that person.<br>3. A &gt; B &gt; C means A &gt; C.<br>4. Do not guess what the clues leave open: test the other order.<br>5. Shortest = everyone else is above them (directly or by chain).</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Logic_puzzle">Wikipedia: Logic puzzle</a> · <a href="https://en.wikipedia.org/wiki/Zebra_Puzzle">Wikipedia: Zebra Puzzle</a> · <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem">Wikipedia: Constraint satisfaction problem</a>. Table solutions, chain rule, "cannot tell" test and every quiz answer: derived, Python-checked by enumeration.<br><b>UNVERIFIED:</b> how often table or comparison puzzles appear in the real paper; real PFRDA wording; whether real papers use "cannot be determined" options.</p></section>
+<p class="src"><b>Chapter sources:</b> Wikipedia (Logic puzzle, Zebra Puzzle, Permutation, Constraint satisfaction problem). Exam facts: PFRDA 2026 notification (Test of Reasoning 30 Q, 25 marks, one 60-minute paper shared by four sections, Phase I on 15 Oct 2026); marking in this guide is a flat −0.25 per wrong answer as directed, while the official wording is 1/4 of the marks assigned.<br><b>UNVERIFIED:</b> the real number of puzzle questions; real PFRDA puzzle wording and difficulty; the topic list is third-party, not official.</p>
+</article>

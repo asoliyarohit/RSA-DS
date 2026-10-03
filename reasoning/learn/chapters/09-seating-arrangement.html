@@ -13,7 +13,7 @@
 <div class="st">Write the sure clues first (anyone at an end or given a fixed box). Then use "not at" clues to cross out boxes. When one name fits only one box, lock it in.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 <section class="card"><h2><span class="n">3</span>The rule (only after the picture)</h2>
-<div class="box">All face North: their left = West = left of your drawing. All face South: their left = East = RIGHT of your drawing.</div><div class="box">Row of n people: k-th from the left = (n + 1 − k)-th from the right.</div><div class="box">Strictly between box a and box b (a &lt; b): b − a − 1 people.</div><p class="src">Facing north puts east on the right and west on the left: Wikipedia "Cardinal direction". The left/right rule for each heading and the place-from-right formula: derived, Python-checked (coordinates for every heading; all slot counts by enumeration).</p></section>
+<div class="box">All face North: their left = West = left of your drawing. All face South: their left = East = RIGHT of your drawing.</div><div class="box">Row of n people: k-th from the left = (n + 1 − k)-th from the right.</div><div class="box">Strictly between box a and box b (a &lt; b): b − a − 1 people.</div><p class="src">Compass bearings N 0°, E 90°, S 180°, W 270° measured clockwise from north: Wikipedia "Cardinal direction". The left/right rule for each heading and the place-from-right formula: derived, Python-checked (coordinates for every heading; all slot counts by enumeration).</p></section>
 <section class="card"><h2><span class="n">4</span>Worked example, one tap per step</h2>
 <p><b>Five people A, B, C, D, E sit in a row facing north. C is at the extreme left. E is second from the right end. D is not at the extreme right. A is not at either end. D sits somewhere to the left of A. Find the order, left to right.</b></p><div class="stepbox" data-steps>
 <div class="st">Step 1. Draw five boxes: [1][2][3][4][5].</div>
@@ -256,7 +256,7 @@ t.innerHTML='<div class="st">1. Seat '+k+' faces '+(inside?"the centre":"outside
    "10"
   ],
   "a": 2,
-  "e": "Opposite is n ÷ 2 seats away. Third to the right is 3 seats away (it counts the same either way round). So n ÷ 2 = 3 and n = 6. Python checked all even n from 4 to 20: only n = 6.",
+  "e": "Opposite is n ÷ 2 seats away. Third to the right is 3 seats away. Opposite is n ÷ 2 seats away in either direction, so n ÷ 2 = 3 and n = 6. Python checked all even n from 4 to 20: only n = 6.",
   "t": [
    "In a ring of 4, third to the right is one seat to the left of B, not opposite (opposite is 2 seats away).",
    "Opposite in a ring of 8 is 4 seats away, not 3.",
@@ -281,7 +281,7 @@ t.innerHTML='<div class="st">1. Seat '+k+' faces '+(inside?"the centre":"outside
 <div class="st">To be safe, give each clue the compass word first, then place the person.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 <section class="card"><h2><span class="n">3</span>The rule (only after the picture)</h2>
-<div class="box">Row facing South: left = East, right = West. Row facing North: left = West, right = East.</div><div class="box">Opposite of seat i from the west in one row = seat i from the west in the other row.</div><div class="box">Two rows of m people give m opposite pairs.</div><p class="src">Compass facing: Wikipedia "Cardinal direction" (facing north: east on the right, west on the left). Row rules and pair count: derived, Python-checked (coordinates; brute force over all seatings).</p></section>
+<div class="box">Row facing South: left = East, right = West. Row facing North: left = West, right = East.</div><div class="box">Opposite of seat i from the west in one row = seat i from the west in the other row.</div><div class="box">Two rows of m people give m opposite pairs.</div><p class="src">Compass bearings (E is 90° clockwise from N): Wikipedia "Cardinal direction". Row rules and pair count: derived, Python-checked (coordinates; brute force over all seatings).</p></section>
 <section class="card"><h2><span class="n">4</span>Worked example, one tap per step</h2>
 <p><b>Rows of three. Row 1 (faces south) holds A, B, C. Row 2 (faces north) holds D, E, F. C sits at the east end of row 1. A sits immediately to the right of C. D sits opposite C. E sits immediately to the left of D. Who sits immediately to the left of A?</b></p><div class="stepbox" data-steps>
 <div class="st">Step 1. Draw two rows of three boxes; label west and east.</div>
@@ -374,10 +374,10 @@ t.innerHTML='<div class="st">1. Row '+row+' faces '+(row===1?"South":"North")+':
   "a": 2,
   "e": "Opposite X is seat 2 from the west in row 2. Y is second from the east = seat 4 from the west. Only seat 3 lies between: 1 person.",
   "t": [
-   "That would make them neighbours; seats 2 and 4 from the west have seat 3 between.",
+   "0 would make them neighbours (as if Y were seat 3 from the west, from 5 − 2). Second from the east in a row of 5 is seat 4 from the west, so seat 3 lies between.",
    "That is the gap in seat numbers (4 − 2), not the people strictly between.",
    "",
-   "Used 5 − 2 = 3 as Y's seat; second from the east in a row of 5 is the 4th from the west."
+   "5 − 2 = 3 counts everyone in the row except the two of them; only seat 3 lies strictly between seats 2 and 4."
   ]
  },
  {
