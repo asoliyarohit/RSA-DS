@@ -57,7 +57,7 @@ def gather(max_per_feed=8) -> dict:
             items.append(it)
     items.sort(key=lambda x: x["time"].timestamp() if x["time"] else 0, reverse=True)
     flags = sorted({v for it in items for k, v in EVENT_RISK.items()
-                    if re.search(rf"\\b{re.escape(k.strip())}\\b", it["title"].lower())})
+                    if re.search(rf"\b{re.escape(k.strip())}\b", it["title"].lower())})
     net = sum(i["score"] for i in items)
     tilt = "risk-on" if net >= 3 else "risk-off" if net <= -3 else "mixed/neutral"
     return {"items": items, "net_score": net, "tilt": tilt, "event_flags": flags}

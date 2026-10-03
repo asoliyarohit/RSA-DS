@@ -48,3 +48,12 @@ def test_overnight_trade_uses_next_open():
     t = trades_close(f, CloseParams(mode="ibs", thr=1.0, trend=False, both_sides=False), CFDSpec())
     r = t.iloc[10]; i = f.index.get_loc(r["date"])
     assert abs(r["gross"] - (f["open"].iloc[i + 1] / f["close"].iloc[i] - 1)) < 1e-12
+
+
+def test_event_flags_use_word_boundaries(monkeypatch):
+    from analyst import news
+    monkeypatch.setattr(news, "_fetch", lambda url, timeout=15: [
+        {"title": "Cramer warned viewers", "time": None, "link": ""},
+        {"title": "FOMC decision looms as CPI nears", "time": None, "link": ""}])
+    flags = news.gather()["event_flags"]
+    assert "Geopolitics" not in flags and "Fed decision" in flags and "Inflation print" in flags
