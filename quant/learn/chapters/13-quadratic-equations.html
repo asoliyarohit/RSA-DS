@@ -1,0 +1,326 @@
+<article class="chapter" id="ch13" data-no="13" data-title="Quadratic Equations" data-tag="Highest ROI: 5 Qs reported in 2025 (memory-based) · 3 lessons">
+<h1>Quadratic Equations (x and y comparison)</h1>
+<p class="oneline">In one line: solve two small quadratics, list the roots, and compare x with y. Reported as 5 questions in 2025 in memory-based exam analyses, so this chapter is worth the effort.</p>
+<section class="lesson" id="ch13-l1"><h2 class="lt">Lesson 1 · Solve one quadratic</h2><p class="oneline">In one line: a quadratic is solved by finding two numbers that multiply to the last term and add to the middle one, then flipping their signs to get the roots.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>Your hostel mess charges a flat fee for tea and samosas, and you are told: “two numbers multiply to 12 and add to 7”. You think: 3 and 4. A quadratic equation is that same puzzle in disguise.</p><div class="bars" role="img" aria-label="A 3 by 4 grid of 12 squares"><div class="row"><span class="a" style="width:75%">3 × 4</span><span class="b" style="width:25%">= 12</span></div></div><p class="cap">Product 12, sum 7. Factor-pair thinking is the whole engine of this chapter.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">A quadratic equation has an x² term. Standard form: ax² + bx + c = 0 (a is not zero).</div><div class="st">It usually has two answers for x. They are called <b>roots</b>.</div><div class="st">Look at x² − 7x + 12 = 0. Find two numbers that multiply to 12 and add to −7. Those are −3 and −4.</div><div class="st">Write it as (x − 3)(x − 4) = 0. A product is zero only if one part is zero.</div><div class="st">So x − 3 = 0 or x − 4 = 0. Roots: x = 3 and x = 4. Note: the roots are the numbers with the OPPOSITE sign.</div><div class="st">If the x² has a number in front (like 2x²), multiply that number by c first. That is the “split the middle term” method.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Standard form: ax² + bx + c = 0</div><div class="box">Split the middle: find two numbers with product = a × c and sum = b. Rewrite bx using them, group, factor.</div><div class="box">Zero-product rule: if (px + q)(rx + s) = 0, then px + q = 0 or rx + s = 0.</div><div class="box">Sign rule for x² + bx + c (a = 1, real roots): c positive → both roots have the SAME sign, the opposite of b’s sign. c negative → roots have DIFFERENT signs; the bigger-magnitude root has the opposite sign of b.</div><p class="src">Standard form, factoring (AC method) and zero-product: Math Is Fun pages in Sources. The sign rule was verified by Python on 400+ integer root pairs.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Solve x² − 7x + 12 = 0.</b></p><div class="stepbox" data-steps><div class="st">Step 1. a = 1, b = −7, c = 12. Need product 12 and sum −7.</div><div class="st">Step 2. Pairs of 12: (1,12), (2,6), (3,4). Signs: c is positive so both same sign; b is negative so both negative: −3 and −4 (sum −7).</div><div class="st">Step 3. Split: x² − 3x − 4x + 12 = x(x − 3) − 4(x − 3) = (x − 3)(x − 4).</div><div class="st">Step 4. Roots: <b>x = 3 and x = 4</b>. Check: 3 + 4 = 7 = −b, 3 × 4 = 12 = c.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Solve 2x² + 7x + 3 = 0.</b></p><div class="stepbox" data-steps><div class="st">Step 1. a = 2, b = 7, c = 3. Product a × c = 6, sum must be 7.</div><div class="st">Step 2. Pairs of 6: (1,6) adds to 7. Good.</div><div class="st">Step 3. Split: 2x² + x + 6x + 3 = x(2x + 1) + 3(2x + 1) = (2x + 1)(x + 3).</div><div class="st">Step 4. 2x + 1 = 0 gives x = −1/2. x + 3 = 0 gives x = −3. Answer: <b>−1/2 and −3</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Equation: x² − 7x + 12 = 0. Factors: (x − 3)(x − 4).</div><div class="st">Wrong move: read the numbers 3 and 4 off the factors with the same sign as the factors, or flip them to −3 and −4 because b is negative.</div><div class="st">Test x = −3: (−3)² − 7(−3) + 12 = 9 + 21 + 12 = <b>42</b>, not 0. So −3 is wrong.</div><div class="st">Right: (x − 3) = 0 means x = +3. Roots are the numbers that make a bracket zero: opposite sign to the number inside. Always substitute one root to check.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Mental-math shortcut: factor pairs and the sign rule</h2><p>Learn the pairs of c once. Then you only look for the pair whose sum is |b|.</p><div class="tw"><table><tr><th>Product</th><th>Pairs (sum)</th></tr><tr><td>12</td><td>1,12 (13) · 2,6 (8) · 3,4 (7)</td></tr><tr><td>20</td><td>1,20 (21) · 2,10 (12) · 4,5 (9)</td></tr><tr><td>24</td><td>1,24 (25) · 2,12 (14) · 3,8 (11) · 4,6 (10)</td></tr><tr><td>30</td><td>1,30 (31) · 2,15 (17) · 3,10 (13) · 5,6 (11)</td></tr><tr><td>36</td><td>1,36 (37) · 2,18 (20) · 3,12 (15) · 4,9 (13) · 6,6 (12)</td></tr></table></div><div class="tip"><b>Sign routine.</b> (1) c positive: same sign, take the opposite of b’s sign. (2) c negative: one + one −; the bigger number gets the opposite sign to b. Example x² + 2x − 15: pair 3,5 differ by 2; bigger (5) gets the sign opposite to +2, so −5 and +3.</div><h3>Speed drill</h3><p class="prog">Say the two numbers aloud before you tap Show.</p><div class="drill"><script type="application/json">[["Product 12, sum 7", "3 and 4"], ["Product 20, sum 9", "4 and 5"], ["Product 24, sum 10", "4 and 6"], ["Product 30, sum 11", "5 and 6"], ["Product 36, sum 13", "4 and 9"], ["Product 24, sum 11", "3 and 8"], ["Product 12, sum -8", "−2 and −6"], ["Product 20, sum -12", "−2 and −10"], ["Product -15, sum 2", "5 and −3"], ["Product -24, sum 2", "6 and −4"], ["Product -20, sum -1", "−5 and 4"], ["Product -12, sum 1", "4 and −3"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: factor-pair finder</h2><label for="ch13-l1a">a (number before x²)</label><input id="ch13-l1a" type="number" value="1" inputmode="numeric">
+<label for="ch13-l1b">b (number before x)</label><input id="ch13-l1b" type="number" value="-7" inputmode="numeric">
+<label for="ch13-l1c">c (last number)</label><input id="ch13-l1c" type="number" value="12" inputmode="numeric">
+<div class="stepbox" style="margin-top:10px" id="ch13-l1o"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(4)}
+function lab(){var a=parseInt($('ch13-l1a').value),b=parseInt($('ch13-l1b').value),c=parseInt($('ch13-l1c').value),o=$('ch13-l1o');
+if(isNaN(a)||isNaN(b)||isNaN(c)||a===0){o.innerHTML='<div class="st">Enter whole numbers; a cannot be 0.</div>';return}
+var ac=a*c,h='<div class="st">1. Target: product a×c = '+ac+', sum b = '+b+'</div>',m=null,lim=Math.abs(ac)+Math.abs(b)+1;
+for(var i=-lim;i<=lim&&m===null;i++){if(i!==0&&ac%i===0&&i+ac/i===b)m=[i,ac/i]}
+var D=b*b-4*a*c;
+if(m){h+='<div class="st">2. Pair found: '+m[0]+' and '+m[1]+'. Split: '+a+'x² '+(m[0]<0?'− ':'+ ')+Math.abs(m[0])+'x '+(m[1]<0?'− ':'+ ')+Math.abs(m[1])+'x '+(c<0?'− ':'+ ')+Math.abs(c)+'</div>'}
+else{h+='<div class="st">2. No whole-number pair. Roots are not both neat numbers.</div>'}
+if(D<0){h+='<div class="st">3. b² − 4ac = '+D+' is negative: no real roots.</div>'}
+else{var s=Math.sqrt(D),r1=(-b+s)/(2*a),r2=(-b-s)/(2*a);h+='<div class="st">3. Roots: <b>'+f(r1)+'</b> and <b>'+f(r2)+'</b> (decimals). Check sum = '+f(r1+r2)+', product = '+f(r1*r2)+'</div>'}
+o.innerHTML=h}
+['ch13-l1a','ch13-l1b','ch13-l1c'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“Solve: x² − 9x + 20 = 0.” (find both roots)</li><li>“I. 2x² + 7x + 3 = 0 &nbsp; II. y² + 4y + 3 = 0. Compare x and y.” Here Lesson 1 gives the roots; Lesson 2 does the comparison.</li><li>Equations are often given in untidy form, like x² = 5x − 6 or (x + 2)(x − 1) = 4. First move everything to one side so it equals 0.</li></ul><div class="tip"><b>Reported, not official.</b> Quadratic Equations were reported as 5 of the 20 Quant questions in the 2025 paper in memory-based exam analyses (edutap.in). The official notification lists no Quant topics. Five questions = 6.25 of 25 Quant marks.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%: 0.3125 ÷ (1.25 + 0.3125) = 0.2.</p><div class="quiz"><script type="application/json">[
+{
+"q": "Roots of x² − 7x + 12 = 0?",
+"o": [
+"−3 and −4",
+"2 and 6",
+"3 and 4",
+"−4 and 3"
+],
+"a": 2,
+"e": "(x − 3)(x − 4) = 0, so x = 3 or 4. Sum 7, product 12.",
+"t": [
+"Sign flip: these would solve x² + 7x + 12 = 0. Test −3: 9 + 21 + 12 = 42",
+"Product is 12 but sum is 8, not 7",
+"",
+"Product is −12, but c is +12"
+]
+},
+{
+"q": "Roots of x² + 2x − 15 = 0?",
+"o": [
+"3 and −5",
+"−3 and 5",
+"3 and 5",
+"−3 and −5"
+],
+"a": 0,
+"e": "Pair 3, 5 with c negative: opposite signs, bigger (5) takes the sign opposite to +2, so −5 and 3. Check: −5 + 3 = −2 = −b, product −15.",
+"t": [
+"",
+"These solve x² − 2x − 15 = 0: sum is +2, not −2",
+"Product 15 is positive but c is −15; sum 8 not −2",
+"Product 15 positive but c is −15; sum −8 not −2"
+]
+},
+{
+"q": "Roots of 2x² + 7x + 3 = 0?",
+"o": [
+"1/2 and 3",
+"−2 and −3",
+"−1/2 and 3",
+"−1/2 and −3"
+],
+"a": 3,
+"e": "Split 7x as x + 6x: (2x + 1)(x + 3) = 0, so x = −1/2 or −3.",
+"t": [
+"Both signs flipped: these would give 2x² − 7x + 3",
+"Took the 2 as a root: forgot that 2x + 1 = 0 gives x = −1/2, not −2",
+"x + 3 = 0 gives −3, not +3",
+""
+]
+},
+{
+"q": "For 3x² − 12x + 9 = 0, what are the SUM and PRODUCT of the roots?",
+"o": [
+"−4 and 3",
+"4 and 3",
+"12 and 9",
+"4 and 9"
+],
+"a": 1,
+"e": "Divide by 3: x² − 4x + 3 = 0, roots 1 and 3. Sum 4, product 3.",
+"t": [
+"Sum is −b/a = +4; you forgot the minus on b is itself negative",
+"",
+"Not divided by a = 3",
+"Product is c/a = 3, not c = 9"
+]
+},
+{
+"q": "x² + 8x + 15 = 0. What can you say about the signs of the roots before solving?",
+"o": [
+"Both positive",
+"Both negative",
+"One positive, one negative",
+"Cannot say"
+],
+"a": 1,
+"e": "c = 15 is positive so same sign; b = +8, so both roots take the opposite sign: both negative (−3 and −5).",
+"t": [
+"Same sign is right, but they carry the opposite sign of b (+8), so negative",
+"",
+"That happens only when c is negative",
+"The sign rule settles it: c > 0 and b > 0 gives both negative"
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What two numbers do I hunt for? (2) Do roots keep the sign of the factor or flip it? (3) What does c positive tell me about the roots? (4) What do I do when a is not 1?</div><div class="mem"><b>Memorise this</b><br>1. Move everything to one side: ax² + bx + c = 0.<br>2. Find two numbers: product = a×c, sum = b.<br>3. Roots make each bracket zero: flip the sign inside the bracket.<br>4. c > 0: same sign roots (opposite of b). c < 0: mixed signs.<br>5. Check: sum of roots = −b/a, product = c/a.</div></section><p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/algebra/quadratic-equation.html">Math Is Fun: Quadratic Equations</a> · <a href="https://www.mathsisfun.com/algebra/factoring-quadratics.html">Math Is Fun: Factoring Quadratics</a> · <a href="https://en.wikipedia.org/wiki/Quadratic_equation">Wikipedia: Quadratic equation</a> · 2025 count: edutap.in/pfrda-grade-a/exam-analysis/ (memory-based). All worked numbers checked by Python.<br><b>UNVERIFIED:</b> the exact form of the 2025 quadratic questions; none else.</p></section>
+<section class="lesson" id="ch13-l2"><h2 class="lt">Lesson 2 · The x vs y relation grid</h2><p class="oneline">In one line: solve both equations, put the four roots on a number line, and compare the x roots against the y roots one pair at a time.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>Two teams, X and Y, each have two players with heights in cm. The coach asks: “is X taller than Y?” You can only say yes if EVERY X player is taller than EVERY Y player. If the tallest of Y stands between X players, you cannot say.</p><div class="bars" role="img" aria-label="Two groups on a line, X roots then Y roots"><div class="row"><span class="a" style="width:50%">x roots: 2, 3</span><span class="b" style="width:50%">y roots: 1, 2</span></div></div><p class="cap">Here the shortest X (2) ties with the tallest Y (2). That tie is why the answer is “≥”, not “&gt;”.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Question type: two equations, one in x and one in y. Each gives two values (usually).</div><div class="st">Step A: solve the x equation. Write the two x values, small to large.</div><div class="st">Step B: solve the y equation. Write the two y values, small to large.</div><div class="st">Step C: compare the SMALLEST x with the LARGEST y, and the LARGEST x with the SMALLEST y. Only these two checks decide everything.</div><div class="st">Step D: if smallest x is above largest y, every x beats every y: x &gt; y. If largest x is below smallest y: x &lt; y.</div><div class="st">Step E: if they only touch (equal) and nothing crosses, use ≥ or ≤. If the x values and y values overlap or interleave, there is no relation.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Let x have roots in X, y in Y. Compare min X, max X with min Y, max Y.</div><div class="box">x &gt; y if min X &gt; max Y &nbsp;·&nbsp; x &lt; y if max X &lt; min Y</div><div class="box">x ≥ y if min X ≥ max Y (and not strictly &gt;) &nbsp;·&nbsp; x ≤ y if max X ≤ min Y (and not strictly &lt;)</div><div class="box">Otherwise: no relation. If every root of both is the same single value, x = y.</div><p class="src">This is a logical definition: “x &gt; y” means true for every pair. Verified in Python against the pair-by-pair definition on 20,000 random root sets.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>I. x² − 5x + 6 = 0 &nbsp; II. y² − 3y + 2 = 0</b></p><div class="stepbox" data-steps><div class="st">Step 1. x: pair with product 6, sum −5 is −2, −3. (x − 2)(x − 3) = 0. x = 2, 3.</div><div class="st">Step 2. y: product 2, sum −3 is −1, −2. (y − 1)(y − 2) = 0. y = 1, 2.</div><div class="st">Step 3. Smallest x = 2, largest y = 2. Equal, so not strictly greater. Largest x = 3, smallest y = 1: x not below y.</div><div class="st">Step 4. Every x is at least every y: <b>x ≥ y</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>I. x² + x − 6 = 0 &nbsp; II. y² − 2y − 3 = 0</b></p><div class="stepbox" data-steps><div class="st">Step 1. x: product −6, sum +1: 3 and −2 give sum +1, so factors (x + 3)(x − 2). x = −3, 2.</div><div class="st">Step 2. y: product −3, sum −2: (y − 3)(y + 1). y = −1, 3.</div><div class="st">Step 3. Smallest x = −3 is below biggest y = 3. Biggest x = 2 is above smallest y = −1. Both directions occur.</div><div class="st">Step 4. Answer: <b>no relation (x = y or cannot be established)</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Equations: x² − 5x + 6 = 0 (x = 2, 3) and y² − 3y + 2 = 0 (y = 1, 2).</div><div class="st">Wrong move: pair them in order. Biggest with biggest: 3 &gt; 2. Smallest with smallest: 2 &gt; 1. Conclude x &gt; y.</div><div class="st">That ignores the pair x = 2 and y = 2. They are equal, so “x &gt; y” fails for that pair.</div><div class="st">Right: check ALL four pairs (or just min X vs max Y). The answer is <b>x ≥ y</b>.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Mental-math shortcut: min-vs-max routine and practice (10 items)</h2><div class="tip"><b>The 2-check routine.</b> Write X and Y small to large. Compare (min X, max Y) and (max X, min Y). Then use this grid:</div><div class="tw"><table><tr><th>min X vs max Y</th><th>max X vs min Y</th><th>Answer</th></tr><tr><td>min X &gt; max Y</td><td>(automatically above)</td><td>x &gt; y</td></tr><tr><td>min X = max Y</td><td>max X above min Y</td><td>x ≥ y</td></tr><tr><td>(automatically below)</td><td>max X &lt; min Y</td><td>x &lt; y</td></tr><tr><td>min X below max Y</td><td>max X = min Y</td><td>x ≤ y</td></tr><tr><td>min X below max Y</td><td>max X above min Y</td><td>no relation</td></tr></table></div><h3>Practice drill: 10 pairs</h3><p class="prog">Solve on paper first, then tap Show answer to check roots and relation. The last option in an exam is usually “x = y or no relation” (typical style).</p><div class="drill"><script type="application/json">[["x² − 5x + 6 = 0  |  y² − 3y + 2 = 0", "x: {2, 3}; y: {1, 2} → x ≥ y"], ["x² − 7x + 12 = 0  |  y² − 3y + 2 = 0", "x: {3, 4}; y: {1, 2} → x > y"], ["x² − 3x + 2 = 0  |  y² − 5y + 6 = 0", "x: {1, 2}; y: {2, 3} → x ≤ y"], ["x² + 5x + 6 = 0  |  y² − 7y + 10 = 0", "x: {−3, −2}; y: {2, 5} → x < y"], ["x² + x − 6 = 0  |  y² − 2y − 3 = 0", "x: {−3, 2}; y: {−1, 3} → no relation (last option)"], ["x² − 9x + 20 = 0  |  y² − 11y + 30 = 0", "x: {4, 5}; y: {5, 6} → x ≤ y"], ["2x² − 7x + 3 = 0  |  y² − 5y + 4 = 0", "x: {1/2, 3}; y: {1, 4} → no relation (last option)"], ["x² − 8x + 15 = 0  |  y² − 3y + 2 = 0", "x: {3, 5}; y: {1, 2} → x > y"], ["x² + 5x + 4 = 0  |  y² + 3y + 2 = 0", "x: {−4, −1}; y: {−2, −1} → no relation (last option)"], ["x² − 6x + 8 = 0  |  y² − 10y + 24 = 0", "x: {2, 4}; y: {4, 6} → x ≤ y"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: relation grid solver</h2><p class="prog">Type the numbers a, b, c of each equation (a x² + b x + c = 0). Try a = 0 for a simple linear equation like 2y + 3 = 0.</p>
+<b>Equation I (x)</b>
+<label for="ch13-xa">a</label><input id="ch13-xa" type="number" value="1" inputmode="decimal">
+<label for="ch13-xb">b</label><input id="ch13-xb" type="number" value="-5" inputmode="decimal">
+<label for="ch13-xc">c</label><input id="ch13-xc" type="number" value="6" inputmode="decimal">
+<b>Equation II (y)</b>
+<label for="ch13-ya">a</label><input id="ch13-ya" type="number" value="1" inputmode="decimal">
+<label for="ch13-yb">b</label><input id="ch13-yb" type="number" value="-3" inputmode="decimal">
+<label for="ch13-yc">c</label><input id="ch13-yc" type="number" value="2" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch13-l2o"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(4)}
+function rel(X,Y){var e=1e-9,mnX=Math.min.apply(null,X),mxX=Math.max.apply(null,X),mnY=Math.min.apply(null,Y),mxY=Math.max.apply(null,Y);
+if(mnX>mxY+e)return'x > y';if(mxX<mnY-e)return'x < y';var ge=mnX>=mxY-e,le=mxX<=mnY+e;if(ge&&le)return'x = y';if(ge)return'x ≥ y';if(le)return'x ≤ y';return'no relation (x = y or cannot be established)'}
+function roots(a,b,c){if(a===0){return b===0?null:[-c/b]}var D=b*b-4*a*c;if(D<0)return null;var s=Math.sqrt(D);return[(-b+s)/(2*a),(-b-s)/(2*a)]}
+function lab(){var v=['xa','xb','xc','ya','yb','yc'].map(function(k){return parseFloat($('ch13-'+k).value)}),o=$('ch13-l2o');
+if(v.some(isNaN)){o.innerHTML='<div class="st">Fill all six boxes.</div>';return}
+var X=roots(v[0],v[1],v[2]),Y=roots(v[3],v[4],v[5]);
+if(!X||!Y){o.innerHTML='<div class="st">'+(!X?'Equation I':'Equation II')+' has no real roots (or is not an equation). Real-root comparison needs real roots.</div>';return}
+var s=function(R){return R.slice().sort(function(a,b){return a-b}).map(f).join(', ')};
+o.innerHTML='<div class="st">1. x roots (small to large): <b>'+s(X)+'</b></div><div class="st">2. y roots (small to large): <b>'+s(Y)+'</b></div><div class="st">3. Smallest x = '+f(Math.min.apply(null,X))+', largest y = '+f(Math.max.apply(null,Y))+'; largest x = '+f(Math.max.apply(null,X))+', smallest y = '+f(Math.min.apply(null,Y))+'</div><div class="st">4. Relation: <b>'+rel(X,Y)+'</b></div>'}
+['xa','xb','xc','ya','yb','yc'].forEach(function(k){$('ch13-'+k).addEventListener('input',lab)});lab()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“I. x² − 7x + 12 = 0 &nbsp; II. y² − 5y + 4 = 0. Give answer: (A) x &gt; y (B) x &lt; y (C) x ≥ y (D) x ≤ y (E) x = y or the relation cannot be established.”</li><li>Sometimes one equation is linear, like 2y + 3 = 0, giving a single y value.</li><li>Sometimes the equation needs tidying first: x² = 5x − 6 becomes x² − 5x + 6 = 0.</li></ul><div class="tip"><b>Reported, not official.</b> 5 Quadratic Equation questions were reported for 2025 in memory-based exam analyses (edutap.in). The source I used does not say how those questions were worded or what the options were. A third-party topic list (Oliveboard, not official) names “Inequalities (quadratic)”.</div><div class="tip"><b>How the wrong options are built.</b> “&gt;” and “≥” sit side by side, and so do “&lt;” and “≤”. The difference is one tied pair of roots. Always check the touching pair.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%: 0.3125 ÷ (1.25 + 0.3125) = 0.2.</p><p class="prog">Options use the typical five-option style (the last option is “x = y or no relation”, shown in a varied position here).</p><div class="quiz"><script type="application/json">[
+{
+"q": "I. x² − 7x + 12 = 0 &nbsp; II. y² − 3y + 2 = 0. Which relation holds between x and y?",
+"o": [
+"x &lt; y",
+"x ≥ y",
+"x &gt; y",
+"x ≤ y",
+"x = y or no relation"
+],
+"a": 2,
+"e": "x in {3, 4}, y in {1, 2}. Smallest x (3) is still above biggest y (2), so x > y.",
+"t": [
+"x < y needs EVERY x to pass the test against EVERY y. It fails for x = 3, y = 1.",
+"x ≥ y is true but weaker than the exact answer (x > y); take the strongest true statement.",
+"",
+"x ≤ y needs EVERY x to pass the test against EVERY y. It fails for x = 3, y = 1.",
+"'No relation' is only right when the x roots straddle the y roots. Here a relation exists: x > y."
+]
+},
+{
+"q": "I. x² − 5x + 6 = 0 &nbsp; II. y² − 3y + 2 = 0. Which relation holds between x and y?",
+"o": [
+"x ≥ y",
+"x &gt; y",
+"x &lt; y",
+"x ≤ y",
+"x = y or no relation"
+],
+"a": 0,
+"e": "x in {2, 3}, y in {1, 2}. Smallest x (2) equals biggest y (2) and nothing is below it, so x ≥ y.",
+"t": [
+"",
+"x > y needs EVERY x to pass the test against EVERY y. It fails for x = 2, y = 2.",
+"x < y needs EVERY x to pass the test against EVERY y. It fails for x = 2, y = 1.",
+"x ≤ y needs EVERY x to pass the test against EVERY y. It fails for x = 2, y = 1.",
+"'No relation' is only right when the x roots straddle the y roots. Here a relation exists: x ≥ y."
+]
+},
+{
+"q": "I. x² + x − 6 = 0 &nbsp; II. y² − 2y − 3 = 0. Which relation holds between x and y?",
+"o": [
+"x &gt; y",
+"x &lt; y",
+"x ≥ y",
+"x = y or no relation",
+"x ≤ y"
+],
+"a": 3,
+"e": "x in {−3, 2}, y in {−1, 3}. x = −3 is below y = −1 but x = 2 is above y = −1: no single relation.",
+"t": [
+"x > y needs EVERY x to pass the test against EVERY y. It fails for x = −3, y = −1.",
+"x < y needs EVERY x to pass the test against EVERY y. It fails for x = 2, y = −1.",
+"x ≥ y needs EVERY x to pass the test against EVERY y. It fails for x = −3, y = −1.",
+"",
+"x ≤ y needs EVERY x to pass the test against EVERY y. It fails for x = 2, y = −1."
+]
+},
+{
+"q": "I. x² − 3x + 2 = 0 &nbsp; II. y² − 5y + 6 = 0. Which relation holds between x and y?",
+"o": [
+"x &gt; y",
+"x ≤ y",
+"x &lt; y",
+"x ≥ y",
+"x = y or no relation"
+],
+"a": 1,
+"e": "x in {1, 2}, y in {2, 3}. Biggest x (2) equals smallest y (2) and nothing is above it, so x ≤ y.",
+"t": [
+"x > y needs EVERY x to pass the test against EVERY y. It fails for x = 1, y = 2.",
+"",
+"x < y needs EVERY x to pass the test against EVERY y. It fails for x = 2, y = 2.",
+"x ≥ y needs EVERY x to pass the test against EVERY y. It fails for x = 1, y = 2.",
+"'No relation' is only right when the x roots straddle the y roots. Here a relation exists: x ≤ y."
+]
+},
+{
+"q": "I. x² + 5x + 6 = 0 &nbsp; II. y² − 7y + 10 = 0. Which relation holds between x and y?",
+"o": [
+"x &gt; y",
+"x ≥ y",
+"x &lt; y",
+"x ≤ y",
+"x = y or no relation"
+],
+"a": 2,
+"e": "x in {−3, −2}, y in {2, 5}. Biggest x (−2) is below smallest y (2), so x < y.",
+"t": [
+"x > y needs EVERY x to pass the test against EVERY y. It fails for x = −3, y = 2.",
+"x ≥ y needs EVERY x to pass the test against EVERY y. It fails for x = −3, y = 2.",
+"",
+"x ≤ y is true but weaker than the exact answer (x < y); take the strongest true statement.",
+"'No relation' is only right when the x roots straddle the y roots. Here a relation exists: x < y."
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) Which two comparisons decide the answer? (2) When is it ≥ instead of &gt;? (3) When is there no relation? (4) Why must I list all roots first?</div><div class="mem"><b>Memorise this</b><br>1. Solve both. List roots small to large.<br>2. min X vs max Y; max X vs min Y.<br>3. min X &gt; max Y: x &gt; y. max X &lt; min Y: x &lt; y.<br>4. Touching only: ≥ or ≤.<br>5. Overlap or interleave: no relation.</div></section><p class="src"><b>Sources:</b> definitions of roots, factoring and zero-product: Math Is Fun pages as in Lesson 1; comparison routine is our logical rule, checked in Python (20,000 random root sets, plus 10 drill pairs and 5 quiz pairs solved by code). 2025 count: edutap.in/pfrda-grade-a/exam-analysis/ (memory-based).<br><b>UNVERIFIED:</b> the wording/options of the real 2025 questions; whether the real option set matches the typical five-option style.</p></section>
+<section class="lesson" id="ch13-l3"><h2 class="lt">Lesson 3 · Discriminant and shortcuts</h2><p class="oneline">In one line: the number b² − 4ac tells you how many real roots there are before you solve, and sum and product of roots let you check or skip the work.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>Before a long train journey you check the ticket status: confirmed, waitlisted, or cancelled. The discriminant does the same for a quadratic: two real answers, one repeated answer, or none. It costs 10 seconds and saves you from chasing roots that do not exist.</p><div class="bars" role="img" aria-label="Three outcomes: two roots, one root, none"><div class="row"><span class="a" style="width:34%">D &gt; 0: two</span><span class="b" style="width:33%">D = 0: one</span><span class="a" style="width:33%">D &lt; 0: none</span></div></div></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">For ax² + bx + c = 0, compute D = b² − 4ac. Call it the discriminant.</div><div class="st">If D is positive, there are two different real roots.</div><div class="st">If D is zero, there is exactly one real root, repeated (it equals −b/2a). In the x-vs-y question, that equation gives ONE number.</div><div class="st">If D is negative, there are no real roots. (These are not used in the x-vs-y comparison.)</div><div class="st">If D is a perfect square (1, 4, 9, 16, 25 ...) and a, b, c are whole numbers, the roots are fractions or whole numbers that factor neatly.</div><div class="st">Sum of roots = −b/a. Product of roots = c/a. Use them to check your roots in 3 seconds.</div><div class="st">Also watch for x² = k (like x² = 49): this has TWO roots, +7 and −7.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">D = b² − 4ac &nbsp; (D &gt; 0: two real roots; D = 0: one repeated; D &lt; 0: none real)</div><div class="box">Quadratic formula: x = (−b ± √D) ÷ 2a</div><div class="box">Sum of roots = −b/a &nbsp;·&nbsp; Product of roots = c/a</div><div class="box">Build an equation from roots r and s: x² − (r + s)x + rs = 0</div><p class="src">Discriminant cases and Vieta’s formulas: Wikipedia “Quadratic equation”; formula and discriminant: Math Is Fun. Vieta checked in Python for a = 1..4, b and c from −15 to 15.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Find D and the roots of 2x² − 5x + 3 = 0.</b></p><div class="stepbox" data-steps><div class="st">Step 1. a = 2, b = −5, c = 3.</div><div class="st">Step 2. D = (−5)² − 4 × 2 × 3 = 25 − 24 = 1. Positive and a perfect square: two neat roots.</div><div class="st">Step 3. x = (5 ± 1) ÷ 4 = 6/4 or 4/4 = 3/2 or 1.</div><div class="st">Step 4. Check: sum = 5/2 = −b/a. Product = 3/2 = c/a. Both match.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Build the equation whose roots are 3 and −5.</b></p><div class="stepbox" data-steps><div class="st">Step 1. Sum = 3 + (−5) = −2. Product = 3 × (−5) = −15.</div><div class="st">Step 2. x² − (sum)x + product = x² − (−2)x + (−15).</div><div class="st">Step 3. Answer: <b>x² + 2x − 15 = 0</b>. Check: it matches the Lesson 1 example.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Equations: I. x² = 49 &nbsp; II. y − 7 = 0, so y = 7.</div><div class="st">Wrong move: take the square root and write only x = 7. Then x = y.</div><div class="st">Right: x² = 49 gives x = 7 AND x = −7. Test: (−7)² = 49.</div><div class="st">Now x is in {−7, 7}, y = 7. Every x is at most y, but x = −7 is strictly below: answer <b>x ≤ y</b>, not x = y.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Mental-math shortcut: perfect squares and Vieta, plus practice (8 items)</h2><div class="tip"><b>Squares to know for D.</b> 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225. If D is one of these, roots are neat and factoring works. If not, the roots are not whole numbers or simple fractions, and exam questions rarely use such cases (our observation, not a sourced claim).</div><div class="tip"><b>Check by Vieta.</b> After finding two roots, add them: must equal −b/a. Multiply them: must equal c/a. 3 seconds, catches sign slips.</div><h3>Drill 1: discriminant</h3><div class="drill"><script type="application/json">[["D for x² − 5x + 6 = 0", "D = 1: two real roots"], ["D for x² − 6x + 9 = 0", "D = 0: one repeated root"], ["D for 2x² − 5x + 3 = 0", "D = 1: two real roots"], ["D for x² + 2x − 15 = 0", "D = 64: two real roots"], ["D for x² − 7x + 12 = 0", "D = 1: two real roots"], ["D for 3x² − 12x + 9 = 0", "D = 36: two real roots"], ["D for 4x² − 20x + 25 = 0", "D = 0: one repeated root"], ["D for x² + 2x + 5 = 0", "D = −16: no real roots"]]</script></div><h3>Drill 2: 8 practice pairs (includes x² = k and linear equations)</h3><p class="prog">Work each on paper, then Show answer.</p><div class="drill"><script type="application/json">[["x² = 64  |  y = 8", "x: {−8, 8}; y: {8} → x ≤ y"], ["x² − 16 = 0  |  y² − 8y + 16 = 0", "x: {−4, 4}; y: {4} → x ≤ y"], ["2x² − 9x + 10 = 0  |  y² − 4y + 4 = 0", "x: {2, 5/2}; y: {2} → x ≥ y"], ["3x² + 11x + 6 = 0  |  2y + 3 = 0", "x: {−3, −2/3}; y: {−3/2} → no relation (last option)"], ["x² − 10x + 25 = 0  |  y² − 10y + 24 = 0", "x: {5}; y: {4, 6} → no relation (last option)"], ["x² + 9x + 20 = 0  |  y² + 3y + 2 = 0", "x: {−5, −4}; y: {−2, −1} → x < y"], ["x² − 4x − 12 = 0  |  y² − 2y − 8 = 0", "x: {−2, 6}; y: {−2, 4} → no relation (last option)"], ["4x² − 12x + 9 = 0  |  2y − 3 = 0", "x: {3/2}; y: {3/2} → x = y (the last 'x = y or no relation' option)"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: discriminant and roots</h2><label for="ch13-da">a</label><input id="ch13-da" type="number" value="2" inputmode="decimal">
+<label for="ch13-db">b</label><input id="ch13-db" type="number" value="-5" inputmode="decimal">
+<label for="ch13-dc">c</label><input id="ch13-dc" type="number" value="3" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch13-l3o"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(4)}
+function lab(){var a=parseFloat($('ch13-da').value),b=parseFloat($('ch13-db').value),c=parseFloat($('ch13-dc').value),o=$('ch13-l3o');
+if(isNaN(a)||isNaN(b)||isNaN(c)||a===0){o.innerHTML='<div class="st">Enter numbers; a cannot be 0.</div>';return}
+var D=b*b-4*a*c,h='<div class="st">1. D = '+b+'² − 4×'+a+'×'+c+' = <b>'+f(D)+'</b></div>';
+h+='<div class="st">2. Sum of roots −b/a = '+f(-b/a)+' · Product c/a = '+f(c/a)+'</div>';
+if(D>0){var s=Math.sqrt(D);h+='<div class="st">3. Two real roots: <b>'+f((-b+s)/(2*a))+'</b> and <b>'+f((-b-s)/(2*a))+'</b></div>'}
+else if(D===0){h+='<div class="st">3. One repeated root: <b>'+f(-b/(2*a))+'</b></div>'}
+else{h+='<div class="st">3. No real roots.</div>'}
+o.innerHTML=h}
+['ch13-da','ch13-db','ch13-dc'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“I. x² = 49 &nbsp; II. y = 7 (given as y − 7 = 0). Compare x and y.”</li><li>“For what value of k does x² − 6x + k = 0 have equal roots?”</li><li>“If the sum of the roots is 5 and the product is 4, find the equation.”</li><li>Equations in disguise: 3x² + 11x = −6, or (x + 3)(x − 2) = 6 — expand and move to one side first.</li></ul><div class="tip"><b>Reported, not official.</b> Quadratic equations: 5 questions in 2025, in memory-based exam analyses (edutap.in). Whether discriminant-style questions appeared is not stated there.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%: 0.3125 ÷ (1.25 + 0.3125) = 0.2.</p><div class="quiz"><script type="application/json">[
+{
+"q": "x² − 6x + 9 = 0. Which statement is right?",
+"o": [
+"Two different real roots",
+"No real roots",
+"Roots 3 and −3",
+"One repeated root, x = 3"
+],
+"a": 3,
+"e": "D = 36 − 36 = 0, so one repeated root x = −b/2a = 3. (x − 3)² = 0.",
+"t": [
+"That needs D > 0, but D = 0",
+"That needs D < 0, but D = 0",
+"(−3)² + 18 + 9 = 36, not 0; roots are not ±3",
+""
+]
+},
+{
+"q": "Sum and product of the roots of 2x² − 10x + 8 = 0?",
+"o": [
+"5 and 4",
+"−5 and 4",
+"10 and 8",
+"5 and 8"
+],
+"a": 0,
+"e": "Sum = −b/a = 10/2 = 5. Product = c/a = 8/2 = 4. (Roots 1 and 4.)",
+"t": [
+"",
+"Sum is −b/a = +5; b is already negative",
+"Not divided by a = 2",
+"Product is c/a = 4, not c = 8"
+]
+},
+{
+"q": "For which k does x² − 6x + k = 0 have a repeated root?",
+"o": [
+"6",
+"9",
+"3",
+"18"
+],
+"a": 1,
+"e": "D = 36 − 4k = 0 gives k = 9. Equation (x − 3)² = 0.",
+"t": [
+"k = 6: D = 36 − 24 = 12 > 0, two different roots",
+"",
+"3 is the root, not k: with k = 3, D = 24 > 0",
+"k = 18: D = 36 − 72 = −36 < 0, no real roots"
+]
+},
+{
+"q": "I. x² − 49 = 0 &nbsp; II. y − 7 = 0. Which relation holds between x and y?",
+"o": [
+"x &gt; y",
+"x &lt; y",
+"x ≤ y",
+"x ≥ y",
+"x = y or no relation"
+],
+"a": 2,
+"e": "x in {−7, 7}, y in {7}. Biggest x (7) equals smallest y (7) and nothing is above it, so x ≤ y.",
+"t": [
+"x > y needs EVERY x to pass the test against EVERY y. It fails for x = −7, y = 7.",
+"x < y needs EVERY x to pass the test against EVERY y. It fails for x = 7, y = 7.",
+"",
+"x ≥ y needs EVERY x to pass the test against EVERY y. It fails for x = −7, y = 7.",
+"'No relation' is only right when the x roots straddle the y roots. Here a relation exists: x ≤ y."
+]
+},
+{
+"q": "x² − 2x + 5 = 0. What is true?",
+"o": [
+"Two different real roots",
+"No real roots",
+"Roots 1 and 5",
+"One repeated real root"
+],
+"a": 1,
+"e": "D = (−2)² − 4×1×5 = 4 − 20 = −16 < 0: no real roots.",
+"t": [
+"That needs D > 0, but D = −16",
+"",
+"1 + 5 = 6 is not −b/a = 2; and 1 − 2 + 5 = 4, not 0",
+"That needs D = 0, but D = −16"
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What is D? (2) What does D = 0 mean for x-vs-y? (3) Sum and product of roots? (4) How many roots does x² = 49 have?</div><div class="mem"><b>Memorise this</b><br>1. D = b² − 4ac: &gt;0 two, =0 one, &lt;0 none.<br>2. Roots: (−b ± √D) ÷ 2a.<br>3. Sum = −b/a, product = c/a.<br>4. x² = k gives two roots (±).<br>5. Routine: tidy → solve both → list small to large → min X vs max Y, max X vs min Y.</div></section><p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/algebra/quadratic-equation.html">Math Is Fun: Quadratic Equations</a> · <a href="https://en.wikipedia.org/wiki/Quadratic_equation">Wikipedia: Quadratic equation</a> (discriminant cases, Vieta). All numbers checked by Python.<br><b>UNVERIFIED:</b> how often discriminant or k-value questions appear in the real paper (none claimed).</p></section>
+<p class="src"><b>Chapter sources:</b> Math Is Fun (quadratic equations, factoring quadratics); Wikipedia (Quadratic equation). Exam facts: PFRDA 2026 notification (20 Q, 25 marks, 1.25 per Q); 2025 count: edutap.in/pfrda-grade-a/exam-analysis/ (memory-based).<br><b>UNVERIFIED:</b> wording and options of the real 2025 quadratic questions; topic lists are third-party, not official.</p>
+</article>
