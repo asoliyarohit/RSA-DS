@@ -1,6 +1,6 @@
 <article class="chapter" id="ch08" data-no="08" data-title="Input-Output (machine)" data-tag="3 lessons · 15 quiz Qs · simulated machines (typical-style, written by us)">
 <h1>Input-Output (machine)</h1>
-<p class="oneline">In one line: a machine rearranges a line of words and numbers step by step. Learn the move once, simulate it on paper, and every question becomes “write the next line”. No official PFRDA page gives topics or step rules, so this chapter is practice on typical-style machines, written by us.</p>
+<p class="oneline">In one line: a machine rearranges a line of words and numbers step by step. Learn the move once, simulate it on paper, and every question becomes “write the next line”. Important: every step rule in this chapter is our own typical-style machine, written by us. These are NOT confirmed PFRDA rules; no official PFRDA page gives Input-Output topics or step rules. In the exam, always read the rule off the given steps.</p>
 <section class="lesson" id="ch08-l1"><h2 class="lt">Lesson 1 · One item at a time: sort the line step by step</h2><p class="oneline">In one line: a machine fixes ONE item per step. Sort the target order once on paper, and every step is just “bring the next item to its slot”.</p><section class="card"><h2><span class="n">1</span>Picture this</h2>A teacher lines up five children by height, one move at a time. First she finds the shortest and pulls that child to the front. The others just shuffle back and keep their order. Next she finds the second shortest and puts that child in place two. That is the whole machine.<div class="bars" role="img" aria-label="Items placed so far"><div class="row"><span class="a" style="width:60%">Placed (fixed)</span></div><div class="row"><span class="b" style="width:40%">Not yet touched</span></div></div><p class="cap">The fixed part grows by one each step.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">An <b>Input-Output</b> question gives an Input line and a rule. The machine changes the line step by step: Step I, Step II, and so on.</div><div class="st">A <b>slot</b> means a position in the line: slot 1 is the first place from the left, slot 2 the second, and so on.</div><div class="st">Words are put in <b>dictionary order</b> (alphabetical order). Compare first letters; if they match, compare the next letters. A shorter word that is a prefix comes first, so “bat” comes before “bath”.</div><div class="st">Numbers are put in size order: <b>ascending</b> means smallest first, <b>descending</b> means largest first.</div><div class="st">In our machines, step k takes the k-th item of the sorted target list and PULLS it out of the line. It is put in slot k. The items it jumps over move one place along; all other items keep their order.</div><div class="st">Because of that, after step k the line is: the first k sorted items, then everything else in its ORIGINAL order. This is the shortcut that makes options easy to eliminate.</div><div class="st">Right-end version: slots are counted from the right. Step 1 puts the item in the far-right slot, step 2 in the slot beside it.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rule (now that you get it)</h2><div class="box">Sort the target list ONCE on rough paper. Step k then only touches slot k.</div><div class="box">Shift rule: pull the item out, insert it in slot k, keep the other items in their old order.</div><div class="box">Stop count: n items need at most n − 1 steps (the last item settles itself). The machine stops after the last step that changes the line.</div><p class="src">Dictionary and shift-versus-swap ideas: selection sort (Wikipedia) describes the same “place the next item in the next slot” loop; its shifting version keeps the other items in order. Dictionary order: Lexicographic order (Wikipedia). The “at most n − 1 steps” and “first k sorted + the rest in original order” facts: derived, Python-checked (all orders of up to 7 items).</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Words: pen map zoo cup bat</b></p><div class="stepbox" data-steps><div class="st">Dictionary order: <b>bat cup map pen zoo</b>.</div><div class="st">Step I: <b>bat pen map zoo cup</b> (bat goes to slot 1, the rest keep their order).</div><div class="st">Step II: <b>bat cup pen map zoo</b> (cup goes to slot 2, the rest keep their order).</div><div class="st">Step III: <b>bat cup map pen zoo</b> (map goes to slot 3, the rest keep their order).</div><div class="st">No more changes after Step III, so the machine stops. Three steps for five items.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Numbers, smallest first to the left: 42 17 63 8 29</b></p><div class="stepbox" data-steps><div class="st">Ascending: <b>8 17 29 42 63</b>.</div><div class="st">Step I: <b>8 42 17 63 29</b></div><div class="st">Step II: <b>8 17 42 63 29</b></div><div class="st">Step III: <b>8 17 29 42 63</b></div><div class="st">Check with the shortcut: after Step II the line is the 2 smallest (<b>8 17</b>) then the rest in original order (<b>42 63 29</b>). It matches.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Input: <b>42 17 63 8 29</b>. Rule: smallest number to slot 1, others keep their order.</div><div class="st">Wrong move: SWAP the smallest number (8) with the number in slot 1 (42). That gives <b>8 17 63 42 29</b>.</div><div class="st">Right move: pull 8 out and put it in slot 1; 42, 17, 63 each shift one place right. That gives <b>8 42 17 63 29</b>.</div><div class="st">Test: the rule says the others keep their order. In the swap result, 42 and 63 and 17 are in a different order (17 now before 63 before 42). So swap breaks the rule. Always check Step I against the given line to see which move the machine uses.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method and elimination</h2><p>Elimination: for Step k, look only at slots 1 to k. They must equal the first k items of the sorted list. Cross out any option that fails. Then check that the remaining items are in their ORIGINAL relative order.</p><div class="tip"><b>Routine.</b> (1) Write the sorted list. (2) Cross out options whose first k slots are wrong. (3) Among the rest, find the one whose other items keep input order.</div><h3>Speed drill</h3><p class="prog">Say the answer aloud before you tap Show.</p><div class="drill"><script type="application/json">[["Dictionary order of: sun tea ant mop dew", "ant dew mop sun tea"], ["Dictionary order of: pen map zoo cup bat", "bat cup map pen zoo"], ["Dictionary order of: rat fig owl cat dog", "cat dog fig owl rat"], ["Dictionary order of: hen cow ant bee", "ant bee cow hen"], ["Which comes first in a dictionary: crab or cram?", "crab"], ["Which comes first in a dictionary: stop or star?", "star"], ["Which comes first in a dictionary: bat or bath?", "bat"], ["Which comes first in a dictionary: fan or far?", "fan"], ["Step 3 of a left-end rule: the item goes to which slot?", "slot 3 from the left"], ["Step 2 of a right-end rule: the item goes to which slot?", "slot 2 from the right (beside the first)"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: one-item-per-step machine</h2><label for="ch08-l1-in">Items, separated by spaces (all different)</label><input id="ch08-l1-in" type="text" value="pen map zoo cup bat" autocomplete="off" autocapitalize="off"><label for="ch08-l1-key">Order by</label><select id="ch08-l1-key"><option value="auto">Auto (numbers by size, words by dictionary)</option><option value="len">Word length, shortest first</option></select><label for="ch08-l1-dir">Direction</label><select id="ch08-l1-dir"><option value="asc">Ascending (dictionary order or smallest first)</option><option value="desc">Descending (reverse or largest first)</option></select><label for="ch08-l1-end">Items go to</label><select id="ch08-l1-end"><option value="L">Left end</option><option value="R">Right end</option></select><label for="ch08-l1-m">Move style</label><select id="ch08-l1-m"><option value="shift">Shift: pull out, others keep order</option><option value="swap">Swap with the item in that slot</option></select><div class="stepbox" style="margin-top:10px" id="ch08-l1-out"></div><script>(function(){
 var P='ch08-l1',MODE='single';
 function cmp(a,b,key){if(key==='len')return a.length-b.length;if(key==='num')return Number(a)-Number(b);return a<b?-1:(a>b?1:0)}
@@ -67,7 +67,7 @@ document.querySelectorAll('[id^="'+P+'-"]').forEach(function(e){if(e.tagName==='
 "",
 "Slots counted from the left, but the rule says from the right end.",
 "That is Step II.",
-"Smallest numbers taken instead of the largest."
+"That is Step III if the smallest number goes to the left end instead."
 ]
 },
 {
@@ -209,20 +209,20 @@ document.querySelectorAll('[id^="'+P+'-"]').forEach(function(e){if(e.tagName==='
 ]
 },
 {
-"q": "Input: tea 18 net 79 mop 81 ant 13<br>Step I: ant tea 18 net 79 mop 81 13<br>Step II: ant tea 18 net 79 mop 13 81<br>Which rule?",
+"q": "Input: tea 18 net 79 mop 81 ant 13<br>Step I: ant tea 18 net 79 mop 81 13<br>Step II: ant tea 18 net 79 mop 13 81<br>In every option, an item sent to the left goes to the next free slot from the left, an item sent to the right goes to the next free slot from the right, and the moved item is pulled out while the others keep their order. Which rule?",
 "o": [
 "Numbers first (largest, right); then words (dictionary order, left); alternate.",
-"Words first (dictionary order, left); numbers smallest first, also pulled to the left; alternate.",
+"Words first (dictionary order, left); then numbers smallest first (right); alternate.",
 "Words first (dictionary order, left); then numbers largest first (right); alternate.",
 "Words first, reverse dictionary order (left); numbers largest first (right); alternate."
 ],
 "a": 2,
-"e": "Step I moved the first word (ant) to the left end; Step II moved the largest number (81) to the far right. Only the first rule matches both lines.",
+"e": "Step I moved the first word (ant) to the left end; Step II moved the largest number (81) to the far right. Only option C matches both lines.",
 "t": [
 "Its Step I would be tea 18 net 79 mop ant 13 81.",
-"Its Step II would be 13 ant tea 18 net 79 mop 81.",
+"Its Step II would move 13, already at the far right, so Step II would equal Step I (ant tea 18 net 79 mop 81 13).",
 "",
-"Its Step I would be tea 18 net 79 mop 81 ant 13."
+"Its Step I would put tea in slot 1, where it already is, so Step I would equal the Input."
 ]
 },
 {
@@ -296,7 +296,7 @@ document.querySelectorAll('[id^="'+P+'-"]').forEach(function(e){if(e.tagName==='
 ]
 },
 {
-"q": "Input: 59 74 41 32 70 45<br>Step I: 32 59 74 41 70 45<br>Step II: 32 59 41 70 45 74<br>Which rule gives Step I and Step II?",
+"q": "Input: 59 74 41 32 70 45<br>Step I: 32 59 74 41 70 45<br>Step II: 32 59 41 70 45 74<br>In every option, the moved number goes to the next free slot at that end, is pulled out, and the others keep their order. Which rule gives Step I and Step II?",
 "o": [
 "Odd steps: smallest to the left. Even steps: largest to the right.",
 "Every step: smallest to the left, one more slot each time.",
@@ -304,7 +304,7 @@ document.querySelectorAll('[id^="'+P+'-"]').forEach(function(e){if(e.tagName==='
 "Odd steps: largest to the right. Even steps: smallest to the left."
 ],
 "a": 0,
-"e": "Step I put the smallest (32) at the left end; Step II put the largest (74) at the right end. Only the first rule matches both.",
+"e": "Step I put the smallest (32) at the left end; Step II put the largest (74) at the right end. Only option A matches both.",
 "t": [
 "",
 "Step II would be 32 41 59 74 70 45.",
@@ -333,8 +333,8 @@ document.querySelectorAll('[id^="'+P+'-"]').forEach(function(e){if(e.tagName==='
 "q": "Input: 44 11 42 15 46<br>Step I: 11 44 42 15 46<br>Step II: 11 15 44 42 46<br>Which is the machine?",
 "o": [
 "The k-th smallest number swaps places with whatever is in slot k.",
-"The line is rotated one place each step.",
-"Numbers are reversed in pairs.",
+"The whole line is rotated one place to the left each step (the first number goes to the end).",
+"Each neighbouring pair (1st with 2nd, 3rd with 4th) swaps places each step.",
 "The k-th smallest number is pulled out and put in slot k; the numbers it jumps over shift one place right."
 ],
 "a": 3,
