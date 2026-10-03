@@ -116,7 +116,7 @@ $('ch15-note').textContent=n}
 "e": "Seating (brute-forced over all 120 circular orders; exactly 1 fits). Going clockwise (seen from above): A C B F E D; B faces D.",
 "t": [
 "B is 0 seats clockwise from B; the opposite seat is 3 away.",
-"F is 1 seats clockwise from B; the opposite seat is 3 away.",
+"F is 1 seat clockwise from B; the opposite seat is 3 away.",
 "",
 "A is 4 seats clockwise from B; the opposite seat is 3 away."
 ]
@@ -517,20 +517,20 @@ $('ch15-note').textContent=n}
 ]
 },
 {
-"q": "Which number is the odd one out?<br>16, 25, 36, 48, 64",
+"q": "Find the next term: 5, 11, 23, 47, 95, ?",
 "o": [
-"64",
-"48",
-"36",
-"25"
+"190",
+"191",
+"143",
+"189"
 ],
 "a": 1,
-"e": "Odd one out (checked in code). 16, 25, 36 and 64 are perfect squares; 48 is not (6² = 36, 7² = 49).",
+"e": "Series (rule checked in code). Each term = previous × 2 + 1: 5→11→23→47→95→191. Check with gaps: 6, 12, 24, 48 double each time, next gap 96, and 95 + 96 = 191.",
 "t": [
-"64 = 8², a perfect square like the rest.",
+"190 is 95 × 2 without the + 1.",
 "",
-"36 = 6², a perfect square like the rest.",
-"25 = 5², a perfect square like the rest."
+"143 is 95 + 48, repeating the last gap. The gaps double each time, so the next gap is 96.",
+"189 is 95 × 2 − 1. The rule adds 1, it does not subtract it."
 ]
 }
 ]</script></div></section><section class="card"><h2><span class="n">7</span>Lock it in · Mock A</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) Which topic cost me the most marks in this mock? (2) Which wrong answers were careless and which were “did not know the method”? (3) For each wrong one, which chapter do I open? (4) Did I guess only when I could cross out an option?</div><div class="mem"><b>Memorise this</b><br>1. Right = +0.8333, wrong = −0.25, skip = 0.<br>2. Do the fast topics first: syllogism, inequality, coding, series, ranking.<br>3. Leave long seating and puzzle sets for the second pass.<br>4. Cross out options first; guess only with a real chance above about 23%.<br>5. After a mock, redo every wrong question one day later.</div></section>
@@ -627,15 +627,15 @@ $('ch15-note').textContent=n}
 "q": "8 friends A, B, C, D, E, F, G and H sit around a circular table, all facing the centre.<br>• A sits to the immediate left of G.<br>• G sits second to the left of F.<br>• D and F are neighbours.<br>• B sits to the immediate right of G.<br>• E sits second to the right of C.<br>Who sits exactly opposite B?",
 "o": [
 "H",
-"B",
+"E",
 "A",
 "C"
 ],
 "a": 0,
-"e": "Seating (brute-forced over all 5040 circular orders; exactly 1 fits). Going clockwise (seen from above): A E H C D F B G; B faces H.",
+"e": "Seating (brute-forced over all 5040 circular orders; exactly 1 fits). Convention: when everyone faces the centre, each person's left is clockwise as seen from above. Going clockwise: A E H C D F B G; B faces H.",
 "t": [
 "",
-"B is 0 seats clockwise from B; the opposite seat is 4 away.",
+"E is 3 seats clockwise from B; the opposite seat is 4 away.",
 "A is 2 seats clockwise from B; the opposite seat is 4 away.",
 "C is 5 seats clockwise from B; the opposite seat is 4 away."
 ]
@@ -658,7 +658,7 @@ $('ch15-note').textContent=n}
 ]
 },
 {
-"q": "A machine rearranges words by a fixed rule. Step I: the alphabetically first word goes to the left end. Step II: the alphabetically last word goes to the right end. Step III: the next alphabetically first word goes to the second place from the left. Step IV: the next alphabetically last word goes to the second place from the right.<br>Input: tea pen ink map cup<br>What is Step III?",
+"q": "A machine rearranges words by a fixed rule. Step I: the alphabetically first word goes to the left end. Step II: the alphabetically last word goes to the right end. Step III: the next alphabetically first word goes to the second place from the left. Step IV: the next alphabetically last word goes to the second place from the right. In each step the other words keep their order and shift to make room.<br>Input: tea pen ink map cup<br>What is Step III?",
 "o": [
 "ink cup pen map tea",
 "cup ink map pen tea",
@@ -953,7 +953,7 @@ $('ch15-note').textContent=n}
 "q": "Statement: Of the 80 trains that ran on a route last month, 12 reached late.<br>Which of the following can be inferred from the statement alone?",
 "o": [
 "Most trains on this route will be late next month.",
-"15% of the trains on this route were late last month.",
+"15% of the trains that ran on this route last month reached late.",
 "Signal failures caused the late arrivals.",
 "The route needs more trains."
 ],
