@@ -4,16 +4,16 @@
 
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
 <p>Carrying a full tray of chai across a room is hard. Carrying one cup at a time is easy. Mental maths is the full tray: you hold the answer from step 1 while doing step 2. Written steps are one cup at a time: put it down on paper, then pick up the next.</p>
-<p class="tip"><b>You are not broken.</b> A page from Understood.org says that when working memory is weak, students "have to hold on to information, like a formula, an answer from a previous step" and can "get lost in the problem". (It describes children, so use it as general context.) The fix is to need less memory, not more effort.</p>
+<p class="tip"><b>You are not broken.</b> Working memory = the brain's "notepad" that holds a number for a few seconds while you use it. A page from Understood.org says that when working memory is weak, students "have to hold on to information, like a formula, an answer from a previous step" and can "get lost in the problem". (It describes children, so use it as general context.) The fix is to need less memory, not more effort.</p>
 <p class="tip"><b>Is rough paper allowed in the exam?</b> UNVERIFIED. The official PFRDA notification we read says Phase I is online on 15 Oct 2026 and does not mention a rough sheet or calculator. Check your call letter and the exam-day instructions. If you get an on-screen notepad, practise typing the steps there. If you get nothing, these same methods still use fewer numbers at once.</p></section>
 
 <section class="card"><h2><span class="n">2</span>Four methods, one tap at a time</h2>
 <div class="stepbox" data-steps>
-<div class="st"><b>Method 1: Left-to-right addition.</b> 348 + 735. Write 348. Add the hundreds: 348 + 700 = 1048. Add the tens: + 30 = 1078. Add the ones: + 5 = 1083. One new number is written at each step.</div>
-<div class="st"><b>Method 2: Friendly number.</b> 621 − 49. Round 49 up to 50. 621 − 50 = 571. You took away 1 too much, so give 1 back: 572. (A Manitoba Education guide shows the same idea: 850 − 375 = 850 − 350 − 25.)</div>
-<div class="st"><b>Method 3: Complement from 1000.</b> 1000 − 372. Take each digit from 9: 9−3=6, 9−7=2, 9−2=7 gives 627. Add 1: 628. (This is the same as 999 − 372 + 1.)</div>
+<div class="st"><b>Method 1: Left-to-right addition.</b> 348 + 735. Split 735 into 700 + 30 + 5. Write 348. Add the hundreds: 348 + 700 = 1048. Add the tens: + 30 = 1078. Add the ones: + 5 = 1083. One new number is written at each step.</div>
+<div class="st"><b>Method 2: Friendly number.</b> A friendly number is a round one, ending in 0. 621 − 49. Round 49 up to 50 (that is 1 too many). 621 − 50 = 571. You took away 1 too much, so give 1 back: 572. (A Manitoba Education guide shows the same idea: 850 − 375 = 850 − 350 − 25.)</div>
+<div class="st"><b>Method 3: Complement from 1000.</b> The complement is what you add to a number to reach 1000. 1000 − 372. Take each digit from 9: 9−3=6, 9−7=2, 9−2=7 gives 627. Add 1: 628. (This is the same as 999 − 372 + 1, and 999 never needs borrowing.) For a 2-digit number like 45, write it as 045 first: 954, then 955.</div>
 <div class="st"><b>Method 4: Count up.</b> 812 − 575. Hop 575 to 600 = 25. Hop 600 to 800 = 200. Hop 800 to 812 = 12. Add the hops: 25 + 200 + 12 = 237. Write each hop.</div>
-<div class="st"><b>Estimate first (add and subtract only).</b> Round both numbers to the nearest hundred, do the quick sum, then check your exact answer is near it. We did not verify estimating for multiplication: rounding can be far off, so use it only as a size check there.</div>
+<div class="st"><b>Estimate first (add and subtract only).</b> Round both numbers to the nearest hundred, do the quick sum, then check your exact answer is near it. Example: 348 + 735 ≈ 300 + 700 = 1000, and 1083 is near 1000, so it looks right. We did not verify estimating for multiplication: rounding can be far off, so use it only as a size check there.</div>
 <p class="prog"></p><button type="button" data-next>Next</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>Why this works, and the formula</h2>
@@ -25,7 +25,7 @@
 <section class="card"><h2><span class="n">4</span>The trap</h2>
 <div class="trap"><div class="stepbox" data-steps>
 <div class="st">Trap: doing 812 − 575 "in your head" and keeping 3 numbers alive at once.</div>
-<div class="st">The slip: you lose the 25, or the 200, and answer 227 or 247 instead of 237.</div>
+<div class="st">The slip: you forget a hop (drop the 12 and say 225), or slip a ten while adding 25 + 12 in your head (say 227 or 247) instead of 237.</div>
 <div class="st">The fix: write the hops. Never carry more than the one number you are looking at.</div>
 <p class="prog"></p><button type="button" data-next>Show</button></div></div></section>
 
@@ -51,7 +51,7 @@ function mk(kind){
   steps=['Round '+b+' up to '+r+' (that is '+fix+' too much)',a+' − '+r+' = '+x1,'Give back the '+fix+': '+x1+' + '+fix+' = '+(x1+fix)];
   return{q:a+' − '+b,ans:a-b,steps:steps}}
  if(kind==='comp'){b=ri(11,989);if(b%10===0)b++;
-  var c=999-b;steps=['Subtract from 999, digit by digit (each digit from 9): 999 − '+b+' = '+c,'Add 1 for the 1000: '+c+' + 1 = '+(c+1)];
+  var c=999-b;steps=[(b<100?'Write '+b+' as 0'+b+'. ':'')+'Subtract from 999, digit by digit (each digit from 9): 999 − '+b+' = '+c,'Add 1 for the 1000: '+c+' + 1 = '+(c+1)];
   return{q:'1000 − '+b,ans:1000-b,steps:steps}}
  if(kind==='up'){b=ri(120,700);a=b+ri(120,500);
   var hops=[],cur=b,tot=0;
@@ -75,19 +75,25 @@ $('ch01c-show').onclick=function(){if(!cur)return;var b=$('ch01c-st');b.innerHTM
 <div class="tw"><table><tr><th>Day</th><th>Focus (10 to 20 min)</th></tr>
 <tr><td>1-2</td><td>Method 1, then add Method 2</td></tr><tr><td>3-4</td><td>Methods 2, 3, 4</td></tr><tr><td>5-7</td><td>Mixed, then Estimate first; redo yesterday's misses</td></tr>
 <tr><td>8-11</td><td>Mixed with all four, 15 to 20 min</td></tr><tr><td>12</td><td>10 minutes light, then rest</td></tr></table></div>
-<p class="prog">Routine each day (from the NHS and Australian education-research pages we fetched): same time every day, a 15 to 20 minute slot with a break, write a short plan first, recall yesterday's method from memory, redo yesterday's wrong ones. Spaced recall beats re-reading. Printable drills with answer keys for all 12 days are in research/mental-math-plan.md in this repo.</p>
-<p class="tip">Timers and body-doubling: we found no fetched evidence either way. Treat them as personal experiments, not advice. A phone timer is simply how you keep to the 15 to 20 minute slot.</p></section>
+<p class="prog">Routine each day (from the CDC, NHS and Australian education-research pages we fetched): same time every day, a 15 to 20 minute slot with a break, write a short plan (to-do list) first, recall yesterday's method from memory, redo yesterday's wrong ones. Spaced recall (testing yourself again after a gap of a day or more) beats re-reading. Printable drills with answer keys for all 12 days are in research/mental-math-plan.md in this repo.</p>
+<p class="tip">Timers and body-doubling (working while another person sits with you): we found no fetched evidence either way. Treat them as personal experiments, not advice. A phone timer is simply how you keep to the 15 to 20 minute slot.</p></section>
 
-<section class="card"><h2><span class="n">7</span>Quiz</h2>
+<section class="card"><h2><span class="n">7</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. No exam asks "use the count-up method"; these steps hide inside bigger questions.</p>
+<ul><li>Simplification: "What will come in place of the question mark? 348 + 735 − 49 = ?"</li>
+<li>Inside DI: "What is the difference between the sales in 2024 and 2023?" (a subtraction like 812 − 575).</li>
+<li>Totals: "Find the total of the three values" (left-to-right addition).</li></ul></section>
+
+<section class="card"><h2><span class="n">8</span>Quiz</h2>
 <div class="quiz"><script type="application/json">[
-{"q":"348 + 735 by left-to-right addition. Which is the correct last running total?","o":["1073","1083","1183","1093"],"a":1,"e":"348 + 700 = 1048, + 30 = 1078, + 5 = 1083.","t":["Dropped the 5 then miscounted tens","","Added 800 instead of 700","Added 15 for the last step"]},
-{"q":"621 − 49 using the friendly number 50. The answer is:","o":["570","571","573","572"],"a":3,"e":"621 − 50 = 571, then give 1 back: 572.","t":["Forgot the 1 and used the wrong subtraction","Stopped before giving the 1 back","Gave back 2 instead of 1",""]},
-{"q":"1000 − 372 by the complement method:","o":["628","627","638","728"],"a":0,"e":"9−3, 9−7, 9−2 gives 627, then add 1: 628.","t":["","Forgot to add 1","Used 10 − 3 for the first digit","Used 10 − 2 for the hundreds"]},
-{"q":"812 − 575 by counting up. The hops are 25, 200 and:","o":["10","15","12","20"],"a":2,"e":"800 to 812 is 12. 25 + 200 + 12 = 237.","t":["Rounded the last hop down","Mis-subtracted 812 − 800","","Used 20 as a round number"]}
+{"q":"348 + 735 by left-to-right addition. Which is the correct last running total?","o":["1073","1083","1183","1093"],"a":1,"e":"348 + 700 = 1048, + 30 = 1078, + 5 = 1083.","t":["Slipped a ten at the tens step","","Added 800 instead of 700","Added 15 for the last step"]},
+{"q":"621 − 49 using the friendly number 50. The answer is:","o":["570","571","573","572"],"a":3,"e":"621 − 50 = 571, then give 1 back: 572.","t":["Took the 1 away instead of giving it back","Stopped before giving the 1 back","Gave back 2 instead of 1",""]},
+{"q":"1000 − 372 by the complement method:","o":["628","627","638","728"],"a":0,"e":"9−3, 9−7, 9−2 gives 627, then add 1: 628.","t":["","Forgot to add 1","Took the middle digit from 10 instead of 9","Took the first digit from 10 instead of 9"]},
+{"q":"812 − 575 by counting up. The hops are 25, 200 and:","o":["10","15","12","20"],"a":2,"e":"800 to 812 is 12. 25 + 200 + 12 = 237.","t":["Dropped the 2 in 812","Mis-subtracted 812 − 800","","Used 20 as a round number"]}
 ]</script></div></section>
 
-<section class="card"><h2><span class="n">8</span>Lock it in</h2>
-<div class="tip"><b>Cover and recall:</b> name the four methods. Do 1000 − 372 on paper. Say why writing steps helps.</div>
+<section class="card"><h2><span class="n">9</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> name the four methods. Do 1000 − 372 on paper. Say why writing steps helps.</div>
 <div class="mem"><b>Memorise this</b><br>1. Write one step at a time. Never hold two numbers.<br>2. Add: hundreds, then tens, then ones.<br>3. Subtract: round up, subtract, give back the extra.<br>4. 1000 − n = (999 − n) + 1.<br>5. Count up in hops, write each hop.</div></section>
 
 <p class="src"><b>Sources (fetched):</b> <a href="https://www.understood.org/en/articles/ways-executive-functioning-challenges-can-impact-math">Understood.org</a> · <a href="https://www.edu.gov.mb.ca/k12/framework/publications/math/mm_gr8/docs/strategies.pdf">Manitoba Education mental-math strategies</a> · <a href="https://www.k5learning.com/blog/using-mental-math-tricks-subtraction">K5 Learning</a> · <a href="https://www.edresearch.edu.au/guides-resources/practice-guides/spacing-and-retrieval-practice-guide-full-publication">Australian Education Research Office: spacing and retrieval</a> · <a href="https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/living-with/">NHS ADHD living-with page</a> · <a href="https://www.cdc.gov/adhd/treatment/index.html">CDC</a>.<br>
