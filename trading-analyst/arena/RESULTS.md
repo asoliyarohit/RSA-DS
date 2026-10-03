@@ -32,3 +32,14 @@ Reproduce: cd trading-analyst && python -m arena.judge arena/<name>/strategy.py 
 SqueezeMetrics GEX (free). Follow gap when previous GEX<0; fade gap >=0.5 ATR when GEX>=0; N_TRIALS=2, no tuning.
 Dev (<=2022): 1003 slots, -4.3 bps/slot, t -1.22, DSR 0.04 -> kill criterion hit (t<2). Holdout never run.
 Remaining council candidates, untested: H2 (overnight dip-buy on more indices/gold/FX, needs real bid/ask), H3 (earnings-announcement premium on stock CFDs; the 50 bps commission makes it unlikely), H5 (pre-FOMC drift, 8 trades/yr, immaterial).
+
+## Round 2 (user scope: indices, commodities, stocks only; long/short; judge with per-instrument leverage/costs). None passed dev; no holdout run.
+| Agent | Lane | Dev avg bps/slot | t | DSR | slots/yr | Required bps (50% x 100x in 10y) | Closeness | N_TRIALS |
+|---|---|---|---|---|---|---|---|---|
+| macro_ls (sonnet) | 7 index ETFs, ridge, OPEN+CLOSE | +1.1 | 0.32 | 0.08 | 76 | 41 | 0.03 | 14 |
+| commodity_ls (opus) | GLD/Brent/futures trend, OPEN only | -2.4 | -0.95 | 0.005 | 252 | 35 | -0.07 | 11 |
+| trend_crisis (fable) | indices+GLD, stacked ridge, CLOSE | +6.0 | 1.75 | 0.20 | 106 | 163 | 0.04 | 122 |
+Findings: (1) 'direction is irrelevant / shorts earn in down markets' is NOT supported: shorts roughly break even in slow bears, miss fast crashes
+(2020 Q1 the model was long: -65 bps/slot) and bleed in bull years. (2) Naive daily-capture trend-following loses net in every class (gross ~2-12 bps vs 4-66 bps costs).
+(3) Data traps found: Yahoo futures roll gaps (a CFD never receives them), stale opens on metals, WTI -$37 print, same-day VIX leak (IC 0.21 -> 0.05 once lagged), foreign-index ETFs priced as 20x CFDs.
+(4) Judge fixes this round: per-instrument leverage tiers, non-positive-price guard.

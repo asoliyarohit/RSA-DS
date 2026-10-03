@@ -17,7 +17,7 @@ python -m pytest -q
 ## STATUS: arena verdict (read first)
 Three independent competitors (rules, event/regime, ML) each built a strategy on data to 2022; all passed the dev judge and
 **all three failed the sealed 2023+ holdout** (see `arena/RESULTS.md`). No validated edge exists in this repo today. Do not trade it
-with real money; paper trade and journal only. 1k -> 100k is not supported by any evidence we could produce.
+with real money; paper trade and journal only. Round 2 (indices/commodities/stocks, long/short, 3 models) also found nothing: see `arena/RESULTS.md`. 1k -> 100k is not supported by any evidence we could produce.
 
 `python -m analyst daycall` gives one BUY/SELL open->close CFD call per session with a MEASURED track record (weights fixed a priori, not fitted).
 Result: it LOSES after costs (dev t=-2.8, holdout 2023+ t=-4.2, 44% win), so it sizes to PAPER ONLY. Flipping its sign after seeing this would be curve-fitting, and gross edge is only ~-12 bps vs ~16 bps costs anyway.
