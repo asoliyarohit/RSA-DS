@@ -1,0 +1,80 @@
+[
+ {
+  "instrument": "US500",
+  "setup": "OPEN",
+  "params": {
+   "mode": "fade",
+   "gap_atr": 0.75,
+   "trend": false,
+   "both_sides": false,
+   "stop_atr": 0.75,
+   "vix_max": null
+  },
+  "grid_size": 120,
+  "train_n": 94,
+  "train_avg_bps": 24.69,
+  "train_t": 1.82,
+  "test_n": 166,
+  "test_avg_bps": 1.88,
+  "test_t": 0.22,
+  "PASSES_GATE": false
+ },
+ {
+  "instrument": "US500",
+  "setup": "CLOSE",
+  "params": {
+   "mode": "rsi2",
+   "thr": 0.1,
+   "trend": true,
+   "both_sides": true,
+   "stress_atr": 1.5
+  },
+  "grid_size": 24,
+  "train_n": 278,
+  "train_avg_bps": 11.49,
+  "train_t": 3.09,
+  "test_n": 222,
+  "test_avg_bps": 11.08,
+  "test_t": 2.57,
+  "PASSES_GATE": true
+ },
+ {
+  "instrument": "US100",
+  "setup": "OPEN",
+  "params": {
+   "mode": "fade",
+   "gap_atr": 0.75,
+   "trend": false,
+   "both_sides": false,
+   "stop_atr": 0.75,
+   "vix_max": null
+  },
+  "grid_size": 120,
+  "train_n": 81,
+  "train_avg_bps": 20.19,
+  "train_t": 1.16,
+  "test_n": 147,
+  "test_avg_bps": 10.76,
+  "test_t": 0.93,
+  "PASSES_GATE": false
+ },
+ {
+  "instrument": "US100",
+  "setup": "CLOSE",
+  "params": {
+   "mode": "ibs",
+   "thr": 0.2,
+   "trend": true,
+   "both_sides": false,
+   "stress_atr": 1.5
+  },
+  "grid_size": 24,
+  "train_n": 404,
+  "train_avg_bps": 7.21,
+  "train_t": 2.55,
+  "test_n": 390,
+  "test_avg_bps": 9.39,
+  "test_t": 2.4,
+  "PASSES_GATE": true
+ }
+]
