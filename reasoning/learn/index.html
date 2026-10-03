@@ -1503,7 +1503,7 @@ var net=0;chain.forEach(function(c){if(c.s==='father'||c.s==='mother')net++;if(c
 var res=null,err=false;try{var t=KT(),me=t.nw(g,null,null),cur=me;chain.forEach(function(c){var s=ST[c.s];if(s[0]==='up')cur=t.up(cur,s[1]);else if(s[0]==='sib')cur=t.sib(cur,s[1],c.o);else if(s[0]==='child')cur=t.child(cur,s[1],c.o);else cur=t.spouse(cur,s[1])});res=t.name(me,cur)}catch(e){if(e==='same')err=true;else throw e}
 if(err){o.innerHTML=h+'<div class="st">A man has a wife and a woman has a husband in this guide. Undo the last step.</div>';return}
 h+='<div class="st">Net generation: <b>'+(net>0?'+':'')+net+'</b> (up minus down)</div>';
-h+='<div class="st">The person reached is your: <b>'+(res===null?'no standard one-word name (for example a great-uncle)':res)+'</b></div>';o.innerHTML=h}
+h+='<div class="st">The person reached is your: <b>'+(res===null?'no standard one-word name (for example a great-grandparent or great-uncle)':res)+'</b></div>';o.innerHTML=h}
 $('ch05-l2-add').addEventListener('click',function(){chain.push({s:$('ch05-l2-s').value,o:$('ch05-l2-o').checked});show()});
 $('ch05-l2-undo').addEventListener('click',function(){chain.pop();show()});
 $('ch05-l2-clr').addEventListener('click',function(){chain=[];show()});
@@ -2924,12 +2924,13 @@ document.querySelectorAll('[id^="'+P+'-"]').forEach(function(e){if(e.tagName==='
 <section class="lesson" id="ch09-l1"><h2 class="lt">Lesson 1 · One row (linear)</h2>
 <p class="oneline">In one line: a seating puzzle is a row of empty slots; you fill them one clue at a time, and the only tricky word is "left" (it depends on which way the person faces).</p>
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
-<p>Five friends sit in a row on a bench at Lucknow station, all looking at the platform ahead of them. Imagine you stand behind them and look at the backs of their heads. The friend on the far left of your view is also on the <b>left</b> of that friend. Everyone faces the same way you do, so left matches left.</p><p class="cap">Now picture the same bench with everyone turned to face you. Each person's left is now YOUR right. That one flip causes most seating mistakes.</p></section>
+<p>Five friends sit in a row on a bench at Lucknow station, all looking at the platform ahead of them. Imagine you stand behind them and look at the backs of their heads. The friend on the far left of your view is also on the far <b>left</b> of the bench from their own point of view. Everyone faces the same way you do, so left matches left.</p><p class="cap">Now picture the same bench with everyone turned to face you. Each person's left is now YOUR right. That one flip causes most seating mistakes.</p></section>
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
 <div class="st">Draw one box per person, in a line: <b>[1][2][3][4][5]</b>. Number them from the left end of YOUR drawing.</div>
 <div class="st">Decide the facing first. In a row, "facing north" means looking up the page. Then <b>their left = the left of your drawing</b> (west) and their right = the right of your drawing (east).</div>
 <div class="st">"Immediate left of X" means the box right next to X on X's left. "Between" means strictly inside: the two ends do not count.</div>
+<div class="st">"Extreme left" or "extreme end" means the very first (or last) box. "Somewhere to the left of X" means any box further left, not necessarily next to X. "Second to the right of X" means two boxes along: X's box + 2.</div>
 <div class="st">"Second from the left end" is box 2. "Second from the right end" in a row of 5 is box 4.</div>
 <div class="st">Write the sure clues first (anyone at an end or given a fixed box). Then use "not at" clues to cross out boxes. When one name fits only one box, lock it in.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
@@ -2942,7 +2943,7 @@ document.querySelectorAll('[id^="'+P+'-"]').forEach(function(e){if(e.tagName==='
 <div class="st">Step 3. E is second from the right end: box 4. <b>E in box 4</b>.</div>
 <div class="st">Step 4. Boxes left: 2, 3, 5 for A, B, D. D is not in 5, A is not in 5 (not at either end). So <b>B takes box 5</b>.</div>
 <div class="st">Step 5. A and D share boxes 2 and 3. D is to the left of A, so D in 2, A in 3.</div>
-<div class="st">Step 6. Answer: <b>C D A E B</b>. Check each clue once. Python brute force over all 120 orders found exactly 1 order that fits.</div>
+<div class="st">Step 6. Answer: <b>C D A E B</b>. Check each clue once. Python brute force (trying every one of the 5 × 4 × 3 × 2 × 1 = 120 orders) found exactly 1 order that fits.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 <section class="card"><h2><span class="n">5</span>The trap</h2>
 <div class="trap"><div class="stepbox" data-steps>
@@ -3060,11 +3061,12 @@ t.innerHTML='<div class="st">1. Facing '+fw+'. Seat '+k+' from the west end = se
 <p>Six cousins sit on cushions around a plate of laddoos at a Diwali dinner, everyone facing the plates in the middle. If you walk round the ring the way a clock hand moves, you pass each cousin in turn.</p><p class="cap">Each cousin has one neighbour on each side and exactly one person straight across the plates (in a ring with an even number of seats).</p></section>
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
-<div class="st">Draw a circle with n dots. Number them <b>1, 2, 3 ... clockwise</b> (the way clock hands move).</div>
-<div class="st">Rotating the whole table gives the same seating. So put the first named person in seat 1. This is why a ring has (n − 1)! patterns, not n!.</div>
+<div class="st">Draw a circle with n dots. Number them <b>1, 2, 3 ... clockwise</b> (the way clock hands move). <b>Anticlockwise</b> is the other way round.</div>
+<div class="st">Rotating the whole table gives the same seating. So put the first named person in seat 1. This is why a ring has (n − 1)! patterns, not n!. (The "!" is a factorial: multiply the number by every smaller whole number down to 1. For example 4! = 4 × 3 × 2 × 1 = 24, so a ring of 5 has 24 patterns.)</div>
 <div class="st"><b>Facing the centre</b>: stand at the bottom of the circle looking up. Your left hand points west, and walking west from the bottom goes clockwise. So left neighbour = next seat clockwise, right neighbour = next seat anticlockwise.</div>
 <div class="st"><b>Facing outside</b> (back to the centre): everything flips. Left neighbour = anticlockwise, right neighbour = clockwise.</div>
 <div class="st"><b>Opposite</b> = n ÷ 2 seats away. Only rings with an even number of people have an exact opposite (our stated convention).</div>
+<div class="st">"Second to the left of X" means two seats on from X in the left direction (clockwise when facing the centre). Between X and the person opposite, one side holds n ÷ 2 − 1 people (ring of 10: 5 − 1 = 4).</div>
 <div class="st">Fill sure clues (opposite pairs, fixed gaps), then use "immediate left/right" to add neighbours.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 <section class="card"><h2><span class="n">3</span>The rule (only after the picture)</h2>
@@ -4565,7 +4567,7 @@ $('ch15-note').textContent=n}
 "Only I follows"
 ],
 "a": 3,
-"e": "Inequality (checked over all value assignments).  I: P ≥ Q > R = S gives P > S. II: S ≤ T and R = S only give T ≥ R; T = R is possible.",
+"e": "Inequality (checked over all value assignments). I: P ≥ Q > R = S gives P > S. II: S ≤ T and R = S only give T ≥ R; T = R is possible.",
 "t": [
 "Conclusion I is definitely true: P ≥ Q > R = S gives P > S.",
 "Conclusion II is not definitely true: S ≤ T and R = S only give T ≥ R; T = R is possible.",
@@ -5029,7 +5031,7 @@ $('ch15-note').textContent=n}
 "Both I and II follow"
 ],
 "a": 0,
-"e": "Inequality (checked over all value assignments).  I: K = L ≥ M gives M ≤ K; M = K is possible. II: J < K = L gives J < L.",
+"e": "Inequality (checked over all value assignments). I: K = L ≥ M gives M ≤ K; M = K is possible. II: J < K = L gives J < L.",
 "t": [
 "",
 "Conclusion I is not definitely true: K = L ≥ M gives M ≤ K; M = K is possible.",
@@ -5084,7 +5086,7 @@ $('ch15-note').textContent=n}
 "Only II follows"
 ],
 "a": 0,
-"e": "Inequality (checked over all value assignments).  I: P and S are both below Q, so P and S are not compared. II: same reason; P = S is also possible, so neither strict result is forced.",
+"e": "Inequality (checked over all value assignments). I: P and S are both below Q, so P and S are not compared. II: same reason; P = S is also possible, so neither strict result is forced.",
 "t": [
 "",
 "Conclusion I is not definitely true: P and S are both below Q, so P and S are not compared.",
@@ -5411,7 +5413,7 @@ $('ch15-note').textContent=n}
 "Only II follows"
 ],
 "a": 3,
-"e": "Inequality (checked over all value assignments).  I: N and Q are both above P, so they are not compared. II: N > O = P gives N > P.",
+"e": "Inequality (checked over all value assignments). I: N and Q are both above P, so they are not compared. II: N > O = P gives N > P.",
 "t": [
 "Conclusion I is not definitely true: N and Q are both above P, so they are not compared.",
 "Conclusion I is not definitely true: N and Q are both above P, so they are not compared.",
@@ -5548,7 +5550,7 @@ $('ch15-note').textContent=n}
 "Neither I nor II follows"
 ],
 "a": 2,
-"e": "Inequality (checked over all value assignments).  I: R ≥ S > T ≥ U gives R > U (V = R is a restatement). II: S > T ≥ U gives S > U.",
+"e": "Inequality (checked over all value assignments). I: R ≥ S > T ≥ U gives R > U (V = R is a restatement). II: S > T ≥ U gives S > U.",
 "t": [
 "Conclusion I is definitely true: R ≥ S > T ≥ U gives R > U (V = R is a restatement).",
 "Conclusion II is definitely true: S > T ≥ U gives S > U.",

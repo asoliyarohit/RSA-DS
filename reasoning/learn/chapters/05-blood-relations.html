@@ -137,7 +137,7 @@ var net=0;chain.forEach(function(c){if(c.s==='father'||c.s==='mother')net++;if(c
 var res=null,err=false;try{var t=KT(),me=t.nw(g,null,null),cur=me;chain.forEach(function(c){var s=ST[c.s];if(s[0]==='up')cur=t.up(cur,s[1]);else if(s[0]==='sib')cur=t.sib(cur,s[1],c.o);else if(s[0]==='child')cur=t.child(cur,s[1],c.o);else cur=t.spouse(cur,s[1])});res=t.name(me,cur)}catch(e){if(e==='same')err=true;else throw e}
 if(err){o.innerHTML=h+'<div class="st">A man has a wife and a woman has a husband in this guide. Undo the last step.</div>';return}
 h+='<div class="st">Net generation: <b>'+(net>0?'+':'')+net+'</b> (up minus down)</div>';
-h+='<div class="st">The person reached is your: <b>'+(res===null?'no standard one-word name (for example a great-uncle)':res)+'</b></div>';o.innerHTML=h}
+h+='<div class="st">The person reached is your: <b>'+(res===null?'no standard one-word name (for example a great-grandparent or great-uncle)':res)+'</b></div>';o.innerHTML=h}
 $('ch05-l2-add').addEventListener('click',function(){chain.push({s:$('ch05-l2-s').value,o:$('ch05-l2-o').checked});show()});
 $('ch05-l2-undo').addEventListener('click',function(){chain.pop();show()});
 $('ch05-l2-clr').addEventListener('click',function(){chain=[];show()});
