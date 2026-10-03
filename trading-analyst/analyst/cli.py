@@ -95,10 +95,15 @@ def cmd_stocks(args):
         print(r)
 
 
+def cmd_review(args):
+    from .review import review
+    review(args)
+
+
 def main():
     ap = argparse.ArgumentParser(prog="analyst")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks)):
+    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review)):
         p = sp.add_parser(name); p.set_defaults(fn=fn)
         p.add_argument("--leverage", type=float, default=0.0, help="override broker leverage cap")
         p.add_argument("--broker", choices=list(PROFILES), default="revolut")
@@ -109,4 +114,6 @@ def main():
         p.add_argument("--target", type=float, default=100_000.0)
         p.add_argument("--years", type=float, default=3.0)
         p.add_argument("--equity", type=float, default=1000.0)
+        p.add_argument("--date", default=None, help="session to review, default last bar")
+        p.add_argument("--gap-atr", dest="gap_atr", type=float, default=2.0)
     a = ap.parse_args(); a.fn(a)
