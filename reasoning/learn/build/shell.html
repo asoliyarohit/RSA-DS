@@ -53,6 +53,15 @@ a{color:var(--acc)}
 #toc a.ch .no{font-weight:700;color:var(--acc);min-width:2em}
 #toc a.ch.done::after{content:"\2713";margin-left:auto;color:var(--ok);font-weight:700}
 #toc .tag{font-size:.75rem;color:var(--mute)}
+details.more{margin:12px 0;border:1px dashed var(--line);border-radius:var(--r);background:var(--card)}
+details.more>summary{cursor:pointer;min-height:44px;padding:10px 14px;font-weight:600;color:var(--acc);list-style:none}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:"+ ";font-weight:700}
+details.more[open]>summary::before{content:"\2212 "}
+details.more>.card{margin:8px;border-style:solid}
+#toc a.ch.opt{opacity:.72}
+#toc a.ch .tag b{color:var(--acc)}
+.otherg{font-size:.9rem;margin:10px 0}
 .pager{display:flex;gap:8px;justify-content:space-between;margin:20px 0}
 .chapter{display:none}.chapter.on{display:block}
 @media (min-width:600px){.opts.two{grid-template-columns:1fr 1fr}}
@@ -62,7 +71,21 @@ a{color:var(--acc)}
 <div id="toc" class="hid"><div class="in">
 <h1>PFRDA Grade A · Reasoning Lab</h1>
 <p class="src">Phase 1 · 15 Oct 2026 · Reasoning = 30 Q, 25 marks, −¼ per wrong answer (official PFRDA notification). Start at <b>Start Here</b>, then go in order. One lesson a sitting.</p>
-<div id="toclist"></div></div></div>
+<p class="otherg">Other guide: <a href="https://claude.ai/artifact/N9uUgLqKgLebpqiGozm5Qb" target="_blank" rel="noopener">Quant Lab</a>. <b>CORE</b> chapters first; <b>IF TIME</b> chapters only after your mocks. Tap "+" bars to open the why, the tools and the sources.</p><details class="more"><summary>12-day master plan, Quant + Reasoning (our suggestion)</summary><div class="tw"><table>
+<tr><th>Day</th><th>Quant</th><th>Reasoning</th></tr>
+<tr><td>1 · 3 Oct</td><td>Start Here, Head-Math, Percentage</td><td>Start Here, Priority Map, Inequality</td></tr>
+<tr><td>2 · 4 Oct</td><td>Tables, DI tables L1</td><td>Syllogism</td></tr>
+<tr><td>3 · 5 Oct</td><td>Quadratics L1-2</td><td>Seating L1</td></tr>
+<tr><td>4 · 6 Oct</td><td>Quadratics L3, Series L1</td><td>Seating L2-3, Puzzles L1</td></tr>
+<tr><td>5 · 7 Oct</td><td>Series L2-3, Simplification</td><td>Puzzles L2-3</td></tr>
+<tr><td>6 · 8 Oct</td><td>DI bar and line</td><td>Input-Output</td></tr>
+<tr><td>7 · 9 Oct</td><td>DI pie/caselet/radar, Averages</td><td>Critical Reasoning</td></tr>
+<tr><td>8 · 10 Oct</td><td>Partnership, SI/CI, Time and Work</td><td>Data Sufficiency, Coding</td></tr>
+<tr><td>9 · 11 Oct</td><td>Speed, Profit/Loss</td><td>Blood Relations, Direction, Ranking</td></tr>
+<tr><td>10 · 12 Oct</td><td>Mock A (timed), error log</td><td>Mock A (timed), error log</td></tr>
+<tr><td>11 · 13 Oct</td><td>Mock B, redo errors</td><td>Mock B, redo errors</td></tr>
+<tr><td>12 · 14 Oct</td><td>Memorise boxes only</td><td>Memorise boxes, Safety Net. Sleep.</td></tr>
+</table></div><p class="prog">Every day: 10 min Head-Math drill and the Daily Practice set, with paper beside you. About 2 to 3 hours in all is our assumption, not a fact. IF TIME chapters only after Mock B. Trim the day if you are tired; never skip the error log.</p></details><div id="toclist"></div></div></div>
 <main id="app">
 @@CHAPTERS@@
 <div class="pager"><button class="ghost" id="prev" type="button">Previous</button><button id="next" type="button">Next chapter</button></div>
@@ -99,7 +122,7 @@ document.querySelectorAll('.drill').forEach(function(box){var D=JSON.parse(box.q
 /* chapters + nav */
 var chs=[].slice.call(document.querySelectorAll('.chapter')),list=document.getElementById('toclist'),toc=document.getElementById('toc');
 var seen=JSON.parse(ls('rlSeen')||'{}');
-chs.forEach(function(c,i){var a=document.createElement('a');a.className='ch'+(seen[c.id]?' done':'');a.href='#'+c.id;a.innerHTML='<span class="no">'+(c.dataset.no||i)+'</span><span><b>'+esc(c.dataset.title)+'</b><br><span class="tag">'+esc(c.dataset.tag||'')+'</span></span>';list.appendChild(a)});
+chs.forEach(function(c,i){var a=document.createElement('a');a.className='ch'+(seen[c.id]?' done':'')+((c.dataset.tag||'').indexOf('IF TIME')===0?' opt':'');a.href='#'+c.id;a.innerHTML='<span class="no">'+(c.dataset.no||i)+'</span><span><b>'+esc(c.dataset.title)+'</b><br><span class="tag">'+esc(c.dataset.tag||'')+'</span></span>';list.appendChild(a)});
 function show(id){var i=Math.max(0,chs.findIndex(function(c){return c.id===id}));chs.forEach(function(c,k){c.classList.toggle('on',k===i)});toc.classList.add('hid');document.getElementById('ttl').textContent=chs[i].dataset.title;
  seen[chs[i].id]=1;ls('rlSeen',JSON.stringify(seen));list.children[i].classList.add('done');window.scrollTo(0,0);
  document.getElementById('prev').style.visibility=i?'visible':'hidden';var nb=document.getElementById('next');nb.style.visibility=i<chs.length-1?'visible':'hidden';
