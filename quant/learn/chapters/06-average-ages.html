@@ -1,0 +1,330 @@
+<article class="chapter" id="ch06" data-no="06" data-title="Average and Ages" data-tag="Averages, weighted averages, ages · ~60 min in 3 sittings">
+<h1>Average and Ages</h1>
+<section class="lesson" id="ch06-l1"><h2 class="ltitle">Lesson 1 · Average, weighted average, evenly spaced numbers</h2>
+<p class="oneline">In one line: an average is the equal share you get when the total is levelled out.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>Five friends in Pune put their chai money on the table: ₹40, ₹50, ₹60, ₹30, ₹70. Total ₹250. Now share it out <b>equally</b>: each gets ₹50. That equal share is the <b>average</b>.</p><div class="bars" role="img" aria-label="Five bars of different heights levelled to the same height of 50"><div class="row"><span class="a" style="width:50%">Equal share ₹50 each</span></div></div><p class="cap">Average = the equal share if everything were levelled out.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps><div class="st">Add up all the values. That is the <b>sum</b>.</div><div class="st">Count the values. Call it <b>n</b>.</div><div class="st">Divide: sum ÷ n. That is the average.</div><div class="st">Turn it round: sum = average × n. Most exam questions use this form.</div><div class="st">If groups have different sizes, the bigger group pulls the average more. That is <b>weighted</b>.</div><div class="st">For evenly spaced numbers (2, 4, 6, 8 or 23, 25, 27) the average sits exactly in the middle.</div><p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Average = Sum ÷ n &nbsp;·&nbsp; Sum = Average × n</div><div class="box">Weighted average = (n₁×A₁ + n₂×A₂) ÷ (n₁ + n₂)</div><div class="box">Evenly spaced numbers (arithmetic progression): average = (first + last) ÷ 2. First n natural numbers: average = (n+1) ÷ 2.</div><p class="src">Mean definition: Math Is Fun "Central Measures". Weighted mean: Wikipedia "Weighted arithmetic mean". AP average: Wikipedia "Arithmetic progression". The (n+1)÷2 form follows by putting first = 1, last = n.</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Class A (20 students) averages 60 marks, Class B (30 students) averages 70. Average of all 50?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Class A: 20 students, average 60. Sum = 20 × 60 = 1200.</div><div class="st">Step 2. Class B: 30 students, average 70. Sum = 30 × 70 = 2100.</div><div class="st">Step 3. Together: sum = 3300, students = 50.</div><div class="st">Step 4. 3300 ÷ 50 = 66. Answer: <b>66</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Sum of 5 consecutive odd numbers is 135. Find the largest.</b></p><div class="stepbox" data-steps><div class="st">Step 1. Five consecutive odd numbers add to 135. Average = 135 ÷ 5 = 27.</div><div class="st">Step 2. In evenly spaced numbers the average is the middle one. Middle = 27.</div><div class="st">Step 3. Steps of 2 either side: 23, 25, 27, 29, 31.</div><div class="st">Step 4. Check: 23+25+27+29+31 = 135. Largest = <b>31</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps><div class="st">Same data: averages 60 and 70.</div><div class="st">Wrong move: (60 + 70) ÷ 2 = <b>65</b>. It ignores that B has more students.</div><div class="st">Right: 3300 ÷ 50 = <b>66</b>. Always rebuild the <b>sums</b> first, then divide by the total count.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math shortcut: guess a middle value</h2>
+<p>Pick a round guess near the numbers, add only the gaps, then correct the guess.</p><div class="tip"><b>Use it.</b> Average of 48, 52, 55, 45, 50. Guess 50. Gaps: −2, +2, +5, −5, 0. They add to 0, so the average is 50. If gaps added to +10 over 5 numbers, add 10 ÷ 5 = 2 to the guess.</div><p class="prog">Say the answer out loud before you tap Show.</p><div class="drill"><script type="application/json">[["Average of 10, 20, 30 = ?", "20"], ["Average of 1 to 10 = ?", "5.5"], ["Average of 2, 4, 6, … 20 = ?", "11"], ["8 numbers, average 7.5. Sum = ?", "60"], ["12 numbers add to 180. Average = ?", "15"], ["Average of 21, 22, … 29 = ?", "25"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: combine two groups</h2>
+<label for="ch06-a1n">Group 1: how many</label><input id="ch06-a1n" type="number" value="20" inputmode="decimal"><label for="ch06-a1a">Group 1: average</label><input id="ch06-a1a" type="number" value="60" inputmode="decimal"><label for="ch06-a2n">Group 2: how many</label><input id="ch06-a2n" type="number" value="30" inputmode="decimal"><label for="ch06-a2a">Group 2: average</label><input id="ch06-a2a" type="number" value="70" inputmode="decimal"><div class="stepbox" style="margin-top:10px" id="ch06-a1out"></div><script>(function(){function f(x){return +(+x).toFixed(2)}function $(i){return document.getElementById(i)}function lab(){var n1=parseFloat($("ch06-a1n").value),a1=parseFloat($("ch06-a1a").value),n2=parseFloat($("ch06-a2n").value),a2=parseFloat($("ch06-a2a").value),t=$("ch06-a1out");if(!(n1>0)||!(n2>0)||isNaN(a1)||isNaN(a2)){t.innerHTML='<div class="st">Enter counts above 0 and both averages.</div>';return}var s1=n1*a1,s2=n2*a2;t.innerHTML='<div class="st">1. Sums: '+n1+" × "+a1+" = "+f(s1)+" and "+n2+" × "+a2+" = "+f(s2)+'</div><div class="st">2. Total sum '+f(s1+s2)+", total count "+f(n1+n2)+'</div><div class="st">3. Combined average = <b>'+f((s1+s2)/(n1+n2))+'</b> (the wrong simple mean would be '+f((a1+a2)/2)+")</div>"}["ch06-a1n","ch06-a1a","ch06-a2n","ch06-a2a"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"The average of 11 numbers is 14. What is their sum?"</li><li>"Two groups have averages X and Y with sizes m and n. Find the average of the whole."</li><li>"The average of five consecutive even numbers is 36. Find the largest."</li><li>In a data-interpretation set: "average sales over the five years". Averages were reported as 3 questions in 2022 and 1 in 2025 in memory-based exam analyses.</li></ul><div class="tip"><b>How the wrong options are built.</b> You will often see the simple mean of the two averages, the middle value instead of the largest, or the sum instead of the average.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p><div class="quiz"><script type="application/json">[
+{
+"q": "Average of 12, 18, 25, 9, 36 is?",
+"o": [
+"18",
+"25",
+"20",
+"22"
+],
+"a": 2,
+"e": "Sum = 100. 100 ÷ 5 = 20.",
+"t": [
+"18 is the median (the middle value), not the average",
+"25 is just one of the numbers",
+"",
+"Slip in adding: 110 ÷ 5"
+]
+},
+{
+"q": "Average of 11 numbers is 14. Their sum?",
+"o": [
+"154",
+"25",
+"140",
+"126"
+],
+"a": 0,
+"e": "Sum = average × n = 14 × 11 = 154.",
+"t": [
+"",
+"Added 11 + 14",
+"14 × 10, counted 10 not 11",
+"14 × 9"
+]
+},
+{
+"q": "Average of the first 20 natural numbers (1 to 20)?",
+"o": [
+"10",
+"11",
+"20.5",
+"10.5"
+],
+"a": 3,
+"e": "(1 + 20) ÷ 2 = 10.5.",
+"t": [
+"Halved 20 and forgot the first term",
+"Rounded up",
+"Forgot to halve: 1 + 20 = 21 is not even 20.5; 20.5 is a near-miss from guessing",
+""
+]
+},
+{
+"q": "Group A: 15 students, average 40. Group B: 25 students, average 60. Combined average?",
+"o": [
+"50",
+"52.5",
+"47.5",
+"55"
+],
+"a": 1,
+"e": "Sums: 600 + 1500 = 2100. 2100 ÷ 40 = 52.5.",
+"t": [
+"Simple mean of 40 and 60, ignores sizes",
+"",
+"Weights swapped: (15×60 + 25×40) ÷ 40",
+"55 would need weights 3:1, but the sizes are 25:15 = 5:3"
+]
+},
+{
+"q": "Average of five consecutive even numbers is 36. Largest?",
+"o": [
+"36",
+"38",
+"40",
+"42"
+],
+"a": 2,
+"e": "Middle = 36, so numbers are 32, 34, 36, 38, 40.",
+"t": [
+"That is the middle number",
+"One step above the middle only",
+"",
+"Counted three steps up instead of two"
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Sum in terms of average? (2) Why not average two averages? (3) Average of evenly spaced numbers? (4) Average of 1 to n?</div><div class="mem"><b>Memorise this</b><br>1. Sum = Average × n.<br>2. Groups: add the sums, add the counts, divide.<br>3. Never average the averages.<br>4. Evenly spaced: average = middle = (first+last)/2.<br>5. 1 to n: average = (n+1)/2.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/data/central-measures.html">Math Is Fun: Central Measures</a> · <a href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean">Wikipedia: Weighted arithmetic mean</a> · <a href="https://en.wikipedia.org/wiki/Arithmetic_progression">Wikipedia: Arithmetic progression</a> · Exam counts: edutap exam analysis (memory-based). Numbers checked by Python.<br><b>UNVERIFIED:</b> none.</p></section>
+<section class="lesson" id="ch06-l2"><h2 class="ltitle">Lesson 2 · When an item is added, removed or replaced</h2>
+<p class="oneline">In one line: work in totals, because an average is just total ÷ count.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A cricket team of 10 averages 40 runs. An 11th player walks in and the team average becomes 42. The newcomer did not score 42. He scored enough to lift <b>all 11</b> players up by 2 each, plus his own 40 baseline.</p><div class="bars" role="img" aria-label="Eleven players each lifted by 2 runs"><div class="row"><span class="a" style="width:80%">11 players × 2 extra</span><span class="b" style="width:20%">his 40</span></div></div><p class="cap">Extra runs needed: 11 × 2 = 22. So he scored 40 + 22 = 62.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps><div class="st">An average change is a change in the <b>total</b>, shared over everybody.</div><div class="st">Total = average × n. Work in totals, not in averages.</div><div class="st">Adding a person: new total = old total + new item.</div><div class="st">Removing a person: new total = old total − that item.</div><div class="st">Replacing: only the <b>difference</b> between new and old item matters.</div><div class="st">Shortcut: change in total = change in average × number of items now.</div><p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Add 1 item to n items (average A to A′): item = A + (n+1) × (A′ − A)</div><div class="box">Replace 1 of n items (average changes by d): new item = old item + n × d</div><div class="box">Remove 1 of n items, rest average B: removed = n × A − (n−1) × B</div><p class="src">All three come from Sum = Average × n (Math Is Fun "Central Measures"); derived in the worked examples.</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Average of 10 numbers is 40. An 11th is added; average becomes 42. Find it.</b></p><div class="stepbox" data-steps><div class="st">Step 1. Old total = 10 × 40 = 400.</div><div class="st">Step 2. New total = 11 × 42 = 462.</div><div class="st">Step 3. New item = 462 − 400 = 62.</div><div class="st">Step 4. Shortcut: 40 + 11 × 2 = 62. Same. Answer: <b>62</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>8 people average 30 years. A 24-year-old is replaced; average becomes 32. Age of the newcomer?</b></p><div class="stepbox" data-steps><div class="st">Step 1. 8 people, average 30. Total = 240.</div><div class="st">Step 2. After the swap, average 32. Total = 8 × 32 = 256.</div><div class="st">Step 3. Total rose by 16. So new person is 16 more than the one who left.</div><div class="st">Step 4. 24 + 16 = <b>40</b>. Check: (240 − 24 + 40) ÷ 8 = 32.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Average of 6 numbers is 25. One is removed and the average of the rest is 24. Which was removed?</b></p><div class="stepbox" data-steps><div class="st">Step 1. 6 numbers, average 25. Total = 150.</div><div class="st">Step 2. Remove one; the other 5 average 24. Their total = 120.</div><div class="st">Step 3. Removed item = 150 − 120 = <b>30</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps><div class="st">Average of 10 is 40; adding an item lifts it to 42.</div><div class="st">Wrong move: "so the new item is 42". That would leave the average unchanged at 40-ish, not lift it.</div><div class="st">Right: it must cover the lift for <b>all 11</b> people: 40 + 11 × 2 = <b>62</b>.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math shortcut: lift × people</h2>
+<p>Say it as a sentence: "old average, plus the lift times the NEW count."</p><div class="tip"><b>Use it.</b> 9 numbers average 20; a 10th lifts it to 22. Item = 20 + 10 × 2 = 40. For a fall, subtract: if the average falls by 1 when the 8th item comes in at old average 30, item = 30 − 8 × 1 = 22.</div><p class="prog">Say the answer out loud before you tap Show.</p><div class="drill"><script type="application/json">[["9 items avg 20. 10th item makes avg 22. Item = ?", "40"], ["4 items avg 50. 5th item makes avg 52. Item = ?", "60"], ["7 items avg 30. 8th item makes avg 29. Item = ?", "22"], ["Replace one of 5 items, average rises by 3. New item is how much bigger?", "15"], ["Replace one of 10 items, average falls by 1. New item is how much smaller?", "10"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: new item from change in average</h2>
+<label for="ch06-b1n">How many items now (before adding)</label><input id="ch06-b1n" type="number" value="10" inputmode="decimal"><label for="ch06-b1a">Old average</label><input id="ch06-b1a" type="number" value="40" inputmode="decimal"><label for="ch06-b1b">New average after adding one item</label><input id="ch06-b1b" type="number" value="42" inputmode="decimal"><div class="stepbox" style="margin-top:10px" id="ch06-b1out"></div><script>(function(){function f(x){return +(+x).toFixed(2)}function $(i){return document.getElementById(i)}function lab(){var n=parseFloat($("ch06-b1n").value),a=parseFloat($("ch06-b1a").value),b=parseFloat($("ch06-b1b").value),t=$("ch06-b1out");if(!(n>0)||isNaN(a)||isNaN(b)){t.innerHTML='<div class="st">Enter a count above 0 and both averages.</div>';return}var o=n*a,w=(n+1)*b;t.innerHTML='<div class="st">1. Old total = '+n+" × "+a+" = "+f(o)+'</div><div class="st">2. New total = '+(n+1)+" × "+b+" = "+f(w)+'</div><div class="st">3. New item = <b>'+f(w-o)+'</b> (shortcut: '+a+" + "+(n+1)+" × "+f(b-a)+" = "+f(a+(n+1)*(b-a))+")</div>"}["ch06-b1n","ch06-b1a","ch06-b1b"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"The average of 10 numbers is 40. When an 11th is included the average becomes 42. Find the 11th."</li><li>"The average weight of 8 men rises by 1.5 kg when one man weighing 52 kg is replaced. Find the new man's weight."</li><li>"Average of 6 numbers is 25. If one is removed the average becomes 24. Find it."</li><li>"If every number is doubled and then 1 is added, what happens to the average?" The average goes through the same operations.</li></ul><p class="prog">Averages appeared in memory-based exam analyses for 2022 (3 questions) and 2025 (1 question).</p><div class="tip"><b>How the wrong options are built.</b> Expect the new average itself, the old average plus the lift, and answers that used n instead of n+1.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p><div class="quiz"><script type="application/json">[
+{
+"q": "Average of 10 numbers is 40. An 11th is added and the average becomes 42. The 11th number is?",
+"o": [
+"42",
+"62",
+"44",
+"82"
+],
+"a": 1,
+"e": "New total 462 − old total 400 = 62.",
+"t": [
+"The new average itself",
+"",
+"New average plus the lift",
+"Added the two averages 40 + 42"
+]
+},
+{
+"q": "8 men average 60 kg. One of 52 kg is replaced by a new man and the average rises by 1.5 kg. New man's weight?",
+"o": [
+"53.5",
+"61.5",
+"60",
+"64"
+],
+"a": 3,
+"e": "Total rises by 8 × 1.5 = 12. 52 + 12 = 64.",
+"t": [
+"52 + 1.5, forgot to multiply by 8",
+"60 + 1.5, used the average instead of the leaving man",
+"Assumed the average stays the same",
+""
+]
+},
+{
+"q": "Average of 6 numbers is 25. One is removed and the average of the rest is 24. Removed number?",
+"o": [
+"30",
+"26",
+"31",
+"24"
+],
+"a": 0,
+"e": "150 − 5 × 24 = 150 − 120 = 30.",
+"t": [
+"",
+"25 + 1, forgot to multiply by 5",
+"Multiplied by 6 instead of 5: 25 + 6",
+"The new average itself"
+]
+},
+{
+"q": "Average of 7 numbers is 15. Each is doubled, then 1 is added. New average?",
+"o": [
+"30",
+"16",
+"31",
+"32"
+],
+"a": 2,
+"e": "The average goes through the same steps: 15 × 2 + 1 = 31.",
+"t": [
+"Forgot the +1",
+"Added 1 but forgot to double",
+"",
+"Added 2 instead of 1"
+]
+},
+{
+"q": "Average of 4 numbers is 20. A fifth is added and the average falls to 18. The fifth number?",
+"o": [
+"18",
+"12",
+"8",
+"10"
+],
+"a": 3,
+"e": "New total 90 − old total 80 = 10.",
+"t": [
+"The new average itself",
+"Used 4 instead of 5: 20 − 4 × 2",
+"18 − 5 × 2, took the lift off the new average",
+""
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What do I work in, averages or totals? (2) Item added: formula? (3) Item replaced: what matters? (4) Do I multiply by n or n+1 when adding?</div><div class="mem"><b>Memorise this</b><br>1. Work in totals: total = average × n.<br>2. Add: item = old avg + (n+1) × lift.<br>3. Replace: new = old + n × change.<br>4. Remove: removed = n×A − (n−1)×B.<br>5. Same operation on every number = same operation on the average.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/data/central-measures.html">Math Is Fun: Central Measures</a> (average = sum ÷ count; the shortcuts here are derived from that). Exam counts: edutap exam analysis (memory-based). Numbers checked by Python.<br><b>UNVERIFIED:</b> none.</p></section>
+<section class="lesson" id="ch06-l3"><h2 class="ltitle">Lesson 3 · Ages</h2>
+<p class="oneline">In one line: everybody ages at the same speed, so the gap stays fixed and the ratio does not.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>Ravi is 30 and his son Aman is 6. In 10 years Ravi is 40 and Aman is 16. The gap was 24 years then and is 24 years later. Everyone gets older at the same speed, so the <b>gap never changes</b>.</p><div class="bars" role="img" aria-label="Two bars both growing by 10 years while the gap stays 24"><div class="row"><span class="a" style="width:75%">Ravi 30 → 40</span></div><div class="row"><span class="b" style="width:30%">Aman 6 → 16</span></div></div><p class="cap">Gap = 24 now, 24 ago, 24 later.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps><div class="st">Pick a letter for the unknown present age, usually the younger person: x.</div><div class="st">Write the other person using the clue: "3 times" gives 3x.</div><div class="st">"After t years": add t to <b>every</b> person. "t years ago": subtract t from every person.</div><div class="st">Turn the sentence about the future or past into one equation.</div><div class="st">Solve, then put the answer back into the question to check.</div><div class="st">Ratio 5:3 means ages are 5k and 3k for some k. Find k, not the ages directly.</div><p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Age after t years = age now + t &nbsp;·&nbsp; Age t years ago = age now − t</div><div class="box">Difference between two ages is constant. Sum of n ages changes by n × t.</div><div class="box">Ratio a:b means ages are ak and bk. Add or subtract t on each age, then apply the new ratio.</div><p class="src">This is ordinary linear algebra with one unknown. Facts used: a ratio a:b means equal parts (see Ratio chapter). No separate source page was fetched for age problems; the examples are verified by Python.</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Father is 3 times his son's age. After 12 years he will be twice as old as his son. Present ages?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Son = x, father = 3x.</div><div class="st">Step 2. After 12 years: son x + 12, father 3x + 12.</div><div class="st">Step 3. Father is then twice the son: 3x + 12 = 2(x + 12).</div><div class="st">Step 4. 3x + 12 = 2x + 24, so x = 12. Son 12, father 36.</div><div class="st">Step 5. Check: after 12 years 48 and 24, and 48 = 2 × 24. Answer: <b>son 12, father 36</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Ratio of A and B's ages is 5:3. After 6 years it will be 7:5. Present ages?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Ages are 5k and 3k.</div><div class="st">Step 2. After 6 years: (5k + 6) and (3k + 6) are in ratio 7:5.</div><div class="st">Step 3. Cross-multiply: 5(5k + 6) = 7(3k + 6).</div><div class="st">Step 4. 25k + 30 = 21k + 42, so 4k = 12, k = 3.</div><div class="st">Step 5. Ages now: 15 and 9. Check: 21 : 15 = 7 : 5. Answer: <b>15 and 9</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps><div class="st">A and B are 15 and 9 now (ratio 5:3).</div><div class="st">Wrong move: add 6 to the ratio parts: (5+6) : (3+6) = <b>11:9</b>.</div><div class="st">Right: add 6 to the real ages: 21 : 15 = <b>7:5</b>. Ratio parts are not ages, so you cannot add years to them.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math shortcut: gap and totals</h2>
+<p>Two facts solve many questions without algebra: the gap is fixed, and a group's total age moves by (people × years).</p><div class="tip"><b>Use it.</b> Ratio 4:3 and gap 8 years. The gap is 1 part, so 1 part = 8. Younger = 3 × 8 = 24. For a group: 3 people, average 20 now. After 5 years the average is 25, because everyone gains 5.</div><p class="prog">Say the answer out loud before you tap Show.</p><div class="drill"><script type="application/json">[["Age 30 now. Age 8 years ago = ?", "22"], ["Two ages add to 40 now. Sum after 5 years = ?", "50"], ["Three ages add to 60 now. Sum 4 years ago = ?", "48"], ["Ages 25 and 10. Gap after 5 years = ?", "15"], ["Ages 5:3 and gap 12. Older = ?", "30"], ["Average age of 4 people is 25. Average after 3 years = ?", "28"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: what happens after t years</h2>
+<label for="ch06-c1a">Age of A now</label><input id="ch06-c1a" type="number" value="15" inputmode="decimal"><label for="ch06-c1b">Age of B now</label><input id="ch06-c1b" type="number" value="9" inputmode="decimal"><label for="ch06-c1t">Years later (use a minus for years ago)</label><input id="ch06-c1t" type="number" value="6" inputmode="decimal"><div class="stepbox" style="margin-top:10px" id="ch06-c1out"></div><script>(function(){function f(x){return +(+x).toFixed(2)}function $(i){return document.getElementById(i)}function lab(){var a=parseFloat($("ch06-c1a").value),b=parseFloat($("ch06-c1b").value),t=parseFloat($("ch06-c1t").value),o=$("ch06-c1out");if(isNaN(a)||isNaN(b)||isNaN(t)){o.innerHTML='<div class="st">Enter both ages and the number of years.</div>';return}var x=a+t,y=b+t;o.innerHTML='<div class="st">1. A becomes '+f(x)+", B becomes "+f(y)+'</div><div class="st">2. Gap now '+f(a-b)+", gap then "+f(x-y)+' (same)</div><div class="st">3. Sum now '+f(a+b)+", sum then "+f(x+y)+" (changes by 2 × "+t+")</div><div class=\"st\">4. Ratio now "+(b!==0?f(a/b):"n/a")+", ratio then <b>"+(y!==0?f(x/y):"n/a")+"</b></div>"}["ch06-c1a","ch06-c1b","ch06-c1t"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"The present age of a father is 3 times his son. After 12 years he will be twice as old. Find their ages."</li><li>"The ratio of ages of A and B is 5:3. After 6 years it will be 7:5. Find A's present age."</li><li>"The sum of the ages of two people 10 years ago was 30. Find the sum now."</li><li>"The average age of a family of 4 is 25. What will it be after 3 years?" One Ages question was reported in 2025 in memory-based exam analyses.</li></ul><div class="tip"><b>How the wrong options are built.</b> Expect the younger and older ages swapped, the value of k, the sum of the ages, and answers with years added to ratio parts.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p><div class="quiz"><script type="application/json">[
+{
+"q": "Father is 40, son is 10. After how many years will the father be twice as old as the son?",
+"o": [
+"10",
+"15",
+"25",
+"20"
+],
+"a": 3,
+"e": "40 + t = 2(10 + t) gives t = 20. Ages 60 and 30.",
+"t": [
+"After 10 years: 50 and 20, ratio 2.5",
+"After 15 years: 55 and 25, not double",
+"After 25 years: 65 and 35, not double",
+""
+]
+},
+{
+"q": "The sum of the ages of A and B is 50 now. What was the sum 10 years ago?",
+"o": [
+"40",
+"30",
+"50",
+"70"
+],
+"a": 1,
+"e": "Both were 10 years younger: 50 − 2 × 10 = 30.",
+"t": [
+"Took off 10 only once, but there are two people",
+"",
+"Assumed the sum never changes (only the gap is fixed)",
+"Added instead of subtracted"
+]
+},
+{
+"q": "Ages are in the ratio 4:3 and differ by 8 years. The younger is?",
+"o": [
+"8",
+"32",
+"24",
+"56"
+],
+"a": 2,
+"e": "1 part = 8. Younger = 3 × 8 = 24.",
+"t": [
+"That is k, one part",
+"That is the older, 4 × 8",
+"",
+"That is the sum, 7 × 8"
+]
+},
+{
+"q": "Ages of A and B are in ratio 3:5. After 6 years the ratio is 2:3. A's older partner B is how old now?",
+"o": [
+"30",
+"18",
+"36",
+"48"
+],
+"a": 0,
+"e": "3k, 5k: 3(3k+6) = 2(5k+6)... check: (3k+6):(5k+6) = 2:3 gives 3(3k+6) = 2(5k+6), so 9k+18 = 10k+12, k = 6. B = 30, A = 18.",
+"t": [
+"",
+"That is A's age, 3k",
+"That is B's age after 6 years",
+"That is A + B, 18 + 30"
+]
+},
+{
+"q": "Average age of 3 sisters is 20 now. Their average after 5 years?",
+"o": [
+"20",
+"25",
+"35",
+"15"
+],
+"a": 1,
+"e": "Every sister gains 5, so the average gains 5: 25.",
+"t": [
+"Assumed the average stays",
+"",
+"Added 15, the total gain, to the average",
+"Subtracted 5"
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Does the age gap change? (2) What do I add for "after t years"? (3) Ratio 5:3: what are the ages? (4) Can I add years to ratio parts?</div><div class="mem"><b>Memorise this</b><br>1. Gap between two ages never changes.<br>2. After t years: add t to every person.<br>3. Group total moves by people × t.<br>4. Ratio a:b means ak and bk. Add years to ak, not to a.<br>5. Solve, then check by putting the answer back.</div></section>
+<p class="src"><b>Sources:</b> Ratio meaning: see Ratio chapter. Exam count: edutap exam analysis (memory-based). Numbers checked by Python.<br><b>UNVERIFIED:</b> no source page on age-problem method was found (fetched pages had no age examples), so the method is shown as algebra checked by Python, not cited.</p></section>
+</article>

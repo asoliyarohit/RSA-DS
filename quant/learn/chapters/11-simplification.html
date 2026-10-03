@@ -1,0 +1,392 @@
+<article class="chapter" id="ch11" data-no="11" data-title="Simplification and Approximation" data-tag="BODMAS, powers, roots, rounding · ~45 min">
+<h1>Simplification and Approximation</h1>
+<section class="lesson" id="ch11-l1"><h3>Lesson 1: BODMAS, fractions and decimals</h3>
+<p class="oneline">In one line: do brackets first, then powers, then ÷ and × left to right, then + and − left to right.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>You buy 3 notebooks at ₹20 each and one pen for ₹15, and the shopkeeper says "total = 15 + 3 × 20". You do not add 15 + 3 first and then multiply: you pay for the notebooks (3 × 20 = 60) and then add the pen (15). Total ₹75.</p>
+<p class="cap">Maths has the same habit: some operations bind tighter than others. Agreeing on the order means everybody gets the same answer.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps><div class="st">Work out anything inside <b>brackets</b> first. Nested brackets: inside out.</div><div class="st">Then powers and roots ("of" also sits here in BODMAS).</div><div class="st">Then <b>division and multiplication</b>. They have equal rank: go left to right.</div><div class="st">Last, <b>addition and subtraction</b>. Also equal rank: left to right.</div><div class="st">Fractions and decimals are just numbers. Convert them to one form (usually fractions for exact, decimals for quick) before you start.</div><div class="st">Write one line per step. Do not do two operations in your head at once.</div><p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">BODMAS = Brackets, Of, Division / Multiplication, Addition / Subtraction</div>
+<div class="box">Same rank: work from left to right.</div>
+<div class="box">Division and multiplication are NOT "D before M". They are tied. Same for + and −.</div>
+<p class="src">Definition of BODMAS (Brackets, Of, Division/Multiplication, Addition/Subtraction) and the left-to-right rule: Wikipedia "Order of operations".</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>18 + 6 × (12 − 8) ÷ 4 = ?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Bracket first: 12 − 8 = 4. Now: 18 + 6 × 4 ÷ 4.</div><div class="st">Step 2. × and ÷ left to right: 6 × 4 = 24, then 24 ÷ 4 = 6.</div><div class="st">Step 3. Now 18 + 6 = <b>24</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>0.375 + 5/8 = ?</b></p><div class="stepbox" data-steps><div class="st">Step 1. 0.375 = 375/1000 = 3/8.</div><div class="st">Step 2. 3/8 + 5/8 = 8/8 = <b>1</b>.</div><div class="st">Check in decimals: 0.375 + 0.625 = 1.000.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps><div class="st">Question: 8 + 4 × 3.</div><div class="st">Wrong move: go left to right for everything: 8 + 4 = 12, 12 × 3 = <b>36</b>.</div><div class="st">Right: multiply first: 4 × 3 = 12, then 8 + 12 = <b>20</b>.</div><div class="st">Second trap: 24 ÷ 4 × 2. Wrong: 4 × 2 = 8 first, 24 ÷ 8 = <b>3</b>. Right: left to right, 24 ÷ 4 = 6, 6 × 2 = <b>12</b>.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math base: decimal and fraction pairs</h2>
+<p>Learn these in chunks of four. Chunk 1: 1/8, 3/8, 5/8, 7/8.</p>
+<div class="tw"><table><tr><th>Fraction</th><th>Decimal</th><th>Fraction</th><th>Decimal</th></tr>
+<tr><td>1/8</td><td>0.125</td><td>1/20</td><td>0.05</td></tr><tr><td>3/8</td><td>0.375</td><td>1/25</td><td>0.04</td></tr>
+<tr><td>5/8</td><td>0.625</td><td>1/40</td><td>0.025</td></tr><tr><td>7/8</td><td>0.875</td><td>1/16</td><td>0.0625</td></tr></table></div>
+<div class="tip"><b>Use it.</b> To convert a fraction to a decimal, divide the top by the bottom. To go back, write the decimal over 1, 10, 100 or 1000 and simplify: 0.375 = 375/1000 = 3/8.</div>
+<h3>Speed drill</h3><p class="prog">Say it out loud before you tap Show.</p><div class="drill"><script type="application/json">[["3/8 = ? (decimal)", "0.375"], ["0.625 = ? (fraction)", "5/8"], ["7/8 = ? (decimal)", "0.875"], ["0.04 = ? (fraction)", "1/25"], ["1/16 = ? (decimal)", "0.0625"], ["0.025 = ? (fraction)", "1/40"], ["1/20 = ? (decimal)", "0.05"], ["0.125 = ? (fraction)", "1/8"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: BODMAS vs left-to-right</h2>
+<p class="prog">Expression: a + b × c − d ÷ e</p>
+<label for="ch11-a">a</label><input id="ch11-a" type="number" value="8" inputmode="decimal">
+<label for="ch11-b">b</label><input id="ch11-b" type="number" value="4" inputmode="decimal">
+<label for="ch11-c">c</label><input id="ch11-c" type="number" value="3" inputmode="decimal">
+<label for="ch11-d">d</label><input id="ch11-d" type="number" value="24" inputmode="decimal">
+<label for="ch11-e">e (not 0)</label><input id="ch11-e" type="number" value="4" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch11-out1"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(4)}
+function go(){var a=+$('ch11-a').value,b=+$('ch11-b').value,c=+$('ch11-c').value,d=+$('ch11-d').value,e=+$('ch11-e').value,o=$('ch11-out1');
+if(!e){o.innerHTML='<div class="st">e cannot be 0.</div>';return}
+var r=a+b*c-d/e,w=(((a+b)*c)-d)/e;
+o.innerHTML='<div class="st">1. Multiply and divide first: '+b+' × '+c+' = '+f(b*c)+' and '+d+' ÷ '+e+' = '+f(d/e)+'</div><div class="st">2. Then add and subtract: '+a+' + '+f(b*c)+' − '+f(d/e)+' = <b>'+f(r)+'</b></div><div class="st">Wrong way (strict left to right): <b>'+f(w)+'</b></div>'}
+['ch11-a','ch11-b','ch11-c','ch11-d','ch11-e'].forEach(function(i){$(i).addEventListener('input',go)});go()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"Find the value of 18 + 6 × (12 − 8) ÷ 4."</li><li>"0.375 + 5/8 + 0.25 = ?"</li><li>"(3/4 of 240) ÷ 5 + 12 = ?" (here "of" means multiply, and it comes before ÷)</li></ul>
+<p class="prog">Approximation &amp; Simplification appears in a third-party topic list (Oliveboard), not an official one. The 2022 and 2025 memory-based exam analyses summarised for this guide do not list it as a separate block, so do not assume how many such questions will appear.</p>
+<div class="tip"><b>How the wrong options are built.</b> Options usually include the answer you get by going strictly left to right, and the answer from ignoring brackets. If you land on one of those too easily, redo the order.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p><div class="quiz"><script type="application/json">[
+{
+"q": "7 + 3 × 6 − 4 = ?",
+"o": [
+"56",
+"21",
+"13",
+"25"
+],
+"a": 1,
+"e": "3 × 6 = 18 first. 7 + 18 − 4 = 21.",
+"t": [
+"(7 + 3) × 6 − 4: added first, wrong order",
+"",
+"7 + 3 × (6 − 4): invented brackets",
+"7 + 3 × 6 = 25, then forgot to subtract 4"
+]
+},
+{
+"q": "36 ÷ 6 × 3 = ?",
+"o": [
+"2",
+"12",
+"9",
+"18"
+],
+"a": 3,
+"e": "Left to right: 36 ÷ 6 = 6, then 6 × 3 = 18.",
+"t": [
+"Did 6 × 3 = 18 first, then 36 ÷ 18: ÷ and × are tied, go left to right",
+"36 ÷ 3: dropped the 6 and 3 order",
+"Halved the correct answer",
+""
+]
+},
+{
+"q": "0.375 written as a fraction in simplest form is:",
+"o": [
+"3/8",
+"375/100",
+"3/5",
+"37/5"
+],
+"a": 0,
+"e": "0.375 = 375/1000. Divide top and bottom by 125: 3/8.",
+"t": [
+"",
+"Wrong place value: 0.375 is over 1000",
+"Guessed from digits 3 and 5",
+"Dropped decimal point"
+]
+},
+{
+"q": "5/8 + 1/8 = ? (give as decimal)",
+"o": [
+"0.6",
+"0.875",
+"0.75",
+"0.5"
+],
+"a": 2,
+"e": "5/8 + 1/8 = 6/8 = 3/4 = 0.75. Check: 0.625 + 0.125 = 0.75.",
+"t": [
+"Read 6/8 as 6/10",
+"That is 7/8, not 6/8",
+"",
+"Treated 5/8 + 1/8 as 1/2"
+]
+},
+{
+"q": "100 − 12 × (5 − 3) ÷ 4 + 2 = ?",
+"o": [
+"46",
+"96",
+"108",
+"102"
+],
+"a": 1,
+"e": "Bracket: 5 − 3 = 2. Then 12 × 2 = 24, 24 ÷ 4 = 6. Then 100 − 6 + 2 = 96.",
+"t": [
+"(100 − 12) × (5 − 3) ÷ 4 + 2: subtracted before multiplying",
+"",
+"Added 6 instead of subtracting it",
+"100 + 2: ignored the middle term"
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What does BODMAS stand for? (2) Is division before multiplication? (3) What is 3/8 as a decimal? (4) What do you do with equal-rank operations?</div>
+<div class="mem"><b>Memorise this</b><br>1. BODMAS: Brackets, Of, Division/Multiplication, Addition/Subtraction.<br>2. D and M tied, A and S tied: left to right.<br>3. Brackets inside out.<br>4. 1/8 = 0.125, 3/8 = 0.375, 5/8 = 0.625, 7/8 = 0.875.<br>5. Write one line per step.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Order_of_operations">Wikipedia: Order of operations</a> · Exam facts: PFRDA 2026 notification (SPEC). All worked numbers checked by Python.<br><b>UNVERIFIED:</b> none.</p></section>
+<section class="lesson" id="ch11-l2"><h3>Lesson 2: Powers, roots and surds</h3>
+<p class="oneline">In one line: powers add when you multiply, roots undo powers, and neither splits over addition.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A square tile floor is 12 tiles by 12 tiles. It has 144 tiles. The side (12) is the <b>square root</b> of the area (144). Going from side to area is squaring, and going back is the root.</p>
+<p class="cap">Powers are repeated multiplication (2 × 2 × 2 = 2³ = 8). Roots undo powers.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps><div class="st">2³ means 2 × 2 × 2 = 8. The small number says how many times to multiply.</div><div class="st">Multiplying same-base powers adds the small numbers: 2³ × 2² = 2⁵ (3 + 2 = 5).</div><div class="st">Dividing same-base powers subtracts them: 2⁵ ÷ 2³ = 2².</div><div class="st">A power of a power multiplies the small numbers: (2³)² = 2⁶.</div><div class="st">Anything (not zero) to the power 0 is 1. A negative power is a reciprocal: 3⁻² = 1/9.</div><div class="st">A square root asks "what number times itself gives this?" The square root of 144 is 12.</div><div class="st">A <b>surd</b> is a root that does not come out even, like √2. Keep it as √2 and combine like terms: 5√2 + 3√2 = 8√2.</div><p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">xᵐ × xⁿ = xᵐ⁺ⁿ &nbsp;·&nbsp; xᵐ ÷ xⁿ = xᵐ⁻ⁿ &nbsp;·&nbsp; (xᵐ)ⁿ = xᵐⁿ</div>
+<div class="box">x⁰ = 1 &nbsp;·&nbsp; x⁻ⁿ = 1/xⁿ &nbsp;·&nbsp; x^(1/2) = √x</div>
+<div class="box">(xy)ⁿ = xⁿyⁿ, so √(ab) = √a × √b. Example: √50 = √25 × √2 = 5√2.</div>
+<p class="src">Exponent laws: Math Is Fun "Laws of Exponents". The √(ab) rule follows from (xy)ⁿ with n = 1/2 on that page.</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>√50 + √18 = ?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Pull out square factors: 50 = 25 × 2, 18 = 9 × 2.</div><div class="st">Step 2. √50 = 5√2 and √18 = 3√2.</div><div class="st">Step 3. Add like terms: 5√2 + 3√2 = 8√2. With √2 ≈ 1.414 this is about <b>11.31</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>2⁵ × 2³ ÷ 2⁶ = ?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Multiply: add the small numbers, 5 + 3 = 8, giving 2⁸.</div><div class="st">Step 2. Divide: subtract, 8 − 6 = 2, giving 2².</div><div class="st">Step 3. 2² = <b>4</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps><div class="st">Wrong move 1: (3 + 4)² = 3² + 4² = 9 + 16 = <b>25</b>. Right: 7² = <b>49</b>. Powers do not split over addition.</div><div class="st">Wrong move 2: √(9 + 16) = √9 + √16 = 3 + 4 = <b>7</b>. Right: √25 = <b>5</b>. Roots do not split over addition either.</div><div class="st">Wrong move 3: 2³ × 2² = 4⁵ = 1024. Right: keep the base and add the powers: 2⁵ = <b>32</b>.</div><div class="st">Roots and powers split over <b>multiplication</b> only.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math base: roots and squares</h2>
+<p>Know the squares to 30 (Chapter 2). Then these four surds, and nothing more.</p>
+<div class="tw"><table><tr><th>Root</th><th>≈ Value</th><th>Root</th><th>≈ Value</th></tr><tr><td>√2</td><td>1.414</td><td>√5</td><td>2.236</td></tr><tr><td>√3</td><td>1.732</td><td>√7</td><td>2.646</td></tr></table></div>
+<div class="tip"><b>Use it.</b> For a non-perfect square, find the two perfect squares around it. √1700 sits between √1600 = 40 and √1764 = 42, so it is a little above 41 (actually 41.23).</div>
+<h3>Speed drill</h3><p class="prog">Say it out loud before you tap Show.</p><div class="drill"><script type="application/json">[["√144 = ?", "12"], ["√196 = ?", "14"], ["2⁷ = ?", "128"], ["3⁻² = ?", "1/9"], ["5⁰ = ?", "1"], ["√2 ≈ ?", "1.414"], ["√3 ≈ ?", "1.732"], ["√5 ≈ ?", "2.236"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: where does a root fall?</h2>
+<label for="ch11-n">Enter a number (0 or more)</label><input id="ch11-n" type="number" value="1700" inputmode="decimal" min="0">
+<div class="stepbox" style="margin-top:10px" id="ch11-out2"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+function go(){var n=parseFloat($('ch11-n').value),o=$('ch11-out2');if(!(n>=0)){o.innerHTML='<div class="st">Enter 0 or more.</div>';return}
+var lo=Math.floor(Math.sqrt(n)),hi=lo+1,r=Math.sqrt(n);
+o.innerHTML='<div class="st">1. Perfect squares around it: '+lo+'² = '+(lo*lo)+' and '+hi+'² = '+(hi*hi)+'</div><div class="st">2. So the root is between '+lo+' and '+hi+'</div><div class="st">3. Exact value ≈ <b>'+r.toFixed(3)+'</b>'+(lo*lo===n?' (a perfect square)':'')+'</div>'}
+$('ch11-n').addEventListener('input',go);go()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"√196 + ∛27 − 2³ = ?"</li><li>"(2⁴ × 2³) ÷ 2⁵ = ?"</li><li>"√75 + √12 = ?" (answer in the form k√3)</li><li>"Find the approximate value of √1700 + 3.98 × 5.02."</li></ul>
+<div class="tip"><b>How the wrong options are built.</b> Expect the option from splitting over addition (√(a+b) = √a + √b) and the option from multiplying powers instead of adding them.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p><div class="quiz"><script type="application/json">[
+{
+"q": "2⁴ × 2³ = ?",
+"o": [
+"64",
+"48",
+"128",
+"14"
+],
+"a": 2,
+"e": "Same base, add the powers: 2⁴⁺³ = 2⁷ = 128.",
+"t": [
+"That is 2⁶: powers added wrongly",
+"2⁴ × 3: treated 2³ as 3",
+"",
+"Treated 2⁷ as 2 × 7"
+]
+},
+{
+"q": "3⁻² = ?",
+"o": [
+"1/9",
+"−9",
+"−6",
+"1/6"
+],
+"a": 0,
+"e": "3⁻² = 1/3² = 1/9.",
+"t": [
+"",
+"A negative power is not a negative number",
+"Computed 3 × −2",
+"Used 3 × 2 on the bottom"
+]
+},
+{
+"q": "√75 = ?",
+"o": [
+"3√5",
+"25√3",
+"7.5",
+"5√3"
+],
+"a": 3,
+"e": "75 = 25 × 3, so √75 = √25 × √3 = 5√3.",
+"t": [
+"Swapped the numbers",
+"Did not take the root of 25",
+"Treated the root as dividing by 10",
+""
+]
+},
+{
+"q": "√9 + √16 and √(9 + 16): what are the values?",
+"o": [
+"7 and 7",
+"3 + 4 = 7 and 5",
+"5 and 5",
+"25 and 7"
+],
+"a": 1,
+"e": "√9 + √16 = 3 + 4 = 7, but √25 = 5. The root does not split over addition.",
+"t": [
+"Split the root over addition",
+"",
+"Reverse: split the other way",
+"Squared instead of rooted"
+]
+},
+{
+"q": "(2³)² = ?",
+"o": [
+"32",
+"512",
+"64",
+"12"
+],
+"a": 2,
+"e": "Power of a power: multiply the small numbers, 2⁶ = 64. Check: 8² = 64.",
+"t": [
+"2³ × 2², added to 3 + 2",
+"2^(3²) = 2⁹, wrong reading",
+"",
+"Computed 3 × 2 × 2"
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What happens to small numbers when I multiply same-base powers? (2) What is x⁰? (3) Does √(a+b) equal √a + √b? (4) What is √50 in simplest form?</div>
+<div class="mem"><b>Memorise this</b><br>1. Multiply same base: add powers. Divide: subtract. Power of power: multiply.<br>2. x⁰ = 1 and x⁻ⁿ = 1/xⁿ.<br>3. √(ab) = √a × √b, but √(a+b) ≠ √a + √b.<br>4. √2 ≈ 1.414, √3 ≈ 1.732, √5 ≈ 2.236, √7 ≈ 2.646.<br>5. For a non-perfect square, find the squares on both sides.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/algebra/exponent-laws.html">Math Is Fun: Laws of Exponents</a> · All worked numbers checked by Python.<br><b>UNVERIFIED:</b> none.</p></section>
+<section class="lesson" id="ch11-l3"><h3>Lesson 3: Approximation: round without losing the option</h3>
+<p class="oneline">In one line: round to friendly numbers, solve, and pick the nearest option, but round gently when options are close.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A tea-stall bill: ₹49.80 for tea, ₹20.10 per kg of biscuits for 9.9 kg. You do not need the paise. You think "about ₹50 and about ₹20 and about 10 kg". The answer is "close to ₹100" and you move on.</p>
+<p class="cap">Approximation questions ask for exactly this: a close answer, fast, picking the nearest option.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps><div class="st">Look at the options first. If they are far apart, you can round hard.</div><div class="st">Round each number to a friendly nearby number: 49.8 → 50, 20.1 → 20, 9.9 → 10.</div><div class="st">Round to nearest ten, whole number or tenth, using the half-up rule: 7.5 goes up to 8, 7.4 goes down to 7.</div><div class="st">Then do BODMAS on the friendly numbers.</div><div class="st">Pick the option closest to your answer.</div><div class="st">If two options are close, round more gently (nearest tenth) and redo.</div><p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Round half up: a digit 5 or more rounds up, 4 or less rounds down.</div>
+<div class="box">Round each number by a tiny amount, so that the errors stay small.</div>
+<div class="box">Nearly 100%, 50%, 25%, 10% are your friends: 24.9% of 801 ≈ 25% of 800 = 200.</div>
+<p class="src">Round half up (7.5 rounds to 8; 23.5 to 24): Math Is Fun "Rounding Methods"; Wikipedia "Rounding".</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>49.8 × 20.1 ÷ 9.9 + 148 ≈ ?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Round: 49.8 → 50, 20.1 → 20, 9.9 → 10, 148 → 150.</div><div class="st">Step 2. 50 × 20 ÷ 10 = 100.</div><div class="st">Step 3. 100 + 150 = <b>250</b>. The exact value is 249.11, so an option near 250 is right.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>24.9% of 801 ≈ ?</b></p><div class="stepbox" data-steps><div class="st">Step 1. 24.9% ≈ 25% = 1/4 and 801 ≈ 800.</div><div class="st">Step 2. 800 ÷ 4 = <b>200</b>. (Exact: 199.449.)</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps><div class="st">Question: 2.6 × 2.6. Wrong move: round both UP to 3 × 3 = <b>9</b>. The real answer is 6.76, a big miss.</div><div class="st">Both numbers rounded up, so the errors stack. Round gently: 2.6 → 2.5 gives 6.25, or keep to one decimal and say 6.8.</div><div class="st">Also watch: if the options are 199, 200 and 201, rounding to the nearest 10 cannot separate them. Compute more exactly.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math base: friendly numbers</h2>
+<p>Swap awkward values for these friends and remember the swap is small.</p>
+<div class="tw"><table><tr><th>Awkward</th><th>Friend</th></tr><tr><td>24.9%, 25.1%</td><td>25% = 1/4</td></tr><tr><td>33.4%</td><td>1/3</td></tr><tr><td>99.8, 100.2</td><td>100</td></tr><tr><td>√5000</td><td>√4900 = 70 (exact 70.71)</td></tr></table></div>
+<div class="tip"><b>Use it.</b> To estimate a root, take the nearest perfect square: √5000 is just above 70.</div>
+<h3>Speed drill</h3><p class="prog">Say it out loud before you tap Show.</p><div class="drill"><script type="application/json">[["Round 7.5 to the nearest whole number", "8"], ["Round 7.4 to the nearest whole number", "7"], ["Round 19.97 to the nearest whole number", "20"], ["24.9% of 801 ≈ ?", "200"], ["398 × 4.02 ÷ 19.9 ≈ ?", "80"], ["√5000 is just above ?", "70"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: round and compare</h2>
+<label for="ch11-x">Number 1</label><input id="ch11-x" type="number" value="49.8" inputmode="decimal">
+<label for="ch11-y">Number 2</label><input id="ch11-y" type="number" value="20.1" inputmode="decimal">
+<label for="ch11-r">Round to the nearest</label><select id="ch11-r"><option value="10">10</option><option value="1" selected>1</option><option value="0.1">0.1</option></select>
+<div class="stepbox" style="margin-top:10px" id="ch11-out3"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(4)}
+function rd(v,u){return Math.floor(v/u+0.5)*u}
+function go(){var x=parseFloat($('ch11-x').value),y=parseFloat($('ch11-y').value),u=parseFloat($('ch11-r').value),o=$('ch11-out3');
+if(isNaN(x)||isNaN(y)){o.innerHTML='<div class="st">Enter two numbers.</div>';return}
+var a=rd(x,u),b=rd(y,u),ex=x*y,ap=a*b;
+o.innerHTML='<div class="st">1. Rounded: '+f(a)+' and '+f(b)+'</div><div class="st">2. Product of rounded = '+f(ap)+'</div><div class="st">3. Exact product = '+f(ex)+'</div><div class="st">4. Error = <b>'+(ex?f(Math.abs(ap-ex)/Math.abs(ex)*100):0)+'%</b>. Finer rounding, smaller error.</div>'}
+['ch11-x','ch11-y','ch11-r'].forEach(function(i){$(i).addEventListener('input',go)});go()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"What approximate value will come in place of the question mark? 398 × 4.02 ÷ 19.9 = ?"</li><li>"24.9% of 801 + 15.1% of 399 = ?"</li><li>"√5000 × 0.99 = ?" (approx)</li></ul>
+<p class="prog">Look for words like "approximately" or "what will come in place of ?". Then you may round; with "exact value" you may not.</p>
+<div class="tip"><b>How the wrong options are built.</b> They sit around the true value, so if you round too hard you may land between two options. Check the gap between the options before choosing how hard to round.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p><div class="quiz"><script type="application/json">[
+{
+"q": "398 × 4.02 ÷ 19.9 ≈ ?",
+"o": [
+"64",
+"100",
+"160",
+"80"
+],
+"a": 3,
+"e": "400 × 4 ÷ 20 = 80. Exact: 80.4.",
+"t": [
+"Divided by 25 instead of 20",
+"Divided by 16 instead of 20",
+"Divided by 10 instead of 20",
+""
+]
+},
+{
+"q": "30.2 × 9.9 × 0.52 ≈ ? (nearest option)",
+"o": [
+"120",
+"150",
+"180",
+"300"
+],
+"a": 1,
+"e": "30 × 10 × 0.5 = 150. Exact: 155.47, so 150 is nearest.",
+"t": [
+"Used 0.4 in place of 0.52",
+"",
+"Used 0.6 for 0.52",
+"Forgot the 0.52 factor: 30 × 10"
+]
+},
+{
+"q": "24.9% of 801 ≈ ?",
+"o": [
+"200",
+"25",
+"250",
+"160"
+],
+"a": 0,
+"e": "24.9% ≈ 1/4 and 801 ≈ 800. 800 ÷ 4 = 200. Exact: 199.449.",
+"t": [
+"",
+"Took 25 (the percent) as the answer",
+"Used 1000 as the base",
+"Used 20%"
+]
+},
+{
+"q": "Round 7.5 to the nearest whole number using the half-up rule.",
+"o": [
+"7",
+"7.5",
+"8",
+"9"
+],
+"a": 2,
+"e": "Half-up: a 5 rounds up, so 7.5 becomes 8.",
+"t": [
+"Rounded 0.5 down",
+"Did not round",
+"",
+"Rounded twice"
+]
+},
+{
+"q": "√5000 is closest to:",
+"o": [
+"50",
+"60",
+"80",
+"70"
+],
+"a": 3,
+"e": "70² = 4900, close to 5000. Exact: 70.71.",
+"t": [
+"√2500 = 50",
+"√3600 = 60",
+"√6400 = 80",
+""
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What do I check before rounding? (2) How does half-up rounding treat 7.5? (3) What is 24.9% of 801, roughly? (4) What if two options are close?</div>
+<div class="mem"><b>Memorise this</b><br>1. Options first: far apart means round hard.<br>2. Half up: 5 or more goes up.<br>3. Round to friendly numbers: 25% = 1/4, 99.8 = 100.<br>4. Then BODMAS, then nearest option.<br>5. Close options: round more gently.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/numbers/rounding-methods.html">Math Is Fun: Rounding Methods</a> · <a href="https://en.wikipedia.org/wiki/Rounding">Wikipedia: Rounding</a> · Topic existence: Oliveboard third-party list (not official). All worked numbers checked by Python.<br><b>UNVERIFIED:</b> how many simplification/approximation questions appear in the real paper; whether PFRDA uses "approximate value" wording.</p></section>
+</article>
