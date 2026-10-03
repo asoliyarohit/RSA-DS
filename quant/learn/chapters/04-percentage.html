@@ -21,7 +21,7 @@
 <div class="box">X% of N = (X ÷ 100) × N</div>
 <div class="box">% change = (New − Old) ÷ Old × 100</div>
 <div class="box">Successive changes: multiply the factors. +20% is factor 1.20, −20% is 0.80.</div>
-<p class="src">Definition of percentage and relative change: Wikipedia "Percentage"; Math Is Fun "Percentage Change" (see Sources).</p></section>
+<p class="src">Definition of percentage and relative change: Wikipedia "Percentage"; Math Is Fun "Percentage Change" (see Sources). Changes do not add: Wikipedia "Percentage" (+10% then −10% ≠ 0). Multiply-the-factors rule: derived, Python-checked.</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
 <p><b>A bag goes from ₹80 to ₹100. Percentage increase?</b></p>
@@ -61,20 +61,20 @@
 <div class="drill"><script type="application/json">[["1/3 = ?%","33.33%"],["1/6 = ?%","16.67%"],["1/7 = ?%","14.29%"],["1/8 = ?%","12.5%"],["1/9 = ?%","11.11%"],["1/12 = ?%","8.33%"],["1/16 = ?%","6.25%"],["37.5% = ? (fraction)","3/8"],["62.5% = ? (fraction)","5/8"],["83.33% = ? (fraction)","5/6"]]</script></div></section>
 
 <section class="card"><h2><span class="n">7</span>Lab: percent change calculator</h2>
-<label for="p4o">Old value</label><input id="p4o" type="number" value="80" inputmode="decimal">
-<label for="p4n">New value</label><input id="p4n" type="number" value="100" inputmode="decimal">
-<div class="stepbox" style="margin-top:10px" id="p4s1"></div>
+<label for="ch04-o">Old value</label><input id="ch04-o" type="number" value="80" inputmode="decimal">
+<label for="ch04-n">New value</label><input id="ch04-n" type="number" value="100" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch04-s1"></div>
 <hr><b>Successive changes</b>
-<label for="p4a">First change % (minus for a fall)</label><input id="p4a" type="number" value="20" inputmode="decimal">
-<label for="p4b">Second change %</label><input id="p4b" type="number" value="-20" inputmode="decimal">
-<div class="stepbox" style="margin-top:10px" id="p4s2"></div>
+<label for="ch04-a">First change % (minus for a fall)</label><input id="ch04-a" type="number" value="20" inputmode="decimal">
+<label for="ch04-b">Second change %</label><input id="ch04-b" type="number" value="-20" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch04-s2"></div>
 <script>(function(){function f(x){return +(+x).toFixed(2)}function $(i){return document.getElementById(i)}
-function lab(){var o=parseFloat($('p4o').value),n=parseFloat($('p4n').value),t=$('p4s1');
+function lab(){var o=parseFloat($('ch04-o').value),n=parseFloat($('ch04-n').value),t=$('ch04-s1');
 if(!(o>0)||isNaN(n)){t.innerHTML='<div class="st">Enter an old value above 0 and a new value.</div>'}else{var c=n-o,p=c/o*100;
-t.innerHTML='<div class="st">1. Change = '+n+' − '+o+' = '+f(c)+'</div><div class="st">2. Divide by OLD: '+f(c)+' ÷ '+o+' = '+f(c/o)+'</div><div class="st">3. × 100 = <b>'+f(p)+'% '+(p>0?'increase':p<0?'decrease':'(no change)')+'</b></div>'+(n>0?'<div class="st">Reverse trip: to get back, change by '+f((o-n)/n*100)+'% (base is now '+n+')</div>':'')}
-var a=parseFloat($('p4a').value),b=parseFloat($('p4b').value),s=$('p4s2');if(isNaN(a)||isNaN(b)){s.innerHTML='';return}
+t.innerHTML='<div class="st">1. Change = '+n+' − '+o+' = '+f(c)+'</div><div class="st">2. Divide by OLD: '+f(c)+' ÷ '+o+' = '+f(c/o)+'</div><div class="st">3. × 100 = <b>'+f(Math.abs(p))+'% '+(p>0?'increase':p<0?'decrease':'(no change)')+'</b></div>'+(n>0?'<div class="st">Reverse trip: to get back, change by '+f((o-n)/n*100)+'% (base is now '+n+')</div>':'')}
+var a=parseFloat($('ch04-a').value),b=parseFloat($('ch04-b').value),s=$('ch04-s2');if(isNaN(a)||isNaN(b)){s.innerHTML='';return}
 var fa=1+a/100,fb=1+b/100;s.innerHTML='<div class="st">1. Factors: '+f(fa)+' and '+f(fb)+'</div><div class="st">2. Multiply: '+f(fa)+' × '+f(fb)+' = '+f(fa*fb)+'</div><div class="st">3. Net = <b>'+f((fa*fb-1)*100)+'%</b> (adding would wrongly give '+f(a+b)+'%)</div>'}
-['p4o','p4n','p4a','p4b'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+['ch04-o','ch04-n','ch04-a','ch04-b'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
 
 <section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
 <p class="prog">Typical style, written by us. Not copied from any paper.</p>
@@ -119,7 +119,7 @@ var fa=1+a/100,fb=1+b/100;s.innerHTML='<div class="st">1. Factors: '+f(fa)+' and
 "",
 "6,000 ÷ 46,000 (divided by the NEW value) ≈ 13%",
 "Used 6 as the answer: change in thousands, not a percent",
-"6,000 ÷ 48,000: an arbitrary wrong base"
+"6,000 ÷ 48,000: divided by a wrong base (neither old nor new)"
 ]
 },
 {
@@ -151,9 +151,9 @@ var fa=1+a/100,fb=1+b/100;s.innerHTML='<div class="st">1. Factors: '+f(fa)+' and
 "e": "1.20 × 0.90 = 1.08, so +8%.",
 "t": [
 "20 − 10: added the percentages",
-"Dropped the second step's smaller base",
+"12 is only the size of the drop (10% of 120), not the net change",
 "",
-"Mis-multiplied 1.2 × 0.9"
+"Mis-multiplied 1.2 × 0.9 (it is 1.08, not 1.09)"
 ]
 },
 {
@@ -179,5 +179,5 @@ var fa=1+a/100,fb=1+b/100;s.innerHTML='<div class="st">1. Factors: '+f(fa)+' and
 <div class="tip"><b>Cover the page, say it out loud:</b> (1) What does percent mean? (2) Which number do I divide by for % change? (3) Do successive changes add? (4) What is 1/8 as a percent?</div>
 <div class="mem"><b>Memorise this</b><br>1. % = per 100.<br>2. % change = (New − Old) ÷ Old × 100.<br>3. Successive: multiply factors, never add.<br>4. Up 25% needs down 20% to return (1/4 up, 1/5 down).<br>5. 1/2=50, 1/3=33.3, 1/4=25, 1/5=20, 1/6=16.7, 1/8=12.5, 1/10=10.</div></section>
 
-<p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Percentage">Wikipedia: Percentage</a> · <a href="https://www.mathsisfun.com/percentage.html">Math Is Fun: Percents</a> · <a href="https://www.mathsisfun.com/numbers/percentage-change.html">Math Is Fun: Percentage Change</a> · Exam facts: PFRDA 2026 notification. 2025 DI count: edutap exam analysis (memory-based). All worked numbers checked by Python.<br><b>UNVERIFIED:</b> how often plain percentage questions appear (none claimed); that the real paper uses 4 or 5 options (the 20% break-even holds either way).</p>
+<p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Percentage">Wikipedia: Percentage</a> · <a href="https://www.mathsisfun.com/percentage.html">Math Is Fun: Percents</a> · <a href="https://www.mathsisfun.com/numbers/percentage-change.html">Math Is Fun: Percentage Change</a> · Exam facts: PFRDA 2026 notification. 2025 DI count: <a href="https://edutap.in/pfrda-grade-a/exam-analysis/">edutap exam analysis</a> (reported in memory-based exam analyses; single source). Fraction table, successive-factor rule and all worked numbers: derived, Python-checked.<br><b>UNVERIFIED:</b> how often plain percentage questions appear (none claimed); that the real paper uses 4 or 5 options (the 20% break-even holds either way).</p>
 </article>

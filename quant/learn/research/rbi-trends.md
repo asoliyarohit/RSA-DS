@@ -1,0 +1,42 @@
+# RBI Grade B DR (General) Phase 1 - Quant trends (research notes)
+
+Compiled 2026-10-03. Only numbers present in a page that was actually fetched. UNVERIFIED = not found in any fetched page. "Sources differ" = fetched pages disagree; all values shown, none chosen.
+Caveat: WebFetch returns a model summary of each page, not raw HTML, so figures are only as reliable as that extraction. Several pages gave 403 (bankersadda, careerpower, adda247, shiksha) and were NOT read; their numbers appear nowhere below (search-snippet numbers were not used).
+
+Structure: Phase 1 Quant = 30 questions / 30 marks (stated by edutap, ixambee, ibpsguide, practicemock 2023). 2019 time limit stated as 25 minutes (ixambee, ibpsguide). Phase 1 is 200 marks in 120 min (ixambee 2019 page).
+No Phase 1 in 2020: oliveboard cut-off page says "There was no RBI Grade B exam in the year 2020."
+Years searched: 2016-2026. 2016 and 2017: UNVERIFIED (only a 2017 cut-off of 4 appears on oliveboard, with the note that marks structure seemed different).
+
+## Per-year table
+
+| Year | Exam date | Quant Qs | Per-topic counts | Difficulty | Good attempts (quant) | Sectional cut-off Gen/UR (of 30) | URLs |
+|---|---|---|---|---|---|---|---|
+| 2026 | 13 Jun 2026 (Gen); 14 Jun (DEPR/DSIM) | 30 (anujjindal) | edutap: DI 13, Number Series 4, Approximation 4, Quantity Comparison 3, CI/SI 2, P&L 1, Ratio/Mixture 1, Mensuration 3D 1, Percentage 1 (sums to 30). anujjindal: DI 13, Simplification & Approx 4, Number Series 4 (agrees) | Sources differ: Moderate (edutap); Easy to Moderate (anujjindal) | 14-18 (anujjindal) | 14.5 (edutap, oliveboard), described as "all-time high" | edutap.in/rbi-grade-b/exam-analysis/ ; anujjindal.in/rbi-grade-b-preparation-exam-analysis-and-cut-off/ ; oliveboard.in/rbi-grade-b-previous-year-cut-off/ |
+| 2025 | 18 Oct 2025 (practicemock, anujjindal) | 30 (practicemock) | Sources differ. edutap: DI 13, Number Series 4, Quadratic 4, Data Sufficiency 3, P&L 2, CI/SI 1, T&D 1, Income&Exp 1, Time&Work 1 (sums to 30). practicemock: DI 10, Caselet 4-5, Arithmetic 5-6, Quadratic 4, DS 3, Missing series 2. anujjindal: DI 13, Quadratic 4, Number Series 4 | Sources differ: Moderate to Difficult (edutap, practicemock); Difficult (anujjindal) | Sources differ: 8-10 (practicemock); 7-9 (anujjindal) | 9 (edutap, oliveboard) | edutap exam-analysis; practicemock.com/blog/rbi-grade-b-exam-analysis-2025/ ; anujjindal page ; oliveboard cut-off page |
+| 2024 | 8 Sep 2024 (two shifts) | 30 per shift (edutap 2024 page) | Sources differ. edutap annual table: DI 17, Number Series 3, Quantity Comparison 4, CI/SI 1, Ratio/Mixture 1, T&D 1, Income&Exp 1, Age&Partnership 1, Mensuration 2D 1 (sums to 30). edutap 2024 page: Shift 1 NS 3 / DI 11 / Arithmetic 16; Shift 2 NS 5 / DI 10 / Arithmetic 15. anujjindal: DI 16, Ratio 1, NS 3 | Difficult (edutap, anujjindal); called the "most difficult" Phase 1 component | Sources differ: 10-12 "doable" (edutap 2024 page); 6-9 (anujjindal) | 7.5 (edutap, oliveboard). Pre-result "expected" 4-6 on edutap 2024 page (not the actual) | edutap.in/rbi-grade-b/exam-analysis/2024-phase-1-analysis/ ; edutap exam-analysis ; anujjindal page |
+| 2023 | 9 Jul 2023 (practicemock URL/title) | 30 (practicemock) | practicemock: Number Series 5, Quadratic 5-8, Arithmetic 6, DI Bar 5, DI Tabular 5, DI Caselet 4-5. edutap annual: DI 15, NS 3, Quantity Comparison 3, Quadratic 2, Data Sufficiency 2, CI/SI 1, Age&Partnership 1, Mensuration 2D 1, Boat&Stream 1, HCF&LCM 1 (sums to 30). Sources differ (classification, e.g. Quadratic 5-8 vs 2; NS 5 vs 3) | Difficult (edutap); challenging (practicemock) | Shift 1: 8-10; Shift 2: 7-9 (practicemock) | 4.5 | practicemock.com/blog/rbi-grade-b-phase-1-exam-analysis-9th-july-2023/ ; edutap exam-analysis ; oliveboard cut-off |
+| 2022 | 28 May 2022 (byjus; two shifts) | 30 (byjus) | byjus: Arithmetic 8, Caselet DI 5, DS 2, Missing Series 4, Quantity 1-2 (2), Quadratic 4, Tabular+Line DI 5. edutap annual: DI 15, NS 3, Quantity Comparison 2, CI/SI 2, Quadratic 4, P&L 1, Mensuration 3D 1, Income&Exp 1, Boat&Stream 1 (sums to 30). Sources differ on DS (2 vs 0) and arithmetic split | Sources differ: Difficult (edutap); Moderate (byjus quant line; overall paper "Moderate to Difficult") | 10-15 across shifts (byjus) | 4.5 | byjus.com/bank-exam/rbi-grade-b-exam-analysis/ ; edutap ; oliveboard |
+| 2021 | 6 Mar 2021 (byjus; two shifts) | 30 (ixambee) | Sources differ strongly. edutap annual: DI 7, Data Sufficiency 8, Quantity Comparison 5, NS 3, Age&Partnership 2, Quadratic 1, CI/SI 1, Ratio 1, Percentage 1, T&D 1 (sums to 30). byjus: DI 10-12, NS 5-6, DS 5-6, QC 3-4, Arithmetic 4-5, Quadratic 4-5. ixambee: Quadratic 7, QC 3, DI 15, Arithmetic 5 | Sources differ: Moderate (edutap); Moderate to Difficult (ixambee) | 15+ (ixambee) | 6 | edutap ; byjus ; ixambee.com/exams/rbi-grade-b-phase-i-exam-analysis-review ; oliveboard |
+| 2020 | No exam (oliveboard) | - | - | - | - | - | oliveboard cut-off page |
+| 2019 | 9 Nov 2019 (ixambee, Shift 1) | 30 questions/30 marks/25 min | ixambee: DI (bar graph + caselet) 10, Arithmetic incl. TSD 10, Approximation 5, Series 5. ibpsguide: DI 10, Approximation 5, Wrong Number Series 5, Misc (Percentage, T&W, Partnership, Boat) 10 (agrees) | Easy to Moderate | 20-23 (ibpsguide); "22+" (ixambee) | 7.5 | ixambee.com/blog/rbi-grade-b-phase-1-detailed-exam-analysis ; ibpsguide.com/rbi-grade-b-exam-analysis/ ; oliveboard cut-off |
+| 2018 | 16 Aug 2018 (cracku; 2 slots) | 30 / 30 marks (ibpsguide, cracku) | Sources differ by slot/page. cracku Slot 1: DI 10, DS 5, Wrong NS 5, Quant Comparison 5, Misc 5. cracku Slot 2: DI 15, Simplification/Approx 5, QC 5, Misc 5. ibpsguide: Inequalities 5, DI 10-15, Wrong NS 5, DS 5, Misc 5, Approximation 5 (Slot 2) | Sources differ: Moderate (ibpsguide); Moderate-Difficult / "moderately difficult" (cracku) | Sources differ: 14-23 (ibpsguide); Slot 1 11-15, Slot 2 13-17 (cracku) | 7.5 | cracku.in/blog/rbi-grade-b-exam-analysis-2018/ ; ibpsguide.com/rbi-grade-b-2018-phase-1-exam-analysis-review ; oliveboard cut-off |
+| 2017 | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | 4 (oliveboard; marks structure may have differed) | oliveboard cut-off page |
+| 2016 | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | - |
+
+Note: the oliveboard page at /blog/rbi-grade-b-exam-analysis/ returned content headed Phase 2 (25 Jul 2026) while its title says Phase 1 (13-14 Jun 2026); I did not use its numbers (Quant 30 Qs, good attempts 12-15) as Phase 1 evidence.
+
+## Pattern changes noted in the pages
+- 2019 and 2018 papers: Approximation (5) and Wrong Number Series (5) appear; 2019 rated easy-moderate with ~20+ good attempts.
+- 2021-2025: Quadratic Equations, Data Sufficiency and Quantity Comparison appear in varying amounts (edutap table); byjus labels Missing Series and Quadratic as "New Pattern" in 2022.
+- 2026: Approximation (4) appears again in edutap's table after 0 in 2021-2025; Quadratic and Data Sufficiency are 0.
+- Cut-off swing: 7.5 (2018, 2019) -> 6 (2021) -> 4.5 (2022, 2023) -> 7.5 (2024) -> 9 (2025) -> 14.5 (2026).
+
+## What the evidence says (not overclaiming)
+- Data Interpretation (incl. caselets) is the largest block in every year where counts exist: 7 to 17 of 30 per edutap's 2021-2026 table, and 10-15 in 2018-2019 per other sources. Classification differs between sources, so exact counts are soft.
+- Number Series was 3-4 per edutap in 2021-2026; other sources give 5 in some years.
+- Beyond DI and series, the remainder rotates among quantity comparison, quadratic equations, data sufficiency, and a few single arithmetic questions (CI/SI, P&L, T&D, mixture, mensuration, age/partnership). No single arithmetic topic is shown repeating at more than 2 per year in the edutap table. Time & Work appears once (2025) and Boat & Stream twice (2022, 2023) there.
+- Difficulty and cut-off were volatile year to year; 2026 was reported easier with a higher cut-off. This sample (about 8 exam years) cannot predict a future paper's mix.
+- Practical reading: speed and accuracy on DI sets plus series likely matter most; arithmetic breadth is lower yield per topic. Treat as a hypothesis, not a forecast.
+
+## Gaps
+2016, 2017 (no paper analysis); exam dates for 2021-2022 shift details beyond byjus; bankersadda, careerpower, adda247, testbook analysis pages gave 403 or were not fetched; per-topic counts for 2021-2025 conflict across sources and need checking against actual question papers.

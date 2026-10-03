@@ -104,7 +104,7 @@ c.innerHTML='<div class="st">With π = 22/7: area = <b>'+f(22/7*r*r)+'</b>, circ
 <section class="card"><h2><span class="n">10</span>Lock it in</h2>
 <div class="tip"><b>Cover the page, say it out loud:</b> (1) Rectangle area and perimeter? (2) Triangle area? (3) Circle area and circumference? (4) What happens to area if the side doubles?</div>
 <div class="mem"><b>Memorise this</b><br>1. Rectangle: l×w and 2(l+w).<br>2. Triangle: ½ × base × height.<br>3. Circle: 2πr and πr² (π = 22/7 with multiples of 7).<br>4. Trapezium: ½(a+b)×h.<br>5. Length ×2 means area ×4.</div></section>
-<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/geometry/area.html">Math Is Fun: Area</a> · <a href="https://www.mathsisfun.com/geometry/rectangle.html">Rectangle</a> · <a href="https://www.mathsisfun.com/geometry/square.html">Square</a> · <a href="https://www.mathsisfun.com/geometry/circle.html">Circle</a> · <a href="https://www.mathsisfun.com/geometry/trapezoid.html">Trapezoid</a>. 2025 rectangle count: edutap exam analysis (memory-based). Worked numbers checked by Python.<br><b>UNVERIFIED:</b> how often each shape appears in the paper; whether the paper gives π = 22/7 in the question (typical-style assumption).</p>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/geometry/area.html">Math Is Fun: Area</a> · <a href="https://www.mathsisfun.com/geometry/rectangle.html">Rectangle</a> · <a href="https://www.mathsisfun.com/geometry/square.html">Square</a> · <a href="https://www.mathsisfun.com/geometry/circle.html">Circle</a> · <a href="https://www.mathsisfun.com/geometry/trapezoid.html">Trapezoid</a> · <a href="https://en.wikipedia.org/wiki/Pi">Wikipedia: Pi</a> (22/7 as a common approximation). Area-scaling rule (length ×2 gives area ×4) and percentage-change factors (1.2 × 0.9, 1.1²): derived, Python-checked. 2025 rectangle count: edutap exam analysis (memory-based). Worked numbers checked by Python.<br><b>UNVERIFIED:</b> how often each shape appears in the paper; whether the paper gives π = 22/7 in the question (typical-style assumption).</p>
 </section>
 
 <section class="lesson" id="ch17-l2">
@@ -207,7 +207,7 @@ c.innerHTML='<div class="st">Cube: V = '+f(e*e*e)+' · surface = '+f(6*e*e)+'</d
 <section class="card"><h2><span class="n">10</span>Lock it in</h2>
 <div class="tip"><b>Cover the page, say it out loud:</b> (1) Cuboid volume and surface area? (2) Cylinder volume and total surface? (3) Cone volume, and which height does it use? (4) Sphere volume and surface?</div>
 <div class="mem"><b>Memorise this</b><br>1. Cuboid: lwh and 2(lw+lh+wh). Cube: a³ and 6a².<br>2. Cylinder: πr²h and 2πr(r+h).<br>3. Cone: ⅓πr²h; curved πrs; s = √(r²+h²).<br>4. Sphere: 4/3 πr³ and 4πr².<br>5. Length ×2: area ×4, volume ×8.</div></section>
-<p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Rectangular_cuboid">Wikipedia: Rectangular cuboid</a> · <a href="https://en.wikipedia.org/wiki/Cube">Wikipedia: Cube</a> · <a href="https://www.mathsisfun.com/geometry/cylinder.html">Math Is Fun: Cylinder</a> · <a href="https://www.mathsisfun.com/geometry/cone.html">Cone</a> · <a href="https://www.mathsisfun.com/geometry/sphere.html">Sphere</a>. Worked numbers and the 3:1:2 ratio checked by Python.<br><b>UNVERIFIED:</b> frequency of solid-shape questions in the paper; litre-to-m³ conversions (omitted, no source fetched); frustum, hemisphere and combined solids (not covered).</p>
+<p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Rectangular_cuboid">Wikipedia: Rectangular cuboid</a> · <a href="https://en.wikipedia.org/wiki/Cube">Wikipedia: Cube</a> · <a href="https://www.mathsisfun.com/geometry/cylinder.html">Math Is Fun: Cylinder</a> · <a href="https://www.mathsisfun.com/geometry/cone.html">Cone</a> · <a href="https://www.mathsisfun.com/geometry/sphere.html">Sphere</a>. Worked numbers checked by Python. 3:1:2 ratio and volume ×8 scaling: derived, Python-checked.<br><b>UNVERIFIED:</b> frequency of solid-shape questions in the paper; litre-to-m³ conversions (omitted, no source fetched); frustum, hemisphere and combined solids (not covered).</p>
 </section>
 
 <section class="lesson" id="ch17-l3">
@@ -281,14 +281,14 @@ c.innerHTML='<div class="st">Cube: V = '+f(e*e*e)+' · surface = '+f(6*e*e)+'</d
 <label for="ch17-pb">Leg b</label><input id="ch17-pb" type="number" value="12" inputmode="decimal">
 <div class="stepbox" style="margin-top:10px" id="ch17-ps"></div>
 <hr>
-<label for="ch17-an">An angle in degrees (0 to 180)</label><input id="ch17-an" type="number" value="35" inputmode="decimal">
+<label for="ch17-an">An angle in degrees (above 0, up to 180)</label><input id="ch17-an" type="number" value="35" inputmode="decimal">
 <div class="stepbox" style="margin-top:10px" id="ch17-as"></div>
 <script>(function(){function f(x){return +(+x).toFixed(2)}function $(i){return document.getElementById(i)}
 function lab(){var a=parseFloat($('ch17-pa').value),b=parseFloat($('ch17-pb').value),t=$('ch17-ps');
 if(!(a>0)||!(b>0)){t.innerHTML='<div class="st">Enter two legs above 0.</div>'}else{var c=Math.sqrt(a*a+b*b);
 t.innerHTML='<div class="st">a² + b² = '+f(a*a)+' + '+f(b*b)+' = '+f(a*a+b*b)+'</div><div class="st">Hypotenuse = √'+f(a*a+b*b)+' = <b>'+f(c)+'</b></div><div class="st">'+(Math.abs(c-Math.round(c))<1e-9?'This is a whole-number triple.':'Not a whole-number triple.')+'</div>'}
 var x=parseFloat($('ch17-an').value),s=$('ch17-as');
-if(isNaN(x)||x<0||x>180){s.innerHTML='<div class="st">Enter an angle from 0 to 180.</div>';return}
+if(isNaN(x)||x<=0||x>180){s.innerHTML='<div class="st">Enter an angle above 0, up to 180.</div>';return}
 s.innerHTML='<div class="st">Type: '+(x<90?'acute':x===90?'right':x<180?'obtuse':'straight')+'</div><div class="st">Complement: '+(x<=90?'<b>'+f(90-x)+'°</b>':'none (angle is above 90°)')+'</div><div class="st">Supplement: <b>'+f(180-x)+'°</b></div>'}
 ['ch17-pa','ch17-pb','ch17-an'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
 
@@ -306,14 +306,14 @@ s.innerHTML='<div class="st">Type: '+(x<90?'acute':x===90?'right':x<180?'obtuse'
 {"q":"The angles of a triangle are in the ratio 2 : 3 : 4. The largest angle is:","o":["80°","60°","40°","90°"],"a":0,"e":"2 + 3 + 4 = 9 parts = 180°, so a part is 20°. Largest = 4 × 20 = 80°.","t":["","That is the middle angle (3 parts)","That is the smallest angle (2 parts)","Guessed a right angle; the parts do not give 90°"]},
 {"q":"What is the complement of 65°?","o":["115°","90°","25°","65°"],"a":2,"e":"Complementary angles add to 90°: 90 − 65 = 25°.","t":["That is the supplement (180 − 65)","90° is the total, not the other angle","","Repeated the given angle"]},
 {"q":"The two legs of a right triangle are 9 cm and 12 cm. The hypotenuse is:","o":["21 cm","15 cm","108 cm","225 cm"],"a":1,"e":"81 + 144 = 225, and √225 = 15 cm (a 3-4-5 triple scaled by 3).","t":["Added the legs, forgetting squares","","Multiplied the legs","Forgot the final square root"]},
-{"q":"Two interior angles of a triangle that are not next to an exterior angle are 40° and 65°. The exterior angle is:","o":["25°","75°","140°","105°"],"a":3,"e":"Exterior angle = sum of the two far interior angles = 40 + 65 = 105°.","t":["Subtracted instead of added","75° comes from 180 − 105, the wrong direction of the exterior-angle idea","140° is the supplement of 40°",""]},
-{"q":"A ladder 25 m long reaches 24 m up a wall. How far is its foot from the wall?","o":["7 m","32 m","18 m","26 m"],"a":0,"e":"Distance² = 25² − 24² = 625 − 576 = 49, so 7 m.","t":["","Added 25 and 24 instead of using squares","Subtracted 25 − 7 without squaring; no square rule gives 18","Added the squares (1201) and rounded the root"]}
+{"q":"In a triangle, the two interior angles opposite (not next to) an exterior angle are 40° and 65°. That exterior angle is:","o":["25°","75°","140°","105°"],"a":3,"e":"Exterior angle = sum of the two far interior angles = 40 + 65 = 105°.","t":["Subtracted instead of added","75° is the interior angle next to it (180 − 105), not the exterior angle","140° is the supplement of 40°",""]},
+{"q":"A ladder 25 m long reaches 24 m up a wall. How far is its foot from the wall?","o":["7 m","32 m","18 m","26 m"],"a":0,"e":"Distance² = 25² − 24² = 625 − 576 = 49, so 7 m.","t":["","Added 25 and 24 instead of using squares","No valid rule gives 18; this is a guess","A leg must be shorter than the 25 m ladder (hypotenuse), so 26 is impossible"]}
 ]</script></div></section>
 
 <section class="card"><h2><span class="n">10</span>Lock it in</h2>
 <div class="tip"><b>Cover the page, say it out loud:</b> (1) What do the angles of a triangle add to? (2) Complementary versus supplementary? (3) Pythagoras rule, and when do I subtract? (4) Name two triples.</div>
 <div class="mem"><b>Memorise this</b><br>1. Triangle angles: 180°.<br>2. Complement 90°, supplement 180°.<br>3. Exterior angle = sum of two far interior angles.<br>4. a² + b² = c²: add for the long side, subtract for a leg.<br>5. Triples: 3-4-5, 5-12-13, 8-15-17, 7-24-25.</div></section>
-<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/angles.html">Math Is Fun: Angles</a> · <a href="https://www.mathsisfun.com/geometry/complementary-angles.html">Complementary and Supplementary</a> · <a href="https://en.wikipedia.org/wiki/Triangle">Wikipedia: Triangle</a> · <a href="https://www.mathsisfun.com/pythagoras.html">Math Is Fun: Pythagoras</a>. 2025 rectangle count: edutap exam analysis (memory-based). Worked numbers checked by Python.<br><b>UNVERIFIED:</b> parallel-line angle rules, polygon angle sums, circle theorems (not fetched, omitted); how often geometry appears in the paper.</p>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/angles.html">Math Is Fun: Angles</a> · <a href="https://www.mathsisfun.com/geometry/complementary-angles.html">Complementary and Supplementary</a> · <a href="https://en.wikipedia.org/wiki/Triangle">Wikipedia: Triangle</a> · <a href="https://www.mathsisfun.com/pythagoras.html">Math Is Fun: Pythagoras</a>. Pythagorean triples table and multiples: derived, Python-checked. 2025 rectangle count: edutap exam analysis (memory-based). Worked numbers checked by Python.<br><b>UNVERIFIED:</b> parallel-line angle rules, polygon angle sums, circle theorems (not fetched, omitted); how often geometry appears in the paper.</p>
 </section>
 
 </article>

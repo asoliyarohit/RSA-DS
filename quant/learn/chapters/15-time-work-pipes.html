@@ -26,7 +26,7 @@
 <div class="box">Together: 1/a + 1/b = 1/c, where a, b are the days alone and c is the days together.</div>
 <div class="box">Two workers shortcut: c = (a × b) ÷ (a + b).</div>
 <div class="box">LCM method: total units = LCM of the days. Daily units = total ÷ days. Days together = total ÷ (sum of daily units).</div>
-<p class="src">Rate = 1/time, rates add, and the 1/c = 1/a + 1/b form: Focus Tutoring "Combined Work Problems"; (a×b)÷(a+b) form: QuickMath "Combined work rate problems"; LCM definition: Wikipedia "Least common multiple". The LCM-as-total-units trick is just choosing a convenient unit, so the result is unchanged.</p></section>
+<p class="src">Rate = 1/time, work = rate × time, rates add, and the 1/c = 1/a + 1/b form: Focus Tutoring "Combined Work Problems"; (a×b)÷(a+b) form: QuickMath "Combined work rate problems"; LCM definition: Wikipedia "Least common multiple". The LCM-as-total-units trick is just choosing a convenient unit, so the result is unchanged.</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
 <p><b>A does a job in 10 days, B in 15 days. Together?</b></p>
@@ -77,9 +77,9 @@
 
 <section class="card"><h2><span class="n">7</span>Lab: work calculator</h2>
 <p class="prog">Days alone for each worker. Put 0 in C if there is no third worker.</p>
-<label for="ch15-la">A alone (days)</label><input id="ch15-la" type="number" value="12" inputmode="decimal" min="1">
-<label for="ch15-lb">B alone (days)</label><input id="ch15-lb" type="number" value="18" inputmode="decimal" min="1">
-<label for="ch15-lc">C alone (days, 0 = none)</label><input id="ch15-lc" type="number" value="0" inputmode="decimal" min="0">
+<label for="ch15-la">A alone (days)</label><input id="ch15-la" type="number" value="12" inputmode="numeric" step="1" min="1">
+<label for="ch15-lb">B alone (days)</label><input id="ch15-lb" type="number" value="18" inputmode="numeric" step="1" min="1">
+<label for="ch15-lc">C alone (days, 0 = none)</label><input id="ch15-lc" type="number" value="0" inputmode="numeric" step="1" min="0">
 <div class="stepbox" style="margin-top:10px" id="ch15-lo"></div>
 <script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(2)}
 function g(a,b){return b?g(b,a%b):a}function l(a,b){return a/g(a,b)*b}
@@ -97,14 +97,14 @@ h+='<div class="st">Alternate days, A first (A and B only): <b>'+f(t)+' days</b>
 <li>"A and B together finish in 12 days. A alone in 20 days. Find B alone."</li>
 <li>"A is twice as efficient as B. Together they take 12 days. How long would A take alone?"</li>
 <li>"A, B, C are paid in proportion to work done. Find B's share of ₹2,700."</li>
-<li>Time and Work was reported as 1 question in the 2025 paper and 1 question in the 2022 paper in memory-based exam analyses (edutap). So expect about one, not a block.</li></ul>
+<li>Time and Work: 1 question in 2025 and 1 question in 2022, reported in memory-based exam analyses (edutap). So expect about one, not a block.</li></ul>
 <p class="prog">Word clues: "twice as efficient" means rate ratio 2 : 1, so time ratio 1 : 2. "Alternate days" means a repeating two-day cycle. "Leaves after" means that worker stops adding units.</p>
-<div class="tip"><b>How the wrong options are built.</b> The examiner plants the average of the days, the sum of the days, and the answer when the second worker is ignored. Remember: together must be smaller than the smaller time.</div></section>
+<div class="tip"><b>Typical wrong options (typical-style, not sourced to a paper).</b> Watch for the average of the days, the sum of the days, and the answer when the second worker is ignored. Remember: together must be smaller than the smaller time.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
 <p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%: 0.3125 ÷ (1.25 + 0.3125) = 0.2.</p>
 <div class="quiz"><script type="application/json">[
-{"q":"A finishes a job in 20 days and B in 30 days. Together?","o":["10 days","12 days","25 days","15 days"],"a":1,"e":"LCM 60. A = 3 a day, B = 2 a day, together 5. 60 ÷ 5 = 12 days. Check 20 × 30 ÷ 50 = 12.","t":["Halved the smaller time (20 ÷ 2). Wrong: B is slower than A, so it adds less than a second A","","Average of 20 and 30. Together must be below 20","Halved the larger time (30 ÷ 2): treats B as if it matched A"]},
+{"q":"A finishes a job in 20 days and B in 30 days. Together?","o":["10 days","12 days","25 days","15 days"],"a":1,"e":"LCM 60. A = 3 a day, B = 2 a day, together 5. 60 ÷ 5 = 12 days. Check 20 × 30 ÷ 50 = 12.","t":["Halved the smaller time (20 ÷ 2). Wrong: B is slower than A, so it adds less than a second A","","Average of 20 and 30. Together must be below 20","Halved the larger time (30 ÷ 2): treats A as if it were as slow as B"]},
 {"q":"A and B together finish a job in 6 days. A alone takes 10 days. How long does B alone take?","o":["16 days","4 days","12 days","15 days"],"a":3,"e":"LCM 30. Together 30 ÷ 6 = 5 a day, A = 3 a day, so B = 2 a day. 30 ÷ 2 = 15 days.","t":["10 + 6: added the days","10 − 6: subtracted the days. Only the rates can be subtracted","6 × 2: doubled the together time for no reason",""]},
 {"q":"A can do a job in 8 days and B in 24 days. Together?","o":["6 days","16 days","8 days","12 days"],"a":0,"e":"LCM 24. A = 3 a day, B = 1 a day, together 4. 24 ÷ 4 = 6 days. Check 8 × 24 ÷ 32 = 6.","t":["","Average of 8 and 24. Slower than A alone, impossible","Same as A alone: ignored B's help","Half of B's time (24 ÷ 2): wrong idea"]},
 {"q":"A is twice as fast as B. Together they finish a job in 12 days. How long would A take alone?","o":["24 days","36 days","18 days","6 days"],"a":2,"e":"Rates in ratio 2 : 1, so together 3 units a day. Job = 12 × 3 = 36 units. A does 2 a day: 36 ÷ 2 = 18 days. (B alone would take 36.)","t":["12 × 2: just doubled the together time","36 days is B's time, not A's","","12 ÷ 2: halved the together time. A alone cannot beat the pair"]},
@@ -116,7 +116,7 @@ h+='<div class="st">Alternate days, A first (A and B only): <b>'+f(t)+' days</b>
 <div class="tip"><b>Cover the page, say it out loud:</b> (1) What is A's rate if A takes 10 days? (2) Which total do I pick? (3) How do I find a missing worker? (4) Why can the average of the days never be right?</div>
 <div class="mem"><b>Memorise this</b><br>1. Rate = 1 ÷ days. Work = Rate × Time.<br>2. Total units = LCM of the days.<br>3. Add daily units to work together; subtract to find a missing worker.<br>4. Two workers: (a × b) ÷ (a + b).<br>5. Together is always less than the smaller time.</div></section>
 
-<p class="src"><b>Sources:</b> <a href="https://focustutoring.com/gmat-blog/gmat-rate-problems-combined-work-problems/">Focus Tutoring: combined work problems</a> · <a href="https://quickmath.com/math-word-problems/combined-work-rate-problems.html">QuickMath: combined work rate</a> · <a href="https://en.wikipedia.org/wiki/Least_common_multiple">Wikipedia: Least common multiple</a> · Exam facts: PFRDA 2026 notification. Past counts: edutap exam analyses (memory-based). All worked numbers checked by Python.<br><b>UNVERIFIED:</b> the "wages in proportion to work" convention and the efficiency-ratio rule were not found on a fetched page (the wages rule is shown only when the question states it; efficiency is shown as a rate ratio, which follows from rate = 1 ÷ time).</p>
+<p class="src"><b>Sources:</b> <a href="https://focustutoring.com/gmat-blog/gmat-rate-problems-combined-work-problems/">Focus Tutoring: combined work problems</a> · <a href="https://quickmath.com/math-word-problems/combined-work-rate-problems.html">QuickMath: combined work rate</a> · <a href="https://en.wikipedia.org/wiki/Least_common_multiple">Wikipedia: Least common multiple</a> · Exam facts: PFRDA 2026 notification. Past counts: edutap exam analyses (memory-based). All worked numbers checked by Python. Derived, Python-checked: wage split (only when the question states pay follows work done, it is then plain ratio arithmetic), "twice as efficient" as a 2 : 1 rate ratio (from rate = 1 ÷ time), and "together is less than the smaller time".<br><b>UNVERIFIED:</b> none.</p>
 </section>
 
 <section class="lesson" id="ch15-l2">
@@ -143,7 +143,7 @@ h+='<div class="st">Alternate days, A first (A and B only): <b>'+f(t)+' days</b>
 <div class="box">Net rate = (sum of inlet rates) − (sum of outlet rates).</div>
 <div class="box">Time to fill = tank ÷ net rate (only if net is positive).</div>
 <div class="box">Leak: a pipe fills in x hours, but with the leak open it takes y hours (y &gt; x). The leak alone empties the full tank in 1 ÷ (1/x − 1/y) hours.</div>
-<p class="src">Inlet/outlet definitions, 1/n per hour, net work = inlets − outlets: GeeksforGeeks "Pipes and Cistern". Leak formula: same family of formulas as quoted in search results for pipes and cisterns; here we re-derive it from the net-rate rule and check it by Python.</p></section>
+<p class="src">Inlet/outlet definitions, 1/n per hour, net work = inlets − outlets: GeeksforGeeks "Pipes and Cistern". GeeksforGeeks gives the net hourly fill (y − x)/(xy) for a filler (x h) with an emptier (y h). The leak-alone formula 1 ÷ (1/x − 1/y) = xy ÷ (y − x) is derived, Python-checked from the net-rate rule.</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
 <p><b>Pipes A (12 hours) and B (15 hours) fill a tank. Pipe C empties it in 20 hours. All three open. Time to fill?</b></p>
@@ -190,9 +190,9 @@ h+='<div class="st">Alternate days, A first (A and B only): <b>'+f(t)+' days</b>
 
 <section class="card"><h2><span class="n">7</span>Lab: pipes calculator</h2>
 <p class="prog">Hours to fill (or empty) the whole tank alone. Put 0 in B or C if there is no such pipe.</p>
-<label for="ch15-pa">Inlet A (hours)</label><input id="ch15-pa" type="number" value="12" inputmode="decimal" min="1">
-<label for="ch15-pb">Inlet B (hours, 0 = none)</label><input id="ch15-pb" type="number" value="15" inputmode="decimal" min="0">
-<label for="ch15-pc">Outlet C (hours, 0 = none)</label><input id="ch15-pc" type="number" value="20" inputmode="decimal" min="0">
+<label for="ch15-pa">Inlet A (hours)</label><input id="ch15-pa" type="number" value="12" inputmode="numeric" step="1" min="1">
+<label for="ch15-pb">Inlet B (hours, 0 = none)</label><input id="ch15-pb" type="number" value="15" inputmode="numeric" step="1" min="0">
+<label for="ch15-pc">Outlet C (hours, 0 = none)</label><input id="ch15-pc" type="number" value="20" inputmode="numeric" step="1" min="0">
 <div class="stepbox" style="margin-top:10px" id="ch15-po"></div>
 <script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(2)}
 function g(a,b){return b?g(b,a%b):a}function l(a,b){return a/g(a,b)*b}
@@ -210,9 +210,9 @@ o.innerHTML=h}
 <li>"Two pipes fill a tank in 12 and 15 hours. A third empties it in 20 hours. All open together. Time?"</li>
 <li>"A tank fills in 6 hours, but a leak makes it 8 hours. How long does the leak take to empty the full tank?"</li>
 <li>"Both pipes are opened, and after some hours one is closed. Total time?"</li>
-<li>Pipes and Cisterns appears in a third-party (Oliveboard) topic list under miscellaneous arithmetic. It is not official. Our two memory-based analyses (2022, 2025) list Time and Work as 1 question each and do not list pipes separately, so treat pipes as a bonus on top of the work method.</li></ul>
+<li>Pipes and Cisterns appears in a third-party (Oliveboard) topic list under miscellaneous arithmetic. It is not official. For 2022 and 2025, Time and Work is 1 question each and pipes is not listed separately, reported in memory-based exam analyses (edutap). Treat pipes as a bonus on top of the work method.</li></ul>
 <p class="prog">Word clues: "fills" means plus, "empties" or "leak" means minus, "closed after" means that pipe stops adding.</p>
-<div class="tip"><b>How the wrong options are built.</b> Expect the answer from adding the outlet, the answer from ignoring the outlet, and the difference of times. Check the direction: outlet open means a longer time.</div></section>
+<div class="tip"><b>Typical wrong options (typical-style, not sourced to a paper).</b> Watch for the answer from adding the outlet, the answer from ignoring the outlet, and the difference of times. Check the direction: outlet open means a longer time.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
 <p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
@@ -229,6 +229,6 @@ o.innerHTML=h}
 <div class="tip"><b>Cover the page, say it out loud:</b> (1) What sign does an outlet get? (2) Which total do I pick? (3) What does zero net rate mean? (4) With an outlet open, is the fill time shorter or longer than the inlet alone?</div>
 <div class="mem"><b>Memorise this</b><br>1. Inlet +1/n, outlet or leak −1/n per hour.<br>2. Tank = LCM of all times.<br>3. Net = inlets − outlets, in litres per hour.<br>4. Time = tank ÷ net. Net 0 or less: never fills.<br>5. Rates add and subtract; times never do.</div></section>
 
-<p class="src"><b>Sources:</b> <a href="https://www.geeksforgeeks.org/maths/pipes-and-cistern/">GeeksforGeeks: Pipes and Cistern</a> · <a href="https://focustutoring.com/gmat-blog/gmat-rate-problems-combined-work-problems/">Focus Tutoring: combined work problems</a> · <a href="https://en.wikipedia.org/wiki/Least_common_multiple">Wikipedia: Least common multiple</a> · Third-party topic list (not official): Oliveboard. All worked numbers checked by Python.<br><b>UNVERIFIED:</b> that pipes questions appear in the actual paper; the leak formula was not read on a fetched page (it is derived from the net-rate rule and Python-checked).</p>
+<p class="src"><b>Sources:</b> <a href="https://www.geeksforgeeks.org/maths/pipes-and-cistern/">GeeksforGeeks: Pipes and Cistern</a> · <a href="https://focustutoring.com/gmat-blog/gmat-rate-problems-combined-work-problems/">Focus Tutoring: combined work problems</a> · <a href="https://en.wikipedia.org/wiki/Least_common_multiple">Wikipedia: Least common multiple</a> · Third-party topic list (not official): Oliveboard. All worked numbers checked by Python. Leak-alone formula: derived, Python-checked.<br><b>UNVERIFIED:</b> that pipes questions appear in the actual paper.</p>
 </section>
 </article>

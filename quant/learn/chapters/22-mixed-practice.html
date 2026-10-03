@@ -46,7 +46,7 @@
 <div class="st">Wrong move: "I have come this far, I must finish." That 4 minutes could have bought about 6 average questions (240 ÷ 36 = 6.7).</div>
 <div class="st">Right: write the question number in your mind as "Parked", move on, and come back only after the Do pile is empty.</div>
 <p class="prog"></p><button type="button" data-next>Show the trap</button></div></div>
-<p class="prog" style="margin-top:10px">Second trap: guessing blind with 5 options has expected gain 0 at best (see the lab). It only pays once an option is crossed out.</p></section>
+<p class="prog" style="margin-top:10px">Second trap: guessing blind with 5 options has expected gain exactly 0 (see the lab). It only pays once an option is crossed out.</p></section>
 
 <section class="card"><h2><span class="n">6</span>Choosing the method in 5 seconds</h2>
 <p>Each wording cue points to one method and one chapter. Learn cues, not whole solutions.</p>
@@ -79,6 +79,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 
 <section class="card"><h2><span class="n">9</span>Quiz · two mini mocks, exam-style marks</h2>
 <p class="prog">Right = +1.25, wrong = −0.3125 (official). Each set has 20 questions in 4 blocks of 5. Do one block, then stop and rest. Try the Do / Park / Drop labels while you go. Data in the tables is invented.</p>
+<p class="prog"><b>Option count:</b> most questions have 4 options (A to D). The 5 quadratic questions (Blocks A2 and A3) use the usual 5-option format: A x &gt; y, B x &lt; y, C x ≥ y, D x ≤ y, E no relation. Pick the <b>strongest</b> relation that holds for every pair: if x &gt; y always holds, choose A, not C (C is true but weaker). Choose E only when no option holds for every pair.</p>
 
 <h3>Mock set A (2025 style) · Block A1: DI set 1 (5 Q)</h3>
 <div class="tw"><table><tr><th>Shop</th><th>2023 (₹ lakh)</th><th>2024 (₹ lakh)</th></tr><tr><td>P</td><td>40</td><td>50</td></tr><tr><td>Q</td><td>60</td><td>51</td></tr><tr><td>R</td><td>80</td><td>96</td></tr><tr><td>S</td><td>50</td><td>65</td></tr><tr><td>T</td><td>70</td><td>77</td></tr></table></div><p class="cap">Revenue of five shops. Invented data written for this guide.</p>
@@ -129,7 +130,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 "e": "P 25%, Q −15%, R 20%, S 30%, T 10%. S is highest. Note R has the biggest rupee rise (16) but S has the biggest percent (15 on a base of 50).",
 "t": [
 "R grew 20%, but S grew 30%",
-"P grew 25%: biggest rupee base is not the point, S has 30%",
+"P grew 25%, but S grew 30%",
 "T grew only 10%",
 ""
 ]
@@ -164,7 +165,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 "t": [
 "This is the average of all five shops (339 ÷ 5): Q fell, so it must be left out",
 "Estimated; the exact sum 50+96+65+77 = 288 gives 72",
-"Divided 258 by 4: dropped one shop's 30",
+"Divided 258 by 4: an addition slip of 30 in 50 + 96 + 65 + 77",
 ""
 ]
 }
@@ -202,7 +203,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 "e": "40 + 90 + 100 = 230.",
 "t": [
 "",
-"Added a wrong carry: 40 + 90 + 100 = 230",
+"Addition slip: 40 + 90 + 100 is 230, not 240",
 "Added the percents 4 + 6 + 5 = 15",
 "This is total output, not defective"
 ]
@@ -225,7 +226,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 ]
 },
 {
-"q": "I. x² − 7x + 12 = 0 &nbsp; II. y² − 9y + 20 = 0<br>Give the relation between x and y.",
+"q": "I. x² − 7x + 12 = 0 &nbsp; II. y² − 9y + 20 = 0<br>Choose the strongest relation that is true for every pair of roots.",
 "o": [
 "x &gt; y",
 "x &lt; y",
@@ -244,7 +245,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 ]
 },
 {
-"q": "I. x² − 5x + 6 = 0 &nbsp; II. y² − 3y + 2 = 0<br>Give the relation between x and y.",
+"q": "I. x² − 5x + 6 = 0 &nbsp; II. y² − 3y + 2 = 0<br>Choose the strongest relation that is true for every pair of roots.",
 "o": [
 "x &gt; y",
 "x &lt; y",
@@ -267,7 +268,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 <h3>Mock set A · Block A3: 3 quadratics + 2 singles</h3>
 <div class="quiz"><script type="application/json">[
 {
-"q": "I. x² + 4x + 3 = 0 &nbsp; II. y² + y − 6 = 0<br>Give the relation between x and y.",
+"q": "I. x² + 4x + 3 = 0 &nbsp; II. y² + y − 6 = 0<br>Choose the strongest relation that is true for every pair of roots.",
 "o": [
 "x &gt; y",
 "x &lt; y",
@@ -286,7 +287,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 ]
 },
 {
-"q": "I. x² − 9x + 20 = 0 &nbsp; II. y² − 3y + 2 = 0<br>Give the relation between x and y.",
+"q": "I. x² − 9x + 20 = 0 &nbsp; II. y² − 3y + 2 = 0<br>Choose the strongest relation that is true for every pair of roots.",
 "o": [
 "x &gt; y",
 "x &lt; y",
@@ -305,7 +306,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 ]
 },
 {
-"q": "I. x² + 5x + 6 = 0 &nbsp; II. y² − y − 2 = 0<br>Give the relation between x and y.",
+"q": "I. x² + 5x + 6 = 0 &nbsp; II. y² − y − 2 = 0<br>Choose the strongest relation that is true for every pair of roots.",
 "o": [
 "x &gt; y",
 "x &lt; y",
@@ -496,7 +497,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 "e": "Differences 2, 4, 8, 16, then 32. 37 + 32 = 69.",
 "t": [
 "",
-"Added 16 only once more: second difference doubles, next gap is 32",
+"Added 16 again: the differences double, so the next gap is 32",
 "Added 8: went back one step",
 "Doubled 37 and added 1"
 ]
@@ -622,7 +623,7 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 "Added 10 points: 30% + 10%",
 "Averaged 30% and 40%",
 "",
-"Assumed new women double the share"
+"Divided 250 by 500: forgot the total also rose to 600"
 ]
 }
 ]</script></div>
@@ -810,5 +811,5 @@ o.innerHTML='<div class="st">1. Right = '+c+', wrong = '+w+'</div><div class="st
 <div class="tip"><b>Cover the page, say it out loud:</b> (1) What are the three labels for a question? (2) What do I do before exact arithmetic? (3) What is the mark for a wrong answer? (4) What do I write in the error log?</div>
 <div class="mem"><b>Memorise this</b><br>1. Do / Park / Drop in 10 seconds.<br>2. Estimate first, strike far options.<br>3. +1.25 right, −0.3125 wrong, 0 skip.<br>4. Guess only after crossing out options.<br>5. After each mock: log every miss with a reason.</div></section>
 
-<p class="src"><b>Sources:</b> PFRDA 2026 notification: <a href="https://pfrda.org.in/documents/33652/212847/Recruitment+of+Officer+Grade+A+(Assistant+Manager)-2026.pdf">official PDF</a> (paper structure, marking) · <a href="https://www.edutap.in/pfrda-grade-a/exam-analysis/">Edutap exam analysis</a> (2025 mix, memory-based, fetched) · 2022 mix from the same site as recorded in the guide's SPEC. All 40 mock questions and answers were checked by Python.<br><b>UNVERIFIED:</b> the number of answer options in the real paper (guess maths shown for 4 and 5); whether you can move freely between sections in the 60 minutes; the 12-minute Quant budget, skip rules and block timings are our suggestions; contents of your folder 10_misc.</p>
+<p class="src"><b>Sources:</b> PFRDA 2026 notification: <a href="https://pfrda.org.in/documents/33652/212847/Recruitment+of+Officer+Grade+A+(Assistant+Manager)-2026.pdf">official PDF</a> (paper structure, marking) · <a href="https://www.edutap.in/pfrda-grade-a/exam-analysis/">Edutap exam analysis</a> (2025 mix incl. "quadratic equations were easy" and the defective-products DI, memory-based, fetched) · 2022 mix from the same site as recorded in the guide's SPEC. Formulas used in the mocks (percent change, capital × time, CI year by year, rate addition, SI, average via totals): derived, Python-checked; each is sourced in its own chapter. All 40 mock questions and answers were independently re-solved in Python.<br><b>UNVERIFIED:</b> the number of answer options in the real paper (guess maths shown for 4 and 5); whether you can move freely between sections in the 60 minutes; the 12-minute Quant budget, skip rules and block timings are our suggestions; contents of your folder 10_misc.</p>
 </article>
