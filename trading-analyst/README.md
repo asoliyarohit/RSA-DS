@@ -22,6 +22,9 @@ with real money; paper trade and journal only. 1k -> 100k is not supported by an
 `python -m analyst daycall` gives one BUY/SELL open->close CFD call per session with a MEASURED track record (weights fixed a priori, not fitted).
 Result: it LOSES after costs (dev t=-2.8, holdout 2023+ t=-4.2, 44% win), so it sizes to PAPER ONLY. Flipping its sign after seeing this would be curve-fitting, and gross edge is only ~-12 bps vs ~16 bps costs anyway.
 
+`python -m analyst journal quote|trade|call|settle|report`: manual Revolut quote/fill logger plus an automatic paper track record of the daily call.
+(No broker API is read; you type bid/ask and fills.) Needs 30+ quotes per instrument before spreads are trusted and 100+ settled calls before judging the call.
+
 ## What the evidence says (honest)
 | Setup | Out-of-sample result | Verdict |
 |---|---|---|

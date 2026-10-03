@@ -57,3 +57,16 @@ def test_event_flags_use_word_boundaries(monkeypatch):
         {"title": "FOMC decision looms as CPI nears", "time": None, "link": ""}])
     flags = news.gather()["event_flags"]
     assert "Geopolitics" not in flags and "Fed decision" in flags and "Inflation print" in flags
+
+
+def test_journal_math_and_calibration(tmp_path, monkeypatch):
+    from analyst import journal as j
+    monkeypatch.setattr(j, "REPORTS", tmp_path)
+    assert abs(j.spread_bps(99.99, 100.01) - 2.0) < 1e-6
+    g, n = j.trade_bps("sell", 100.0, 99.0, fee_bps=3)
+    assert abs(g - 100.0) < 1e-6 and abs(n - 97.0) < 1e-6
+    for _ in range(29):
+        j.log_quote("us500", 7720.0, 7721.0)
+    assert not j.calibrate()["US500"]["enough"]
+    j.log_quote("US500", 7720.0, 7721.0)
+    assert j.calibrate()["US500"]["enough"] and abs(j.calibrate()["US500"]["median_bps"] - 1.3) < 0.05

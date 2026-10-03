@@ -105,10 +105,26 @@ def cmd_daycall(args):
     run(args)
 
 
+def cmd_journal(args):
+    from . import journal as j
+    a = args.action
+    if a == "quote":
+        print(f"spread {j.log_quote(args.instrument, args.bid, args.ask, args.note):.2f} bps")
+    elif a == "trade":
+        g, n = j.log_trade(args.instrument, args.side, args.entry, args.exit, args.fee_bps, args.note)
+        print(f"gross {g:+.1f} bps | net after fees {n:+.1f} bps")
+    elif a == "call":
+        j.log_call()
+    elif a == "settle":
+        j.settle(); j.report()
+    else:
+        j.report()
+
+
 def main():
     ap = argparse.ArgumentParser(prog="analyst")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall)):
+    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall), ("journal", cmd_journal)):
         p = sp.add_parser(name); p.set_defaults(fn=fn)
         p.add_argument("--leverage", type=float, default=0.0, help="override broker leverage cap")
         p.add_argument("--broker", choices=list(PROFILES), default="revolut")
@@ -121,4 +137,8 @@ def main():
         p.add_argument("--equity", type=float, default=1000.0)
         p.add_argument("--date", default=None, help="session to review, default last bar")
         p.add_argument("--gap-atr", dest="gap_atr", type=float, default=2.0)
+        p.add_argument("action", nargs="?", default="report", choices=["quote", "trade", "call", "settle", "report"], help="journal action")
+        p.add_argument("--instrument", default=""); p.add_argument("--bid", type=float); p.add_argument("--ask", type=float)
+        p.add_argument("--side", choices=["buy", "sell"]); p.add_argument("--entry", type=float); p.add_argument("--exit", type=float)
+        p.add_argument("--fee-bps", dest="fee_bps", type=float, default=0.0); p.add_argument("--note", default="")
     a = ap.parse_args(); a.fn(a)
