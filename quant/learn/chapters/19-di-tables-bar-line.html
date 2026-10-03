@@ -1,0 +1,381 @@
+<article class="chapter" id="ch19" data-no="19" data-title="Data Interpretation I: Tables, Bar, Line" data-tag="Biggest block reported (memory-based) · ~60 min">
+<h1>Data Interpretation I: Tables, Bar, Line</h1>
+<p class="prog">Three lessons, three full 5-question practice sets (Sets A, B, C). One lesson at a time, then stop.</p>
+<section class="lesson" id="ch19-les1"><h3 style="font-size:1.25rem;margin:28px 0 4px">Lesson 1: Reading tables</h3>
+<p class="oneline">In one line: a table gives you exact numbers; your job is to pick the two you need, decide which one is the OLD (base), and do one small calculation.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>You open the passbook page of a pension subscriber. Each row is one year, each column one fact: contribution, interest, balance. To answer "how much did the balance grow?" you do not read every number. You find the two cells you need and ignore the rest.</p><div class="tw"><table><tr><th>Year</th><th>Contribution (₹)</th><th>Balance (₹)</th></tr><tr><td>Year 1</td><td>12,000</td><td>12,000</td></tr><tr><td>Year 2</td><td>12,000</td><td>25,000</td></tr></table></div><p class="cap">Ask first: which row, which column, which one is the old value? Everything else is noise.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Read the title and the unit first (₹, thousands, per cent). A wrong unit ruins a right sum.</div>
+<div class="st">Read the question and underline the two things asked: which row(s), which column(s).</div>
+<div class="st">Circle only those cells. Ignore the rest of the table.</div>
+<div class="st">Decide the type: a share (part ÷ total), a change (new − old ÷ old), or a ratio (A : B).</div>
+<div class="st">For "than" and "from … to …", the base is the old / "than" value. Divide by it.</div>
+<div class="st">Estimate first (round to friendly numbers), then pick the option that matches. Exact long division is rarely needed.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Share % = Part ÷ Total × 100</div><div class="box">Change % = (New − Old) ÷ Old × 100</div><div class="box">Ratio A : B = A ÷ their HCF : B ÷ their HCF</div><p class="src">Percentage change formula: Math Is Fun, "Percentage Change" (see Sources). Share and ratio are the same percentage idea, with the total or the second value as base.</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Office P received 250 forms in 2023 and 300 in 2024. It rejected 30 of the 2024 forms. Find the growth and the rejected share.</b></p><p class="prog"><b>Practice data, invented</b> for this guide. Not from any real exam.</p><div class="stepbox" data-steps>
+<div class="st">Step 1. Growth: old = 250, new = 300. Change = 50.</div>
+<div class="st">Step 2. Divide by OLD: 50 ÷ 250 = 1/5 = 20%.</div>
+<div class="st">Step 3. Rejected share uses the 2024 total as base: 30 ÷ 300 = 1/10 = 10%.</div>
+<div class="st">Answer: <b>20% growth, 10% rejected</b>. Two questions, two different bases.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Question: "Office E: 350 forms in 2023, 420 in 2024. What is the % growth?" Change = 70.</div>
+<div class="st">Wrong move: divide by the NEW number. 70 ÷ 420 = 16.67%. This is exactly the option the examiner plants.</div>
+<div class="st">Right: divide by the OLD number. 70 ÷ 350 = <b>20%</b>.</div>
+<div class="st">A second trap: the office with the biggest <b>rise in numbers</b> is not always the office with the biggest <b>% growth</b>. Compare like with like.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math: friendly fractions, then compare</h2>
+<p>Turn every percentage into a fraction you know. Chunk one: 1/2, 1/4, 1/5, 1/8, 1/10.</p><div class="tw"><table><tr><th>Fraction</th><th>%</th><th>Fraction</th><th>%</th></tr><tr><td>1/8</td><td>12.5</td><td>1/6</td><td>16.67</td></tr><tr><td>1/7</td><td>14.29</td><td>1/9</td><td>11.11</td></tr><tr><td>1/5</td><td>20</td><td>1/4</td><td>25</td></tr></table></div><div class="tip"><b>Use it.</b> 70 out of 350 is 1/5, so 20%. 72 out of 576 is 1/8, so 12.5%. Look for a small whole-number relationship before you divide.</div><h3>Speed drill</h3><p class="prog">Say it out loud first. Aim: under 5 seconds.</p><div class="drill"><script type="application/json">[["60 of 300 = ?%", "20%"], ["50 of 400 = ?%", "12.5%"], ["25 of 200 = ?%", "12.5%"], ["30 of 120 = ?%", "25%"], ["Old 80, new 100: growth %", "25%"], ["Old 100, new 80: fall %", "20%"], ["Old 40, new 44: growth %", "10%"], ["90 : 42 simplified", "15 : 7"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: one table, three answers</h2>
+<p class="prog">Type two cells of a table to see growth, share and ratio, with steps.</p><label for="ch19-l1-a">Old value (or the part)</label><input id="ch19-l1-a" type="number" value="350" inputmode="decimal"><label for="ch19-l1-b">New value (or the total)</label><input id="ch19-l1-b" type="number" value="420" inputmode="decimal"><div class="stepbox" style="margin-top:10px" id="ch19-l1-out"></div><script>(function(){function $(i){return document.getElementById(i)}function r(x){return +(+x).toFixed(2)}function g(a,b){return b?g(b,a%b):a}function lab(){var a=parseFloat($("ch19-l1-a").value),b=parseFloat($("ch19-l1-b").value),o=$("ch19-l1-out");if(isNaN(a)||isNaN(b)||a<=0||b<=0){o.innerHTML='<div class="st">Enter two numbers above 0.</div>';return}var h="<div class=\"st\">Growth from "+a+" to "+b+": ("+b+" − "+a+") ÷ "+a+" × 100 = <b>"+r((b-a)/a*100)+"%</b> (base = old)</div>";h+="<div class=\"st\">Share: "+a+" ÷ "+b+" × 100 = <b>"+r(a/b*100)+"%</b> (base = total)</div>";if(Number.isInteger(a)&&Number.isInteger(b)){var d=g(a,b);h+="<div class=\"st\">Ratio "+a+" : "+b+" = <b>"+a/d+" : "+b/d+"</b> (divide both by "+d+")</div>"}o.innerHTML=h}["ch19-l1-a","ch19-l1-b"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"What is the percentage increase in forms received by Office C from 2023 to 2024?"</li><li>"Rejected forms of Office A are what percent of its forms received in 2024?"</li><li>"What is the ratio of rejected forms of Office D to Office E?"</li><li>"Which office showed the highest percentage growth?"</li></ul><p>Reported in memory-based exam analyses: DI was 8 questions (two sets, 5 + 3) in the 2025 Phase I and 5 questions in 2022. Table-type sets are among the formats typically listed by coaching sites (third-party list, not official).</p><div class="tip"><b>Wrong options are built from</b> the wrong base, the raw change read as a percent, the inverted ratio, and the wrong year. Name the base before you calculate.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · full DI Set A (5 questions)</h2>
+<p class="prog"><b>Practice data, invented</b> for this guide. Not from any real exam.</p><div class="tw"><table><tr><th>Office</th><th>Received 2023</th><th>Received 2024</th><th>Rejected 2024</th></tr><tr><td>A</td><td>480</td><td>576</td><td>72</td></tr><tr><td>B</td><td>650</td><td>598</td><td>60</td></tr><tr><td>C</td><td>200</td><td>260</td><td>39</td></tr><tr><td>D</td><td>720</td><td>792</td><td>90</td></tr><tr><td>E</td><td>350</td><td>420</td><td>42</td></tr></table></div><p class="prog">Right = +1.25, wrong = −0.3125 (official). Break-even guess odds: 20%. Suggested plan, not official: about 6 minutes for a 5-question set.</p><div class="quiz"><script type="application/json">[
+{
+"q": "<b>Set A, Q1.</b> What is the percentage growth in forms received by Office E from 2023 to 2024?",
+"o": [
+"16.67%",
+"20%",
+"70%",
+"30%"
+],
+"a": 1,
+"e": "Change = 420 − 350 = 70. 70 ÷ 350 (old) = 20%.",
+"t": [
+"Divided the change (70) by the NEW value 420.",
+"",
+"The raw change of 70 read as a percent.",
+"That is Office C's growth, wrong row."
+]
+},
+{
+"q": "<b>Set A, Q2.</b> Which office showed the highest percentage growth in forms received from 2023 to 2024?",
+"o": [
+"Office A",
+"Office D",
+"Office B",
+"Office C"
+],
+"a": 3,
+"e": "Growth: A 20%, B −8%, C 60 ÷ 200 = 30%, D 10%, E 20%. C is highest.",
+"t": [
+"A has the biggest rise in numbers (+96) but only 20% growth.",
+"D has the biggest 2024 figure (792) but only 10% growth.",
+"B fell (650 to 598), so growth is negative.",
+""
+]
+},
+{
+"q": "<b>Set A, Q3.</b> The total forms received by all offices in 2024 are about what percent more than in 2023?",
+"o": [
+"10.25%",
+"9.3%",
+"246%",
+"5.1%"
+],
+"a": 0,
+"e": "2023 total = 2,400. 2024 total = 2,646. Rise 246. 246 ÷ 2,400 = 10.25%.",
+"t": [
+"",
+"Divided the rise (246) by the 2024 total instead of the 2023 total.",
+"The raw rise of 246 read as a percent.",
+"Halved the right answer by mistake."
+]
+},
+{
+"q": "<b>Set A, Q4.</b> Rejected forms of Office A are what percent of its 2024 received forms?",
+"o": [
+"15%",
+"8%",
+"12.5%",
+"72%"
+],
+"a": 2,
+"e": "72 ÷ 576 = 1/8 = 12.5%.",
+"t": [
+"Divided by the 2023 figure (480) instead of 2024.",
+"Inverted the fraction: 576 ÷ 72 = 8.",
+"",
+"The raw count of 72 read as a percent."
+]
+},
+{
+"q": "<b>Set A, Q5.</b> What is the ratio of rejected forms of Office D to Office E?",
+"o": [
+"7 : 15",
+"15 : 7",
+"66 : 35",
+"15 : 8"
+],
+"a": 1,
+"e": "90 : 42, divide both by 6, gives 15 : 7.",
+"t": [
+"Inverted: E to D.",
+"",
+"Used the 2024 received forms (792 : 420), not rejected.",
+"Slip while dividing: 90 ÷ 6 = 15 but 42 ÷ 6 = 7."
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What do I read first? (2) Which number is the base for growth? (3) Which is the base for a share? (4) Does the biggest rise in numbers mean the biggest % growth?</div><div class="mem"><b>Memorise this</b><br>1. Title and unit first.<br>2. Circle only the two cells you need.<br>3. Growth = change ÷ OLD.<br>4. Share = part ÷ total.<br>5. Compare % growth with %, not with raw rises.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/numbers/percentage-change.html">Math Is Fun: Percentage Change</a>. Table-type DI listed as a format by coaching sites (third-party). DI counts: edutap exam analysis (memory-based).</p></section>
+<section class="lesson" id="ch19-les2"><h3 style="font-size:1.25rem;margin:28px 0 4px">Lesson 2: Bar charts</h3>
+<p class="oneline">In one line: a bar chart is a table drawn with bar heights, so read the axis and unit, write the bar values into a mini-table, then calculate as before.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A chai stall owner draws how many cups he sold each day this week. Taller bar, more cups. He does not need numbers to see which day was best, but the exam asks "how many more", so you must read the value off the scale.</p><div class="bars" role="img" aria-label="Three bars: Monday 40 cups, Tuesday 60 cups, Wednesday 80 cups"><div class="row"><span class="a" style="width:40%">Mon 40</span></div><div class="row"><span class="a" style="width:60%">Tue 60</span></div><div class="row"><span class="a" style="width:80%">Wed 80</span></div></div><p class="cap">Wed − Mon = 40 more cups. Wed is double Mon.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">A bar graph shows data with bars of different heights, so you can compare at a glance (Math Is Fun).</div>
+<div class="st">Read the title, then both axes: what is measured and in which unit (units, thousands, ₹ crore).</div>
+<div class="st">Check the legend: which colour is which series.</div>
+<div class="st">Write every bar value you need into a tiny table on your rough sheet. Do this once.</div>
+<div class="st">Now it is a table question. Pick the formula: share, change or ratio.</div>
+<div class="st">Gap questions (bar A minus bar B in the same year) compare the heights directly. Do not use % unless asked.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Read the value → write a mini-table → then calculate</div><div class="box">Average (mean) = Sum of values ÷ How many values</div><div class="box">A is what % more than B = (A − B) ÷ B × 100</div><p class="src">Bar graph: Math Is Fun "Bar Graphs"; Mean: Math Is Fun "How to Calculate the Mean". Good bar graphs begin the axis at zero (Math Is Fun), so check the axis before trusting bar lengths.</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Using the chart below (Set B data): X sold 55 thousand in 2021 and 65 thousand in 2023. Find the % growth of X from 2021 to 2023.</b></p><p class="prog"><b>Practice data, invented</b> for this guide. Not from any real exam.</p><svg viewBox="0 0 340 230" width="100%" role="img" aria-label="Grouped bar chart of units sold in thousands by Product X and Product Y, 2020 to 2024; values are printed on top of each bar" style="max-width:520px;font:11px system-ui,sans-serif"><line x1="34" x2="334" y1="200.0" y2="200.0" stroke="var(--line)" stroke-width="1"/><text x="29" y="204.0" text-anchor="end" fill="var(--ink)">0</text><line x1="34" x2="334" y1="162.8" y2="162.8" stroke="var(--line)" stroke-width="1"/><text x="29" y="166.8" text-anchor="end" fill="var(--ink)">20</text><line x1="34" x2="334" y1="125.6" y2="125.6" stroke="var(--line)" stroke-width="1"/><text x="29" y="129.6" text-anchor="end" fill="var(--ink)">40</text><line x1="34" x2="334" y1="88.4" y2="88.4" stroke="var(--line)" stroke-width="1"/><text x="29" y="92.4" text-anchor="end" fill="var(--ink)">60</text><line x1="34" x2="334" y1="51.2" y2="51.2" stroke="var(--line)" stroke-width="1"/><text x="29" y="55.2" text-anchor="end" fill="var(--ink)">80</text><line x1="34" x2="334" y1="14.0" y2="14.0" stroke="var(--line)" stroke-width="1"/><text x="29" y="18.0" text-anchor="end" fill="var(--ink)">100</text><rect x="42.0" y="125.6" width="22" height="74.4" fill="var(--bar)"/><text x="53.0" y="122.6" text-anchor="middle" fill="var(--ink)" font-size="10">40</text><rect x="66.0" y="144.2" width="22" height="55.8" fill="var(--bar2)"/><text x="77.0" y="141.2" text-anchor="middle" fill="var(--ink)" font-size="10">30</text><text x="65.0" y="214" text-anchor="middle" fill="var(--ink)">2020</text><rect x="102.0" y="97.7" width="22" height="102.3" fill="var(--bar)"/><text x="113.0" y="94.7" text-anchor="middle" fill="var(--ink)" font-size="10">55</text><rect x="126.0" y="134.9" width="22" height="65.1" fill="var(--bar2)"/><text x="137.0" y="131.9" text-anchor="middle" fill="var(--ink)" font-size="10">35</text><text x="125.0" y="214" text-anchor="middle" fill="var(--ink)">2021</text><rect x="162.0" y="107.0" width="22" height="93.0" fill="var(--bar)"/><text x="173.0" y="104.0" text-anchor="middle" fill="var(--ink)" font-size="10">50</text><rect x="186.0" y="88.4" width="22" height="111.6" fill="var(--bar2)"/><text x="197.0" y="85.4" text-anchor="middle" fill="var(--ink)" font-size="10">60</text><text x="185.0" y="214" text-anchor="middle" fill="var(--ink)">2022</text><rect x="222.0" y="79.1" width="22" height="120.9" fill="var(--bar)"/><text x="233.0" y="76.1" text-anchor="middle" fill="var(--ink)" font-size="10">65</text><rect x="246.0" y="125.6" width="22" height="74.4" fill="var(--bar2)"/><text x="257.0" y="122.6" text-anchor="middle" fill="var(--ink)" font-size="10">40</text><text x="245.0" y="214" text-anchor="middle" fill="var(--ink)">2023</text><rect x="282.0" y="51.2" width="22" height="148.8" fill="var(--bar)"/><text x="293.0" y="48.2" text-anchor="middle" fill="var(--ink)" font-size="10">80</text><rect x="306.0" y="69.8" width="22" height="130.2" fill="var(--bar2)"/><text x="317.0" y="66.8" text-anchor="middle" fill="var(--ink)" font-size="10">70</text><text x="305.0" y="214" text-anchor="middle" fill="var(--ink)">2024</text><line x1="34" x2="34" y1="14" y2="200" stroke="var(--ink)"/><line x1="34" x2="334" y1="200" y2="200" stroke="var(--ink)"/></svg><p class="prog"><b style="color:var(--bar)">&#9632;</b> Product X &nbsp; <b style="color:var(--bar2)">&#9632;</b> Product Y &nbsp; (units sold, in thousands)</p><div class="stepbox" data-steps>
+<div class="st">Step 1. Read the bars: X 2021 = 55, X 2023 = 65. Unit: thousands.</div>
+<div class="st">Step 2. Change = 65 − 55 = 10.</div>
+<div class="st">Step 3. Divide by OLD (2021): 10 ÷ 55 = 2/11.</div>
+<div class="st">Step 4. 2/11 is about 18.18%. Answer: <b>about 18.2%</b>. Estimate check: 55 × 1.2 = 66, just above 65, so a bit under 20%.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">The chart says "in thousands". Bar reads 60. A careless answer writes "60" for "how many units".</div>
+<div class="st">Right: 60 thousand = 60,000. If options are 60 and 60,000, the unit decides.</div>
+<div class="st">Second trap: "gap" is a subtraction, "how much % more" is a division by the base. Year 2022: Y = 60, X = 50. Gap = 10. Y is 10 ÷ 50 = <b>20%</b> more than X, but X is only 10 ÷ 60 = <b>16.67%</b> less than Y.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math: average by "guess and nudge"</h2>
+<p>Average of 40, 55, 50, 65, 80. Guess 60. Write each distance from 60: −20, −5, −10, +5, +20. Add them: −10. Divide by 5 values: −2. Average = 60 − 2 = <b>58</b>. Check: sum 290 ÷ 5 = 58.</p><div class="tip"><b>Why it works.</b> Each value = guess + distance, so the average = guess + average distance. Small numbers, no big addition.</div><h3>Speed drill</h3><p class="prog">Say it out loud first.</p><div class="drill"><script type="application/json">[["Mean of 20, 30, 40, 50, 60", "40"], ["Mean of 8, 12, 10, 14, 6", "10"], ["Bars 45 and 60: 60 is what % more than 45?", "33.33% (15 ÷ 45 = 1/3)"], ["Bars 40 and 50: 40 is what % less than 50?", "20%"], ["Simplify 35 : 65", "7 : 13"], ["Bars 30, 60, 90: total", "180"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: average by guess and nudge</h2>
+<p class="prog">Enter five bar values and a guess. See the distances.</p><label for="ch19-l2-v">Five values, separated by commas</label><input id="ch19-l2-v" type="text" value="40,55,50,65,80"><label for="ch19-l2-g">Your guess</label><input id="ch19-l2-g" type="number" value="60" inputmode="decimal"><div class="stepbox" style="margin-top:10px" id="ch19-l2-out"></div><script>(function(){function $(i){return document.getElementById(i)}function r(x){return +(+x).toFixed(2)}function lab(){var v=$("ch19-l2-v").value.split(",").map(function(s){return parseFloat(s)}).filter(function(x){return !isNaN(x)}),g=parseFloat($("ch19-l2-g").value),o=$("ch19-l2-out");if(!v.length||isNaN(g)){o.innerHTML='<div class="st">Enter some numbers and a guess.</div>';return}var d=v.map(function(x){return r(x-g)}),s=d.reduce(function(a,b){return a+b},0);o.innerHTML='<div class="st">1. Distances from '+g+': '+d.join(", ")+'</div><div class="st">2. Sum of distances = '+r(s)+'</div><div class="st">3. Divide by '+v.length+': '+r(s/v.length)+'</div><div class="st">4. Average = '+g+' + ('+r(s/v.length)+') = <b>'+r(g+s/v.length)+'</b></div>'}["ch19-l2-v","ch19-l2-g"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"What is the average sales of Product X over the five years?"</li><li>"In which year was the difference between the sales of X and Y the highest?"</li><li>"Sales of Y in 2022 are what percent more than sales of X in 2022?"</li><li>"What is the ratio of Y in 2021 to X in 2023?"</li></ul><p>Reported in memory-based exam analyses: DI was the biggest block in 2025 (8 questions, 5 + 3) and 2022 (5 questions). Bar graph is listed among DI types in third-party topic lists (not official).</p><div class="tip"><b>Wrong options are built from</b> the highest bar instead of the biggest gap, the median instead of the mean, and the unit slip.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · full DI Set B (5 questions)</h2>
+<p class="prog"><b>Practice data, invented</b> for this guide. Not from any real exam.</p><svg viewBox="0 0 340 230" width="100%" role="img" aria-label="Grouped bar chart of units sold in thousands by Product X and Product Y, 2020 to 2024; X: 40, 55, 50, 65, 80; Y: 30, 35, 60, 40, 70" style="max-width:520px;font:11px system-ui,sans-serif"><line x1="34" x2="334" y1="200.0" y2="200.0" stroke="var(--line)" stroke-width="1"/><text x="29" y="204.0" text-anchor="end" fill="var(--ink)">0</text><line x1="34" x2="334" y1="162.8" y2="162.8" stroke="var(--line)" stroke-width="1"/><text x="29" y="166.8" text-anchor="end" fill="var(--ink)">20</text><line x1="34" x2="334" y1="125.6" y2="125.6" stroke="var(--line)" stroke-width="1"/><text x="29" y="129.6" text-anchor="end" fill="var(--ink)">40</text><line x1="34" x2="334" y1="88.4" y2="88.4" stroke="var(--line)" stroke-width="1"/><text x="29" y="92.4" text-anchor="end" fill="var(--ink)">60</text><line x1="34" x2="334" y1="51.2" y2="51.2" stroke="var(--line)" stroke-width="1"/><text x="29" y="55.2" text-anchor="end" fill="var(--ink)">80</text><line x1="34" x2="334" y1="14.0" y2="14.0" stroke="var(--line)" stroke-width="1"/><text x="29" y="18.0" text-anchor="end" fill="var(--ink)">100</text><rect x="42.0" y="125.6" width="22" height="74.4" fill="var(--bar)"/><text x="53.0" y="122.6" text-anchor="middle" fill="var(--ink)" font-size="10">40</text><rect x="66.0" y="144.2" width="22" height="55.8" fill="var(--bar2)"/><text x="77.0" y="141.2" text-anchor="middle" fill="var(--ink)" font-size="10">30</text><text x="65.0" y="214" text-anchor="middle" fill="var(--ink)">2020</text><rect x="102.0" y="97.7" width="22" height="102.3" fill="var(--bar)"/><text x="113.0" y="94.7" text-anchor="middle" fill="var(--ink)" font-size="10">55</text><rect x="126.0" y="134.9" width="22" height="65.1" fill="var(--bar2)"/><text x="137.0" y="131.9" text-anchor="middle" fill="var(--ink)" font-size="10">35</text><text x="125.0" y="214" text-anchor="middle" fill="var(--ink)">2021</text><rect x="162.0" y="107.0" width="22" height="93.0" fill="var(--bar)"/><text x="173.0" y="104.0" text-anchor="middle" fill="var(--ink)" font-size="10">50</text><rect x="186.0" y="88.4" width="22" height="111.6" fill="var(--bar2)"/><text x="197.0" y="85.4" text-anchor="middle" fill="var(--ink)" font-size="10">60</text><text x="185.0" y="214" text-anchor="middle" fill="var(--ink)">2022</text><rect x="222.0" y="79.1" width="22" height="120.9" fill="var(--bar)"/><text x="233.0" y="76.1" text-anchor="middle" fill="var(--ink)" font-size="10">65</text><rect x="246.0" y="125.6" width="22" height="74.4" fill="var(--bar2)"/><text x="257.0" y="122.6" text-anchor="middle" fill="var(--ink)" font-size="10">40</text><text x="245.0" y="214" text-anchor="middle" fill="var(--ink)">2023</text><rect x="282.0" y="51.2" width="22" height="148.8" fill="var(--bar)"/><text x="293.0" y="48.2" text-anchor="middle" fill="var(--ink)" font-size="10">80</text><rect x="306.0" y="69.8" width="22" height="130.2" fill="var(--bar2)"/><text x="317.0" y="66.8" text-anchor="middle" fill="var(--ink)" font-size="10">70</text><text x="305.0" y="214" text-anchor="middle" fill="var(--ink)">2024</text><line x1="34" x2="34" y1="14" y2="200" stroke="var(--ink)"/><line x1="34" x2="334" y1="200" y2="200" stroke="var(--ink)"/></svg><p class="prog"><b style="color:var(--bar)">&#9632;</b> Product X &nbsp; <b style="color:var(--bar2)">&#9632;</b> Product Y &nbsp; (units sold, in thousands)</p><p class="prog">Values are printed on the bars. In the exam you must read them off the axis, so practise estimating to the nearest gridline.</p><div class="quiz"><script type="application/json">[
+{
+"q": "<b>Set B, Q1.</b> Sales of Y in 2022 are what percent more than sales of X in 2022?",
+"o": [
+"16.67%",
+"10%",
+"20%",
+"120%"
+],
+"a": 2,
+"e": "Y = 60, X = 50. Gap 10. 10 ÷ 50 (the 'than' value) = 20%.",
+"t": [
+"Divided the gap by Y (60) instead of by X (50), which answers 'X is less than Y'.",
+"The raw gap of 10 read as a percent.",
+"",
+"Y ÷ X × 100 without subtracting 100."
+]
+},
+{
+"q": "<b>Set B, Q2.</b> In which year was the absolute difference between sales of X and Y the highest?",
+"o": [
+"2023",
+"2024",
+"2021",
+"2022"
+],
+"a": 0,
+"e": "Gaps: 2020 = 10, 2021 = 20, 2022 = 10, 2023 = 25, 2024 = 10. Highest is 2023.",
+"t": [
+"",
+"Tallest bars (80 and 70), but their gap is only 10.",
+"Gap is 20, close but not the biggest.",
+"Only year where Y is above X, gap is just 10."
+]
+},
+{
+"q": "<b>Set B, Q3.</b> What is the average yearly sales of Product X over the five years (in thousands)?",
+"o": [
+"55",
+"290",
+"65",
+"58"
+],
+"a": 3,
+"e": "40 + 55 + 50 + 65 + 80 = 290. 290 ÷ 5 = 58.",
+"t": [
+"The middle value (median), not the mean.",
+"Sum, forgot to divide by 5.",
+"Read only the 2023 bar.",
+""
+]
+},
+{
+"q": "<b>Set B, Q4.</b> Combined sales (X + Y) rose by about what percent from 2022 to 2024?",
+"o": [
+"26.7%",
+"36.4%",
+"40%",
+"136.4%"
+],
+"a": 1,
+"e": "2022: 50 + 60 = 110. 2024: 80 + 70 = 150. Rise 40. 40 ÷ 110 = 36.4%.",
+"t": [
+"Divided the rise (40) by the 2024 total 150, not the 2022 total.",
+"",
+"The raw rise of 40 read as a percent.",
+"150 ÷ 110 × 100 without subtracting the original 100%."
+]
+},
+{
+"q": "<b>Set B, Q5.</b> X's 2024 sales are about what percent of X's total sales over the five years?",
+"o": [
+"27.6%",
+"15.2%",
+"137.9%",
+"38.1%"
+],
+"a": 0,
+"e": "X total = 290. 80 ÷ 290 = 27.6%.",
+"t": [
+"",
+"Used the combined total of X and Y (525) as the base.",
+"Divided by the average (58) instead of the total.",
+"Divided by the other four years (210) instead of all five."
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What do I check before reading any bar? (2) What is the mean formula? (3) "A is what % more than B": which is the base? (4) Why does the unit matter?</div><div class="mem"><b>Memorise this</b><br>1. Title, axes, unit, legend.<br>2. Copy needed bars into a mini-table.<br>3. Mean = sum ÷ count (guess and nudge).<br>4. "More than B" means divide by B.<br>5. Gap is subtraction. % is division.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/data/bar-graphs.html">Math Is Fun: Bar Graphs</a> · <a href="https://www.mathsisfun.com/mean.html">Math Is Fun: Mean</a> · <a href="https://www.mathsisfun.com/numbers/percentage-change.html">Math Is Fun: Percentage Change</a>.</p></section>
+<section class="lesson" id="ch19-les3"><h3 style="font-size:1.25rem;margin:28px 0 4px">Lesson 3: Line charts and percent change</h3>
+<p class="oneline">In one line: a line chart shows change over time; the slope between two points is the story, and every "growth" question is old-to-new percent change.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>You track your daily steps for a week. Joining the dots shows a line going up, down, up. A line graph shows information connected in some way, usually as it changes over time (Math Is Fun). The exam asks: between which two days did it rise most, in per cent?</p><div class="bars" role="img" aria-label="Three bars: 80 steps-hundreds, then 100, then 90"><div class="row"><span class="a" style="width:80%">Day 1: 80</span></div><div class="row"><span class="a" style="width:100%">Day 2: 100</span></div><div class="row"><span class="a" style="width:90%">Day 3: 90</span></div></div><p class="cap">Up 20, then down 10. Different bases, so different percents.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Read the title, unit and legend. Note if the axis starts at zero. A line chart can start higher, which exaggerates slopes.</div>
+<div class="st">Read each point you need and write it in a mini-table, one row per series.</div>
+<div class="st">Percent change between two years: (new − old) ÷ old × 100.</div>
+<div class="st">The steepest looking line is the biggest raw rise, not always the biggest percent rise.</div>
+<div class="st">To find the biggest percent rise, test each interval with friendly fractions (1/5 = 20%, 1/4 = 25%).</div>
+<div class="st">A change in a percentage is measured in percentage points (the plain difference), not in percent.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Change % = (New − Old) ÷ Old × 100</div><div class="box">Percentage points = (second percentage) − (first percentage)</div><div class="box">Example: 40% to 44% is +4 percentage points, and a 10% rise in that quantity</div><p class="src">Percentage point definition and the 40% to 44% example: Wikipedia "Percentage point". Line graph: Math Is Fun "Line Graphs".</p></section>
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>A line goes 80 → 100 → 90 (three years, invented). Find the % change in each step and overall.</b></p><p class="prog"><b>Practice data, invented</b> for this guide. Not from any real exam.</p><div class="stepbox" data-steps>
+<div class="st">Step 1. 80 → 100: change 20, ÷ 80 = 1/4 = 25% rise.</div>
+<div class="st">Step 2. 100 → 90: change −10, ÷ 100 = 10% fall.</div>
+<div class="st">Step 3. Overall 80 → 90: change 10, ÷ 80 = 1/8 = 12.5% rise.</div>
+<div class="st">Check: 1.25 × 0.90 = 1.125. The two steps do not add (25 − 10 = 15 is wrong).</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Growth rate was 10% one year and 25% the next. "By how much did the growth rate rise?"</div>
+<div class="st">Wrong move: 25 ÷ 10 = 2.5, so "150%" or "2.5". That is the relative change of the rates.</div>
+<div class="st">Right: when the question is about percentages themselves, subtract: 25 − 10 = <b>15 percentage points</b>.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Mental-math: the growth ladder</h2>
+<p>Memorise these pairs. They turn most intervals into one glance.</p><div class="tw"><table><tr><th>Old → New</th><th>Change %</th></tr><tr><td>×1.1 (e.g. 200 → 220)</td><td>+10%</td></tr><tr><td>×1.25 (e.g. 80 → 100)</td><td>+25%</td></tr><tr><td>×0.8 (e.g. 220 → 176)</td><td>−20%</td></tr><tr><td>×0.9 (e.g. 100 → 90)</td><td>−10%</td></tr></table></div><div class="tip"><b>Use it.</b> 220 → 176: 176 ÷ 220 = 0.8, so a 20% fall. And to undo +25% you need −20% (1/4 up, 1/5 down).</div><h3>Speed drill</h3><p class="prog">Say it out loud first.</p><div class="drill"><script type="application/json">[["200 → 250: change %", "+25%"], ["250 → 200: change %", "−20%"], ["60 → 66: change %", "+10%"], ["60 → 48: change %", "−20%"], ["Rate 12% to 20%: rise in points", "8 points"], ["40% to 44%: rise in points", "4 points"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: percent change vs percentage points</h2>
+<p class="prog">Enter two rates (in %).</p><label for="ch19-l3-a">First rate %</label><input id="ch19-l3-a" type="number" value="10" inputmode="decimal"><label for="ch19-l3-b">Second rate %</label><input id="ch19-l3-c" type="number" value="25" inputmode="decimal"><div class="stepbox" style="margin-top:10px" id="ch19-l3-out"></div><script>(function(){function $(i){return document.getElementById(i)}function r(x){return +(+x).toFixed(2)}function lab(){var a=parseFloat($("ch19-l3-a").value),b=parseFloat($("ch19-l3-c").value),o=$("ch19-l3-out");if(isNaN(a)||isNaN(b)){o.innerHTML="";return}var h='<div class="st">Percentage points: '+b+' − '+a+' = <b>'+r(b-a)+' points</b></div>';if(a>0)h+='<div class="st">Relative change of the rate: ('+b+' − '+a+') ÷ '+a+' × 100 = <b>'+r((b-a)/a*100)+'%</b></div>';o.innerHTML=h}["ch19-l3-a","ch19-l3-c"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"What is the percentage decrease in Line P from 2020 to 2021?"</li><li>"In which period did Line P show the highest percentage rise?"</li><li>"What is the average of Line Q for the last three years?"</li><li>"By how many percentage points did the growth rate increase?"</li><li>"What is the ratio of P in 2024 to Q in 2020?"</li></ul><p>Reported in memory-based exam analyses: DI was the biggest block in 2025 (8 questions) and was 5 questions in 2022. Line graph is listed among DI types in third-party topic lists (not official). Pie, caselet and radar are in the next chapter.</p><div class="tip"><b>Wrong options are built from</b> the biggest absolute rise, dividing by the new value, the lost sign, and relative change used instead of points.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · full DI Set C (5 questions)</h2>
+<p class="prog"><b>Practice data, invented</b> for this guide. Not from any real exam.</p><svg viewBox="0 0 340 240" width="100%" role="img" aria-label="Line chart of enrolments in thousands for Line P and Line Q from 2019 to 2024; P: 200, 220, 176, 240, 264, 330; Q: 150, 180, 225, 210, 270, 297" style="max-width:520px;font:11px system-ui,sans-serif"><line x1="34" x2="334" y1="210.0" y2="210.0" stroke="var(--line)"/><text x="29" y="214.0" text-anchor="end" fill="var(--ink)">100</text><line x1="34" x2="334" y1="170.8" y2="170.8" stroke="var(--line)"/><text x="29" y="174.8" text-anchor="end" fill="var(--ink)">150</text><line x1="34" x2="334" y1="131.6" y2="131.6" stroke="var(--line)"/><text x="29" y="135.6" text-anchor="end" fill="var(--ink)">200</text><line x1="34" x2="334" y1="92.4" y2="92.4" stroke="var(--line)"/><text x="29" y="96.4" text-anchor="end" fill="var(--ink)">250</text><line x1="34" x2="334" y1="53.2" y2="53.2" stroke="var(--line)"/><text x="29" y="57.2" text-anchor="end" fill="var(--ink)">300</text><line x1="34" x2="334" y1="14.0" y2="14.0" stroke="var(--line)"/><text x="29" y="18.0" text-anchor="end" fill="var(--ink)">350</text><polyline fill="none" stroke="var(--bar)" stroke-width="2.5" points="44.0,131.6 102.4,115.9 160.8,150.4 219.2,100.2 277.6,81.4 336.0,29.7"/><circle cx="44.0" cy="131.6" r="3.5" fill="var(--bar)"/><circle cx="102.4" cy="115.9" r="3.5" fill="var(--bar)"/><circle cx="160.8" cy="150.4" r="3.5" fill="var(--bar)"/><circle cx="219.2" cy="100.2" r="3.5" fill="var(--bar)"/><circle cx="277.6" cy="81.4" r="3.5" fill="var(--bar)"/><circle cx="336.0" cy="29.7" r="3.5" fill="var(--bar)"/><polyline fill="none" stroke="var(--bar2)" stroke-width="2.5" points="44.0,170.8 102.4,147.3 160.8,112.0 219.2,123.8 277.6,76.7 336.0,55.6"/><circle cx="44.0" cy="170.8" r="3.5" fill="var(--bar2)"/><circle cx="102.4" cy="147.3" r="3.5" fill="var(--bar2)"/><circle cx="160.8" cy="112.0" r="3.5" fill="var(--bar2)"/><circle cx="219.2" cy="123.8" r="3.5" fill="var(--bar2)"/><circle cx="277.6" cy="76.7" r="3.5" fill="var(--bar2)"/><circle cx="336.0" cy="55.6" r="3.5" fill="var(--bar2)"/><text x="44.0" y="224" text-anchor="middle" fill="var(--ink)">2019</text><text x="102.4" y="224" text-anchor="middle" fill="var(--ink)">2020</text><text x="160.8" y="224" text-anchor="middle" fill="var(--ink)">2021</text><text x="219.2" y="224" text-anchor="middle" fill="var(--ink)">2022</text><text x="277.6" y="224" text-anchor="middle" fill="var(--ink)">2023</text><text x="336.0" y="224" text-anchor="middle" fill="var(--ink)">2024</text><line x1="34" x2="34" y1="14" y2="210" stroke="var(--ink)"/><line x1="34" x2="334" y1="210" y2="210" stroke="var(--ink)"/></svg><p class="prog"><b style="color:var(--bar)">&#9632;</b> Line P &nbsp; <b style="color:var(--bar2)">&#9632;</b> Line Q &nbsp; (enrolments, in thousands; axis starts at 100, not 0)</p><div class="tw"><table><tr><th>Year</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th></tr><tr><td>P</td><td>200</td><td>220</td><td>176</td><td>240</td><td>264</td><td>330</td></tr><tr><td>Q</td><td>150</td><td>180</td><td>225</td><td>210</td><td>270</td><td>297</td></tr></table></div><p class="prog">The table repeats the line values so you can check the picture.</p><p class="prog">Suggested plan, not official: about 6 minutes for a 5-question set.</p><div class="quiz"><script type="application/json">[
+{
+"q": "<b>Set C, Q1.</b> What is the percentage change in Line P from 2020 to 2021?",
+"o": [
+"25% fall",
+"20% rise",
+"44% fall",
+"20% fall"
+],
+"a": 3,
+"e": "220 → 176. Change = −44. −44 ÷ 220 = −20%.",
+"t": [
+"Divided the drop (44) by the NEW value 176.",
+"Lost the sign: the line went down.",
+"The raw drop of 44 read as a percent.",
+""
+]
+},
+{
+"q": "<b>Set C, Q2.</b> In which period did Line P show the highest percentage rise?",
+"o": [
+"2023 to 2024",
+"2021 to 2022",
+"2019 to 2020",
+"2022 to 2023"
+],
+"a": 1,
+"e": "Rises: 10%, −20%, 64 ÷ 176 = 36.4%, 10%, 25%. Highest is 2021 to 2022.",
+"t": [
+"Largest rise in numbers (+66), but only 25%.",
+"",
+"Only 10%.",
+"Only 10%."
+]
+},
+{
+"q": "<b>Set C, Q3.</b> What is the average of Line Q over 2022, 2023 and 2024 (in thousands)?",
+"o": [
+"270",
+"777",
+"259",
+"253.5"
+],
+"a": 2,
+"e": "210 + 270 + 297 = 777. 777 ÷ 3 = 259.",
+"t": [
+"The middle value (median), not the mean.",
+"Sum, forgot to divide by 3.",
+"",
+"Averaged only the first and last values."
+]
+},
+{
+"q": "<b>Set C, Q4.</b> Line P grew 10% in 2022 to 2023 and 25% in 2023 to 2024. By how many percentage points did the growth rate rise?",
+"o": [
+"15 points",
+"150 points",
+"35 points",
+"2.5 points"
+],
+"a": 0,
+"e": "240 → 264 is +10%. 264 → 330 is +25%. Difference of the two rates = 15 percentage points.",
+"t": [
+"",
+"That is the relative rise of the rate, 15 ÷ 10, not points.",
+"Added the two rates.",
+"Divided 25 by 10."
+]
+},
+{
+"q": "<b>Set C, Q5.</b> What is the ratio of Line P in 2024 to Line Q in 2020?",
+"o": [
+"6 : 11",
+"11 : 5",
+"33 : 20",
+"11 : 6"
+],
+"a": 3,
+"e": "330 : 180. Divide both by 30: 11 : 6.",
+"t": [
+"Inverted.",
+"Used Q for 2019 (150), wrong year.",
+"Used P for 2019 (200), wrong year.",
+""
+]
+}
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Which value is the base for % change? (2) Is the steepest line the biggest % rise? (3) What do you do to get percentage points? (4) What does a line chart show best?</div><div class="mem"><b>Memorise this</b><br>1. Line = change over time.<br>2. % change = change ÷ OLD.<br>3. Biggest rise in numbers is not biggest %.<br>4. Rates compared: subtract, answer in points.<br>5. ×1.25 ↔ ×0.8, ×1.1 ↔ ÷1.1.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/data/line-graphs.html">Math Is Fun: Line Graphs</a> · <a href="https://en.wikipedia.org/wiki/Percentage_point">Wikipedia: Percentage point</a> · <a href="https://www.mathsisfun.com/numbers/percentage-change.html">Math Is Fun: Percentage Change</a>.</p></section>
+<p class="src"><b>Sources:</b> <a href="https://www.mathsisfun.com/data/bar-graphs.html">Bar Graphs</a> · <a href="https://www.mathsisfun.com/data/line-graphs.html">Line Graphs</a> · <a href="https://www.mathsisfun.com/numbers/percentage-change.html">Percentage Change</a> · <a href="https://www.mathsisfun.com/mean.html">Mean</a> (Math Is Fun) · <a href="https://en.wikipedia.org/wiki/Percentage_point">Wikipedia: Percentage point</a> · PFRDA 2026 notification (marks) · DI counts: edutap exam analysis, reported in memory-based exam analyses. All practice data invented; every answer checked by Python.<br><b>UNVERIFIED:</b> exact DI chart types and set sizes in the 15 Oct 2026 paper; how many table/bar/line sets appeared in any past paper (not claimed); any time-per-set figure (suggested plan only).</p>
+</article>
