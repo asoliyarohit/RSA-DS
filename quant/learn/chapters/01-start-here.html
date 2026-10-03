@@ -3,25 +3,25 @@
 <p class="oneline">In one line: Quant is 20 questions worth 25 marks inside a 60-minute paper shared with three other sections, so you win by picking the easy questions first and guessing only when the odds are good.</p>
 
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
-<p>You enter a sweet shop with ₹100 and exactly one hour. There are four counters. Quant is one counter with 20 items. Each item you get right pays ₹1.25. Each item you get wrong costs you ₹0.3125. Skipping costs nothing.</p>
+<p>You enter a sweet shop with ₹100 and exactly one hour. ("Quant" = Quantitative Aptitude, the maths section.) There are four counters. Quant is one counter with 20 items. Each item you get right pays ₹1.25. Each item you get wrong costs you ₹0.3125. Skipping costs nothing.</p>
 <div class="bars" role="img" aria-label="Paper split into four sections of 25 marks each"><div class="row"><span class="a" style="width:25%">English 25</span><span class="b" style="width:25%">Quant 25</span><span class="a" style="width:25%">Reasoning 25</span><span class="b" style="width:25%">GA 25</span></div></div>
-<p class="cap">Four sections, 25 marks each, 100 marks in total. Quant is one quarter of the marks.</p></section>
+<p class="cap">Paper 1: four sections, 25 marks each, 100 marks in total (GA = General Awareness). Quant is one quarter of Paper 1.</p></section>
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
-<div class="st">The Phase I online exam is on 15 October 2026 (a Thursday).</div>
+<div class="st">The Phase I online exam is on 15 October 2026 (a Thursday). Phase I = the first screening round. It has two papers: Paper 1 (everyone) and Paper 2 (your stream subject, 50 questions, 100 marks, 40 minutes). Quant is in Paper 1.</div>
 <div class="st">Paper 1 has 4 sections: English 20 Q, Quantitative Aptitude 20 Q, Reasoning 30 Q, General Awareness 20 Q. That is 90 questions.</div>
 <div class="st">Each section carries 25 marks, so the paper is 100 marks. You get 60 minutes for the whole paper, not per section.</div>
 <div class="st">So a Quant question is worth 25 ÷ 20 = 1.25 marks. A wrong answer loses one quarter of that: 0.3125.</div>
-<div class="st">There is a separate cut-off for each paper and also an aggregate cut-off. So do not ignore a section.</div>
-<div class="st">Phase I marks only shortlist you for Phase II. Your target here is a clean, accurate Quant score.</div>
+<div class="st">A cut-off is the minimum score you must reach. You need a separate cut-off in each paper and also an aggregate (total) cut-off. So do not ignore a section.</div>
+<div class="st">Phase I marks only shortlist you for Phase II (the next written round); they do not count in the final result. Your target here is a clean, accurate Quant score.</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
 <div class="box">Marks per Quant question = 25 ÷ 20 = 1.25</div>
 <div class="box">Penalty per wrong answer = 1.25 ÷ 4 = 0.3125</div>
 <div class="box">Score = 1.25 × (right) − 0.3125 × (wrong). Skipped = 0.</div>
-<div class="box">Break-even chance = 0.3125 ÷ (1.25 + 0.3125) = 0.2 = 20%</div>
+<div class="box">Break-even chance (the chance of being right at which a guess neither gains nor loses on average) = 0.3125 ÷ (1.25 + 0.3125) = 0.3125 ÷ 1.5625 = 0.2 = 20%</div>
 <p class="src">Source: official PFRDA Officer Grade A (Assistant Manager) 2026 notification, pages 6-7 (see Sources). The break-even line is our arithmetic, checked by Python.</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
@@ -36,16 +36,16 @@
 <p><b>Is a pure guess worth it if a question has 4 options and you know nothing?</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Chance of luck = 1 in 4 = 25%. Chance of wrong = 75%.</div>
-<div class="st">Step 2. Expected marks = 0.25 × 1.25 − 0.75 × 0.3125 = 0.3125 − 0.234375.</div>
+<div class="st">Step 2. Expected marks = the average result if you made this same guess many times = (chance right × 1.25) − (chance wrong × 0.3125) = 0.25 × 1.25 − 0.75 × 0.3125 = 0.3125 − 0.234375.</div>
 <div class="st">Step 3. = <b>+0.078125</b>. Tiny gain, so a blind guess is nearly worthless.</div>
-<div class="st">Step 4. With 5 options the chance is 20% and the expected gain is exactly 0. Cross out even one option and the odds improve.</div>
+<div class="st">Step 4. With 5 options the chance is 20%: 0.2 × 1.25 − 0.8 × 0.3125 = 0.25 − 0.25 = exactly 0. Cross out even one option and the odds improve.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
 <div class="trap"><div class="stepbox" data-steps>
 <div class="st">Wrong belief: "20 questions in a section, so I have 20 minutes each section" or "I must try all 20."</div>
 <div class="st">Fact: 60 minutes covers all 90 questions. Average = 3600 s ÷ 90 = <b>40 seconds a question</b>.</div>
-<div class="st">Trying everything and rushing may give, say, 12 right and 8 wrong: 15 − 2.5 = 12.5. Careful 10 right, 0 wrong gives 12.5 too, with less stress. Accuracy is cheap marks.</div>
+<div class="st">Trying everything and rushing may give, say, 12 right and 8 wrong: 12 × 1.25 = 15, 8 × 0.3125 = 2.5, so 15 − 2.5 = 12.5. Careful 10 right, 0 wrong gives 10 × 1.25 = 12.5 too, with less stress. Accuracy is cheap marks.</div>
 <p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
 
 <section class="card"><h2><span class="n">6</span>Game plan: order, time, and how to use this guide</h2>
@@ -78,9 +78,9 @@ var e=p/100*1.25-(1-p/100)*0.3125;g.innerHTML='<div class="st">Expected marks = 
 
 <section class="card"><h2><span class="n">8</span>How the examiner asks, and what past analyses reported</h2>
 <p class="prog">Typical style, written by us. Not copied from any paper.</p>
-<ul><li>Quant arrives as a block of 20 questions, mixing data interpretation, equations and arithmetic.</li>
+<ul><li>Quant arrives as a block of 20 questions, mixing data interpretation (DI: reading numbers off tables and charts), equations and arithmetic word problems.</li>
 <li>Every question is worth the same 1.25. Easy ones pay as much as hard ones, so take the easy ones first.</li></ul>
-<p><b>Topic mix, reported in memory-based exam analyses</b> (not official; the notification gives no Quant topic list).</p>
+<p><b>Topic mix, reported in memory-based exam analyses</b> (coaching sites rebuild the paper from what candidates remember; not official; the notification gives no Quant topic list). Short forms: SI/CI = Simple/Compound Interest; Rectangle = an area/perimeter question. Each topic has its own chapter (see the map below).</p>
 <div class="tw"><table><tr><th>Exam</th><th>Reported Quant mix</th></tr>
 <tr><td>2025 (6 Sep)</td><td>DI 8 (5+3), Quadratic Equations 5, Partnership 1, SI/CI 1, Trains 1, Time and Work 1, Rectangle 1, Ages 1, Average 1 (total 20)</td></tr>
 <tr><td>2022 (5 Nov)</td><td>Number Series 5, DI 5, Averages 3, Time-Speed-Distance 2, Profit and Loss 1, Partnership 1, Time and Work 1, Interest 1 (sums 19; one analysis adds Percentage 1)</td></tr></table></div>
@@ -91,7 +91,7 @@ var e=p/100*1.25-(1-p/100)*0.3125;g.innerHTML='<div class="st">Expected marks = 
 <p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
 <div class="quiz"><script type="application/json">[
 {"q":"How many Quant questions are there in Paper 1, and for how many marks?","o":["25 questions, 20 marks","20 questions, 20 marks","30 questions, 25 marks","20 questions, 25 marks"],"a":3,"e":"The official notification gives Quant 20 questions for 25 marks. One snippet elsewhere said 25 Q / 20 marks; the official PDF wins.","t":["Reversed numbers, seen in a non-official snippet","Marks are 25, not 20","30 questions is Reasoning, not Quant",""]},
-{"q":"A student gets 14 right, 4 wrong and skips 2. Quant score?","o":["17.5","15.0","16.25","14.0"],"a":2,"e":"14 × 1.25 = 17.5. 4 × 0.3125 = 1.25. 17.5 − 1.25 = 16.25.","t":["Ignores the penalty","Used −1 per wrong answer instead of −0.3125","",  "Counted only the right answers as 1 mark each"]},
+{"q":"A student gets 14 right, 4 wrong and skips 2. Quant score?","o":["17.5","13.5","16.25","14.0"],"a":2,"e":"14 × 1.25 = 17.5. 4 × 0.3125 = 1.25. 17.5 − 1.25 = 16.25.","t":["Ignores the penalty","Used −1 per wrong answer instead of −0.3125 (17.5 − 4)","",  "Counted only the right answers as 1 mark each"]},
 {"q":"What is the penalty for one wrong Quant answer?","o":["0.3125","0.25","0.5","1.25"],"a":0,"e":"One quarter of 1.25 marks = 0.3125.","t":["","One quarter written as 0.25 marks, not one quarter of 1.25","Half the marks, not a quarter","The full marks of the question"]},
 {"q":"You have a question with 5 equally likely options and no clue. Expected marks from guessing?","o":["+0.3125","+1.25","−0.3125","0"],"a":3,"e":"0.2 × 1.25 − 0.8 × 0.3125 = 0.25 − 0.25 = 0. Break-even is 20%.","t":["That is just the penalty magnitude, not the expectation","That is the full gain with no penalty counted","Only the loss is counted","" ]},
 {"q":"Paper 1 has 90 questions in 60 minutes. Average time per question for the whole paper?","o":["60 seconds","40 seconds","36 seconds","30 seconds"],"a":1,"e":"60 × 60 = 3600 seconds. 3600 ÷ 90 = 40 seconds.","t":["That would give only 60 questions in the hour","","36 s is 12 minutes ÷ 20 questions, our Quant plan, not the paper average","That would finish in 45 minutes"]}
@@ -103,6 +103,8 @@ var e=p/100*1.25-(1-p/100)*0.3125;g.innerHTML='<div class="st">Expected marks = 
 <h3>Topic map</h3>
 <p class="prog">Topics are from third-party lists (Oliveboard, Edutap), not official. Tap a chapter to open it.</p>
 <div class="tw"><table><tr><th>No</th><th>Chapter</th></tr>
+<tr><td>01b</td><td><a href="#ch01b">Priority Map: where the marks are</a></td></tr>
+<tr><td>01c</td><td><a href="#ch01c">Head-Math Rescue: write it down</a></td></tr>
 <tr><td>02</td><td><a href="#ch02">Speed Maths I: tables, squares, cubes</a></td></tr>
 <tr><td>03</td><td><a href="#ch03">Speed Maths II: calculate fast</a></td></tr>
 <tr><td>04</td><td><a href="#ch04">Percentage</a></td></tr>
@@ -124,7 +126,7 @@ var e=p/100*1.25-(1-p/100)*0.3125;g.innerHTML='<div class="st">Expected marks = 
 <tr><td>20</td><td><a href="#ch20">Data Interpretation II: pie, caselet, radar</a></td></tr>
 <tr><td>21</td><td><a href="#ch21">Data Sufficiency</a></td></tr>
 <tr><td>22</td><td><a href="#ch22">Mixed Practice and Exam Technique</a></td></tr></table></div>
-<p class="prog">Next action: open chapter 02 and do just its first card.</p></section>
+<p class="prog">Next action: open chapter 01b (Priority Map) and do just its first card.</p></section>
 
-<p class="src"><b>Sources:</b> Official PFRDA notification, Recruitment of Officer Grade A (Assistant Manager) 2026, pp.6-7: <a href="https://pfrda.org.in/documents/33652/212847/Recruitment+of+Officer+Grade+A+(Assistant+Manager)-2026.pdf">pfrda.org.in notification PDF</a> · Memory-based exam analysis (2025): <a href="https://edutap.in/pfrda-grade-a/exam-analysis/">edutap.in exam analysis</a> · Topic lists: Oliveboard and Edutap (third-party, not official). Time plan is our suggestion. All arithmetic checked by Python.<br><b>UNVERIFIED:</b> official Quant topic list (none exists in the notification); exact number of options per question; the 2022 analysis page was not fetched here, its counts come from the project SPEC; any cut-off figures (none claimed).</p>
+<p class="src"><b>Sources:</b> Official PFRDA notification, Recruitment of Officer Grade A (Assistant Manager) 2026, pp.6-7 (re-checked: date, Paper 1 table, Paper 2 50 Q/100 marks/40 min, 1/4 negative marking, separate and aggregate cut-offs): <a href="https://pfrda.org.in/documents/33652/212847/Recruitment+of+Officer+Grade+A+(Assistant+Manager)-2026.pdf">pfrda.org.in notification PDF</a> · Memory-based exam analysis (2025): <a href="https://edutap.in/pfrda-grade-a/exam-analysis/">edutap.in exam analysis</a> · Topic lists: Oliveboard and Edutap (third-party, not official). Time plan is our suggestion. All arithmetic checked by Python.<br><b>UNVERIFIED:</b> official Quant topic list (none exists in the notification); exact number of options per question (the notification does not state it); the 2022 analysis page was not fetched here, its counts come from the project SPEC; any cut-off figures (none claimed).</p>
 </article>

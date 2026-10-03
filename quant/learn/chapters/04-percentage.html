@@ -5,22 +5,22 @@
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
 <p>A shop in Lucknow marks a shirt at ₹800 with a board: "15% off". Picture the ₹800 as a bar cut into 100 equal slices. 15% off means 15 of those slices are crossed out.</p>
 <div class="bars" role="img" aria-label="Bar of 100 slices, 15 slices highlighted as the discount"><div class="row"><span class="a" style="width:85%">85 slices you pay</span><span class="b" style="width:15%">15</span></div></div>
-<p class="cap">One slice = ₹8. So the discount is 15 × 8 = ₹120 and you pay ₹680.</p></section>
+<p class="cap">One slice = ₹8 (800 ÷ 100). So the discount is 15 × 8 = ₹120 and you pay ₹680.</p></section>
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
 <div class="st">"Percent" means "per 100". So 1% is 1 out of 100.</div>
 <div class="st">50% is 50 out of 100, which is half. So 50% = 1/2.</div>
-<div class="st">To find a percent of a number: percent over 100, then multiply. 25% of 80 = 25/100 × 80 = 20.</div>
+<div class="st">To find a percent of a number: percent over 100, then multiply. 25% of 80 = 25/100 × 80 = 20. (Shortcut: 25% = 1/4, and 80 ÷ 4 = 20.)</div>
 <div class="st">Percentage <b>change</b> asks: how far did it move, compared with where it <b>started</b>?</div>
-<div class="st">Always divide by the <b>old</b> (starting) value. This one habit prevents most mistakes.</div>
-<div class="st">Two changes in a row do <b>not</b> add. The second change works on the already-changed number.</div>
+<div class="st">Always divide by the <b>old</b> (starting) value. That starting value is called the <b>base</b>. This one habit prevents most mistakes.</div>
+<div class="st">Two changes in a row (called <b>successive</b> changes) do <b>not</b> add. The second change works on the already-changed number.</div><div class="st">Easy way: use a <b>factor</b>, the number you multiply by. Up 20% means 100% + 20% = 120% = 1.20. Down 20% means 100% − 20% = 80% = 0.80. Down 10% is 0.90. Multiply the factors to get the <b>net</b> (overall) result.</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
 <div class="box">X% of N = (X ÷ 100) × N</div>
 <div class="box">% change = (New − Old) ÷ Old × 100</div>
-<div class="box">Successive changes: multiply the factors. +20% is factor 1.20, −20% is 0.80.</div>
+<div class="box">Successive changes: multiply the factors. Factor = 1 + change ÷ 100: +20% is 1.20, −20% is 0.80.</div>
 <p class="src">Definition of percentage and relative change: Wikipedia "Percentage"; Math Is Fun "Percentage Change" (see Sources). Changes do not add: Wikipedia "Percentage" (+10% then −10% ≠ 0). Multiply-the-factors rule: derived, Python-checked.</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
@@ -35,16 +35,16 @@
 <p><b>Price rises 20%, then falls 20%. Net change?</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Start at 100. +20% gives 120.</div>
-<div class="st">Step 2. −20% of <b>120</b> = 24, so 120 − 24 = 96.</div>
+<div class="st">Step 2. −20% of <b>120</b>: 20% = 1/5, and 120 ÷ 5 = 24. So 120 − 24 = 96.</div>
 <div class="st">Step 3. 96 versus 100 is −4. Answer: <b>4% decrease</b>, not 0%.</div>
-<div class="st">Check with factors: 1.20 × 0.80 = 0.96.</div>
+<div class="st">Check with factors: 1.20 × 0.80. Ignore the points: 12 × 8 = 96. Two decimal places in all, so 0.96.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
 <div class="trap"><div class="stepbox" data-steps>
 <div class="st">Price goes 100 → 125. That is +25%.</div>
-<div class="st">Wrong move: "so it must fall 25% to come back". 25% of 125 is 31.25, and 125 − 31.25 = 93.75. Not 100.</div>
-<div class="st">Right: it must fall 25 out of 125 = <b>20%</b>. Going down uses the new, bigger base.</div>
+<div class="st">Wrong move: "so it must fall 25% to come back". 25% of 125 is 125 ÷ 4 = 31.25, and 125 − 31.25 = 93.75. Not 100.</div>
+<div class="st">Right: it must fall 25 out of 125 = 1/5 = <b>20%</b>. Going down uses the new, bigger base.</div><div class="st">Same idea in shop questions. Money spent = price × quantity. If the price goes up 25% (factor 1.25), the quantity must be multiplied by 0.80 to keep the spend the same (1.25 × 0.80 = 1). So buy 20% less.</div>
 <p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
 
 <section class="card"><h2><span class="n">6</span>Mental-math base: fraction to percent</h2>
@@ -55,7 +55,7 @@
 <tr><td>1/6</td><td>16.67</td><td>1/13</td><td>7.69</td></tr><tr><td>1/7</td><td>14.29</td><td>1/14</td><td>7.14</td></tr>
 <tr><td>1/8</td><td>12.5</td><td>1/15</td><td>6.67</td></tr><tr><td colspan="2"></td><td>1/16</td><td>6.25</td></tr></table></div>
 <p class="prog">Each value is 100 ÷ n, rounded to 2 decimals.</p>
-<div class="tip"><b>Use it.</b> 12.5% = 1/8, so 12.5% of 640 = 640 ÷ 8 = 80. For 37.5% = 3/8: 640 ÷ 8 × 3 = 240. Convert to a fraction, then divide, then multiply.</div>
+<div class="tip"><b>Use it.</b> 12.5% = 1/8, so 12.5% of 640 = 640 ÷ 8 = 80. For 37.5% = 3/8: 640 ÷ 8 × 3 = 240. Convert to a fraction, then divide, then multiply. Also 62.5% = 5/8 (100% − 37.5% = 62.5%, and 1 − 3/8 = 5/8), and 83.33% = 5/6 (100% − 16.67% = 83.33%, and 1 − 1/6 = 5/6).</div>
 <h3>Speed drill</h3>
 <p class="prog">Say the answer out loud before you tap Show. Aim: under 5 seconds each.</p>
 <div class="drill"><script type="application/json">[["1/3 = ?%","33.33%"],["1/6 = ?%","16.67%"],["1/7 = ?%","14.29%"],["1/8 = ?%","12.5%"],["1/9 = ?%","11.11%"],["1/12 = ?%","8.33%"],["1/16 = ?%","6.25%"],["37.5% = ? (fraction)","3/8"],["62.5% = ? (fraction)","5/8"],["83.33% = ? (fraction)","5/6"]]</script></div></section>
@@ -79,10 +79,10 @@ var fa=1+a/100,fb=1+b/100;s.innerHTML='<div class="st">1. Factors: '+f(fa)+' and
 <section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
 <p class="prog">Typical style, written by us. Not copied from any paper.</p>
 <ul><li>"A's salary is 25% more than B's. By what % is B's salary less than A's?"</li>
-<li>"The price rises by 25%. By what % must consumption fall so expenditure stays the same?"</li>
+<li>"The price rises by 25%. By what % must consumption (the quantity used) fall so expenditure (money spent) stays the same?"</li>
 <li>"A number is increased by 20% then decreased by 10%. Find the net change."</li>
 <li>In data interpretation sets: "what percent is X of Y?" and "% growth from year 1 to year 2". In 2025, DI was reported as the biggest block (8 questions) in memory-based exam analyses, so this skill is used everywhere.</li></ul>
-<p class="prog">Word clues: "of" means multiply. "than" points to the base. "from … to …" means old to new.</p>
+<p class="prog">Word clues: "of" means multiply. A <b>percentage point</b> is the plain gap between two percentages: 20% to 25% is +5 percentage points, but also a 25% rise (5 ÷ 20). "than" points to the base. "from … to …" means old to new.</p>
 <div class="tip"><b>How the wrong options are built.</b> The examiner plants answers from common mistakes: dividing by the new value, adding successive percentages, mixing percentage with percentage points. If your answer matches a "tempting" option too easily, re-check the base.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
@@ -114,7 +114,7 @@ var fa=1+a/100,fb=1+b/100;s.innerHTML='<div class="st">1. Factors: '+f(fa)+' and
 "12.5%"
 ],
 "a": 0,
-"e": "Change = 6,000. 6,000 ÷ 40,000 (old) = 0.15 = 15%.",
+"e": "Change = 46,000 − 40,000 = 6,000. 6,000 ÷ 40,000 (old) = 6 ÷ 40 = 15 ÷ 100 = 15%.",
 "t": [
 "",
 "6,000 ÷ 46,000 (divided by the NEW value) ≈ 13%",
@@ -148,7 +148,7 @@ var fa=1+a/100,fb=1+b/100;s.innerHTML='<div class="st">1. Factors: '+f(fa)+' and
 "+9%"
 ],
 "a": 2,
-"e": "1.20 × 0.90 = 1.08, so +8%.",
+"e": "1.20 × 0.90: 12 × 9 = 108, two decimal places, so 1.08. That is +8%.",
 "t": [
 "20 − 10: added the percentages",
 "12 is only the size of the drop (10% of 120), not the net change",
