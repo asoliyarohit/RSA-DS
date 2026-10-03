@@ -16,14 +16,15 @@
 <div class="st">Picture the row with the person in the middle. People in front of them: rank − 1. People behind: the other rank − 1. Add the person: that is the whole row.</div>
 <div class="st">So <b>total = left rank + right rank − 1</b>. The −1 removes the double-counted person.</div>
 <div class="st">To switch ends for one person: <b>other-end rank = total − rank + 1</b>.</div>
+<div class="st">"Swap" means two people exchange seats: each now stands in the other's old place. So "after the swap A is 15th from the left" tells you B's OLD place was 15th from the left.</div>
 <div class="st">"How many between A and B" means the people strictly in the gap, not A and not B. Put both on the same end, subtract the ranks, then subtract 1.</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
 <div class="box">Total = rank from left + rank from right − 1</div>
 <div class="box">Rank from the other end = Total − rank + 1</div>
-<div class="box">Between two people = |rank of one − rank of the other| − 1, with both ranks counted from the SAME end</div>
-<div class="box">Different people, one rank from the left (a) and one from the right (b): if a + b ≤ Total then between = Total − a − b; if a + b &gt; Total + 1 (the ranks overlap) then between = a + b − Total − 2. If a + b = Total + 1 they are the same person.</div>
+<div class="box">Between two people = |rank of one − rank of the other| − 1, with both ranks counted from the SAME end. (The bars | | mean "drop any minus sign": the gap between 8 and 19 is 11 either way round.)</div>
+<div class="box">Different people, one rank from the left (a) and one from the right (b). "Overlap" means the two counts run past each other, so the person counted from the left stands further right than the one counted from the right. If a + b ≤ Total then between = Total − a − b; if a + b &gt; Total + 1 (the ranks overlap) then between = a + b − Total − 2. If a + b = Total + 1 they are the same person.</div>
 <div class="box">Swap: after two people swap, each sits in the other's old place. Translate the new rank into the old place of the other person.</div>
 <p class="src">Total, other-end and between formulas: Oliveboard, Testbook, BYJU'S (see Sources). Overlap and non-overlap between rules, same-person case: Testbook, BYJU'S; also derived, Python-checked over every total up to 39 and every pair of ranks.</p></section>
 
@@ -53,7 +54,7 @@
 <p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
 
 <section class="card"><h2><span class="n">6</span>Speed method and drill</h2>
-<p>Elimination: the total must be at least as big as each rank. If your answer is smaller than any given rank, it is wrong. Then use total = left + right − 1, which takes about 5 seconds.</p>
+<p>Elimination means crossing out options that cannot be right. Here: the total must be at least as big as each rank. If your answer is smaller than any given rank, it is wrong. Then use total = left + right − 1, which takes about 5 seconds.</p>
 <div class="tip"><b>Fast order:</b> 1) write the total or the missing rank, 2) put both people on the same end, 3) subtract, 4) take 1 away for "between".</div>
 <h3>Speed drill</h3>
 <p class="prog">Say the answer before you tap Show. Aim: under 5 seconds each.</p>
@@ -392,7 +393,8 @@ o.innerHTML=h}
 <p><b>In the word CHAMPION, how many letter pairs have as many letters between them in the word as in the alphabet? (Convention: a pair counts whether its letters appear in the word in alphabet order or in reverse order.)</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Number the word: C1 H2 A3 M4 P5 I6 O7 N8. Alphabet places: C3 H8 A1 M13 P16 I9 O15 N14.</div>
-<div class="st">Step 2. Compare the gaps for every pair. Pairs that match: C and A (1 between both ways, reverse order), H and N (5 and 5, alphabet order), O and N (0 and 0, reverse order).</div>
+<div class="st">Step 2. For each pair, count letters between them in the word (place gap − 1) and in the alphabet. C (word 1, alphabet 3) and A (word 3, alphabet 1): 3 − 1 − 1 = 1 in the word, 3 − 1 − 1 = 1 in the alphabet. H (2, 8) and N (8, 14): 8 − 2 − 1 = 5 and 14 − 8 − 1 = 5. O (7, 15) and N (8, 14): 8 − 7 − 1 = 0 and 15 − 14 − 1 = 0.</div>
+<div class="st">Step 2b. Those three pairs match: CA and ON (reverse order), HN (alphabet order). Every other pair differs.</div>
 <div class="st">Step 3. Answer: <b>3 pairs</b>. We tested all 28 pairs by code. Careful: if a question counts only pairs in alphabet order (forward), the answer would be 1 (HN). Read the convention.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
