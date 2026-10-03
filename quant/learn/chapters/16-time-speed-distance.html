@@ -16,7 +16,7 @@
 <div class="st">Speed tells you how much distance is covered in 1 unit of time.</div>
 <div class="st">60 km/h means 60 km each hour. So in 3 hours you cover 3 × 60 = 180 km.</div>
 <div class="st">Need time instead? Distance ÷ speed. 180 km at 60 km/h takes 180 ÷ 60 = 3 hours.</div>
-<div class="st">Units must match. km with hours, metres with seconds. Mixed units are the number one source of wrong answers.</div>
+<div class="st">Units must match. km with hours, metres with seconds. Mixed units are the number one source of wrong answers. km/h means kilometres per hour; m/s means metres per second.</div><div class="st">Minutes to hours: divide by 60. 45 minutes = 45 ÷ 60 = 0.75 hours.</div><div class="st">Why 5/18? 1 km = 1000 m and 1 hour = 3600 s, so 1 km/h = 1000/3600 m/s = 5/18 m/s.</div>
 <div class="st">Average speed of a whole trip = total distance ÷ total time. Not the average of the two speeds.</div>
 <div class="st">If you ride the same distance each way at two speeds, the slow leg takes more time, so it counts more. The answer lands closer to the slow speed.</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
@@ -25,7 +25,7 @@
 <div class="box">Speed = Distance ÷ Time &nbsp;·&nbsp; Distance = Speed × Time &nbsp;·&nbsp; Time = Distance ÷ Speed</div>
 <div class="box">Average speed = Total distance ÷ Total time</div>
 <div class="box">km/h to m/s: multiply by 5/18 (same as ÷ 3.6). m/s to km/h: multiply by 18/5 (× 3.6).</div>
-<div class="box">Same distance each way at speeds a and b: average = 2ab ÷ (a + b)</div>
+<div class="box">Same distance each way at speeds a and b (just the two speeds): average = 2ab ÷ (a + b)</div>
 <p class="src">Speed and average speed: Wikipedia "Speed". 3.6 km/h = 1 m/s: Wikipedia "Kilometres per hour". The 2ab/(a+b) form is the harmonic mean for equal distances: Wikipedia "Harmonic mean".</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
@@ -33,7 +33,7 @@
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Distance = 150 km, time = 2.5 h.</div>
 <div class="st">Step 2. Speed = 150 ÷ 2.5.</div>
-<div class="st">Step 3. 2.5 goes into 150 sixty times. Answer: <b>60 km/h</b>.</div>
+<div class="st">Step 3. Double both numbers to remove the decimal: 150 ÷ 2.5 = 300 ÷ 5 = 60. Answer: <b>60 km/h</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
 <p><b>Go to a town at 60 km/h and return the same road at 40 km/h. Average speed for the round trip?</b></p>
@@ -83,7 +83,7 @@ s.innerHTML='<div class="st">1. Take 1 unit of distance each way. Times: 1/'+a+'
 <ul><li>"A car covers the first half of a journey at 40 km/h and the second half at 60 km/h. Find the average speed."</li>
 <li>"A man travels for 2 hours at 50 km/h and 3 hours at 60 km/h. Average speed for the whole journey?"</li>
 <li>"Convert 72 km/h to m/s." or "A cyclist covers 200 m in 20 s. Speed in km/h?"</li>
-<li>"If he walks at 5 km/h instead of 4 km/h, he reaches 15 minutes earlier. Find the distance." (typical style)</li></ul>
+<li>"If he walks at 5 km/h instead of 4 km/h, he reaches 15 minutes earlier. Find the distance." (typical style; a harder type this guide does not teach, skip it on a first pass)</li></ul>
 <p class="prog">Reported in memory-based exam analyses: TSD 2 questions in 2022 (edutap). Word clues: "half the journey" means equal distance. "for 2 hours then 3 hours" means different times.</p>
 <div class="tip"><b>How the wrong options are built.</b> The plain mean of the two speeds is almost always planted. Also: forgetting to change minutes into hours, and mixing km/h with m/s.</div></section>
 
@@ -132,7 +132,7 @@ s.innerHTML='<div class="st">1. Take 1 unit of distance each way. Times: 1/'+a+'
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
 <p><b>A 180 m train runs at 72 km/h. Time to pass a pole? Time to cross a 270 m platform?</b></p>
 <div class="stepbox" data-steps>
-<div class="st">Step 1. 72 km/h = 72 × 5/18 = 20 m/s.</div>
+<div class="st">Step 1. 72 km/h = 72 × 5/18. 72 ÷ 18 = 4, then 4 × 5 = 20 m/s.</div>
 <div class="st">Step 2. Pole: distance 180 m. Time = 180 ÷ 20 = <b>9 s</b>.</div>
 <div class="st">Step 3. Platform: distance = 180 + 270 = 450 m. Time = 450 ÷ 20 = <b>22.5 s</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
@@ -140,9 +140,9 @@ s.innerHTML='<div class="st">1. Take 1 unit of distance each way. Times: 1/'+a+'
 <p><b>Trains of 120 m and 130 m run at 60 km/h and 40 km/h. Time to cross each other if (a) opposite, (b) same direction?</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Distance to clear = 120 + 130 = 250 m.</div>
-<div class="st">Step 2 (opposite). Relative speed = 60 + 40 = 100 km/h = 100 × 5/18 = 250/9 m/s.</div>
-<div class="st">Step 3. Time = 250 ÷ (250/9) = <b>9 s</b>.</div>
-<div class="st">Step 4 (same direction). Relative speed = 60 − 40 = 20 km/h = 50/9 m/s. Time = 250 ÷ (50/9) = <b>45 s</b>.</div>
+<div class="st">Step 2 (opposite). Relative speed = 60 + 40 = 100 km/h = 100 × 5/18 = 500/18 = 250/9 m/s.</div>
+<div class="st">Step 3. Time = 250 ÷ (250/9). Dividing by a fraction means multiplying by its flip: 250 × 9/250 = <b>9 s</b>.</div>
+<div class="st">Step 4 (same direction). Relative speed = 60 − 40 = 20 km/h = 20 × 5/18 = 100/18 = 50/9 m/s. Time = 250 × 9/50 = 2250/50 = <b>45 s</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
@@ -238,7 +238,7 @@ s.innerHTML='<div class="st">Distance to clear = '+f(d)+' m</div><div class="st"
 <div class="st">Step 1. Downstream = 12 + 3 = 15 km/h. Upstream = 12 − 3 = 9 km/h.</div>
 <div class="st">Step 2. Time down = 45 ÷ 15 = 3 h.</div>
 <div class="st">Step 3. Time up = 45 ÷ 9 = 5 h.</div>
-<div class="st">Step 4. Total = 3 + 5 = <b>8 hours</b>. (Round-trip average speed = 90 ÷ 8 = 11.25 km/h, below 12.)</div>
+<div class="st">Step 4. Total = 3 + 5 = <b>8 hours</b>. (Round-trip average speed = total distance 45 + 45 = 90 km, then 90 ÷ 8 = 11.25 km/h, below 12.)</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
 <p><b>A boat goes downstream at 20 km/h and upstream at 12 km/h. Find boat and stream speed.</b></p>
