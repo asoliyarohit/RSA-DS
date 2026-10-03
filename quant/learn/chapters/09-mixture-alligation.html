@@ -4,19 +4,20 @@
 
 <div class="lesson" id="ch09-l1">
 <h2>Lesson 1: Mix two things, find the ratio (alligation)</h2>
-<p class="oneline">In one line: when you mix two things of different strength or price, the result sits between them, and its ratio is the distances on a number line, crossed over.</p>
+<p class="oneline">In one line: alligation is the cross-over shortcut for mixing. When you mix two things of different strength or price, the result sits between them, and its ratio is the distances on a number line, crossed over.</p>
 
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
-<p>A kirana owner in Indore has tea leaves at ₹40 per kg and a costlier lot at ₹60 per kg. She wants a blend that costs her ₹48 per kg. Which lot should she use more of?</p>
+<p>A kirana (corner grocery) owner in Indore has tea leaves at ₹40 per kg and a costlier lot at ₹60 per kg. She wants a blend that costs her ₹48 per kg. Which lot should she use more of?</p>
 <div class="bars" role="img" aria-label="Number line from 40 to 60 with the blend at 48, closer to 40"><div class="row"><span class="a" style="width:40%">40 to 48: gap 8</span><span class="b" style="width:60%">48 to 60: gap 12</span></div></div>
 <p class="cap">48 is closer to 40, so the cheaper tea must be the bigger part. The gaps are 8 and 12, and the quantities will be 12 and 8 (crossed): 3 parts cheaper to 2 parts costlier.</p></section>
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
-<div class="st">A mixture's price (or strength) is an <b>average</b>, but a weighted one: the bigger part pulls harder.</div>
+<div class="st">A mixture's price (or strength) is an <b>average</b> (see chapter 06), but a weighted one: the bigger part pulls harder. "Strength" means the % of the key ingredient, like % acid. An alloy is a metal mixture, e.g. silver mixed with copper.</div>
 <div class="st">So the mixture value always lies between the two ingredient values. It can never be outside them.</div>
 <div class="st">Equal quantities give the plain middle (50 for 40 and 60). Unequal quantities pull it toward the bigger part.</div>
 <div class="st">Pure water has 0% acid. Pure ingredient has 100%. These count as ingredients too.</div>
+<div class="st">A ratio like 3 : 1 means q1 = 3 parts, q2 = 1 part.</div>
 <div class="st">Draw the three numbers: cheaper, mean, dearer. Subtract each from the mean, going <b>diagonally</b>.</div>
 <div class="st">The gap on the dearer side tells how much cheaper you need, and the other way round.</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
@@ -26,7 +27,7 @@
 <div class="box">Cheaper qty : Dearer qty = (Dearer − Mean) : (Mean − Cheaper)</div>
 <div class="box">Check: Mean must lie between the two. If not, you have a slip.</div>
 <p class="src">Weighted mean definition: Wikipedia "Weighted arithmetic mean". Alligation (medial = weighted average, alternate = quantities for a target) and the rule Aa + Bb = Cc: Wikipedia "Alligation". Ratio form derived below from the weighted mean and checked by Python.</p>
-<div class="tip"><b>Why the cross works.</b> Put q1 : q2 as unknowns. Mean × (q1+q2) = q1·v1 + q2·v2. Move terms: q1 (Mean − v1) = q2 (v2 − Mean). So q1 : q2 = (v2 − Mean) : (Mean − v1).</div></section>
+<div class="tip"><b>Why the cross works.</b> Put q1 : q2 as unknowns. Mean × (q1+q2) = q1·v1 + q2·v2. Open the left side: Mean·q1 + Mean·q2 = q1·v1 + q2·v2. Collect q1 terms on the left and q2 terms on the right: Mean·q1 − v1·q1 = v2·q2 − Mean·q2, i.e. q1 (Mean − v1) = q2 (v2 − Mean). So q1 : q2 = (v2 − Mean) : (Mean − v1).</div></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
 <p><b>Tea at ₹40 and ₹60 per kg is mixed to get ₹48 per kg. In what ratio?</b></p>
@@ -44,6 +45,13 @@
 <div class="st">Step 2. Water : solution = (60 − 40) : (40 − 0) = 20 : 40 = 1 : 2.</div>
 <div class="st">Step 3. Solution is 20 L = 2 parts, so 1 part = 10 L. Water = <b>10 L</b>.</div>
 <div class="st">Check: acid = 60% of 20 = 12 L. New volume 30 L. 12 ÷ 30 = 40%. Correct.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>30 kg of rice at ₹50 per kg is mixed with 20 kg at ₹75 per kg. Price per kg of the mixture?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Cost of the first lot = 30 × 50 = ₹1,500. Second lot = 20 × 75 = ₹1,500.</div>
+<div class="st">Step 2. Total cost = 1,500 + 1,500 = ₹3,000. Total weight = 30 + 20 = 50 kg.</div>
+<div class="st">Step 3. Price per kg = 3,000 ÷ 50 = <b>₹60</b>. It sits between 50 and 75, nearer 50 because there is more of it.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
@@ -111,7 +119,7 @@ t.innerHTML='<div class="st">1. Gap given to the lower one: '+h+' − '+m+' = '+
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
 <p>A milkman in Jaipur has a 40 L can of pure milk. He pours out 8 L and tops it up with water. Next day he does it again. How much milk is left?</p>
 <div class="bars" role="img" aria-label="Bar of 40 L: after one swap, 32 L milk and 8 L water"><div class="row"><span class="a" style="width:80%">32 L milk</span><span class="b" style="width:20%">8 water</span></div></div>
-<p class="cap">After swap 1: 32 L milk, 8 L water. The second 8 L he takes out is already a mix, so it carries away milk <b>and</b> water.</p></section>
+<p class="cap">After swap 1: 32 L milk, 8 L water. (One "swap" = pour some out, top up with water.) The second 8 L he takes out is already a mix, so it carries away milk <b>and</b> water.</p></section>
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
@@ -135,8 +143,8 @@ t.innerHTML='<div class="st">1. Gap given to the lower one: '+h+' − '+m+' = '+
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Factor each time = 1 − 8/40 = 1 − 1/5 = 4/5.</div>
 <div class="st">Step 2. Milk = 40 × 4/5 × 4/5 = 40 × 16/25 = 25.6 L.</div>
-<div class="st">Step 3. Water = 40 − 25.6 = 14.4 L.</div>
-<div class="st">Step 4. Milk : water = 25.6 : 14.4 = 16 : 9 (divide both by 1.6).</div>
+<div class="st">Step 3. Water = 40 − 25.6 = 14.4 L (the total stays 40).</div>
+<div class="st">Step 4. Milk : water = 25.6 : 14.4 = 16 : 9 (25.6 ÷ 1.6 = 16 and 14.4 ÷ 1.6 = 9).</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
 <p><b>A 64 L can of pure milk: 16 L is replaced by water, three times. Milk left?</b></p>
@@ -144,6 +152,13 @@ t.innerHTML='<div class="st">1. Gap given to the lower one: '+h+' − '+m+' = '+
 <div class="st">Step 1. Factor = 1 − 16/64 = 3/4.</div>
 <div class="st">Step 2. Milk = 64 × (3/4)³ = 64 × 27/64.</div>
 <div class="st">Step 3. The 64 cancels. Milk = <b>27 L</b>, water = 64 − 27 = 37 L.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>A 40 L mixture has milk : water = 3 : 1. 10 L of water is added (nothing removed). New ratio?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. 3 + 1 = 4 parts = 40 L, so 1 part = 10 L. Milk = 30 L, water = 10 L.</div>
+<div class="st">Step 2. Only water is added, so milk stays 30 L. Water = 10 + 10 = 20 L.</div>
+<div class="st">Step 3. Milk : water = 30 : 20 = <b>3 : 2</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
