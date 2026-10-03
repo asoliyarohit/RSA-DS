@@ -14,6 +14,11 @@ python -m analyst brief --equity 1000 --risk 0.05   # news + sentiment + quant g
 python -m pytest -q
 ```
 
+## STATUS: arena verdict (read first)
+Three independent competitors (rules, event/regime, ML) each built a strategy on data to 2022; all passed the dev judge and
+**all three failed the sealed 2023+ holdout** (see `arena/RESULTS.md`). No validated edge exists in this repo today. Do not trade it
+with real money; paper trade and journal only. 1k -> 100k is not supported by any evidence we could produce.
+
 ## What the evidence says (honest)
 | Setup | Out-of-sample result | Verdict |
 |---|---|---|
