@@ -29,7 +29,7 @@ CUTOFF = pd.Timestamp("2022-12-31")
 LEVERAGE = 5.0
 TOP_N = 3
 INDEX_ETFS = {"SPY", "QQQ", "IWM", "DIA", "XLK", "XLF", "XLE", "XLV", "XLY", "XLP", "XLI", "XLU", "TLT", "GLD"}
-STOCK_COST = CFDSpec(spread_bps=10.0, slippage_bps=3.0, leverage=LEVERAGE, benchmark=0.04, markup=0.03)
+STOCK_COST = CFDSpec(spread_bps=10.0, slippage_bps=3.0, leverage=LEVERAGE, benchmark=0.04, markup=0.03, commission_bps=25.0)  # Revolut equity CFD fee 0.25%/side
 ETF_COST = CFDSpec(**{**PROFILES["revolut"].__dict__, "leverage": LEVERAGE})
 N = NormalDist()
 
@@ -92,7 +92,9 @@ def _keys(s, kind=None, upto=None, strict=False):
         s = s[s["kind"] == kind]
     if upto is not None:
         s = s[s["date_in"] < upto] if strict else s[s["date_in"] <= upto]
-    return set(map(tuple, s[["instrument", "date_in", "kind", "dir"]].astype(str).values))
+    s = s.assign(stop_pct=s["stop_pct"].astype(float).round(6),
+                 score=(s["score"].astype(float) if "score" in s else 0.0).round(6))
+    return set(map(tuple, s[["instrument", "date_in", "kind", "dir", "stop_pct", "score"]].astype(str).values))
 
 
 def lookahead_check(m, frames_full, n_points=6, seed=11) -> tuple[bool, str]:

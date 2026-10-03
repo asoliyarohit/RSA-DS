@@ -122,3 +122,28 @@ def test_guard_evidence_gate_blocks_real_money(tmp_path, monkeypatch):
     monkeypatch.setattr(guard, "evidence_ok", lambda: (False, "paper record has 0/100"))
     d = guard.check(1000, 0.02, date(2026, 1, 5))
     assert not d.allowed and d.risk == 0.0 and "PAPER ONLY" in d.reasons[0]
+
+
+def test_judge_detects_score_and_stop_leaks():
+    """Regression: a leak hidden in `score` (which ranks/selects trades) or `stop_pct` (which sizes them) must be caught."""
+    import types
+    from arena import judge
+
+    def make(leak):
+        def signals(frames):
+            rows = []
+            for t, f in frames.items():
+                if t == "^VIX":
+                    continue
+                nxt = (f["open"].shift(-1) / f["close"] - 1)
+                for d, v in nxt.items():
+                    rows.append({"instrument": t, "date_in": d, "kind": "CLOSE", "dir": 1,
+                                 "stop_pct": 0.01 + (abs(v) if leak == "stop" and v == v else 0.0),
+                                 "score": float(v) if leak == "score" and v == v else 1.0})
+            return pd.DataFrame(rows)
+        return types.SimpleNamespace(signals=signals)
+
+    fr = {"AAA": _ohlc(500, 9), "BBB": _ohlc(500, 10), "^VIX": _ohlc(500, 11)}
+    assert judge.lookahead_check(make(None), fr)[0]
+    assert not judge.lookahead_check(make("score"), fr)[0]
+    assert not judge.lookahead_check(make("stop"), fr)[0]

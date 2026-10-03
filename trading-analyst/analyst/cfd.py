@@ -17,9 +17,10 @@ class CFDSpec:
     leverage: float = 20.0       # ESMA retail index cap 30:1 (20:1 on majors indices varies); pros up to 100+
     benchmark: float = 0.04      # annual cash rate
     markup: float = 0.025        # broker financing markup (long pays bench+markup, short earns bench-markup)
+    commission_bps: float = 0.0  # per side, % of notional (Revolut equity CFDs: 0.25% = 25 bps, min $1)
 
     def round_trip_cost(self) -> float:
-        return (self.spread_bps + 2 * self.slippage_bps) / 1e4
+        return (self.spread_bps + 2 * self.slippage_bps + 2 * self.commission_bps) / 1e4
 
     def financing(self, direction: np.ndarray, nights: np.ndarray) -> np.ndarray:
         """Return contribution (negative = cost) for holding `nights` calendar nights."""
@@ -50,4 +51,8 @@ def equity_factor(ret, stop_pct, mask, risk_pct, leverage):
 PROFILES = {
     "default": CFDSpec(),
     "revolut": CFDSpec(spread_bps=2.0, slippage_bps=1.0, leverage=5.0, benchmark=0.04, markup=0.03),
+    # Verified in Revolut's CFD ex-ante costs report (cdn.revolut.com/legal/terms/RSEUAB-ex-ante-costs-report-CFD-v1.0.pdf):
+    # equity CFD fee 0.25% per side (min $1), other CFDs 0; leverage 1:5 stocks, 1:20 major indices (S&P500, NASDAQ100), 1:2 crypto.
+    "revolut_index": CFDSpec(spread_bps=2.0, slippage_bps=1.0, leverage=20.0, benchmark=0.04, markup=0.03),
+    "revolut_stock": CFDSpec(spread_bps=10.0, slippage_bps=3.0, leverage=5.0, benchmark=0.04, markup=0.03, commission_bps=25.0),
 }

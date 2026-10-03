@@ -15,7 +15,7 @@ from .strategies import CloseParams, OpenParams, _direction_close, _direction_op
 # Fixed in advance, NOT picked for having won: includes laggards. Still survivorship-biased (no delisted names).
 STOCKS = ["AMD", "META", "NVDA", "TSLA", "AAPL", "MSFT", "AMZN", "GOOGL", "NFLX", "MU", "QCOM", "ADBE", "CRM",
           "INTC", "BA", "GE", "F", "GM", "IBM", "T", "XOM", "CVX", "JPM", "BAC", "C", "DIS", "NKE", "PYPL", "CSCO", "ORCL", "WBA", "KHC"]
-STOCK_CFD = CFDSpec(spread_bps=10.0, slippage_bps=3.0, leverage=5.0, benchmark=0.04, markup=0.03)
+STOCK_CFD = CFDSpec(spread_bps=10.0, slippage_bps=3.0, leverage=5.0, benchmark=0.04, markup=0.03, commission_bps=25.0)
 TOP_N = 3
 
 

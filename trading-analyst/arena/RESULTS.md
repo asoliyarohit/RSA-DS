@@ -18,3 +18,12 @@ At 5x leverage and 10-50 independent bets a year, that compounds to roughly flat
 (edge decay after 2016, too few bets, crowded closes, no overnight stop) were confirmed by the holdout.
 
 Reproduce: cd trading-analyst && python -m arena.judge arena/<name>/strategy.py --final
+
+## Addendum: red-team corrections (council, verified against Revolut's own CFD cost report)
+- **Judge leak fixed.** A strategy hiding future info in `score` (trade selection) or `stop_pct` (sizing) passed as VALID (t=38).
+  The perturbation test now compares score and stop_pct too; regression test added. The three competitors did not use this leak
+  (all failed the holdout), but any earlier "VALID" dev verdict from the judge is now suspect only if it relied on score/stop.
+- **Costs were too low for single stocks/ETFs.** Revolut equity CFDs charge 0.25%/side (min $1) = ~50 bps round trip before spread. The judge and
+  universe stock profile now include 25 bps/side commission. Index CFDs (US500/US100) have no commission.
+- **Leverage differs by instrument:** 1:5 stocks, 1:20 major indices (S&P 500, NASDAQ 100), 1:10 minor indices, 1:2 crypto. The 5x figure applies to shares only.
+- Daily-bar proxies for the 9:30 open / 15:55 close are noisy (measured 6-19 bps close-vs-15:55 error): sub-15 bps edges are not resolvable on daily bars.
