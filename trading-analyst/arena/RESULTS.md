@@ -27,3 +27,8 @@ Reproduce: cd trading-analyst && python -m arena.judge arena/<name>/strategy.py 
   universe stock profile now include 25 bps/side commission. Index CFDs (US500/US100) have no commission.
 - **Leverage differs by instrument:** 1:5 stocks, 1:20 major indices (S&P 500, NASDAQ 100), 1:10 minor indices, 1:2 crypto. The 5x figure applies to shares only.
 - Daily-bar proxies for the 9:30 open / 15:55 close are noisy (measured 6-19 bps close-vs-15:55 error): sub-15 bps edges are not resolvable on daily bars.
+
+## Council experiment H1 (pre-registered): gamma-conditioned index open trade - KILLED on dev
+SqueezeMetrics GEX (free). Follow gap when previous GEX<0; fade gap >=0.5 ATR when GEX>=0; N_TRIALS=2, no tuning.
+Dev (<=2022): 1003 slots, -4.3 bps/slot, t -1.22, DSR 0.04 -> kill criterion hit (t<2). Holdout never run.
+Remaining council candidates, untested: H2 (overnight dip-buy on more indices/gold/FX, needs real bid/ask), H3 (earnings-announcement premium on stock CFDs; the 50 bps commission makes it unlikely), H5 (pre-FOMC drift, 8 trades/yr, immaterial).
