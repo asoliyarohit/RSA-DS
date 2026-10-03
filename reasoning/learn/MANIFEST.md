@@ -1,7 +1,7 @@
 # Reasoning chapter manifest (mirrors the user's note folders F00-F12; the user's notes were not readable)
 Evidence for importance: official notification (30 Q, 25 marks, no topics) + third-party topic lists + memory-based exam analyses (see research/).
 | No | slug | Title | Scope | Folder |
-|01|start-here|Start Here: Reasoning game plan|Official facts (30Q/25 marks, 0.8333 per Q, -0.2083, break-even 20%, shared 60-min paper, Reasoning weight rose from 20 to 30 Q in 2026 per pages). Attempt-order strategy (suggested, label as such), how to use the guide (ADHD, one card), topic map linking every chapter. Single lesson, no heavy logic.|F00|
+|01|start-here|Start Here: Reasoning game plan|Official facts (30Q/25 marks, 0.8333 per Q, flat -0.25 per wrong answer as directed by the user, break-even about 23%, shared 60-min paper, Reasoning weight rose from 20 to 30 Q in 2026 per pages). Attempt-order strategy (suggested, label as such), how to use the guide (ADHD, one card), topic map linking every chapter. Single lesson, no heavy logic.|F00|
 |02|inequality|Inequalities (direct and coded)|direct inequality chains (<, >, =, <=, >=), conclusion 'definitely true', either-or, coded inequality symbols (@, #, $, % style: define as user-defined mapping), the chain-merging routine; brute-force verify every item.|F05|
 |03|syllogism|Syllogism|All/No/Some/Some-not, conventions stated, Venn method, 'possibility' cases, either-or, 'only a few', reverse; verify by exhaustive set-model enumeration (small universe).|F03|
 |04|coding-decoding|Coding-Decoding|letter shift, position values (A=1..Z=26), reverse alphabet, opposite letter, word/number coding by substitution, conditional coding, chain; verified by code.|F06|

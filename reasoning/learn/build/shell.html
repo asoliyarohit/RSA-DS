@@ -85,7 +85,7 @@ document.querySelectorAll('.quiz').forEach(function(box,qi){var Q=JSON.parse(box
   bs.forEach(function(b){b.onclick=function(){if(lock)return;lock=true;var j=+b.dataset.j;bs[x.a].classList.add('right');if(j!==x.a){b.classList.add('wrong');neg++}else score++;done++;
    var m=(j===x.a?'Correct. ':'Not quite. Answer '+'ABCDE'[x.a]+'. ')+x.e;fb.className='fb '+(j===x.a?'ok':'no');fb.textContent=m;
    if(x.t){var ul=document.createElement('ul');x.t.forEach(function(t,jj){if(t&&jj!==x.a){var li=document.createElement('li');li.textContent='Option '+'ABCDE'[jj]+': '+t;ul.appendChild(li)}});if(ul.children.length)fb.appendChild(ul)}
-   if(done===Q.length){var r=document.createElement('p');r.className='big';r.textContent='Score '+score+'/'+Q.length+' · exam-scale marks '+(score*25/30-neg*25/120).toFixed(2)+' of '+(Q.length*25/30).toFixed(2);box.appendChild(r)}}});
+   if(done===Q.length){var r=document.createElement('p');r.className='big';r.textContent='Score '+score+'/'+Q.length+' · exam-scale marks '+(score*25/30-neg*0.25).toFixed(2)+' of '+(Q.length*25/30).toFixed(2);box.appendChild(r)}}});
  })});
 /* drill: [["prompt","answer"],...] */
 document.querySelectorAll('.drill').forEach(function(box){var D=JSON.parse(box.querySelector('script').textContent),cur,t0,n=0,tot=0;

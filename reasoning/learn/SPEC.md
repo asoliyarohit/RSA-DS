@@ -1,7 +1,8 @@
 # PFRDA Grade A Phase 1 — REASONING Learning Guide: SPEC (shared by all writers)
 ## Verified exam facts (source: official PFRDA 2026 notification PDF, pfrda.org.in/documents/33652/212847/Recruitment+of+Officer+Grade+A+(Assistant+Manager)-2026.pdf, p.6)
 - Phase I online exam 15 Oct 2026 (Thursday). Paper 1 (all streams) = 90 questions, 100 marks, ONE shared 60-minute timer: English 20 Q/25 marks; Quantitative Aptitude 20 Q/25; **Test of Reasoning 30 Q/25 marks**; General Awareness 20 Q/25.
-- So each Reasoning question = 25/30 = 0.8333 marks. Negative marking = 1/4 of the marks assigned = 0.2083 per wrong answer. Break-even chance of being right = 0.2083/(0.8333+0.2083) = 20% (same as Quant).
+- So each Reasoning question = 25/30 = 0.8333 marks (our calculation from the table; the notification does not print marks per question).
+- NEGATIVE MARKING: the official wording is "1/4th of marks assigned to the question" (which would be 0.2083 here). SOURCES DIFFER: some coaching pages say a flat -0.25. THE USER HAS DIRECTED THIS BUILD TO USE A FLAT -0.25 PER WRONG ANSWER. Use -0.25 in all scoring text, quizzes and labs, and add one line in the start-here chapter noting that the official wording is 1/4 of the marks assigned and the call letter settles it. With +0.8333 and -0.25 the break-even chance of being right = 0.25 / (0.8333 + 0.25) = 23.1%. Say 'about 23%'. (If it were 0.2083 the break-even would be 20%; 23% is the safe rule under both readings.)
 - Separate cut-off in each paper plus an aggregate. Phase I marks only shortlist.
 - The official notification gives NO topic-level Reasoning syllabus (the Annexure covers Paper 2 only). Topic lists come from coaching sites: label 'third-party topic list, not official'.
 - Pattern change (memory-based/coaching pages): through 2025 Paper 1 had 80 Q (Reasoning 20); 2026 notification: 90 Q with Reasoning 30. Reasoning got MORE weight in 2026.
