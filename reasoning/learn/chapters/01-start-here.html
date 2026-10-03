@@ -5,26 +5,26 @@
 
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
 <p>You are at a mela stall with 30 rings to throw. Each ring that lands scores a little, and each ring that misses costs you a small coin. Smart players throw first at the near pegs, and only gamble on the far pegs when the prize is worth it. The Reasoning section is that stall.</p>
-<div class="bars" role="img" aria-label="Reasoning is 25 of 100 marks in Paper 1"><div class="row"><span class="a" style="width:25%">Reasoning 25</span><span class="b" style="width:75%">English 25 · Quant 25 · GA 25 (25 each)</span></div></div>
+<div class="bars" role="img" aria-label="Reasoning is 25 of 100 marks in Paper 1"><div class="row"><span class="a" style="width:25%">Reasoning 25</span><span class="b" style="width:75%">English 25 · Quant 25 · General Awareness 25</span></div></div>
 <p class="cap">Reasoning is one quarter of Paper 1's 100 marks, packed into 30 questions.</p></section>
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
-<div class="st">The Phase I online exam is on <b>15 October 2026 (Thursday)</b>. Paper 1 is for all streams: 90 questions, 100 marks.</div>
+<div class="st">The Phase I online exam is on <b>15 October 2026 (Thursday)</b>. Paper 1 is for all streams (every job category applies through the same Paper 1): 90 questions, 100 marks.</div>
 <div class="st">Paper 1 has four parts: English 20 Q (25 marks), Quantitative Aptitude 20 Q (25), <b>Test of Reasoning 30 Q (25)</b>, General Awareness 20 Q (25).</div>
-<div class="st">All four parts share <b>one 60-minute timer</b> (the table shows 60 minutes against Paper 1 as a whole). Average: 60 ÷ 90 = about 40 seconds per question across the paper. That average is our calculation.</div>
+<div class="st">All four parts share <b>one 60-minute timer</b> (the table shows 60 minutes against Paper 1 as a whole). 60 minutes = 60 × 60 = 3600 seconds. Average: 3600 ÷ 90 = 40 seconds per question across the paper. That average is our calculation.</div>
 <div class="st">Marks per Reasoning question = 25 ÷ 30 = <b>0.8333</b>. The notification does not print this; it is our calculation from the table.</div>
-<div class="st">A wrong answer loses marks. In this guide we use a flat <b>−0.25</b> per wrong answer (your direction for this build).</div>
-<div class="st">Official wording: "1/4th of marks assigned to the question". Taken literally that is 0.8333 ÷ 4 = 0.2083 per wrong answer. The call letter settles which one applies. We use −0.25 everywhere, which is the safer (slightly harsher) reading.</div>
-<div class="st">There is a separate cut-off for each paper plus an aggregate cut-off. Phase I marks only shortlist you for Phase II.</div>
+<div class="st">A wrong answer loses marks. In this guide we use a flat <b>−0.25</b> per wrong answer. This is <b>your direction</b> for this build, not the official wording.</div>
+<div class="st">Official wording: "1/4th of marks assigned to the question". Taken literally that is 0.8333 ÷ 4 = 0.2083 per wrong answer. The call letter (the admit card PFRDA sends before the exam) settles which one applies. We use −0.25 everywhere, which is the safer (slightly harsher) reading.</div>
+<div class="st">There is a separate cut-off (minimum score to pass) for each paper plus an aggregate (total) cut-off. Phase I marks only shortlist you for Phase II, the next exam round; they do not count in the final result.</div>
 <div class="st">Reported in third-party and memory-based pages: through 2025 Paper 1 had 80 questions with 20 in Reasoning. In 2026 Reasoning rose to 30. So it carries more weight than before.</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>The rule (now that you get it)</h2>
 <div class="box">Right = +0.8333. Wrong = −0.25. Skipped = 0.</div>
-<div class="box">Break-even chance = 0.25 ÷ (0.8333 + 0.25) = 0.2308, about <b>23%</b>.</div>
-<div class="box">Guess only if your chance of being right is above about 23%. Under the 0.2083 reading the break-even is 20%, so 23% is safe under both.</div>
-<p class="src">Exam structure and "1/4th of marks" wording: PFRDA 2026 notification, page 6 (fetched, see Sources). Break-even and marks table: derived, Python-checked. Meaning of probability as "ways it can happen ÷ total outcomes": Math Is Fun "Probability" (fetched).</p></section>
+<div class="box">Break-even chance = the chance of being right at which a guess gains nothing and loses nothing on average. If p is your chance of being right: average gain p × 0.8333 equals average loss (1 − p) × 0.25 when p = 0.25 ÷ (0.8333 + 0.25) = 0.25 ÷ 1.0833 = 0.2308 = <b>23.1%</b>, about 23%.</div>
+<div class="box">Guess only if your chance of being right is above about 23%. Under the official-wording reading (0.2083) the break-even is 0.2083 ÷ (0.8333 + 0.2083) = 20%, so 23% is safe under both.</div>
+<p class="src">Exam table: PFRDA 2026 notification, page 6; "1/4th of marks" wording: page 7 (PDF text checked, see Sources). Break-even and marks table: derived, Python-checked. Meaning of probability as "ways it can happen ÷ total outcomes": Math Is Fun "Probability" (fetched).</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
 <p><b>You attempt 20 questions: 16 right, 4 wrong. Your Reasoning marks?</b></p>
@@ -36,9 +36,9 @@
 <hr>
 <p><b>You can remove 2 of 4 options. Should you guess between the other 2?</b></p>
 <div class="stepbox" data-steps>
-<div class="st">Step 1. Chance of being right = 1 in 2 = 0.5, which is above 23%.</div>
+<div class="st">Step 1. Chance of being right = 1 in 2 = 0.5, which is above 23%. Chance of being wrong = 1 − 0.5 = 0.5.</div>
 <div class="st">Step 2. Expected marks of one guess (the long-run average) = 0.5 × 0.8333 − 0.5 × 0.25 = 0.4167 − 0.125 = <b>+0.29</b>.</div>
-<div class="st">Step 3. Positive, so guess. Compare: with all 4 options open it is 0.25 × 0.8333 − 0.75 × 0.25 = +0.02, barely above zero, and not worth the risk of a bad streak.</div>
+<div class="st">Step 3. Positive, so guess. Compare: with all 4 options open, chance right = 1 in 4 = 0.25 and chance wrong = 0.75, so 0.25 × 0.8333 − 0.75 × 0.25 = 0.2083 − 0.1875 = +0.02, barely above zero, and not worth the risk of a bad streak.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
@@ -55,7 +55,7 @@
 <div class="st">Pass 1: take the quick, rule-based topics first (inequality, coding-decoding, syllogism, blood relations, direction, order and ranking).</div>
 <div class="st">Pass 2: input-output, series and the short logical items.</div>
 <div class="st">Pass 3: long puzzles and seating, which eat time. Attempt them last, and only the ones that start cracking in the first minute.</div>
-<div class="st">Because the timer is shared across all four parts, decide your Reasoning time budget before the exam. Practise it in the mocks (chapter 15).</div>
+<div class="st">Because the timer is shared across all four parts, decide your Reasoning time budget before the exam. Practise it in the mocks (full timed practice tests, chapter 15).</div>
 <div class="st">How to use this guide: one card at a time. Tap the step button, read one line, stop. One lesson per sitting. Do the quiz, then the cover-and-recall box.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <h3>Topic map</h3>
