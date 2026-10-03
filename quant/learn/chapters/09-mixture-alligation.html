@@ -1,0 +1,205 @@
+<article class="chapter" id="ch09" data-no="09" data-title="Mixture and Alligation" data-tag="Weighted mean, cross method, replacement · ~30 min">
+<h1>Mixture and Alligation</h1>
+<p class="prog">Two lessons: (1) mixing two things and the alligation cross; (2) taking some out and replacing it, again and again. Do one card, then stop if you need to.</p>
+
+<div class="lesson" id="ch09-l1">
+<h2>Lesson 1: Mix two things, find the ratio (alligation)</h2>
+<p class="oneline">In one line: when you mix two things of different strength or price, the result sits between them, and its ratio is the distances on a number line, crossed over.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A kirana owner in Indore has tea leaves at ₹40 per kg and a costlier lot at ₹60 per kg. She wants a blend she can sell at a cost of ₹48 per kg. Which lot should she use more of?</p>
+<div class="bars" role="img" aria-label="Number line from 40 to 60 with the blend at 48, closer to 40"><div class="row"><span class="a" style="width:40%">40 to 48: gap 8</span><span class="b" style="width:60%">48 to 60: gap 12</span></div></div>
+<p class="cap">48 is closer to 40, so the cheaper tea must be the bigger part. The gaps are 8 and 12, and the quantities will be 12 and 8 (crossed): 3 parts cheaper to 2 parts costlier.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">A mixture's price (or strength) is an <b>average</b>, but a weighted one: the bigger part pulls harder.</div>
+<div class="st">So the mixture value always lies between the two ingredient values. It can never be outside them.</div>
+<div class="st">Equal quantities give the plain middle (50 for 40 and 60). Unequal quantities pull it toward the bigger part.</div>
+<div class="st">Pure water has 0% acid. Pure ingredient has 100%. These count as ingredients too.</div>
+<div class="st">Draw the three numbers: cheaper, mean, dearer. Subtract each from the mean, going <b>diagonally</b>.</div>
+<div class="st">The gap on the dearer side tells how much cheaper you need, and the other way round.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Mean = (q1 × v1 + q2 × v2) ÷ (q1 + q2). This is the weighted mean.</div>
+<div class="box">Cheaper qty : Dearer qty = (Dearer − Mean) : (Mean − Cheaper)</div>
+<div class="box">Check: Mean must lie between the two. If not, you have a slip.</div>
+<p class="src">Weighted mean definition: Wikipedia "Weighted arithmetic mean". Alligation (medial = weighted average, alternate = quantities for a target) and the rule Aa + Bb = Cc: Wikipedia "Alligation". Ratio form derived below from the weighted mean and checked by Python.</p>
+<div class="tip"><b>Why the cross works.</b> Put q1 : q2 as unknowns. Mean × (q1+q2) = q1·v1 + q2·v2. Move terms: q1 (Mean − v1) = q2 (v2 − Mean). So q1 : q2 = (v2 − Mean) : (Mean − v1).</div></section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Tea at ₹40 and ₹60 per kg is mixed to get ₹48 per kg. In what ratio?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Cheaper 40, dearer 60, mean 48.</div>
+<div class="st">Step 2. Dearer − mean = 60 − 48 = 12. This goes with the <b>cheaper</b>.</div>
+<div class="st">Step 3. Mean − cheaper = 48 − 40 = 8. This goes with the <b>dearer</b>.</div>
+<div class="st">Step 4. Cheaper : dearer = 12 : 8 = <b>3 : 2</b>.</div>
+<div class="st">Check: (3 × 40 + 2 × 60) ÷ 5 = 240 ÷ 5 = 48. Correct.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>How much water must be added to 20 L of a 60% acid solution to make it 40%?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Water is an ingredient with 0% acid. Solution 60%, target 40%.</div>
+<div class="st">Step 2. Water : solution = (60 − 40) : (40 − 0) = 20 : 40 = 1 : 2.</div>
+<div class="st">Step 3. Solution is 20 L = 2 parts, so 1 part = 10 L. Water = <b>10 L</b>.</div>
+<div class="st">Check: acid = 60% of 20 = 12 L. New volume 30 L. 12 ÷ 30 = 40%. Correct.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Tea ₹40 and ₹60, target ₹48. A rushed learner writes 8 : 12 = 2 : 3 (gaps not crossed).</div>
+<div class="st">Test it: (2 × 40 + 3 × 60) ÷ 5 = 260 ÷ 5 = ₹52. That is not 48, so the ratio is wrong.</div>
+<div class="st">Right: cross the gaps. Cheaper gets 12, dearer gets 8, so <b>3 : 2</b>. A 30-second check is to ask: is the answer's bigger part on the side nearer the mean?</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Mental-math shortcut: the "far gap" rule</h2>
+<p>Each ingredient gets the <b>far</b> gap (the distance from the mean to the <b>other</b> ingredient). Say "far gap" and the cross is automatic.</p>
+<div class="tw"><table><tr><th>Low</th><th>High</th><th>Mean</th><th>Low : High</th></tr>
+<tr><td>5</td><td>10</td><td>7</td><td>3 : 2</td></tr>
+<tr><td>20</td><td>50</td><td>30</td><td>20 : 10 = 2 : 1</td></tr>
+<tr><td>40</td><td>60</td><td>48</td><td>12 : 8 = 3 : 2</td></tr>
+<tr><td>0 (water)</td><td>60</td><td>40</td><td>20 : 40 = 1 : 2</td></tr></table></div>
+<div class="tip"><b>Use it.</b> Always cancel the two gaps by their common factor before using them: 12 : 8 becomes 3 : 2. Small numbers mean easy multiplication.</div>
+<h3>Speed drill</h3>
+<p class="prog">Say Low : High (lowest terms) before you tap Show.</p>
+<div class="drill"><script type="application/json">[["Low 5, High 10, Mean 7. Low : High = ?","3 : 2"],["Low 20, High 50, Mean 30. Low : High = ?","2 : 1"],["Low 40, High 60, Mean 48. Low : High = ?","3 : 2"],["Low 0, High 60, Mean 40. Low : High = ?","1 : 2"],["Low 10, High 20, Mean 15. Low : High = ?","1 : 1"],["Low 10, High 30, Mean 25. Low : High = ?","1 : 3"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: alligation cross calculator</h2>
+<label for="ch09-lo">Lower value (price or %)</label><input id="ch09-lo" type="number" value="40" inputmode="decimal">
+<label for="ch09-hi">Higher value</label><input id="ch09-hi" type="number" value="60" inputmode="decimal">
+<label for="ch09-mn">Mean you want (between the two)</label><input id="ch09-mn" type="number" value="48" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch09-out"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function g(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=a%b;a=b;b=t}return a}
+function f(x){return +(+x).toFixed(3)}
+function lab(){var l=parseFloat($('ch09-lo').value),h=parseFloat($('ch09-hi').value),m=parseFloat($('ch09-mn').value),t=$('ch09-out');
+if(isNaN(l)||isNaN(h)||isNaN(m)){t.innerHTML='<div class="st">Fill all three boxes.</div>';return}
+if(!(l<h)){t.innerHTML='<div class="st">Lower must be smaller than higher.</div>';return}
+if(!(m>l&&m<h)){t.innerHTML='<div class="st">The mean must lie strictly between '+l+' and '+h+'. A mixture cannot go outside its ingredients.</div>';return}
+var a=h-m,b=m-l,gg=1;if(a===Math.round(a)&&b===Math.round(b)){gg=g(a,b)||1}
+t.innerHTML='<div class="st">1. Gap given to the lower one: '+h+' − '+m+' = '+f(a)+'</div><div class="st">2. Gap given to the higher one: '+m+' − '+l+' = '+f(b)+'</div><div class="st">3. Lower : Higher = '+f(a)+' : '+f(b)+(gg>1?' = <b>'+(a/gg)+' : '+(b/gg)+'</b>':'')+'</div><div class="st">4. Check with weights '+f(a)+' and '+f(b)+': ('+f(a)+' × '+l+' + '+f(b)+' × '+h+') ÷ '+f(a+b)+' = <b>'+f((a*l+b*h)/(a+b))+'</b></div>'}
+['ch09-lo','ch09-hi','ch09-mn'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"In what ratio must rice at ₹X per kg be mixed with rice at ₹Y per kg to get a mixture worth ₹Z per kg?"</li>
+<li>"How much water must be added to N litres of a P% solution to make it Q%?"</li>
+<li>"Two alloys have A% and B% of a metal. In what ratio to get C%?"</li>
+<li>"30 kg at ₹50 is mixed with 20 kg at ₹75. Find the price of the mixture."</li></ul>
+<p class="prog">Mixture and Alligation is in the third-party topic list (Oliveboard), which is not official. It is not among the topics counted in the memory-based exam analyses we have for 2022 and 2025, so treat it as lower priority than DI and quadratics.</p>
+<div class="tip"><b>How the wrong options are built.</b> Expect the uncrossed ratio (2 : 3 instead of 3 : 2), the plain average (₹50), and the answer for the wrong ingredient. Run the 5-second check: does the mean sit nearer the bigger part?</div></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
+<div class="quiz"><script type="application/json">[
+{"q":"Sugar at ₹40/kg and ₹60/kg is mixed to sell at a cost of ₹48/kg. Ratio of cheaper : dearer?","o":["2 : 3","3 : 2","1 : 1","5 : 3"],"a":1,"e":"Far gaps: cheaper gets 60 − 48 = 12, dearer gets 48 − 40 = 8. 12 : 8 = 3 : 2. Check: (120 + 120) ÷ 5 = 48.","t":["Gaps not crossed: gives mean 52, not 48","","1 : 1 gives the plain average 50","Not from the gaps 12 and 8"]},
+{"q":"How much water must be added to 20 L of a 60% acid solution to make it a 40% solution?","o":["5 L","8 L","20 L","10 L"],"a":3,"e":"Water (0%) : solution (60%) = (60 − 40) : (40 − 0) = 1 : 2. Solution is 20 L, so water is 10 L. Check: 12 ÷ 30 = 40%.","t":["Took 1/4 of 20 by guessing","Used 40% of 20 = 8, a common slip","Added as much water as solution: that gives 30%","" ]},
+{"q":"30 kg of rice at ₹50/kg is mixed with 20 kg of rice at ₹75/kg. Cost of the mixture per kg?","o":["₹60","₹62.50","₹65","₹55"],"a":0,"e":"(30 × 50 + 20 × 75) ÷ 50 = 3000 ÷ 50 = ₹60.","t":["","Plain average of 50 and 75, ignoring the quantities","Weights swapped: (20 × 50 + 30 × 75) ÷ 50 = 65","Not from the weighted mean"]},
+{"q":"In what ratio should alloys with 20% and 50% silver be mixed to get 30% silver? (20% alloy : 50% alloy)","o":["1 : 2","3 : 2","2 : 1","1 : 1"],"a":2,"e":"Far gaps: 20%-alloy gets 50 − 30 = 20, 50%-alloy gets 30 − 20 = 10. 20 : 10 = 2 : 1.","t":["Uncrossed ratio 10 : 20 = 1 : 2","Not from the gaps 20 and 10","","Equal parts would give 35%"]},
+{"q":"Tea at ₹80/kg and ₹40/kg is mixed in the ratio 3 : 1. Price of the mixture per kg?","o":["₹60","₹70","₹65","₹75"],"a":1,"e":"(3 × 80 + 1 × 40) ÷ 4 = 280 ÷ 4 = ₹70. It is nearer 80 because there is more of it.","t":["Plain average, ignoring 3 : 1","","Not from the weighted mean (3 : 1 gives 70)","Mean would be 75 only for a 7 : 1 mix"]}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Where does a mixture's value lie? (2) What does each ingredient get, the near gap or the far gap? (3) What value does pure water have? (4) How do I check my ratio?</div>
+<div class="mem"><b>Memorise this</b><br>1. Mean lies between the two values.<br>2. Low : High = (High − Mean) : (Mean − Low).<br>3. "Far gap" goes to each ingredient.<br>4. Water = 0%. Pure = 100%.<br>5. Check: weighted mean of your ratio must give back the mean.</div></section>
+</div>
+
+<div class="lesson" id="ch09-l2">
+<h2>Lesson 2: Replacement, again and again</h2>
+<p class="oneline">In one line: each time you take out a fraction and replace it with water, the pure part shrinks by the same fraction, so after n times you multiply n times.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A milkman in Jaipur has a 40 L can of pure milk. He pours out 8 L and tops it up with water. Next day he does it again. How much milk is left?</p>
+<div class="bars" role="img" aria-label="Bar of 40 L: after one swap, 32 L milk and 8 L water"><div class="row"><span class="a" style="width:80%">32 L milk</span><span class="b" style="width:20%">8 water</span></div></div>
+<p class="cap">After swap 1: 32 L milk, 8 L water. The second 8 L he takes out is already a mix, so it carries away milk <b>and</b> water.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Total volume V never changes: out x litres, in x litres of water.</div>
+<div class="st">Taking out x litres from a well-mixed can removes the fraction x/V of everything in it.</div>
+<div class="st">So the pure milk left is the old milk times (1 − x/V). Here 40 × (1 − 8/40) = 40 × 0.8 = 32 L.</div>
+<div class="st">Swap again: the fraction taken is still x/V of the new mix. Milk becomes 32 × 0.8 = 25.6 L.</div>
+<div class="st">Each swap multiplies the milk by the same factor (1 − x/V). Do it n times: multiply n times.</div>
+<div class="st">Water = V − milk. Ratio milk : water comes straight from those two.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Pure left after n swaps = V × (1 − x/V)ⁿ</div>
+<div class="box">Fraction of pure left = (1 − x/V)ⁿ. Water = V − pure left.</div>
+<div class="box">Adding water without removing: pure stays the same, only the total grows.</div>
+<p class="src">The formula is derived in the steps above (multiply by the same factor each time) and checked by Python against step-by-step simulation. Weighted-mean link: Wikipedia "Weighted arithmetic mean".</p>
+<div class="tip"><b>Link to lesson 1.</b> One swap is itself a mixture: the can (strength 1) and the water (strength 0) in the ratio (V − x) : x, which is the cross method.</div></section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>A 40 L can of pure milk: 8 L is drawn out and replaced by water, and this is done twice in all. Milk left? Ratio milk : water?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Factor each time = 1 − 8/40 = 1 − 1/5 = 4/5.</div>
+<div class="st">Step 2. Milk = 40 × 4/5 × 4/5 = 40 × 16/25 = 25.6 L.</div>
+<div class="st">Step 3. Water = 40 − 25.6 = 14.4 L.</div>
+<div class="st">Step 4. Milk : water = 25.6 : 14.4 = 16 : 9 (divide both by 1.6).</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>A 64 L can of pure milk: 16 L is replaced by water, three times. Milk left?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Factor = 1 − 16/64 = 3/4.</div>
+<div class="st">Step 2. Milk = 64 × (3/4)³ = 64 × 27/64.</div>
+<div class="st">Step 3. The 64 cancels. Milk = <b>27 L</b>, water = 64 − 27 = 37 L.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">40 L can, 8 L replaced twice. Wrong move: "8 + 8 = 16 L milk gone, so 24 L left".</div>
+<div class="st">Why wrong: the second 8 L contains some water, so less than 8 L of milk leaves. True milk left is 25.6 L, not 24.</div>
+<div class="st">Right: multiply by the factor 4/5 twice, <b>25.6 L</b>. The pure part always falls by less in later swaps.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Mental-math shortcut: factor table</h2>
+<p>Turn "x out of V" into a simple fraction, then raise it to the power n.</p>
+<div class="tw"><table><tr><th>Fraction replaced</th><th>Factor</th><th>After 2 swaps</th><th>After 3 swaps</th></tr>
+<tr><td>1/2</td><td>1/2</td><td>1/4</td><td>1/8</td></tr>
+<tr><td>1/3</td><td>2/3</td><td>4/9</td><td>8/27</td></tr>
+<tr><td>1/4</td><td>3/4</td><td>9/16</td><td>27/64</td></tr>
+<tr><td>1/5</td><td>4/5</td><td>16/25</td><td>64/125</td></tr>
+<tr><td>1/10</td><td>9/10</td><td>81/100</td><td>729/1000</td></tr></table></div>
+<div class="tip"><b>Use it.</b> Pick V so the denominators cancel: 64 L with 3/4 cubed cancels fully. If V is a nice multiple of the denominator, the answer is a whole number.</div>
+<h3>Speed drill</h3>
+<p class="prog">Say the fraction of pure liquid left.</p>
+<div class="drill"><script type="application/json">[["1/3 replaced twice. Pure fraction left?","4/9"],["1/4 replaced twice. Pure fraction left?","9/16"],["1/5 replaced twice. Pure fraction left?","16/25"],["1/10 replaced twice. Pure fraction left?","81/100"],["1/4 replaced three times. Pure fraction left?","27/64"],["1/3 replaced three times. Pure fraction left?","8/27"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: replacement calculator</h2>
+<label for="ch09-v">Total volume V (litres)</label><input id="ch09-v" type="number" value="40" inputmode="decimal">
+<label for="ch09-x">Taken out and replaced each time x (litres)</label><input id="ch09-x" type="number" value="8" inputmode="decimal">
+<label for="ch09-n">Number of times n (whole number)</label><input id="ch09-n" type="number" value="2" inputmode="numeric">
+<div class="stepbox" style="margin-top:10px" id="ch09-out2"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function f(x){return +(+x).toFixed(3)}
+function lab(){var V=parseFloat($('ch09-v').value),x=parseFloat($('ch09-x').value),n=parseInt($('ch09-n').value,10),t=$('ch09-out2');
+if(!(V>0)||!(x>0)||!(x<=V)||!(n>=1)||n>10||isNaN(n)){t.innerHTML='<div class="st">Use V above 0, x between 0 and V, and n from 1 to 10.</div>';return}
+var k=1-x/V,m=V,h='';for(var i=1;i<=n;i++){m=m*k;h+='<div class="st">After swap '+i+': milk = '+f(m)+' L</div>'}
+t.innerHTML='<div class="st">Factor each time = 1 − '+x+'/'+V+' = '+f(k)+'</div>'+h+'<div class="st">Water = '+V+' − '+f(m)+' = <b>'+f(V-m)+' L</b></div><div class="st">Check: V × factor^n = '+f(V*Math.pow(k,n))+' L. Compare with the naive wrong answer '+f(V-n*x)+' L.</div>'}
+['ch09-v','ch09-x','ch09-n'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"A vessel contains N litres of pure milk. X litres is removed and replaced by water. This is repeated. How much milk remains / what is the ratio of milk to water?"</li>
+<li>"From a vessel full of liquid, a fraction is drawn and replaced with water, twice. What fraction of the liquid is now pure?"</li>
+<li>"A mixture of milk and water in ratio a : b has some water added. New ratio?"</li>
+<li>The "add water, no removal" type is just lesson 1: pure quantity stays, total grows.</li></ul>
+<div class="tip"><b>How the wrong options are built.</b> Expect the "subtract x each time" answer (24 L above), the single-swap answer, and the water quantity instead of milk. Always re-read: milk or water, and left or removed.</div></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
+<div class="quiz"><script type="application/json">[
+{"q":"A vessel has 50 L of pure milk. 10 L is replaced by water once. Ratio milk : water now?","o":["5 : 1","3 : 1","1 : 4","4 : 1"],"a":3,"e":"Milk = 50 − 10 = 40 L, water = 10 L. Ratio 40 : 10 = 4 : 1.","t":["Used the original 50 L as milk: 50 : 10 = 5 : 1","Does not match 40 : 10 or any step","Water : milk written upside down is 1 : 4, not milk : water",""]},
+{"q":"A 40 L can of pure milk: 8 L is replaced by water, twice in all. Milk left?","o":["24 L","25.6 L","27 L","28.8 L"],"a":1,"e":"40 × (4/5)² = 40 × 16/25 = 25.6 L.","t":["Subtracted 8 twice: ignores that the second 8 L contains water","","Not from (4/5) squared","Mixed two factors: 40 × 0.8 × 0.9 = 28.8"]},
+{"q":"A vessel holds 100 L of pure milk. 20 L is replaced by water, twice. Milk left?","o":["60 L","68 L","72 L","64 L"],"a":3,"e":"100 × (4/5)² = 100 × 16/25 = 64 L.","t":["Subtracted 20 twice: 100 − 40","Not from the factor 4/5 squared","Mixed two factors: 100 × 0.9 × 0.8 = 72","" ]},
+{"q":"A vessel has 90 L of pure milk. One-third is drawn off and replaced by water, and this is done twice. Water in the vessel now?","o":["40 L","30 L","50 L","60 L"],"a":2,"e":"Milk = 90 × (2/3)² = 90 × 4/9 = 40 L. Water = 90 − 40 = 50 L.","t":["That is the MILK left, not the water","Milk after one swap only: 90 × 2/3 = 60","","Not from (2/3) squared"]},
+{"q":"A 40 L mixture has milk and water in the ratio 3 : 1. If 10 L of water is added (nothing removed), the new milk : water ratio is?","o":["3 : 1","3 : 2","2 : 3","3 : 4"],"a":1,"e":"Milk = 30 L, water = 10 L. Add 10 L water: water = 20 L. 30 : 20 = 3 : 2. Milk does not change when only water is added.","t":["Ignores the added water","","Upside down","Added 10 to milk's part wrongly"]}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What fraction of the pure part is removed in one swap? (2) How do I write the pure part after n swaps? (3) Why is "subtract x each time" wrong? (4) If only water is added, what stays the same?</div>
+<div class="mem"><b>Memorise this</b><br>1. Factor per swap = 1 − x/V.<br>2. Pure left = V × factorⁿ.<br>3. Water = V − pure left.<br>4. Never subtract x n times.<br>5. Only water added: pure unchanged, total grows.</div></section>
+</div>
+
+<p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Alligation">Wikipedia: Alligation</a> · <a href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean">Wikipedia: Weighted arithmetic mean</a> · Exam facts: PFRDA 2026 notification; Quant topic membership: third-party Oliveboard list (not official); 2022 and 2025 topic counts: memory-based exam analyses (edutap). All worked numbers checked by Python.<br><b>UNVERIFIED:</b> the repeated-replacement formula is not from a fetched page (it is derived in the lesson and checked by Python simulation); how often Mixture and Alligation appears in the real paper (none claimed).</p>
+</article>
