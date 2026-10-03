@@ -5963,6 +5963,450 @@ $('ch15-note').textContent=n}
 <p class="src"><b>Sources:</b> exam facts: PFRDA 2026 notification (Reasoning 30 Q / 25 marks; one 60-minute paper shared by 4 sections; Phase I on 15 Oct 2026). Conventions: <a href="https://en.wikipedia.org/wiki/Syllogism">Wikipedia: Syllogism</a> (“some” as at least one; All/No/Some/Some-not forms) · <a href="https://en.wikipedia.org/wiki/Cardinal_direction">Wikipedia: Cardinal direction</a> (compass points and degrees). Every answer in all 60 questions was checked by Python written for this chapter: syllogisms by enumerating all set-models over 5 elements; inequalities by enumerating all value assignments; seating and puzzles by brute force over all arrangements (each has exactly one solution); coding, input-output, ranking, series and directions by code or coordinates. Topic mix and the 40 s per question pace: our own choices, labelled as such.<br><b>UNVERIFIED:</b> the two Critical Reasoning items per mock that test weaken/strengthen are judgement items and cannot be machine-checked (the two inference items are arithmetic and were checked); the real exam’s topic split, question wording and option style (all typical-style, written by us); the exact negative-marking figure (call letter settles it).</p>
 </article>
 
+<article class="chapter" id="ch16" data-no="16" data-title="Daily Practice" data-tag="Fresh 30 questions every day">
+<h1>Daily Practice</h1>
+<p class="oneline">In one line: 30 fresh reasoning questions every day, one at a time, and after each answer you see which mistake each wrong option was built from.</p>
+
+<section class="card" aria-live="polite"><p class="big" id="ch16-day">Daily Practice</p><p class="prog" id="ch16-dsub"></p></section>
+
+<section class="card"><h2><span class="n">1</span>How to use this (20 to 30 minutes)</h2>
+<ul>
+<li><b>Same time every day.</b> Do one block of 5, or all six blocks if you have time.</li>
+<li><b>Pen and paper ready.</b> Draw the seats, the family tree, the walk. Never hold a puzzle in your head.</li>
+<li><b>Skip is allowed.</b> A skip counts 0. Guess only if you can cross out options first (see the 23% rule below).</li>
+<li><b>After a wrong answer, read the trap line.</b> It names the mistake behind the option you picked.</li>
+<li><b>Next day, tap "Redo my errors" first.</b> Then do the new set.</li>
+</ul>
+<p class="prog">Same date gives the same 30 questions, so you can come back to them. "Practice again" makes a new set.</p></section>
+
+<section class="card"><h2><span class="n">2</span>Rules used in every question</h2>
+<ul>
+<li><b>Seating:</b> everyone sits in one straight row facing north, so their left is your left as you look at the row from behind. Only one seating fits all the clues.</li>
+<li><b>Syllogism:</b> take the statements as true. "Some" means at least one, maybe all. Every group named has at least one member. A conclusion follows only if it is true in every diagram that fits the statements.</li>
+<li><b>Inequality:</b> a conclusion follows only if it is definitely true. Each question has 4 options (no "either I or II" cases are generated).</li>
+<li><b>Coding:</b> the alphabet wraps round, so after Z comes A. "Opposite letter" means A↔Z, B↔Y and so on (27 − position).</li>
+<li><b>Blood relations:</b> brother and sister share both parents, and a parent's other child is a brother or sister. A father's wife is the mother, and a mother's husband is the father.</li>
+<li><b>Direction:</b> "North-East" means somewhere between north and east, not exactly 45°.</li>
+</ul>
+<p class="prog">There are no critical-reasoning questions here. A generator cannot promise one defensible answer for them, so that slot is an extra syllogism. Practise critical reasoning in chapter 11.</p></section>
+
+<section class="card" id="ch16-app"><h2><span class="n">3</span>Today's set</h2>
+
+<div id="ch16-start">
+<p id="ch16-setinfo" class="prog"></p>
+<p>Order: inequality and syllogism, then coding, blood relations and direction, then input-output and ranking, then series and three seating sets. Blocks of 5 with a short break.</p>
+<label style="font-weight:400"><input type="checkbox" id="ch16-tmr"> Show a timer for each question</label>
+<p style="margin:12px 0;display:flex;flex-wrap:wrap;gap:8px"><button type="button" id="ch16-go">Start today's 30</button> <button type="button" class="ghost" id="ch16-redo">Redo my errors (0)</button></p>
+<p class="prog" id="ch16-store"></p>
+</div>
+
+<div id="ch16-qs" class="hid">
+<p class="prog" id="ch16-pos"></p>
+<p class="prog" id="ch16-tim" aria-live="off"></p>
+<p id="ch16-qt" style="font-weight:600;margin:.4em 0;white-space:pre-line"></p>
+<div id="ch16-opts" class="opts"></div>
+<p style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" class="ghost" id="ch16-skip">Skip (0 marks)</button> <button type="button" id="ch16-next" class="hid">Next</button></p>
+<div id="ch16-fb" class="fb hid" aria-live="polite"></div>
+<p class="prog" id="ch16-run"></p>
+</div>
+
+<div id="ch16-brk" class="hid">
+<p class="big" id="ch16-brkt">Block done</p>
+<p class="tip"><b>Stand up, drink a glass of water, then come back.</b></p>
+<p class="prog" id="ch16-brks"></p>
+<p style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" id="ch16-cont">Next block of 5</button> <button type="button" class="ghost" id="ch16-stop">Stop here, see score</button></p>
+</div>
+
+<div id="ch16-end" class="hid">
+<p class="big" id="ch16-endt"></p>
+<div id="ch16-ends"></div>
+<p class="tip"><b>Break-even about 23%:</b> a wrong answer costs 0.25 and a right one earns 0.8333. A guess pays off only if your chance of being right is above 0.25 ÷ (0.8333 + 0.25), which is about 23%. A blind guess on 4 options is 25%, only just above that. Cross out options first.</p>
+<p style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" id="ch16-again">Practice again (new set)</button> <button type="button" class="ghost" id="ch16-redo2">Redo my errors</button></p>
+</div>
+</section>
+
+<section class="card"><h2><span class="n">4</span>How the score works</h2>
+<div class="box">Right +0.8333 · Wrong −0.25 · Skip 0</div>
+<p>Reasoning has 30 questions for 25 marks, so each right answer is worth 25 ÷ 30 = 0.8333. This guide uses a flat −0.25 per wrong answer, as you asked. The official wording is "1/4th of marks assigned to the question", which would be 0.2083. Your call letter settles it. The 23% rule is safe under both readings.</p>
+<p class="prog">The topic mix (8 seating, 5 syllogism, 3 inequality, 3 input-output, 3 coding, 2 each of blood relations, direction, ranking and series) is our choice, based on the Priority Map. It is not an official syllabus.</p>
+<div class="mem"><b>Memorise this</b><br>1. Draw first, answer second.<br>2. Syllogism: it must hold in every diagram.<br>3. ≥ allows equal, so it never gives a sure &gt;.<br>4. Total in a row = left rank + right rank − 1.<br>5. Guess only above about 23% chance.</div></section>
+
+<script>(function(){
+/*GEN-START*/
+var GEN=(function(){
+function seedFn(s){var h=1779033703^s.length;for(var i=0;i<s.length;i++){h=Math.imul(h^s.charCodeAt(i),3432918353);h=h<<13|h>>>19}h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);return (h^h>>>16)>>>0}
+function rng(seed){var a=seedFn(seed);function f(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
+ return{f:f,i:function(x,y){return x+Math.floor(f()*(y-x+1))},pick:function(r){return r[Math.floor(f()*r.length)]},shuf:function(r){r=r.slice();for(var i=r.length-1;i>0;i--){var j=Math.floor(f()*(i+1)),t=r[i];r[i]=r[j];r[j]=t}return r}}}
+function retry(fn,R,arg){for(var t=0;t<3000;t++){var q=fn(R,arg);if(q)return q}throw new Error('generator failed')}
+function wpick(R,arr){var s=0,i;for(i=0;i<arr.length;i++)s+=arr[i][1];var x=R.f()*s;for(i=0;i<arr.length;i++){x-=arr[i][1];if(x<0)return arr[i][0]}return arr[arr.length-1][0]}
+function ord(n){var t=n%100,u=n%10;return n+((t>10&&t<14)?'th':u===1?'st':u===2?'nd':u===3?'rd':'th')}
+/* correct option + first 3 distinct planted mistakes, shuffled */
+function pick4(R,o,corr,mist){corr=String(corr);var used=[corr],out=[];
+ for(var i=0;i<mist.length&&out.length<3;i++){var v=mist[i][0];if(v===null||v===undefined||v==='')continue;v=String(v);if(used.indexOf(v)>=0)continue;used.push(v);out.push({s:v,w:mist[i][1]})}
+ if(out.length<3)return null;var all=R.shuf([{s:corr,w:''}].concat(out));
+ o.opts=all.map(function(x){return x.s});o.why=all.map(function(x){return x.w});o.a=all.findIndex(function(x){return x.w===''});return o}
+var F4=['Only I follows','Only II follows','Both I and II follow','Neither I nor II follows'];
+function fixed4(o,f1,f2,c1,c2){o.opts=F4.slice();o.a=f1&&f2?2:f1?0:f2?1:3;
+ o.why=F4.map(function(_,j){if(j===o.a)return'';var k1=j===0||j===2,k2=j===1||j===2,p=[];
+  if(k1&&!f1)p.push('You accepted I, but it does not follow. '+c1.no);if(!k1&&f1)p.push('You rejected I, but it follows. '+c1.yes);
+  if(k2&&!f2)p.push('You accepted II, but it does not follow. '+c2.no);if(!k2&&f2)p.push('You rejected II, but it follows. '+c2.yes);return p.join(' ')});
+ o.sol=(o.sol||'')+'I '+(f1?'follows. '+c1.yes:'does not follow. '+c1.no)+'\nII '+(f2?'follows. '+c2.yes:'does not follow. '+c2.no);return o}
+
+/* ================= SEATING: 5 people, linear row, brute force over 120 permutations ================= */
+var SNAMES='ABCDEGHJKLMNPRSTUVWZ'.split('');
+var PERMS=[],POS=[];(function(){function rec(a,rest){if(!rest.length){PERMS.push(a);var p=[];a.forEach(function(x,s){p[x]=s});POS.push(p);return}for(var i=0;i<rest.length;i++)rec(a.concat([rest[i]]),rest.slice(0,i).concat(rest.slice(i+1)))}rec([],[0,1,2,3,4])})();
+function sOK(c,p){var a=p[c.x],d=c.y!=null?a-p[c.y]:0,ad=Math.abs(d);switch(c.t){
+ case'end':return a===0||a===4;case'notend':return a>0&&a<4;case'mid':return a===2;case'lend':return a===0;case'rend':return a===4;
+ case'imL':return d===-1;case'imR':return d===1;case'l2':return d===-2;case'r2':return d===2;
+ case'one':return ad===2;case'two':return ad===3;case'nb':return ad===1;case'nnb':return ad!==1}return false}
+function sTxt(c,N){var x=N[c.x],y=c.y!=null?N[c.y]:'';switch(c.t){
+ case'end':return x+' sits at one of the two ends.';case'notend':return x+' does not sit at either end.';case'mid':return x+' sits exactly in the middle.';
+ case'lend':return x+' sits at the left end.';case'rend':return x+' sits at the right end.';
+ case'imL':return x+' sits immediately to the left of '+y+'.';case'imR':return x+' sits immediately to the right of '+y+'.';
+ case'l2':return x+' sits second to the left of '+y+'.';case'r2':return x+' sits second to the right of '+y+'.';
+ case'one':return'Exactly one person sits between '+x+' and '+y+'.';case'two':return'Exactly two people sit between '+x+' and '+y+'.';
+ case'nb':return x+' and '+y+' sit next to each other.';case'nnb':return x+' and '+y+' do not sit next to each other.'}return''}
+function sSig(c){var lo=Math.min(c.x,c.y),hi=Math.max(c.x,c.y);switch(c.t){case'mid':return'M'+c.x;case'lend':return'L'+c.x;case'rend':return'R'+c.x;
+ case'imL':return'a'+c.x+c.y;case'imR':return'a'+c.y+c.x;case'l2':return's'+c.x+c.y;case'r2':return's'+c.y+c.x;case'nb':return'g'+lo+hi+'1';case'one':return'g'+lo+hi+'2';case'two':return'g'+lo+hi+'3'}return'-'}
+function sAns(q,perm,pos){var s;switch(q.t){case'mid':return perm[2];case'lend':return perm[0];case'rend':return perm[4];
+ case'imR':s=pos[q.x]+1;break;case'imL':s=pos[q.x]-1;break;case'r2':s=pos[q.x]+2;break;case'l2':s=pos[q.x]-2;break;
+ case'cnt':return Math.abs(pos[q.x]-pos[q.y])-1}return s>=0&&s<=4?perm[s]:null}
+function qSig(q,a){switch(q.t){case'mid':return'M'+a;case'lend':return'L'+a;case'rend':return'R'+a;case'imR':return'a'+q.x+a;case'imL':return'a'+a+q.x;case'r2':return's'+q.x+a;case'l2':return's'+a+q.x;case'cnt':return'g'+Math.min(q.x,q.y)+Math.max(q.x,q.y)+(a+1)}return'?'}
+function qTxt(q,N){switch(q.t){case'mid':return'Who sits exactly in the middle?';case'lend':return'Who sits at the left end?';case'rend':return'Who sits at the right end?';
+ case'imR':return'Who sits immediately to the right of '+N[q.x]+'?';case'imL':return'Who sits immediately to the left of '+N[q.x]+'?';
+ case'r2':return'Who sits second to the right of '+N[q.x]+'?';case'l2':return'Who sits second to the left of '+N[q.x]+'?';case'cnt':return'How many people sit between '+N[q.x]+' and '+N[q.y]+'?'}return''}
+function validFor(cl){var v=[];for(var i=0;i<120;i++){var ok=true;for(var j=0;j<cl.length;j++)if(!sOK(cl[j],POS[i])){ok=false;break}if(ok)v.push(i)}return v}
+function seatSet(R,arg){var N=R.shuf(SNAMES).slice(0,5),H=R.i(0,119),hp=PERMS[H],hpos=POS[H],cand=[],x,y;
+ for(x=0;x<5;x++){var s=hpos[x];if(s===0||s===4){cand.push([{t:'end',x:x},2]);cand.push([{t:s?'rend':'lend',x:x},1])}else cand.push([{t:'notend',x:x},2]);if(s===2)cand.push([{t:'mid',x:x},1])}
+ for(x=0;x<5;x++)for(y=0;y<5;y++){if(x===y)continue;var d=hpos[x]-hpos[y],ad=Math.abs(d);
+  if(d===-1)cand.push([{t:'imL',x:x,y:y},3]);if(d===1)cand.push([{t:'imR',x:x,y:y},3]);if(d===-2)cand.push([{t:'l2',x:x,y:y},3]);if(d===2)cand.push([{t:'r2',x:x,y:y},3]);
+  if(x<y){if(ad===2)cand.push([{t:'one',x:x,y:y},3]);if(ad===3)cand.push([{t:'two',x:x,y:y},2]);if(ad===1)cand.push([{t:'nb',x:x,y:y},2]);if(ad!==1)cand.push([{t:'nnb',x:x,y:y},2])}}
+ var cl=[],valid=validFor([]);
+ for(var t=0;t<300&&valid.length>1;t++){var c=wpick(R,cand);if(cl.indexOf(c)>=0)continue;var nv=valid.filter(function(i){return sOK(c,POS[i])});if(nv.length===valid.length)continue;cl.push(c);valid=nv}
+ if(valid.length!==1||valid[0]!==H)return null;
+ R.shuf(cl).forEach(function(c){var rest=cl.filter(function(z){return z!==c});if(validFor(rest).length===1)cl=rest});
+ if(cl.length<3||cl.length>6)return null;cl=R.shuf(cl);
+ var sigs=cl.map(sSig),qc=[{t:'mid'},{t:'lend'},{t:'rend'}];
+ for(x=0;x<5;x++)['imR','imL','r2','l2'].forEach(function(t){qc.push({t:t,x:x})});
+ for(x=0;x<5;x++)for(y=x+1;y<5;y++)qc.push({t:'cnt',x:x,y:y});
+ qc=R.shuf(qc.filter(function(q){var a=sAns(q,hp,hpos);return a!==null&&sigs.indexOf(qSig(q,a))<0}));
+ var chosen=[],types={};qc.forEach(function(q){var g=q.t.replace(/[LR]$/,'').replace('end','e');if(chosen.length<arg.n&&!types[g]){types[g]=1;chosen.push(q)}});
+ if(chosen.length<arg.n)return null;
+ var drop=cl.map(function(_,i){return validFor(cl.filter(function(z,k){return k!==i}))});
+ var head='Five people '+N.slice().sort().join(', ').replace(/, ([^,]*)$/,' and $1')+' sit in a row facing north, so their left is your left.\n'+cl.map(function(c,i){return(i+1)+'. '+sTxt(c,N)}).join('\n')+'\n';
+ var row=hp.map(function(i){return N[i]}).join(' '),out=[];
+ for(var qi=0;qi<chosen.length;qi++){var q=chosen[qi],a=sAns(q,hp,hpos),mist=[],isN=q.t==='cnt',disp=function(v){return isN?String(v):N[v]};
+  var P=function(s){return s>=0&&s<=4?hp[s]:null},X=q.x!=null?N[q.x]:'';
+  var add=function(v,lab){if(v!==null&&v!==undefined)mist.push([disp(v),lab(disp(v))])};
+  if(q.t==='imR'||q.t==='imL'){var sg=q.t==='imR'?1:-1,sd=sg>0?'right':'left',od=sg>0?'left':'right';
+   add(P(hpos[q.x]-sg),function(n){return'Mixed up left and right: '+n+' sits immediately to the '+od+' of '+X+'.'});
+   add(P(hpos[q.x]+2*sg),function(n){return'Went one seat too far: '+n+' sits second to the '+sd+' of '+X+', not immediately next to '+X+'.'})}
+  if(q.t==='r2'||q.t==='l2'){var sg2=q.t==='r2'?1:-1,sd2=sg2>0?'right':'left',od2=sg2>0?'left':'right';
+   add(P(hpos[q.x]-2*sg2),function(n){return'Mixed up left and right: '+n+' sits second to the '+od2+' of '+X+'.'});
+   add(P(hpos[q.x]+sg2),function(n){return'Stopped one seat short: '+n+' sits immediately to the '+sd2+' of '+X+'.'})}
+  if(q.t==='lend'||q.t==='rend'){var L=q.t==='lend';
+   add(P(L?4:0),function(n){return'Mixed up the ends: '+n+' sits at the '+(L?'right':'left')+' end.'});
+   add(P(L?1:3),function(n){return'Off by one seat: '+n+' sits second from the '+(L?'left':'right')+' end.'})}
+  if(q.t==='mid'){add(P(1),function(n){return'Off by one seat: '+n+' sits second from the left end, next to the middle.'});add(P(3),function(n){return'Off by one seat: '+n+' sits second from the right end, next to the middle.'})}
+  if(isN){var Y=N[q.y];add(a+1,function(){return'Counted one of '+X+' and '+Y+' as well. Count only the people strictly between them.'});add(a+2,function(){return'Counted both '+X+' and '+Y+'. Count only the people strictly between them.'})}
+  for(var i=0;i<cl.length;i++){for(var v=0;v<drop[i].length;v++){var b=sAns(q,PERMS[drop[i][v]],POS[drop[i][v]]);if(b!==null&&b!==a){(function(i){add(b,function(){return'Fits only if you ignore clue '+(i+1)+' ("'+sTxt(cl[i],N)+'").'})})(i);break}}}
+  if(isN&&a>0)add(a-1,function(){return'Missed one person when counting.'});
+  var o={k:'seat',topic:'Seating (set '+arg.set+')',p:{N:N,cl:cl,q:q},q:head+qTxt(q,N)};
+  o.sol='Only one seating fits all the clues. Left to right: '+row+'. '+(isN?X+' and '+N[q.y]+' sit at seats '+(hpos[q.x]+1)+' and '+(hpos[q.y]+1)+' from the left, so '+a+' '+(a===1?'person sits':'people sit')+' between them.':'So the answer is '+N[a]+'.');
+  if(!pick4(R,o,disp(a),mist))return null;out.push(o)}
+ return out}
+
+/* ================= SYLLOGISM: exhaustive enumeration of Venn-region models ================= */
+var NOUNS=['pens','books','bags','cups','chairs','lamps','phones','kites','boxes','coins','rings','shirts','shoes','clocks','keys','bottles','plates','mats'];
+var SMOD=[];(function(){for(var m=1;m<128;m++){var ok=true;for(var s=0;s<3;s++){var has=false;for(var r=1;r<8;r++)if((m>>(r-1)&1)&&(r>>s&1))has=true;if(!has)ok=false}if(ok)SMOD.push(m)}})();
+function syT(c,m){for(var r=1;r<8;r++){if(!(m>>(r-1)&1))continue;var ix=r>>c.x&1,iy=r>>c.y&1;
+ if(c.f==='A'&&ix&&!iy)return false;if(c.f==='E'&&ix&&iy)return false;if(c.f==='I'&&ix&&iy)return true;if(c.f==='O'&&ix&&!iy)return true}return c.f==='A'||c.f==='E'}
+function syTxt(c,T){var a=T[c.x],b=T[c.y];return c.f==='A'?'All '+a+' are '+b+'.':c.f==='E'?'No '+a+' are '+b+'.':c.f==='I'?'Some '+a+' are '+b+'.':'Some '+a+' are not '+b+'.'}
+function same(a,b){return a.f===b.f&&a.x===b.x&&a.y===b.y}
+function syWhy(c,M,S,T){var ok=M.every(function(m){return syT(c,m)}),pos=M.some(function(m){return syT(c,m)}),a=T[c.x],b=T[c.y],i,s,yes='',no='';
+ for(i=0;i<S.length;i++){s=S[i];var sw=s.x===c.y&&s.y===c.x,st=s.x===c.x&&s.y===c.y;
+  if(ok&&!yes){if(c.f==='I'&&sw&&(s.f==='I'||s.f==='A'))yes='Reverse "'+syTxt(s,T)+'": if some '+b+' are '+a+', then some '+a+' are '+b+'.';
+   else if(c.f==='E'&&sw&&s.f==='E')yes='"No" works both ways: "'+syTxt(s,T)+'" also means no '+a+' are '+b+'.';
+   else if(c.f==='I'&&st&&s.f==='A')yes='"'+syTxt(s,T)+'" and '+a+' exist, so some '+a+' are '+b+'.'}
+  if(!ok&&!no){if(c.f==='A'&&sw&&s.f==='A')no='Illegal reversal: "'+syTxt(s,T)+'" does not mean all '+a+' are '+b+'.';
+   else if(c.f==='O'&&st&&s.f==='I')no='"Some '+a+' are '+b+'" does not tell you that some are not. "Some" can mean all.';
+   else if(c.f==='A'&&st&&s.f==='I')no='"Some" does not mean "all".'}}
+ if(!yes)yes='It is true in every diagram that fits both statements.';
+ if(!no)no=pos?'Possible, but not certain: a diagram that fits both statements makes it false.':'It contradicts the statements: it is false in every diagram that fits them.';
+ return{yes:yes,no:no}}
+function syl(R,tg){var T=R.shuf(NOUNS).slice(0,3),F=[['A',3],['I',3],['E',2],['O',1]],s1={f:wpick(R,F)},s2={f:wpick(R,F)};
+ if(R.f()<0.5){s1.x=0;s1.y=1}else{s1.x=1;s1.y=0}if(R.f()<0.5){s2.x=1;s2.y=2}else{s2.x=2;s2.y=1}
+ var M=SMOD.filter(function(m){return syT(s1,m)&&syT(s2,m)});if(!M.length)return null;
+ var w1=tg===0||tg===2,w2=tg===1||tg===2;
+ function mk(want,av){for(var t=0;t<80;t++){var pr=R.f()<0.6?(R.f()<0.5?[0,2]:[2,0]):R.pick([[0,1],[1,0],[1,2],[2,1]]),c={f:R.pick(['A','E','I','O']),x:pr[0],y:pr[1]};
+   if(same(c,s1)||same(c,s2)||(av&&same(c,av)))continue;var fol=M.every(function(m){return syT(c,m)});if(fol!==want)continue;
+   if(!want&&!M.some(function(m){return syT(c,m)})&&R.f()<0.8)continue;return c}return null}
+ var c1=mk(w1),c2=c1&&mk(w2,c1);if(!c2)return null;
+ if(!w1&&!w2&&M.every(function(m){return syT(c1,m)!==syT(c2,m)}))return null;
+ var o={k:'syl',topic:'Syllogism',p:{T:T,s:[s1,s2],c:[c1,c2]},q:'Statements: '+syTxt(s1,T)+' '+syTxt(s2,T)+'\nConclusions:\nI. '+syTxt(c1,T)+'\nII. '+syTxt(c2,T)+'\nWhich conclusion(s) definitely follow?'};
+ return fixed4(o,w1,w2,syWhy(c1,M,[s1,s2],T),syWhy(c2,M,[s1,s2],T))}
+
+/* ================= INEQUALITY: enumeration of all orderings (5 letters, values 0-4) ================= */
+var IV='ABCDEFGHJKLMNPQRSTUVWZ'.split(''),OPW=[['>',3],['<',3],['≥',2],['≤',2],['=',1]];
+var MEAN={'>':'greater than','<':'smaller than','≥':'greater than or equal to','≤':'smaller than or equal to','=':'equal to'};
+function cmpOp(op,a,b){return op==='>'?a>b:op==='<'?a<b:op==='≥'?a>=b:op==='≤'?a<=b:a===b}
+function inWhy(x,y,op,MS,V){var gt=MS.some(function(v){return v[x]>v[y]}),eq=MS.some(function(v){return v[x]===v[y]}),lt=MS.some(function(v){return v[x]<v[y]}),X=V[x],Y=V[y],yes,no;
+ if(eq&&!gt&&!lt)yes='Every link between '+X+' and '+Y+' is "=", so '+X+' = '+Y+', which makes '+X+' '+op+' '+Y+' true.';
+ else if(gt&&!lt&&!eq)yes=X+' is always greater than '+Y+': every sign on the path from '+X+' to '+Y+' points the same way.';
+ else if(lt&&!gt&&!eq)yes=X+' is always smaller than '+Y+': every sign on the path from '+X+' to '+Y+' points the same way.';
+ else yes='The signs on the path from '+X+' to '+Y+' all point the same way (with some "=" or "≥/≤"), so '+X+' '+op+' '+Y+' is certain.';
+ var fails=[];if(gt&&!cmpOp(op,1,0))fails.push('gt');if(eq&&!cmpOp(op,0,0))fails.push('eq');if(lt&&!cmpOp(op,0,1))fails.push('lt');
+ if(gt&&lt)no='No fixed relation: the signs between '+X+' and '+Y+' point in opposite directions (or they are not linked), so '+X+' and '+Y+' cannot be compared.';
+ else if(fails.length===1&&fails[0]==='eq')no='A "≥", "≤" or "=" on the path means '+X+' can be equal to '+Y+', so '+X+' '+op+' '+Y+' is not certain. Do not read ≥ as >.';
+ else if(fails.length===1)no=X+' can be '+(fails[0]==='gt'?'greater':'smaller')+' than '+Y+', so '+X+' '+op+' '+Y+' is not certain.';
+ else no='It is the wrong way round for some orderings that fit the statements.';
+ return{yes:yes,no:no}}
+function ineq(R,arg){var V=R.shuf(IV).slice(0,5),o=[wpick(R,OPW),wpick(R,OPW),wpick(R,OPW),wpick(R,OPW)],j=R.i(0,3),C=[[0,o[0],1],[1,o[1],2],[2,o[2],3],[4,o[3],j]],MS=[];
+ for(var n=0;n<3125;n++){var v=[n%5,(n/5|0)%5,(n/25|0)%5,(n/125|0)%5,(n/625|0)%5],ok=true;for(var k=0;k<4;k++)if(!cmpOp(C[k][1],v[C[k][0]],v[C[k][2]])){ok=false;break}if(ok)MS.push(v)}
+ if(!MS.length)return null;var adj={};C.forEach(function(c){adj[Math.min(c[0],c[2])+','+Math.max(c[0],c[2])]=1});
+ var w1=arg.t===0||arg.t===2,w2=arg.t===1||arg.t===2;
+ function mk(want,av){for(var t=0;t<120;t++){var x=R.i(0,4),y=R.i(0,4);if(x===y)continue;var key=Math.min(x,y)+','+Math.max(x,y);if(adj[key]||(av&&av.key===key))continue;
+   var op=wpick(R,OPW),all=MS.every(function(v){return cmpOp(op,v[x],v[y])}),some=MS.some(function(v){return cmpOp(op,v[x],v[y])});
+   if(all!==want||(!want&&!some))continue;return{x:x,y:y,op:op,key:key}}return null}
+ var c1=mk(w1),c2=c1&&mk(w2,c1);if(!c2)return null;
+ if(!w1&&!w2&&MS.every(function(v){return cmpOp(c1.op,v[c1.x],v[c1.y])!==cmpOp(c2.op,v[c2.x],v[c2.y])}))return null; /* would be an either-or case */
+ var code=null,syms=R.shuf(['@','#','$','%','&','*']).slice(0,5),opsL=['>','<','≥','≤','='];
+ if(arg.coded){code={};opsL.forEach(function(op,i){code[op]=syms[i]})}
+ function stT(S){return V[0]+' '+S(o[0])+' '+V[1]+' '+S(o[1])+' '+V[2]+' '+S(o[2])+' '+V[3]+'; '+V[4]+' '+S(o[3])+' '+V[j]}
+ function ctT(c,S){return V[c.x]+' '+S(c.op)+' '+V[c.y]}
+ var plain=function(op){return op},S=code?function(op){return code[op]}:plain;
+ var q=(code?'Codes:\n'+R.shuf(opsL).map(function(op){return'X '+code[op]+' Y means X is '+MEAN[op]+' Y.'}).join('\n')+'\n':'')+'Statements: '+stT(S)+'\nConclusions:\nI. '+ctT(c1,S)+'\nII. '+ctT(c2,S)+'\nWhich conclusion(s) definitely follow?';
+ var oo={k:code?'cineq':'ineq',topic:code?'Coded inequality':'Inequality',p:{V:V,C:C,c:[c1,c2],code:code},q:q};
+ if(code)oo.sol='Decode first: '+stT(plain)+'; I. '+ctT(c1,plain)+'; II. '+ctT(c2,plain)+'.\n';
+ var r1=inWhy(c1.x,c1.y,c1.op,MS,V),r2=inWhy(c2.x,c2.y,c2.op,MS,V);
+ return fixed4(oo,w1,w2,r1,r2)}
+
+/* ================= INPUT-OUTPUT: simulation of a stated shift rule ================= */
+var IOW=['apple','bread','chair','drum','eagle','flute','grape','house','jug','kite','lamp','mango','nest','owl','pen','queen','rose','star','tree','umbrella','van','watch','yak','zebra'];
+function ioSim(line,order,end,swap,k){var L=line.slice();for(var s=1;s<=k;s++){var it=order[s-1],idx=L.indexOf(it),tg=end==='L'?s-1:L.length-s;
+ if(swap){var t=L[tg];L[tg]=it;L[idx]=t}else{L.splice(idx,1);L.splice(tg,0,it)}}return L}
+function ioQ(R){var W=R.f()<0.5,asc=R.f()<0.5,end=R.f()<0.5?'L':'R',line;
+ if(W)line=R.shuf(IOW).slice(0,6);else{line=[];while(line.length<6){var v=R.i(11,99);if(line.indexOf(v)<0)line.push(v)}}
+ var order=line.slice().sort(W?undefined:function(a,b){return a-b});if(!asc)order.reverse();
+ var k=R.i(2,4),prev=line.join(' ');for(var s=1;s<=k+1;s++){var cur=ioSim(line,order,end,false,s).join(' ');if(cur===prev)return null;prev=cur}
+ var kind=W?'word':'number',side=end==='L'?'left':'right',
+  what=W?(asc?'the word that comes first in dictionary order':'the word that comes last in dictionary order'):(asc?'the smallest number':'the largest number'),
+  nxt=W?(asc?'the word that comes second in dictionary order':'the word that comes second from last in dictionary order'):(asc?'the second smallest number':'the second largest number');
+ var rule='Rule: in Step 1, '+what+' moves to the '+side+' end. In Step 2, '+nxt+' moves to the 2nd place from the '+side+'. This goes on, one '+kind+' per step. The '+kind+'s it jumps over each shift one place to fill the gap and keep their order.';
+ var J=function(a){return a.join(' ')},corrL=ioSim(line,order,end,false,k),rev=order.slice().reverse(),oth=end==='L'?'R':'L';
+ var steps=[];for(s=1;s<=k;s++)steps.push('Step '+s+': '+J(ioSim(line,order,end,false,s)));
+ var o={k:'io',topic:'Input-output',p:{line:line,W:W,asc:asc,end:end,k:k},sol:'Input: '+J(line)+'\n'+steps.join('\n')};
+ var wrongPick=W?(asc?'the last word in dictionary order':'the first word in dictionary order'):(asc?'the largest number':'the smallest number');
+ if(R.f()<0.5){o.q='A machine rearranges a line of '+kind+'s in steps.\n'+rule+'\nInput: '+J(line)+'\nWhat is Step '+k+'?';o.p.ask='step';
+  return pick4(R,o,J(corrL),[[J(ioSim(line,order,end,false,k-1)),'Stopped one step early: this is Step '+(k-1)+'.'],[J(ioSim(line,order,end,false,k+1)),'Went one step too far: this is Step '+(k+1)+'.'],
+   [J(ioSim(line,order,end,true,k)),'Swapped each '+kind+' with the one in its target place, instead of shifting the others along.'],[J(ioSim(line,order,oth,false,k)),'Built the line from the wrong end.'],
+   [J(ioSim(line,rev,end,false,k)),'Started with '+wrongPick+' (wrong order).']])}
+ var jp=R.i(2,5),fromL=R.f()<0.5,at=function(arr,fl){return arr[fl?jp-1:arr.length-jp]};
+ o.q='A machine rearranges a line of '+kind+'s in steps.\n'+rule+'\nInput: '+J(line)+'\nIn Step '+k+', which '+kind+' is '+ord(jp)+' from the '+(fromL?'left':'right')+'?';o.p.ask='pos';o.p.jp=jp;o.p.fromL=fromL;
+ o.sol+='\nIn Step '+k+', '+ord(jp)+' from the '+(fromL?'left':'right')+' is '+at(corrL,fromL)+'.';
+ return pick4(R,o,at(corrL,fromL),[[at(corrL,!fromL),'Counted from the '+(fromL?'right':'left')+' instead of the '+(fromL?'left':'right')+'.'],[at(ioSim(line,order,end,false,k-1),fromL),'Read Step '+(k-1)+' (one step early).'],
+  [at(ioSim(line,order,end,false,k+1),fromL),'Read Step '+(k+1)+' (one step too far).'],[at(ioSim(line,order,end,true,k),fromL),'Swapped instead of shifting the others along.'],[at(ioSim(line,order,oth,false,k),fromL),'Built the line from the wrong end.']])}
+
+/* ================= CODING-DECODING: letter shift / opposite letter, computed ================= */
+var CW=['MONEY','TRAIN','PLANT','BRICK','CLOUD','SMILE','GRAPE','HOUSE','CHAIR','LIGHT','WATER','STONE','BREAD','FLAME','NORTH','DRIVE','SUGAR','TIGER','LEMON','BOARD','CROWN','FRUIT','GLOBE','MANGO','PAINT','RIVER','SHORE','DREAM','PLATE','SPOON'];
+function enc(r,w){var a=w.split('').map(function(c){return c.charCodeAt(0)-65});if(r.rev)a.reverse();if(r.op)a=a.map(function(x){return 25-x});var k=r.k||0;return a.map(function(x){return String.fromCharCode(65+(((x+k)%26)+26)%26)}).join('')}
+function codeQ(R,type){var ws=R.shuf(CW),E=ws[0],W=ws[1],k=0,rule;
+ if(type==='sh'){k=R.pick([1,2,3,4,-1,-2,-3]);rule={k:k}}else if(type==='rsh'){k=R.pick([1,2,-1,-2]);rule={rev:1,k:k}}else if(type==='op')rule={op:1};else rule={rev:1,op:1};
+ var cE=enc(rule,E),corr=enc(rule,W);if(corr===W||cE===E)return null;
+ for(var rv=0;rv<2;rv++)for(var op=0;op<2;op++)for(var kk=0;kk<26;kk++){var r={rev:rv,op:op,k:kk};if(enc(r,E)===cE&&enc(r,W)!==corr)return null}
+ var sg=k>0?1:-1,ak=Math.abs(k),dir=k>0?'forward':'back',odir=k>0?'back':'forward',mist,desc;
+ if(type==='sh'){desc='Each letter moves '+ak+' place'+(ak>1?'s':'')+' '+dir+' in the alphabet.';
+  mist=[[enc({k:-k},W),'Shifted the wrong way: each letter moves '+ak+' '+dir+', not '+odir+'.'],[enc({k:k+sg},W),'Off by one: moved each letter '+(ak+1)+' places instead of '+ak+'.'],[enc({rev:1,k:k},W),'Also reversed the letter order. This code does not reverse.'],[ak>1?enc({k:k-sg},W):null,'Off by one: moved each letter '+(ak-1)+' places instead of '+ak+'.']]}
+ else if(type==='rsh'){desc='Write the word backwards, then move each letter '+ak+' place'+(ak>1?'s':'')+' '+dir+'.';
+  mist=[[enc({k:k},W),'Forgot to write the word backwards first.'],[enc({rev:1,k:-k},W),'Reversed, but moved the letters '+odir+' instead of '+dir+'.'],[enc({rev:1,k:k+sg},W),'Reversed, but moved each letter '+(ak+1)+' places instead of '+ak+'.']]}
+ else if(type==='op'){desc='Each letter becomes its opposite letter (A↔Z, B↔Y: 27 − position).';
+  mist=[[enc({op:1,k:-1},W),'Used 26 − position instead of 27 − position, so each letter is one before its opposite.'],[enc({op:1,rev:1},W),'Also reversed the letter order. This code does not reverse.'],[enc({op:1,k:1},W),'Used 28 − position, so each letter is one past its opposite.'],[enc({rev:1},W),'Only reversed the word. The code replaces each letter by its opposite.']]}
+ else{desc='Write the word backwards and replace each letter by its opposite (A↔Z, B↔Y: 27 − position).';
+  mist=[[enc({op:1},W),'Forgot to write the word backwards.'],[enc({rev:1},W),'Wrote the word backwards but forgot the opposite letters.'],[enc({rev:1,op:1,k:-1},W),'Used 26 − position instead of 27 − position for the opposite letter.']]}
+ var o={k:'code',topic:'Coding-decoding',p:{E:E,cE:cE,W:W},q:'In a certain code, '+E+' is written as '+cE+'. How is '+W+' written in that code?\n(The alphabet wraps round: after Z comes A.)',
+  sol:desc+' Check: '+E+' → '+cE+'. So '+W+' → '+corr+'.'};
+ return pick4(R,o,corr,mist)}
+
+/* ================= BLOOD RELATIONS: explicit family tree ================= */
+var BL='ABCDEGHJKLMNPRSTUVWZ'.split(''),GW={father:'m',mother:'f',son:'m',daughter:'f',brother:'m',sister:'f',husband:'m',wife:'f'};
+var LBL={par:['Father','Mother'],chi:['Son','Daughter'],sib:['Brother','Sister'],spo:['Husband','Wife'],gp:['Grandfather','Grandmother'],gc:['Grandson','Granddaughter'],unc:['Uncle','Aunt'],nep:['Nephew','Niece'],pil:['Father-in-law','Mother-in-law'],cil:['Son-in-law','Daughter-in-law'],sil:['Brother-in-law','Sister-in-law']};
+var FLIP={},SLIP={Grandfather:'Father',Grandmother:'Mother',Grandson:'Son',Granddaughter:'Daughter',Uncle:'Father',Aunt:'Mother',Nephew:'Son',Niece:'Daughter','Father-in-law':'Father','Mother-in-law':'Mother','Son-in-law':'Son','Daughter-in-law':'Daughter','Brother-in-law':'Brother','Sister-in-law':'Sister'};
+var REV={Father:'Son',Mother:'Daughter',Son:'Father',Daughter:'Mother',Grandfather:'Grandson',Grandmother:'Granddaughter',Grandson:'Grandfather',Granddaughter:'Grandmother',Uncle:'Nephew',Aunt:'Niece',Nephew:'Uncle',Niece:'Aunt','Father-in-law':'Son-in-law','Mother-in-law':'Daughter-in-law','Son-in-law':'Father-in-law','Daughter-in-law':'Mother-in-law'};
+var GENW={Father:'Grandfather',Mother:'Grandmother',Son:'Grandson',Daughter:'Granddaughter',Brother:'Son',Sister:'Daughter',Husband:'Son-in-law',Wife:'Daughter-in-law',Grandfather:'Uncle',Grandmother:'Aunt',Grandson:'Nephew',Granddaughter:'Niece',Uncle:'Brother',Aunt:'Sister',Nephew:'Grandson',Niece:'Granddaughter','Father-in-law':'Brother-in-law','Mother-in-law':'Sister-in-law','Son-in-law':'Brother-in-law','Daughter-in-law':'Sister-in-law','Brother-in-law':'Son-in-law','Sister-in-law':'Daughter-in-law'};
+for(var lk in LBL){FLIP[LBL[lk][0]]=LBL[lk][1];FLIP[LBL[lk][1]]=LBL[lk][0]}
+function bRel(X,A){var par=function(p){return p.pc||[]},isP=function(a,b){return par(b).indexOf(a)>=0},sib=function(a,b){return a!==b&&!!a.pc&&a.pc===b.pc},g=X.g==='m'?0:1;
+ if(isP(X,A))return LBL.par[g];if(isP(A,X))return LBL.chi[g];if(sib(X,A))return LBL.sib[g];if(X.sp===A)return LBL.spo[g];
+ if(par(A).some(function(p){return isP(X,p)}))return LBL.gp[g];if(par(X).some(function(p){return isP(A,p)}))return LBL.gc[g];
+ if(par(A).some(function(p){return sib(X,p)||(X.sp&&sib(X.sp,p))}))return LBL.unc[g];
+ if(par(X).some(function(p){return sib(p,A)||(A.sp&&sib(p,A.sp))}))return LBL.nep[g];
+ if(A.sp&&isP(X,A.sp))return LBL.pil[g];if(X.sp&&isP(A,X.sp))return LBL.cil[g];
+ if((A.sp&&sib(X,A.sp))||(X.sp&&sib(X.sp,A)))return LBL.sil[g];return null}
+function bloodQ(R){var L=R.shuf(BL).slice(0,4),ppl=[],A={n:L[0],g:null,pc:null,sp:null},named=[A],stm=[];ppl.push(A);
+ function mk(n,g){var o={n:n,g:g,pc:null,sp:null};ppl.push(o);return o}
+ function coupleOf(p){for(var i=0;i<ppl.length;i++){var c=ppl[i].pc;if(c&&c.indexOf(p)>=0)return c}return null}
+ for(var s=1;s<4;s++){var cur=s===1||R.f()<0.7?named[named.length-1]:R.pick(named.slice(1)),rels=R.shuf(Object.keys(GW)),N=null,r;
+  for(var t=0;t<rels.length&&!N;t++){r=rels[t];var g=GW[r],og=g==='m'?'f':'m';
+   if(r==='father'||r==='mother'){if(!cur.pc){N=mk(L[s],g);var o2=mk(null,og);N.sp=o2;o2.sp=N;cur.pc=[N,o2]}
+    else if(cur.pc[0].n===null&&cur.pc[1].n===null){var c=cur.pc,ph=c[0].g===g?c[0]:c[1].g===g?c[1]:c[0].g===null?c[0]:null;if(!ph)continue;var other=ph===c[0]?c[1]:c[0];if(other.g===g)continue;ph.n=L[s];ph.g=g;if(other.g===null)other.g=og;N=ph}}
+   else if(r==='son'||r==='daughter'){var c2=coupleOf(cur);if(!c2){var sp=cur.sp;if(!sp){sp=mk(null,cur.g?(cur.g==='m'?'f':'m'):null);sp.sp=cur;cur.sp=sp}c2=[cur,sp]}N=mk(L[s],g);N.pc=c2}
+   else if(r==='brother'||r==='sister'){if(!cur.pc){var f=mk(null,'m'),mo=mk(null,'f');f.sp=mo;mo.sp=f;cur.pc=[f,mo]}N=mk(L[s],g);N.pc=cur.pc}
+   else{if(!cur.g||cur.g===g)continue;if(cur.sp){if(cur.sp.n!==null||(cur.sp.g&&cur.sp.g!==g))continue;cur.sp.n=L[s];cur.sp.g=g;N=cur.sp}else{N=mk(L[s],g);N.sp=cur;cur.sp=N}}}
+  if(!N)return null;stm.push({x:N.n,r:r,y:cur.n});named.push(N)}
+ var X=named[3];if(stm[2].y===A.n)return null;var ans=bRel(X,A);if(!ans)return null;
+ var sTx=function(z){return z.x+' is the '+z.r+' of '+z.y+'.'},expl=stm.map(function(z,i){var rl=bRel(named[i+1],A);return sTx(z)+(rl&&z.y!==A.n?' So '+z.x+' is '+A.n+"'s "+rl.toLowerCase()+'.':'')});
+ var o={k:'blood',topic:'Blood relations',p:{stm:stm,X:X.n,A:A.n},q:stm.map(sTx).join(' ')+'\nHow is '+X.n+' related to '+A.n+'?',sol:'Draw the tree step by step. '+expl.join(' ')};
+ var gs=X.g==='m'?'male':'female',src=stm[2];
+ return pick4(R,o,ans,[[FLIP[ans],'Wrong gender: "'+sTx(src)+'" tells you '+X.n+' is '+gs+'.'],[SLIP[ans],'Dropped a link in the chain (a generation or the marriage).'],[REV[ans],'Reversed the direction: the question asks how '+X.n+' is related to '+A.n+', not how '+A.n+' is related to '+X.n+'.'],[GENW[ans],'Wrong generation: count the steps up and down the tree again.']])}
+
+/* ================= DIRECTION: coordinates ================= */
+var WALK=[['Ravi','He'],['Asha','She'],['Kiran','She'],['Arjun','He'],['Meena','She'],['Vikram','He']],DN=['north','east','south','west'],DX=[0,1,0,-1],DY=[1,0,-1,0];
+function walkEnd(h0,turns,lens,flip){var h=h0,x=0,y=0,pts=[];for(var i=0;i<lens.length;i++){if(i>0){var t=turns[i-1];if(flip&&flip[i-1])t=t==='R'?'L':'R';h=(h+(t==='R'?1:3))%4}x+=DX[h]*lens[i];y+=DY[h]*lens[i];pts.push([x,y])}return pts}
+function d8(x,y){var ns=y>0?'North':y<0?'South':'',ew=x>0?'East':x<0?'West':'';return ns&&ew?ns+'-'+ew:ns||ew}
+function idist(x,y){var d2=x*x+y*y,d=Math.round(Math.sqrt(d2));return d*d===d2?d:null}
+function fmtD(x,y){var d=idist(x,y);return d===null||d===0?null:d+' km, '+d8(x,y)}
+function dirQ(R,diag){var w=R.pick(WALK),n=R.i(3,4),h0=R.i(0,3),lens=[],turns=[],i;for(i=0;i<n;i++)lens.push(R.i(1,10));for(i=0;i<n-1;i++)turns.push(R.f()<0.5?'L':'R');
+ var pts=walkEnd(h0,turns,lens),e=pts[n-1],x=e[0],y=e[1],d=idist(x,y);if(!d)return null;if(diag!==(x!==0&&y!==0))return null;
+ var tot=lens.reduce(function(a,b){return a+b},0),dirS=d8(x,y),corr=d+' km, '+dirS,mf=turns.map(function(){return true}),ff=turns.map(function(_,k){return k===0}),me=walkEnd(h0,turns,lens,mf)[n-1],fe=walkEnd(h0,turns,lens,ff)[n-1];
+ var txt=w[0]+' starts from point S and walks '+lens[0]+' km '+DN[h0]+'.';for(i=1;i<n;i++)txt+=' '+w[1]+' turns '+(turns[i-1]==='R'?'right':'left')+' and walks '+lens[i]+' km.';
+ var o={k:'dir',topic:'Direction',p:{h0:h0,turns:turns,lens:lens},q:txt+'\nHow far and in which direction is '+w[0]+' now from S?',
+  sol:'Use coordinates: east = +x, north = +y. Positions after each walk: '+pts.map(function(p){return'('+p[0]+', '+p[1]+')'}).join(', ')+'. '+(x&&y?'Distance = √('+x*x+' + '+y*y+') = '+d+' km':'Straight-line distance = '+d+' km')+', direction '+dirS+'.'};
+ return pick4(R,o,corr,[[tot!==d?tot+' km, '+dirS:null,'Added every distance walked ('+lens.join(' + ')+'). The question asks for the straight-line distance from S.'],[d+' km, '+d8(-x,-y),'Gave the direction of S from '+w[0]+', not of '+w[0]+' from S.'],
+  [fmtD(me[0],me[1]),'Mixed up left and right turns.'],[x&&y?(Math.abs(x)+Math.abs(y))+' km, '+dirS:null,'Added the two sides ('+Math.abs(x)+' + '+Math.abs(y)+') instead of using Pythagoras.'],[fmtD(fe[0],fe[1]),'Took the first turn the wrong way.']])}
+
+/* ================= RANKING ================= */
+var RN=['Meena','Arjun','Kavya','Rohit','Sana','Vikram','Neha','Imran'];
+function rankQ(R,t){var nm=R.shuf(RN),n=nm[0],o,L,Rr,T,ans,mist;
+ if(t===1){L=R.i(4,25);Rr=R.i(4,25);ans=L+Rr-1;
+  o={q:'In a row of students, '+n+' is '+ord(L)+' from the left end and '+ord(Rr)+' from the right end. How many students are in the row?',sol:'Total = left rank + right rank − 1 = '+L+' + '+Rr+' − 1 = '+ans+'. '+n+' is counted in both ranks, so subtract 1.'};
+  mist=[[L+Rr,'Added the ranks without subtracting 1, so '+n+' was counted twice.'],[L+Rr-2,'Subtracted 2. Only '+n+' is counted twice, so subtract just 1.'],[L+Rr+1,'Added 1 instead of subtracting 1.']]}
+ else if(t===2){T=R.i(15,45);L=R.i(3,T-3);ans=T-L+1;
+  o={q:'There are '+T+' students in a row. '+n+' is '+ord(L)+' from the left end. What is '+n+"'s position from the right end?",sol:'Right rank = total − left rank + 1 = '+T+' − '+L+' + 1 = '+ans+'.'};
+  mist=[[T-L,'Gave the number of students to the right of '+n+' (forgot the +1 for '+n+').'],[T-L-1,'Subtracted 1 instead of adding 1.'],[T-L+2,'Added 2 instead of 1.'],[L,'Repeated the left rank.']]}
+ else{var m=nm[1];T=R.i(20,45);L=R.i(3,Math.floor(T/2));Rr=R.i(3,T-L-2);ans=T-L-Rr;if(ans<2)return null;
+  o={q:'In a row of '+T+' students, '+n+' is '+ord(L)+' from the left end and '+m+' is '+ord(Rr)+' from the right end. '+n+' is to the left of '+m+'. How many students sit between them?',
+   sol:m+' is at position '+(T-Rr+1)+' from the left ('+T+' − '+Rr+' + 1). Between positions '+L+' and '+(T-Rr+1)+': '+(T-Rr+1)+' − '+L+' − 1 = '+ans+'.'};
+  mist=[[ans+1,'Counted one of '+n+' and '+m+' as well.'],[ans+2,'Counted both '+n+' and '+m+'.'],[ans-1,'Subtracted 1 extra, as if using the L + R − 1 rule here.'],[L+Rr,'Added the two ranks.']]}
+ o.k='rank';o.topic='Ranking';o.p={t:t};return pick4(R,o,ans,mist)}
+
+/* ================= SERIES ================= */
+var AZ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function fam(s){/* predictions of the next term from every family that fits s */var n=s.length,p=[],i,ok;
+ ok=true;for(i=2;i<n;i++)if(s[i]-s[i-1]!==s[1]-s[0])ok=false;if(ok)p.push(s[n-1]+s[1]-s[0]);
+ ok=s[0]!==0&&s[1]%s[0]===0;if(ok){var r=s[1]/s[0];for(i=2;i<n;i++)if(s[i]!==s[i-1]*r)ok=false;if(ok)p.push(s[n-1]*r)}
+ ok=true;var d2=s[2]-2*s[1]+s[0];for(i=3;i<n;i++)if(s[i]-2*s[i-1]+s[i-2]!==d2)ok=false;if(ok)p.push(2*s[n-1]-s[n-2]+d2);
+ [2,3].forEach(function(a){var b=s[1]-a*s[0],ok2=true;for(var j=2;j<n;j++)if(s[j]!==a*s[j-1]+b)ok2=false;if(ok2)p.push(a*s[n-1]+b)});return p}
+function fits(s){return fam(s.slice(0,s.length-1)).indexOf(s[s.length-1])>=0}
+function serQ(R,letters){var t=[],i,corr,mist,rule;
+ if(letters){var inc=R.f()<0.5;if(inc){var g0=R.i(1,3);t=[R.i(0,4)];for(i=0;i<5;i++)t.push(t[i]+g0+i);rule='gaps '+g0+', '+(g0+1)+', '+(g0+2)+', … (each gap is 1 more)'}else{var k=R.i(2,4);t=[R.i(0,25-5*k)];for(i=0;i<5;i++)t.push(t[i]+k);rule='same gap of '+k+' letters'}
+  if(t[5]>25)return null;var sh=t.slice(0,5),L=sh[4],g=L-sh[3];corr=t[5];
+  mist=inc?[[L+g,'Repeated the last gap ('+g+') instead of growing it by 1.'],[corr+1,'Off by one: grew the gap by 2.'],[corr-2,'Off by one twice: counted the letter you start from as a step.'],[corr+2,'Grew the gap by 3.']]
+   :[[corr+1,'Off by one: counted the letter you start from as a step.'],[corr-1,'Off by one: one letter short.'],[L+2*g,'Added the gap twice.']];
+  mist=mist.filter(function(m){return m[0]>=0&&m[0]<=25&&!fits(sh.concat([m[0]]))}).map(function(m){return[AZ[m[0]],m[1]]});
+  var fp=fam(sh);if(fp.some(function(v){return v!==corr}))return null;
+  var o={k:'lser',topic:'Letter series',p:{sh:sh},q:'Find the next letter: '+sh.map(function(v){return AZ[v]}).join(', ')+', ?',sol:'Write positions (A = 1): '+sh.map(function(v){return v+1}).join(', ')+'. Pattern: '+rule+'. Next: '+(corr+1)+' = '+AZ[corr]+'.'};
+  return pick4(R,o,AZ[corr],mist)}
+ var type=R.pick(['ap','gp','sq','inc','mul']);
+ if(type==='ap'){var a=R.i(3,60),d=R.i(3,19);for(i=0;i<6;i++)t.push(a+i*d);rule='add '+d+' each time'}
+ else if(type==='gp'){var r=R.pick([2,3]),a2=r===2?R.i(2,12):R.i(1,4);for(i=0;i<6;i++)t.push(a2*Math.pow(r,i));rule='multiply by '+r+' each time'}
+ else if(type==='sq'){var m=R.i(2,15),c=R.pick([0,0,1,-1,2,3]);for(i=0;i<6;i++)t.push((m+i)*(m+i)+c);rule='squares '+m+'², '+(m+1)+'², …'+(c?(c>0?' plus ':' minus ')+Math.abs(c):'')}
+ else if(type==='inc'){var a3=R.i(5,40),d0=R.i(1,6),s=R.pick([1,2,3]);t.push(a3);for(i=0;i<5;i++)t.push(t[i]+d0+i*s);rule='gaps '+d0+', '+(d0+s)+', '+(d0+2*s)+', … (each gap grows by '+s+')'}
+ else{var b=R.pick([1,2,3]),a4=R.i(2,9);t.push(a4);for(i=0;i<5;i++)t.push(2*t[i]+b);rule='× 2, then + '+b+' each time'}
+ var sh2=t.slice(0,5),L2=sh2[4],g2=L2-sh2[3];corr=t[5];if(fam(sh2).some(function(v){return v!==corr}))return null;
+ mist=[[L2+g2,'Repeated the last gap ('+g2+'). The pattern is: '+rule+'.'],[corr+10,'Carry slip: +10 in the last step.'],[corr-1,'Off by one in the last step.'],[corr+1,'Off by one in the last step.'],[L2+2*g2,'Added the last gap twice.']];
+ if(type==='mul')mist.unshift([2*L2,'Doubled but forgot to add '+b+'.']);if(type==='gp')mist.unshift([L2*(t[1]/t[0]+1),'Multiplied by '+(t[1]/t[0]+1)+' instead of '+(t[1]/t[0])+'.']);
+ mist=mist.filter(function(m){return m[0]>0&&!fits(sh2.concat([m[0]]))});
+ var o2={k:'nser',topic:'Number series',p:{sh:sh2},q:'Find the next term: '+sh2.join(', ')+', ?',sol:'Pattern: '+rule+'. So ? = '+corr+'.'};
+ return pick4(R,o2,corr,mist)}
+
+function makeSet(seed){var R=rng(String(seed)),Q=[],i,tg=R.shuf([0,1,2,3,0,1,2,3]);
+ Q.push(retry(ineq,R,{coded:false,t:tg[0]}));Q.push(retry(ineq,R,{coded:true,t:tg[1]}));Q.push(retry(ineq,R,{coded:R.f()<0.5,t:tg[2]}));
+ for(i=3;i<8;i++)Q.push(retry(syl,R,tg[i]));
+ R.shuf(['sh','sh','op','rsh','rop']).slice(0,3).forEach(function(t){Q.push(retry(codeQ,R,t))});
+ Q.push(retry(bloodQ,R));Q.push(retry(bloodQ,R));
+ var dg=R.f()<0.5;Q.push(retry(dirQ,R,dg));Q.push(retry(dirQ,R,!dg));
+ for(i=0;i<3;i++)Q.push(retry(ioQ,R));
+ R.shuf([1,2,3]).slice(0,2).forEach(function(t){Q.push(retry(rankQ,R,t))});
+ Q.push(retry(serQ,R,true));Q.push(retry(serQ,R,false));
+ [3,3,2].forEach(function(n,s){retry(seatSet,R,{n:n,set:s+1}).forEach(function(q){Q.push(q)})});
+ /* blocks: 3 ineq + 2 syl | 3 syl + 2 code | 1 code, 2 blood, 2 dir | 3 io, 2 rank | 2 series, seating set 1 (3) | seating set 2 (3), set 3 (2) */
+ Q.forEach(function(q,k){q.id=seed+'#'+k});return Q}
+return{makeSet:makeSet};
+})();
+/*GEN-END*/
+
+var $=function(i){return document.getElementById(i)};
+if(!$('ch16-app'))return;
+function pad(n){return(n<10?'0':'')+n}
+var now=new Date(),dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+var left=Math.round((Date.UTC(2026,9,15)-Date.UTC(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+(function(){var t,s;if(left>12){t=left+' days to the exam';s='The 12-day countdown starts on 3 Oct 2026. Practise daily anyway.'}
+ else if(left>=1){t='Day '+(13-left)+' of 12';s=left===1?'Exam is tomorrow (15 Oct 2026). One block of 5 at most, then rest and sleep early.':left+' days to the PFRDA Phase I exam on 15 Oct 2026.'}
+ else if(left===0){t='Exam day';s='Today is 15 Oct 2026. One block of 5 as a warm-up at most, then stop. Trust your practice.'}
+ else{t='Exam passed';s='The Phase I exam was on 15 Oct 2026. The generator still makes a fresh set each day if you want to keep practising.'}
+ $('ch16-day').textContent=t;$('ch16-dsub').textContent=s})();
+
+/* storage: must never break the page */
+var KEY='ch16-errors',mem=[],canStore=true;
+function loadErr(){try{var v=localStorage.getItem(KEY);var a=v?JSON.parse(v):[];if(!Array.isArray(a))a=[];mem=a}catch(e){canStore=false}return mem}
+function saveErr(){try{localStorage.setItem(KEY,JSON.stringify(mem.slice(-60)))}catch(e){canStore=false}}
+loadErr();
+
+var RIGHT=25/30,WRONG=0.25,round=0,set=[],mode='day',idx=0,res=[],t0=0,tick=null,answered=false;
+function seedNow(){return round?dateStr+'#'+round:dateStr}
+function refreshStart(){$('ch16-setinfo').textContent='Set for '+dateStr+(round?' · round '+(round+1):'')+' · 30 questions';
+ $('ch16-redo').textContent='Redo my errors ('+mem.length+')';$('ch16-redo').disabled=!mem.length;$('ch16-redo2').disabled=!mem.length;
+ $('ch16-store').textContent=canStore?'':'This browser is not saving data, so your error log lasts only until you close the page.'}
+function screen(id){['ch16-start','ch16-qs','ch16-brk','ch16-end'].forEach(function(s){$(s).classList.toggle('hid',s!==id)})}
+function begin(m){mode=m;stopTick();if(m==='redo'){set=mem.slice(0,30).map(function(q){return JSON.parse(JSON.stringify(q))})}else set=GEN.makeSet(seedNow());
+ if(!set.length)return;idx=0;res=[];show();screen('ch16-qs')}
+function stopTick(){if(tick){clearInterval(tick);tick=null}}
+function score(){var r=0,w=0,s=0,tt=0;res.forEach(function(x){if(x.o==='r')r++;else if(x.o==='w')w++;else s++;tt+=x.t});return{r:r,w:w,s:s,m:r*RIGHT-w*WRONG,tt:tt}}
+function runLine(){var c=score();$('ch16-run').textContent='So far: '+c.r+' right · '+c.w+' wrong · '+c.s+' skipped · marks '+c.m.toFixed(2)}
+function show(){var q=set[idx];answered=false;
+ $('ch16-pos').textContent=(mode==='redo'?'Redo · ':'')+'Question '+(idx+1)+' of '+set.length+' · block '+(Math.floor(idx/5)+1)+' of '+Math.ceil(set.length/5)+' · '+q.topic;
+ $('ch16-qt').textContent=q.q;
+ var ob=$('ch16-opts');ob.innerHTML='';q.opts.forEach(function(o,j){var b=document.createElement('button');b.type='button';b.textContent='ABCD'[j]+'. '+o;b.onclick=function(){answer(j)};ob.appendChild(b)});
+ $('ch16-fb').className='fb hid';$('ch16-next').classList.add('hid');$('ch16-skip').classList.remove('hid');runLine();
+ t0=Date.now();stopTick();var tm=$('ch16-tim');tm.textContent='';if($('ch16-tmr').checked){tm.textContent='0 s';tick=setInterval(function(){tm.textContent=Math.floor((Date.now()-t0)/1000)+' s'},1000)}}
+function para(t,bold){var p=document.createElement('p');p.style.margin='.4em 0 0';p.style.whiteSpace='pre-line';if(bold){var b=document.createElement('b');b.textContent=bold;p.appendChild(b)}p.appendChild(document.createTextNode(t));return p}
+function answer(j){if(answered)return;answered=true;stopTick();var q=set[idx],sec=Math.round((Date.now()-t0)/1000),bs=$('ch16-opts').querySelectorAll('button');
+ bs.forEach(function(b){b.disabled=true});var fb=$('ch16-fb'),o;fb.innerHTML='';
+ if(j===null){o='s';fb.className='fb no'}else{bs[q.a].classList.add('right');if(j===q.a){o='r';fb.className='fb ok'}else{o='w';bs[j].classList.add('wrong');fb.className='fb no'}}
+ res.push({o:o,t:sec,topic:q.topic});
+ var head=para((o==='r'?'Correct. +0.83. ':o==='w'?'Not quite. −0.25. Answer '+'ABCD'[q.a]+'. ':'Skipped. 0 marks. Answer '+'ABCD'[q.a]+'. ')+($('ch16-tmr').checked?'('+sec+' s)':''));head.style.margin='0';head.style.fontWeight='600';fb.appendChild(head);
+ fb.appendChild(para(q.sol));
+ if(o==='w')fb.appendChild(para(q.why[j],'Your trap: '));
+ var ul=document.createElement('ul');q.why.forEach(function(w,k){if(k===q.a||k===j&&o==='w')return;var li=document.createElement('li');li.textContent='Option '+'ABCD'[k]+' ('+q.opts[k]+'): '+w;ul.appendChild(li)});
+ if(ul.children.length){fb.appendChild(para('How the other wrong options were built:'));fb.appendChild(ul)}
+ /* error log */
+ var pos=-1;mem.forEach(function(x,k){if(x.id===q.id)pos=k});
+ if(o==='w'&&pos<0){mem.push(q);saveErr()}
+ if(o==='r'&&mode==='redo'&&pos>=0){mem.splice(pos,1);saveErr()}
+ $('ch16-skip').classList.add('hid');var nx=$('ch16-next');nx.textContent=idx===set.length-1?'See score':(idx%5===4?'Finish block':'Next question');nx.classList.remove('hid');runLine();nx.focus({preventScroll:true})}
+$('ch16-skip').onclick=function(){answer(null)};
+$('ch16-next').onclick=function(){idx++;if(idx>=set.length)return finish();if(idx%5===0){var c=score();$('ch16-brkt').textContent='Block '+(idx/5)+' of '+Math.ceil(set.length/5)+' done';$('ch16-brks').textContent=c.r+' right · '+c.w+' wrong · '+c.s+' skipped · marks '+c.m.toFixed(2);screen('ch16-brk');$('ch16-app').scrollIntoView();return}show()};
+$('ch16-cont').onclick=function(){show();screen('ch16-qs')};
+$('ch16-stop').onclick=function(){finish()};
+function finish(){stopTick();var c=score(),n=res.length,att=c.r+c.w;
+ $('ch16-endt').textContent='Marks '+c.m.toFixed(2)+' of '+(n*RIGHT).toFixed(2);
+ var d=$('ch16-ends');d.innerHTML='';function line(t){var p=document.createElement('p');p.textContent=t;d.appendChild(p)}
+ line(c.r+' right · '+c.w+' wrong · '+c.s+' skipped, out of '+n+(n<set.length?' done (set has '+set.length+')':'')+'.');
+ if(n&&n<30){var sc=c.m*30/n;line('Exam scale (30 questions, 25 marks): about '+sc.toFixed(2)+' of 25 at this rate.')}else if(n)line('Exam scale: '+c.m.toFixed(2)+' of 25 (30 questions).');
+ if(att)line('Accuracy on attempted: '+Math.round(c.r/att*100)+'%. Average time: '+Math.round(c.tt/n)+' s per question.');
+ var miss={};res.forEach(function(x){if(x.o!=='r')miss[x.topic]=(miss[x.topic]||0)+1});var ks=Object.keys(miss);
+ line(ks.length?'Work on: '+ks.map(function(k){return k+' ('+miss[k]+')'}).join(', ')+'.':'No misses. Well done.');
+ line('Error log: '+mem.length+' question'+(mem.length===1?'':'s')+' saved. Redo them tomorrow before the new set.');
+ refreshStart();screen('ch16-end');$('ch16-app').scrollIntoView()}
+$('ch16-go').onclick=function(){begin('day')};
+$('ch16-redo').onclick=$('ch16-redo2').onclick=function(){if(mem.length)begin('redo')};
+$('ch16-again').onclick=function(){round++;refreshStart();begin('day')};
+refreshStart();
+})();</script>
+
+<p class="src"><b>Sources:</b> 30 questions, 25 marks, 15 Oct 2026 date and the "1/4th of marks assigned" wording: official PFRDA 2026 notification (see Start Here). Flat −0.25 per wrong answer: your instruction for this guide. Topic mix: our choice from the Priority Map (memory-based exam analyses, see research/). Every question is typical-style, written by a generator, never copied from a paper. Every answer is computed in code (seating by trying all 120 seatings, syllogisms by checking every Venn diagram, inequalities by checking every ordering, input-output by running the rule, blood relations by building the family tree, directions by coordinates) and was checked by a separate test program over 2,000 daily seeds.<br>
+<b>UNVERIFIED:</b> that these question styles and this topic mix match the 2026 paper; whether the real paper uses 4 or 5 options (4 used here); the negative mark (official wording gives 0.2083, this guide uses 0.25).</p>
+</article>
+
 <article class="chapter" id="ch17" data-no="17" data-title="Formula and Fact Sheet" data-tag="Compiled from every chapter · read before the exam">
 <h1>Formula and Fact Sheet</h1>
 <p class="oneline">In one line: every rule and "Memorise this" box from the guide on one page, for the night before the exam.</p>
