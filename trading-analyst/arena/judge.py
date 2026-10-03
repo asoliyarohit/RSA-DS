@@ -26,7 +26,7 @@ from analyst.cfd import PROFILES, CFDSpec
 from analyst.montecarlo import simulate
 
 CUTOFF = pd.Timestamp("2022-12-31")
-LEVERAGE = 5.0
+LEVERAGE = 5.0  # default only; real caps come per instrument from cost_for()
 TOP_N = 3
 INDEX_ETFS = {"SPY", "QQQ", "IWM", "DIA", "XLK", "XLF", "XLE", "XLV", "XLY", "XLP", "XLI", "XLU", "TLT", "GLD"}
 STOCK_COST = CFDSpec(spread_bps=10.0, slippage_bps=3.0, leverage=LEVERAGE, benchmark=0.04, markup=0.03, commission_bps=25.0)  # Revolut equity CFD fee 0.25%/side
@@ -34,8 +34,30 @@ ETF_COST = CFDSpec(**{**PROFILES["revolut"].__dict__, "leverage": LEVERAGE})
 N = NormalDist()
 
 
+MAJOR_INDEX = {"SPY", "QQQ", "DIA", "EWG", "FEZ", "EWJ", "EWU", "^GSPC", "^NDX", "^DJI", "^GDAXI", "^N225", "^FTSE", "^STOXX50E"}
+GOLD = {"GLD", "GC=F"}
+# Leverage tiers VERIFIED in Revolut's CFD cost report: stocks 1:5, major indices 1:20, gold 1:20, other commodities 1:10, crypto 1:2.
+# FX is 1:20 for minors (majors may be higher); we use 20. Spread/slippage numbers below are ASSUMPTIONS until the journal has real quotes.
+CRYPTO_COST = CFDSpec(spread_bps=30.0, slippage_bps=5.0, leverage=2.0, benchmark=0.04, markup=0.03)
+FX_COST = CFDSpec(spread_bps=2.0, slippage_bps=0.5, leverage=20.0, benchmark=0.0, markup=0.03)
+GOLD_COST = CFDSpec(spread_bps=5.0, slippage_bps=1.0, leverage=20.0, benchmark=0.04, markup=0.03)
+COMMODITY_COST = CFDSpec(spread_bps=8.0, slippage_bps=2.0, leverage=10.0, benchmark=0.04, markup=0.03)
+INDEX_COST = CFDSpec(**{**PROFILES["revolut_index"].__dict__})
+STOCK_COST = CFDSpec(spread_bps=10.0, slippage_bps=3.0, leverage=5.0, benchmark=0.04, markup=0.03, commission_bps=25.0)  # equity CFD fee 0.25%/side
+
+
 def cost_for(t: str) -> CFDSpec:
-    return ETF_COST if t in INDEX_ETFS else STOCK_COST
+    if t.endswith("-USD"):
+        return CRYPTO_COST
+    if t.endswith("=X"):
+        return FX_COST
+    if t in GOLD:
+        return GOLD_COST
+    if t.endswith("=F"):
+        return COMMODITY_COST
+    if t in MAJOR_INDEX:
+        return INDEX_COST
+    return STOCK_COST
 
 
 def load_strategy(path):
@@ -76,7 +98,7 @@ def fills(sig: pd.DataFrame, frames) -> pd.DataFrame:
                 + float(cfd.financing(np.array([r.dir]), np.array([nights]))[0])
         else:
             continue
-        rows.append({"instrument": r.instrument, "date": d, "setup": r.kind, "dir": r.dir, "ret": ret,
+        rows.append({"instrument": r.instrument, "date": d, "setup": r.kind, "dir": r.dir, "ret": ret, "lev": cfd.leverage,
                      "stop_pct": float(r.stop_pct), "score": float(getattr(r, "score", 0.0)),
                      "slot": d.toordinal() * 2 + (0 if r.kind == "OPEN" else 1)})
     t = pd.DataFrame(rows)
@@ -164,7 +186,7 @@ def evaluate(path, final=False):
                 "win_rate": round(float((lo.ret > 0).mean()), 3), "worst_trade_bps": round(float(lo.ret.min() * 1e4), 0),
                 "top5_share_of_profit": round(float(sl.nlargest(5).sum() / sl.sum()), 2) if sl.sum() > 0 else None})
     best = None
-    for risk in (0.03, 0.05, 0.10, 0.15, 0.20, 0.30):
+    for risk in (0.03, 0.05, 0.10, 0.15, 0.20, 0.30, 0.50):
         for th in (False, True):
             r = simulate(lo, risk, LEVERAGE, 5.0, throttle=th, paths=3000)
             r.update(throttle=th)
@@ -173,6 +195,14 @@ def evaluate(path, final=False):
             if r["hist_maxdd"] <= 0.5 and (best is None or r["p_goal"] > best["p_goal"] or (r["p_goal"] == best["p_goal"] and r["median_end"] > best["median_end"])):
                 best = r
     out["best_policy_5y"] = {k: (round(v, 4) if isinstance(v, float) else v) for k, v in (best or {}).items()}
+    try:
+        from analyst.frontier import required_edge
+        sig = float(lo["stop_pct"].median()); L = float(lo["lev"].median()); N = min(max(out["slots_per_year"], 1.0), 1000.0)
+        out["required_bps_50pct_3y"] = required_edge(N, 3, sigma=sig, L=L, paths=1500)
+        out["required_bps_50pct_10y"] = required_edge(N, 10, sigma=sig, L=L, paths=1500)
+        out["closeness_to_10y_goal"] = round(out["avg_bps_slot"] / out["required_bps_50pct_10y"], 2)
+    except Exception as e:  # never let the diagnostic break scoring
+        out["frontier_error"] = str(e)
     valid = ok and out["t_slot"] > 1.65 and out["dsr"] > 0.5 and out["ci95_bps"][0] > 0 and len(sl) >= 60
     out["verdict"] = "VALID EDGE" if valid else "NOT VALIDATED (do not trade)"
     return out

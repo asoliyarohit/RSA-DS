@@ -14,7 +14,7 @@ from .cfd import equity_factor
 
 def simulate(trades, risk_pct, leverage, years, start=1000.0, target=100_000.0, ruin_frac=0.10,
              paths=4000, block=10, throttle=False, seed=7):
-    _, ret, stop, mask = pack_slots(trades)
+    _, ret, stop, mask, lev = pack_slots(trades, with_lev=True, default_lev=leverage)
     n = len(ret)
     span_years = max((pd.to_datetime(trades["date"]).max() - pd.to_datetime(trades["date"]).min()).days / 365.25, 1e-9)
     steps = int(round(n / span_years * years))
@@ -27,7 +27,7 @@ def simulate(trades, risk_pct, leverage, years, start=1000.0, target=100_000.0, 
     for s in range(steps):
         i = idx[:, s]
         dd = 1 - e / peak
-        f = equity_factor(ret[i], stop[i], mask[i], risk_pct * throttle_mult(dd, throttle), leverage)
+        f = equity_factor(ret[i], stop[i], mask[i], risk_pct * throttle_mult(dd, throttle), lev[i])
         e = np.where(hit | ruined, e, e * f)
         peak = np.maximum(peak, e)
         new_hit = (~hit) & (~ruined) & (e >= target)
