@@ -45,9 +45,9 @@ def equity_factor(ret, stop_pct, mask, risk_pct, leverage):
     return np.maximum(1.0 + pnl, 0.0)
 
 
-# Broker profiles. Revolut figures are PLACEHOLDERS (ESMA retail cap for major indices = 20:1);
+# Broker profiles. Revolut figures are PLACEHOLDERS (user confirmed 5x leverage available);
 # open the Revolut app, check the live spread / overnight fee / min size for US500 & US100 and edit here.
 PROFILES = {
     "default": CFDSpec(),
-    "revolut": CFDSpec(spread_bps=2.0, slippage_bps=1.0, leverage=20.0, benchmark=0.04, markup=0.03),
+    "revolut": CFDSpec(spread_bps=2.0, slippage_bps=1.0, leverage=5.0, benchmark=0.04, markup=0.03),
 }

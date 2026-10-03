@@ -12,11 +12,11 @@
   },
   "grid_size": 120,
   "train_n": 94,
-  "train_avg_bps": 24.69,
-  "train_t": 1.82,
+  "train_avg_bps": 24.19,
+  "train_t": 1.78,
   "test_n": 166,
-  "test_avg_bps": 1.88,
-  "test_t": 0.22,
+  "test_avg_bps": 1.38,
+  "test_t": 0.16,
   "PASSES_GATE": false
  },
  {
@@ -31,11 +31,11 @@
   },
   "grid_size": 24,
   "train_n": 278,
-  "train_avg_bps": 11.49,
-  "train_t": 3.09,
+  "train_avg_bps": 10.79,
+  "train_t": 2.91,
   "test_n": 222,
-  "test_avg_bps": 11.08,
-  "test_t": 2.57,
+  "test_avg_bps": 10.37,
+  "test_t": 2.4,
   "PASSES_GATE": true
  },
  {
@@ -51,11 +51,11 @@
   },
   "grid_size": 120,
   "train_n": 81,
-  "train_avg_bps": 20.19,
-  "train_t": 1.16,
+  "train_avg_bps": 19.69,
+  "train_t": 1.13,
   "test_n": 147,
-  "test_avg_bps": 10.76,
-  "test_t": 0.93,
+  "test_avg_bps": 10.26,
+  "test_t": 0.89,
   "PASSES_GATE": false
  },
  {
@@ -69,12 +69,12 @@
    "stress_atr": 1.5
   },
   "grid_size": 24,
-  "train_n": 404,
-  "train_avg_bps": 7.21,
-  "train_t": 2.55,
+  "train_n": 405,
+  "train_avg_bps": 6.45,
+  "train_t": 2.29,
   "test_n": 390,
-  "test_avg_bps": 9.39,
-  "test_t": 2.4,
+  "test_avg_bps": 8.69,
+  "test_t": 2.22,
   "PASSES_GATE": true
  }
 ]
