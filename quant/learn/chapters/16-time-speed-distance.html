@@ -167,19 +167,19 @@ s.innerHTML='<div class="st">1. Take 1 unit of distance each way. Times: 1/'+a+'
 <label for="ch16-P">Platform length (m, 0 for a pole)</label><input id="ch16-P" type="number" value="270" inputmode="decimal">
 <div class="stepbox" style="margin-top:10px" id="ch16-r1"></div>
 <hr><b>Two trains crossing</b>
-<label for="ch16-l1">Length of train 1 (m)</label><input id="ch16-l1" type="number" value="120" inputmode="decimal">
-<label for="ch16-l2">Length of train 2 (m)</label><input id="ch16-l2" type="number" value="130" inputmode="decimal">
+<label for="ch16-t1">Length of train 1 (m)</label><input id="XXch16-l1" type="number" value="120" inputmode="decimal">
+<label for="ch16-t2">Length of train 2 (m)</label><input id="ch16-t2" type="number" value="130" inputmode="decimal">
 <label for="ch16-v1">Speed 1 (km/h)</label><input id="ch16-v1" type="number" value="60" inputmode="decimal">
 <label for="ch16-v2">Speed 2 (km/h)</label><input id="ch16-v2" type="number" value="40" inputmode="decimal">
 <div class="stepbox" style="margin-top:10px" id="ch16-r2"></div>
 <script>(function(){function f(x){return +(+x).toFixed(2)}function $(i){return document.getElementById(i)}
 function lab(){var L=parseFloat($('ch16-L').value),v=parseFloat($('ch16-v').value),P=parseFloat($('ch16-P').value)||0,o=$('ch16-r1');
 if(!(L>=0)||!(v>0)){o.innerHTML='<div class="st">Enter a length and a speed above 0.</div>'}else{var m=v*5/18;o.innerHTML='<div class="st">1. Speed = '+v+' × 5/18 = '+f(m)+' m/s</div><div class="st">2. Distance = '+L+' + '+P+' = '+f(L+P)+' m</div><div class="st">3. Time = '+f(L+P)+' ÷ '+f(m)+' = <b>'+f((L+P)/m)+' s</b></div>'}
-var a=parseFloat($('ch16-l1').value),b=parseFloat($('ch16-l2').value),x=parseFloat($('ch16-v1').value),y=parseFloat($('ch16-v2').value),s=$('ch16-r2');
+var a=parseFloat($('ch16-t1').value),b=parseFloat($('ch16-t2').value),x=parseFloat($('ch16-v1').value),y=parseFloat($('ch16-v2').value),s=$('ch16-r2');
 if(isNaN(a)||isNaN(b)||!(x>=0)||!(y>=0)){s.innerHTML='<div class="st">Enter lengths and speeds.</div>';return}
 var d=a+b,so=(x+y)*5/18,sd=Math.abs(x-y)*5/18;
 s.innerHTML='<div class="st">Distance to clear = '+f(d)+' m</div><div class="st">Opposite: relative '+f(x+y)+' km/h = '+f(so)+' m/s, time <b>'+(so>0?f(d/so)+' s':'-')+'</b></div><div class="st">Same direction: relative '+f(Math.abs(x-y))+' km/h = '+f(sd)+' m/s, time <b>'+(sd>0?f(d/sd)+' s':'never (same speed)')+'</b></div>'}
-['ch16-L','ch16-v','ch16-P','ch16-l1','ch16-l2','ch16-v1','ch16-v2'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+['ch16-L','ch16-v','ch16-P','ch16-t1','ch16-t2','ch16-v1','ch16-v2'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
 
 <section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
 <p class="prog">Typical style, written by us. Not copied from any paper.</p>
