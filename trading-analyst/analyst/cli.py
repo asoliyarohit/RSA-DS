@@ -87,10 +87,18 @@ def cmd_brief(args):
     brief(args)
 
 
+def cmd_stocks(args):
+    from . import universe as u
+    fr = u.load_frames(args.refresh)
+    for setup in ("OPEN", "CLOSE"):
+        r = u.walk_forward(fr, setup); r.pop("trades")
+        print(r)
+
+
 def main():
     ap = argparse.ArgumentParser(prog="analyst")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief)):
+    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks)):
         p = sp.add_parser(name); p.set_defaults(fn=fn)
         p.add_argument("--leverage", type=float, default=0.0, help="override broker leverage cap")
         p.add_argument("--broker", choices=list(PROFILES), default="revolut")

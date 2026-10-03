@@ -28,6 +28,12 @@ python -m pytest -q
   but that leverage is not available to this account.
 - Conclusion: 100x is not reachable from these setups. A realistic target is 2-4x in 10 years with ~25% max drawdown.
   More validated setups/instruments/intraday data are the only lever. Add them only through the same walk-forward gate.
+- **Single stocks at 5x (31 large caps incl. laggards, pooled walk-forward, `python -m analyst stocks`):**
+  overnight hold FAILS out of sample (-9 bps/trade, t=-4.4). Opening gap-and-go (follow gaps >= 3 ATR in trend direction, 2.5 ATR stop)
+  made +50 bps/trade OOS (t~2, only ~17 trades/yr) but it is fragile: train t was just 1.1, the 5 best trades are 65% of profit
+  (18 bps without them) and 4 of 12 OOS years lost money. Compounded OOS: ~6%/yr at 5% risk, ~19%/yr with ~50% drawdown at 20% risk.
+  P(1k -> 100k) ~0% in 3-5 yrs, ~1% in 10 yrs. Headline 10% moves are visible only in hindsight; the average follow-through is ~0.5%.
+  Caveats: survivorship bias (no delisted names), stock CFD costs assumed (10 bps spread, 3 bps slippage), earnings gaps not modelled separately.
 - Data caveat: Yahoo index (^GSPC) opens are stale before ~2014, so ETFs are used. Entry at "close" uses the daily close as proxy for 15:55.
 - Not modelled: guaranteed stops, weekend/holiday gaps beyond history, Revolut re-quotes, min sizes. Revolut costs are placeholders in `analyst/cfd.py`.
 - Sentiment is a lexicon over headlines: unvalidated, used only as veto/context. See `skills/trading-analyst/SKILL.md`.
