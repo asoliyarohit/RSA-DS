@@ -1,0 +1,335 @@
+<article class="chapter" id="ch04" data-no="04" data-title="Coding-Decoding" data-tag="letter shifts · opposite letters · conditional rules · 3 lessons">
+<h1>Coding-Decoding</h1>
+<p class="oneline">In one line: a code is one rule applied to every letter or word. Find the rule from a short example, test it on two letters, then apply it. Three lessons: shifts and positions, opposite letters and word substitution, conditional and chained rules.</p>
+<section class="lesson" id="ch04-l1"><h2 class="lt">Lesson 1 · Letter shift and position values</h2><p class="oneline">In one line: coding means one fixed rule is applied to every letter. Find the rule on one or two letters, then apply it to the rest.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>A friend texts you in a “secret” way: every letter is moved one step ahead in the alphabet. You see <b>IFMMP</b>. You step each letter back one: H E L L O. The message was HELLO. That is all coding-decoding is: a rule to <b>code</b> (write the secret form) and the reverse to <b>decode</b> (read it).</p><div class="bars" role="img" aria-label="H moves one step to I"><div class="row"><span class="a" style="width:50%">H (8)</span><span class="b" style="width:50%">I (9)</span></div></div><p class="cap">One step forward: position 8 becomes position 9.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">The English alphabet has 26 letters, A to Z. <b>Position value</b> means the place of a letter: A = 1, B = 2, ... Z = 26. (Convention used in this chapter.)</div><div class="st">Learn five anchors: <b>E = 5, J = 10, O = 15, T = 20, Y = 25</b> (every 5th letter). To find a letter, count from the nearest anchor (for example R: T is 20, so R is two before it, 18).</div><div class="st">A <b>coding rule</b> replaces each letter by another using one fixed rule. Decoding means undoing it.</div><div class="st"><b>Forward shift +k</b>: move k steps toward Z. CAT with +2: C→E, A→C, T→V, so <b>ECV</b>.</div><div class="st"><b>Backward shift −k</b>: move k steps toward A. ECV with −2 gives back CAT.</div><div class="st"><b>Wrap-around</b>: after Z comes A again, like a clock after 12 comes 1. So X, Y, Z with +3 give <b>A, B, C</b>. In numbers: new position = old + k, and if that is above 26, subtract 26.</div><div class="st"><b>Position-value coding</b>: replace each letter by its number. CAB becomes 3, 1, 2. The “value of a word” usually means the sum: 3 + 1 + 2 = 6.</div><div class="st"><b>Changing shifts</b>: the shift can change by place: +1 for the 1st letter, +2 for the 2nd, +3 for the 3rd, and so on.</div><div class="st"><b>Finding the rule</b>: compare the first coded letter with its original, then CHECK the second letter. A rule that fits only one letter is just a guess.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Position value: A = 1 ... Z = 26. Anchors: E 5, J 10, O 15, T 20, Y 25.</div><div class="box">Shift +k: new position = old + k; if above 26, subtract 26. Shift −k: new = old − k; if below 1, add 26.</div><div class="box">Decode a shift +k by applying −k (the opposite move).</div><div class="box">A coding rule must send different letters to different letters, otherwise nobody could decode it (one-to-one).</div><p class="src">Shift and wrap-around, decoding as the reverse shift: Wikipedia “Caesar cipher”; clock wrap idea: Wikipedia “Modular arithmetic”; 26 letters and vowels: Wikipedia “English alphabet”. Position formula and wrap rule: derived, Python-checked (all 26 letters, shifts 1 to 25).</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>In a code, PLANE is written RNCPG. How is TRAIN written?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Compare first letters: P (16) → R (18). That is +2.</div><div class="st">Step 2. Check the second pair: L (12) → N (14). Also +2. A,N,E: A→C, N→P, E→G. Same rule fits all, so the rule is +2.</div><div class="st">Step 3. Apply to TRAIN: T→V, R→T, A→C, I→K, N→P. Answer: <b>VTCKP</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Each letter of BREAD moves +1, +2, +3, +4, +5 in order. Code?</b></p><div class="stepbox" data-steps><div class="st">Step 1. B+1 = C. R+2 = T.</div><div class="st">Step 2. E+3 = H. A+4 = E.</div><div class="st">Step 3. D+5 = I. Answer: <b>CTHEI</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Fact: in a code, each letter was moved +2 and the word CAT became ECV.</div><div class="st">Wrong move: someone asked to decode ECV applies +2 again and gets GEX.</div><div class="st">Right: decoding goes the OTHER way. ECV with −2 gives <b>CAT</b>.</div><div class="st">Second trap, wrap-around: Y + 3 is not “28”. Position 25 + 3 = 28, minus 26 = 2, so <b>B</b>.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: test the first letter only, then check one more</h2><div class="tip"><b>Elimination routine.</b> (1) Find the shift from the first letter pair. (2) Look at the options: any option whose first letter does not match is out. (3) Confirm the last letter of the survivors. Two letters checked often leaves one option.</div><p>Drill: apply the shift on the letter. Say the answer aloud before you tap Show.</p><div class="drill"><script type="application/json">[["Y +3", "B  (25 + 3 → 2)"], ["C −5", "X  (3 − 5 → 24)"], ["W +4", "A  (23 + 4 → 1)"], ["B −3", "Y  (2 − 3 → 25)"], ["T +9", "C  (20 + 9 → 3)"], ["M +15", "B  (13 + 15 → 2)"], ["E −7", "X  (5 − 7 → 24)"], ["Z +1", "A  (26 + 1 → 1)"], ["R −20", "X  (18 − 20 → 24)"], ["K −11", "Z  (11 − 11 → 26)"], ["H +18", "Z  (8 + 18 → 26)"], ["A −1", "Z  (1 − 1 → 26)"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: shift and position tracker</h2><label for="ch04-l1w">Word (letters only)</label><input id="ch04-l1w" type="text" value="CAT" autocomplete="off">
+<label for="ch04-l1k">Shift k (positive = forward, negative = backward)</label><input id="ch04-l1k" type="number" value="2" inputmode="numeric"><div class="stepbox" style="margin-top:10px" id="ch04-l1o"></div><script>(function(){function $(i){return document.getElementById(i)}
+function P(c){return c.charCodeAt(0)-64}
+function sh(c,k){return String.fromCharCode((((P(c)-1+k)%26)+26)%26+65)}
+function run(){var w=($('ch04-l1w').value||'').toUpperCase().replace(/[^A-Z]/g,''),k=parseInt($('ch04-l1k').value),o=$('ch04-l1o');
+if(!w||isNaN(k)){o.innerHTML='<div class="st">Type a word and a whole-number shift.</div>';return}
+var a=w.split(''),pos=a.map(P),np=a.map(function(c){return P(sh(c,k))}),raw=pos.map(function(p){return p+k});
+var h='<div class="st">1. Positions: '+pos.join(', ')+' (sum '+pos.reduce(function(x,y){return x+y},0)+')</div>';
+h+='<div class="st">2. Add '+k+': '+raw.join(', ')+'</div>';
+h+='<div class="st">3. Wrap into 1 to 26: '+np.join(', ')+(raw.some(function(r){return r<1||r>26})?' (wrap used)':' (no wrap needed)')+'</div>';
+h+='<div class="st">4. Coded word: <b>'+a.map(function(c){return sh(c,k)}).join('')+'</b></div>';
+h+='<div class="st">5. To decode, shift by '+(-k)+'.</div>';o.innerHTML=h}
+['ch04-l1w','ch04-l1k'].forEach(function(i){$(i).addEventListener('input',run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“In a certain code, CLOUD is written as FORXG. How is RAIN written in that code?”</li><li>“If each letter is moved two steps backward, ROUTE is written as ...?”</li><li>“What is the sum of the position values of the letters in the word FACE?”</li><li>Often the rule is not told: you must find it from the example (two letters are enough to test it).</li></ul><div class="tip"><b>Not official.</b> The PFRDA notification lists no Reasoning topics, so what a coding question looks like on the day is our assumption, not a fact. Practise the rule-finding, not a fixed pattern.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as directed for this guide; the notification says ¼ of the marks, so the call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231.</p><div class="quiz"><script type="application/json">[
+{
+"q": "In a code, every letter is moved 3 steps forward. How is <b>BANK<\/b> written?",
+"o": [
+"EDQN",
+"YXKH",
+"FERO",
+"NQDE"
+],
+"a": 0,
+"e": "B→E, A→D, N→Q, K→N, so EDQN.",
+"t": [
+"",
+"That moves 3 steps BACKWARD (B→Y), the opposite direction",
+"That is a shift of +4: B→F. The rule says +3",
+"The letters were moved correctly but the word was also reversed; the rule does not say to reverse"
+]
+},
+{
+"q": "Each letter is moved 4 steps forward (wrap after Z back to A). How is <b>WAX<\/b> written?",
+"o": [
+"SWT",
+"AEB",
+"ZDA",
+"BFC"
+],
+"a": 1,
+"e": "W: 23 + 4 = 27, minus 26 = 1, so A. A: 1 + 4 = 5, E. X: 24 + 4 = 28, minus 26 = 2, B. Result AEB.",
+"t": [
+"That moves 4 steps backward",
+"",
+"That is +3, not +4",
+"Off by one at the wrap: W (23) + 4 = 27, minus 26 = 1 = A, not B"
+]
+},
+{
+"q": "In a code each letter is moved 2 steps forward. A word is written <b>TQWVG<\/b>. What was the word?",
+"o": [
+"VSYXI",
+"SPVUF",
+"ROUTE",
+"QNTSD"
+],
+"a": 2,
+"e": "Decode by moving 2 steps back: T→R, Q→O, W→U, V→T, G→E. Word: ROUTE.",
+"t": [
+"That moves 2 MORE steps forward (VSYXI). Decoding means going backward",
+"That is only 1 step back; the rule is 2",
+"",
+"That is 3 steps back; the rule is 2"
+]
+},
+{
+"q": "Using A = 1, B = 2, ..., Z = 26, what is the sum of the position values of the letters in <b>FACE<\/b>?",
+"o": [
+"11",
+"90",
+"93",
+"15"
+],
+"a": 3,
+"e": "F 6 + A 1 + C 3 + E 5 = 15.",
+"t": [
+"This counts A as 0 and so on; the convention here is A = 1",
+"That multiplies the positions; the question asks for the sum",
+"That uses reverse positions (A = 26, Z = 1); the question says A = 1",
+""
+]
+},
+{
+"q": "The letters of a word are moved +1, +2, +3, +4 in order (1st letter +1, 2nd +2, ...). How is <b>LAMP<\/b> written?",
+"o": [
+"KYJL",
+"MCPT",
+"MBNQ",
+"PDOQ"
+],
+"a": 1,
+"e": "L+1 = M, A+2 = C, M+3 = P, P+4 = T. Result MCPT.",
+"t": [
+"That moves backward each time",
+"",
+"That uses +1 for every letter",
+"That uses the shifts in reverse order (+4, +3, +2, +1)"
+]
+},
+{
+"q": "In a code, CLOUD is written <b>FORXG<\/b>. How is <b>RAIN<\/b> written in that code?",
+"o": [
+"OXFK",
+"IZRM",
+"UDLQ",
+"TCKP"
+],
+"a": 2,
+"e": "C→F is +3 and L→O is +3 (two letters agree, and +3 is the only uniform shift that fits). R→U, A→D, I→L, N→Q: UDLQ.",
+"t": [
+"Direction reversed: C→F is forward 3, so go forward",
+"That is the opposite-letter rule, which would turn C into X, not F",
+"",
+"The shift is +3, checked on C→F and L→O"
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What number is E, J, O, T, Y? (2) Which way do I move to decode a +2 code? (3) What is Y + 3? (4) How many letters must I test to trust a rule?</div><div class="mem"><b>Memorise this</b><br>1. A = 1 ... Z = 26; anchors E5 J10 O15 T20 Y25.<br>2. Shift +k forward, −k backward; Z wraps to A.<br>3. Decode = reverse the move.<br>4. Test the rule on at least TWO letters.<br>5. Word value = sum of positions.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Wikipedia: Caesar cipher</a> · <a href="https://en.wikipedia.org/wiki/Modular_arithmetic">Wikipedia: Modular arithmetic</a> · <a href="https://en.wikipedia.org/wiki/English_alphabet">Wikipedia: English alphabet</a>. Position formula, anchors, wrap rule and every worked or quiz answer: derived, Python-checked.<br><b>UNVERIFIED:</b> how coding questions are worded or how many appear in the real paper (the notification lists no topics).</p></section>
+<section class="lesson" id="ch04-l2"><h2 class="lt">Lesson 2 · Opposite letters and word substitution</h2><p class="oneline">In one line: the opposite letter is the mirror letter (A↔Z, B↔Y ...), and its position is always 27 minus the original position.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>Imagine the 26 letters printed on a strip of paper, then you fold the strip in the middle. A lands on Z, B lands on Y, and M lands on N. That folded partner is the <b>opposite letter</b>. Reading the alphabet backwards from Z gives the same partners.</p><div class="bars" role="img" aria-label="A at position 1 pairs with Z at position 26"><div class="row"><span class="a" style="width:4%">A</span><span class="b" style="width:92%">24 letters in between</span><span class="a" style="width:4%">Z</span></div></div><p class="cap">The fold sits between M (13) and N (14).</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Write the alphabet forward on top and backward below: A B C ... Z over Z Y X ... A. Each column is a pair.</div><div class="st">Each pair adds up to <b>27</b> in position: A 1 + Z 26, B 2 + Y 25, M 13 + N 14.</div><div class="st">So the <b>opposite letter</b> of the letter at position p is the letter at position <b>27 − p</b>. Also called “reverse alphabet” or “mirror letter”.</div><div class="st">Opposite is its own undo: the opposite of the opposite is the original letter. So coding and decoding are the same move.</div><div class="st">Example: DELHI. D (4) → 23 = W. E (5) → 22 = V. L (12) → 15 = O. H (8) → 19 = S. I (9) → 18 = R. Result <b>WVOSR</b>.</div><div class="st">“Position from the right end” of the alphabet: the 7th letter from Z is at position 27 − 7 = 20, which is T.</div><div class="st"><b>Careful, two different “reverses”:</b> reversing the ALPHABET swaps each letter with its partner (CAT → XZG). Reversing the WORD only changes the order of the same letters (CAT → TAC).</div><div class="st"><b>Word substitution</b>: a made-up language gives each word a code word. Each word has exactly one code word and vice versa (one-to-one). Find a word that is common to two statements: its code is the code word that is common to both.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Opposite letter: position p ↔ 27 − p. A↔Z, B↔Y, ..., M↔N.</div><div class="box">Opposite twice = original letter (self-inverse).</div><div class="box">Reverse alphabet ≠ reverse word. Do exactly what the question says, in order.</div><div class="box">Word substitution: common word → common code word (assuming one word, one code word).</div><p class="src">Mirror-alphabet substitution and its self-inverse property: Wikipedia “Atbash”; one-to-one substitution needed for decoding: Wikipedia “Substitution cipher”. Pair sum 27 and the shift/opposite link: derived, Python-checked on all 26 letters. The word-substitution puzzle was solved by checking all 120 ways of matching 5 words to 5 code words.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Write DELHI using the opposite letter for each letter.</b></p><div class="stepbox" data-steps><div class="st">Step 1. Positions: D 4, E 5, L 12, H 8, I 9.</div><div class="st">Step 2. 27 minus each: 23, 22, 15, 19, 18.</div><div class="st">Step 3. Letters: W, V, O, S, R. Answer: <b>WVOSR</b>. Check: opposite of WVOSR gives DELHI back.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>In a language, “red hot tea” = “ku pa mo”, “hot green tea” = “mo ra pa”, “tea red cup” = “ku ni mo”. What is the code for “tea”?</b></p><div class="stepbox" data-steps><div class="st">Step 1. “tea” appears in all three statements. Which code word appears in all three? Statement 1 has ku, pa, mo. Statement 2 has mo, ra, pa. Statement 3 has ku, ni, mo. Only <b>mo</b> is in all three.</div><div class="st">Step 2. So tea = mo. Then “hot” (in statements 1 and 2, besides tea) = pa, and “red” (in 1 and 3, besides tea) = ku.</div><div class="st">Step 3. Answer: <b>tea = mo</b>. Checked by trying all 120 matchings: exactly one fits.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Rule: “write the opposite letter of each letter”. Word: CAT.</div><div class="st">Wrong move: write the letters backwards, TAC. That reverses the WORD, not the alphabet.</div><div class="st">Another wrong move: use 26 − p instead of 27 − p. A (1) would give 25 = Y, but A↔Z.</div><div class="st">Right: C (3) → 24 = X, A (1) → 26 = Z, T (20) → 7 = G. Answer: <b>XZG</b>. Test: A must go to Z.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: the pair sum 27 and the A to M / N to Z trick</h2><div class="tip"><b>Fast way.</b> Letters A to M (1 to 13) pair with N to Z (14 to 26). Learn the pairs in one breath: AZ BY CX DW EV FU GT HS IR JQ KP LO MN. Or use 27 − p. The check that never fails: the two positions add to 27.</div><div class="tw"><table><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr><tr><td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td><td>U</td><td>T</td></tr><tr><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th><th></th></tr><tr><td>S</td><td>R</td><td>Q</td><td>P</td><td>O</td><td>N</td><td></td></tr></table></div><p>Drill: say the partner aloud before you tap Show.</p><div class="drill"><script type="application/json">[["Opposite of B", "Y  (2 + 25 = 27)"], ["Opposite of F", "U  (6 + 21 = 27)"], ["Opposite of K", "P  (11 + 16 = 27)"], ["Opposite of Q", "J  (17 + 10 = 27)"], ["Opposite of D", "W  (4 + 23 = 27)"], ["Opposite of H", "S  (8 + 19 = 27)"], ["Opposite of P", "K  (16 + 11 = 27)"], ["Opposite of S", "H  (19 + 8 = 27)"], ["Opposite of V", "E  (22 + 5 = 27)"], ["Opposite of X", "C  (24 + 3 = 27)"], ["Opposite of G", "T  (7 + 20 = 27)"], ["Opposite of N", "M  (14 + 13 = 27)"], ["Opposite of TEN", "GVM"], ["7th letter from the right end (Z = 1st)", "T"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: opposite letter converter</h2><label for="ch04-l2w">Word (letters only)</label><input id="ch04-l2w" type="text" value="DELHI" autocomplete="off"><div class="stepbox" style="margin-top:10px" id="ch04-l2o"></div><script>(function(){function $(i){return document.getElementById(i)}
+function P(c){return c.charCodeAt(0)-64}function L(p){return String.fromCharCode(64+p)}
+function opp(w){return w.split('').map(function(c){return L(27-P(c))}).join('')}
+function run(){var w=($('ch04-l2w').value||'').toUpperCase().replace(/[^A-Z]/g,''),o=$('ch04-l2o');
+if(!w){o.innerHTML='<div class="st">Type a word (letters only).</div>';return}
+var a=w.split(''),h='<div class="st">1. Positions: '+a.map(P).join(', ')+'</div>';
+h+='<div class="st">2. 27 minus each: '+a.map(function(c){return 27-P(c)}).join(', ')+'</div>';
+h+='<div class="st">3. Opposite letters: <b>'+opp(w)+'</b></div>';
+h+='<div class="st">4. Word written backwards only (different thing): '+w.split('').reverse().join('')+'</div>';
+h+='<div class="st">5. Opposite AND then reversed order: <b>'+opp(w).split('').reverse().join('')+'</b></div>';o.innerHTML=h}
+$('ch04-l2w').addEventListener('input',run);run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“In a certain code, each letter is replaced by its opposite letter in the alphabet. How is DELHI written?”</li><li>“Which letter is the 7th from the right end of the alphabet?”</li><li>“If ‘red hot tea’ is ‘ku pa mo’ and ‘hot green tea’ is ‘mo ra pa’ ... what is the code for ‘hot’?”</li><li>“Each letter is replaced by the position of its opposite letter. Find the code number sum for DOG.”</li></ul><div class="tip"><b>Convention for this chapter.</b> Opposite letter means the mirror partner (A↔Z). If a question means something else (for example “next letter”), the question will say it. Read the rule line twice.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as directed for this guide; the notification says ¼ of the marks, so the call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231.</p><div class="quiz"><script type="application/json">[
+{
+"q": "In a code each letter is replaced by its opposite letter (A↔Z, B↔Y, ...). How is <b>DELHI<\/b> written?",
+"o": [
+"WVOSR",
+"IHLED",
+"VUNRQ",
+"FGNJK"
+],
+"a": 0,
+"e": "D(4)→W(23), E(5)→V(22), L(12)→O(15), H(8)→S(19), I(9)→R(18): WVOSR.",
+"t": [
+"",
+"That only writes the word backwards (IHLED); letters are not mirrored",
+"That uses 26 − p; the partner of D (4) is at 27 − 4 = 23 = W, not V",
+"That is a +2 shift, not the mirror rule"
+]
+},
+{
+"q": "Which letter is the 7th from the RIGHT end of the English alphabet (Z is the 1st from the right)?",
+"o": [
+"G",
+"U",
+"S",
+"T"
+],
+"a": 3,
+"e": "Position = 27 − 7 = 20, which is T.",
+"t": [
+"That is 7th from the LEFT end (A is 1st)",
+"That is 6th from the right: 27 − 6 = 21. The 7th is 27 − 7 = 20",
+"That is 8th from the right: position 19",
+""
+]
+},
+{
+"q": "Each letter is replaced by its opposite letter, and then the whole word is written in reverse order. How is <b>CAT<\/b> written?",
+"o": [
+"XZG",
+"TAC",
+"GZX",
+"VCE"
+],
+"a": 2,
+"e": "Opposite: C→X, A→Z, T→G gives XZG. Reverse the order: GZX.",
+"t": [
+"That does only the first step; the word must then be reversed",
+"That does only the reversal; letters must be mirrored first",
+"",
+"That is a +2 shift then reversed; the first step is the opposite letter"
+]
+},
+{
+"q": "In a made-up language, “red hot tea” = “ku pa mo”, “hot green tea” = “mo ra pa”, “tea red cup” = “ku ni mo”. (One word has one code word, and the reverse.) What is the code for <b>hot<\/b>?",
+"o": [
+"pa",
+"mo",
+"ku",
+"ra"
+],
+"a": 0,
+"e": "tea = mo (in all three). “hot” is in statements 1 and 2 but not 3, and pa is in statements 1 and 2 but not 3 (apart from mo). So hot = pa. All 120 matchings were checked: one fits.",
+"t": [
+"",
+"mo is the code for “tea”: it is the only code word in all three statements",
+"ku is “red”: it appears in statements 1 and 3 only, as “red” does",
+"ra appears only in statement 2, so it is “green”"
+]
+},
+{
+"q": "Each letter is replaced by the position of its opposite letter (A→26, B→25, ..., Z→1). What is the SUM of the numbers for <b>DOG<\/b>?",
+"o": [
+"26",
+"55",
+"52",
+"43"
+],
+"a": 1,
+"e": "D 4→23, O 15→12, G 7→20. Sum 23 + 12 + 20 = 55.",
+"t": [
+"That adds the normal positions 4 + 15 + 7",
+"",
+"That uses 26 − p: D would give 22, but the rule makes D→23",
+"That skips the middle letter O: 23 + 20"
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What do two partner positions add to? (2) What is the opposite of M? (3) Reverse alphabet or reverse word: which swaps letters? (4) In substitution, what do I look for first?</div><div class="mem"><b>Memorise this</b><br>1. Opposite letter: p ↔ 27 − p.<br>2. AZ BY CX DW EV FU GT HS IR JQ KP LO MN.<br>3. Reverse the alphabet ≠ reverse the word.<br>4. Opposite twice = start again.<br>5. Substitution: common word, common code.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Atbash">Wikipedia: Atbash</a> · <a href="https://en.wikipedia.org/wiki/Substitution_cipher">Wikipedia: Substitution cipher</a> · <a href="https://en.wikipedia.org/wiki/English_alphabet">Wikipedia: English alphabet</a>. Pair sum 27, positions, substitution puzzle: derived, Python-checked (all 26 letters; all 120 word-to-code matchings).<br><b>UNVERIFIED:</b> whether real papers use “opposite letter” exactly this way (some may mean other rules; the question text will say).</p></section>
+<section class="lesson" id="ch04-l3"><h2 class="lt">Lesson 3 · Conditional and chained codes</h2><p class="oneline">In one line: a conditional or chained code is just several simple rules in a row. Write the word, do step 1 under it, step 2 under that, and never skip the order.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>At a railway counter the clerk says: “If the ticket is for a sleeper coach, stamp it red. Otherwise, stamp it blue.” You first CHECK the ticket, then pick the stamp. A conditional code works the same way: check the word (or letter), then apply the matching rule. A chain is like a two-stage assembly line: parcel goes through stage 1, then stage 2.</p><div class="bars" role="img" aria-label="Word goes through step 1 then step 2"><div class="row"><span class="a" style="width:34%">Word</span><span class="b" style="width:33%">Step 1</span><span class="a" style="width:33%">Step 2</span></div></div></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">A <b>conditional rule</b> has the form “if (test) then (rule A), otherwise (rule B)”. A <b>vowel</b> is one of A, E, I, O, U; every other letter is a consonant.</div><div class="st">Tests can be about the whole word (starts with a vowel? even or odd number of letters?) or about each letter (vowel or consonant? even or odd position?).</div><div class="st">Always test the ORIGINAL word, not the half-coded one, unless the question says otherwise.</div><div class="st"><b>Chain</b>: apply step 1 to every letter, write the result, then apply step 2 to that result. This is like function composition: do one rule, then the next.</div><div class="st">Order matters. Take A with “+2 then opposite”: A→C→X. Take “opposite then +2”: A→Z→B. Different answers (checked for all 26 letters).</div><div class="st">Handy link: opposite after a +k shift equals the shift −k after the opposite. So the pair “+2 then opposite” is the same as “opposite then −2”.</div><div class="st">Example: BAT with “+2 then opposite”: B→D→W, A→C→X, T→V→E. Result <b>WXE</b>.</div><div class="st">Example with a test: rule “starts with a vowel: +1 each letter; otherwise reverse the word”. ORANGE starts with O (vowel) so +1: <b>PSBOHF</b>. MANGO starts with M (consonant) so reverse: <b>OGNAM</b>.</div><div class="st">Write the working in rows under the word. Short, tidy rows beat doing it in your head.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Read the test first, decide the branch, then apply only that branch.</div><div class="box">Chain: result of step 1 is the input of step 2. Do not swap the steps.</div><div class="box">Test the original word unless told to test something else.</div><div class="box">+k then opposite = opposite then −k (derived).</div><p class="src">Doing one rule and then another (composition) and that the order matters: Wikipedia “Function composition”; vowels A E I O U: Wikipedia “English alphabet”; letter-by-letter substitution: Wikipedia “Substitution cipher”. The +k/opposite identity and order effect: derived, Python-checked (all 26 letters, k from −30 to 30).</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Rule: “if the word starts with a vowel, move every letter +1; otherwise write the letters in reverse order.” Code ORANGE.</b></p><div class="stepbox" data-steps><div class="st">Step 1. Test: first letter O is a vowel. Branch: +1.</div><div class="st">Step 2. O→P, R→S, A→B, N→O, G→H, E→F.</div><div class="st">Step 3. Answer: <b>PSBOHF</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Rule: “each letter moves +2 then is changed to its opposite letter.” Code BAT.</b></p><div class="stepbox" data-steps><div class="st">Step 1. After +2: B→D, A→C, T→V. Row: DCV.</div><div class="st">Step 2. Opposite of each: D(4)→23 W, C(3)→24 X, V(22)→5 E. Row: WXE.</div><div class="st">Step 3. Answer: <b>WXE</b>. If you swapped the steps you would get ABI, a wrong option.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Rule: “+2, then opposite letter”. Word: BAT.</div><div class="st">Wrong move: do the opposite first (B→Y, A→Z, T→G), then +2 (Y→A, Z→B, G→I). You write <b>ABI</b>.</div><div class="st">Right: +2 first (DCV), then opposite: <b>WXE</b>.</div><div class="st">Second trap: testing the coded word for the condition. Test the word you were GIVEN.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: two rows and one-letter elimination</h2><div class="tip"><b>Routine.</b> (1) Write the word. (2) Row 1 = after step 1. (3) Row 2 = after step 2. (4) Compute only the FIRST letter all the way through, then strike out options that do not start with it. (5) Check the last letter on the survivors. Then check the last letter on the survivors.</div><p>Drill: do it in your head or on paper, then Show.</p><div class="drill"><script type="application/json">[["“Starts with vowel: +1; else reverse.” ORANGE", "PSBOHF"], ["Same rule: MANGO", "OGNAM"], ["Same rule: APPLE", "BQQMF"], ["Same rule: PEAR", "RAEP"], ["“+2 then opposite” on A", "X"], ["“+2 then opposite” on M", "L"], ["“+2 then opposite” on Z", "Y"], ["“Opposite then +2” on A", "B"], ["“+3 then opposite” on BAT", "VWD"], ["“−1 then opposite” on CAT", "YAH"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: two-step code chain</h2><label for="ch04-l3w">Word (letters only)</label><input id="ch04-l3w" type="text" value="BAT" autocomplete="off">
+<label for="ch04-l3k">Shift size k (used by the shift steps)</label><input id="ch04-l3k" type="number" value="2" inputmode="numeric">
+<label for="ch04-l3a">Step 1</label><select id="ch04-l3a"><option value="p">Shift +k</option><option value="m">Shift −k</option><option value="o">Opposite letter</option><option value="r">Reverse the word</option></select>
+<label for="ch04-l3b">Step 2</label><select id="ch04-l3b"><option value="o">Opposite letter</option><option value="p">Shift +k</option><option value="m">Shift −k</option><option value="r">Reverse the word</option></select><div class="stepbox" style="margin-top:10px" id="ch04-l3o"></div><script>(function(){function $(i){return document.getElementById(i)}
+function P(c){return c.charCodeAt(0)-64}function L(p){return String.fromCharCode(64+p)}
+function sh(w,k){return w.split('').map(function(c){return L((((P(c)-1+k)%26)+26)%26+1)}).join('')}
+function ap(w,s,k){if(s==='p')return sh(w,k);if(s==='m')return sh(w,-k);if(s==='o')return w.split('').map(function(c){return L(27-P(c))}).join('');return w.split('').reverse().join('')}
+var N={p:'shift +k',m:'shift −k',o:'opposite letter',r:'reverse word'};
+function run(){var w=($('ch04-l3w').value||'').toUpperCase().replace(/[^A-Z]/g,''),k=parseInt($('ch04-l3k').value),a=$('ch04-l3a').value,b=$('ch04-l3b').value,o=$('ch04-l3o');
+if(!w||isNaN(k)){o.innerHTML='<div class="st">Type a word and a whole-number k.</div>';return}
+var r1=ap(w,a,k),r2=ap(r1,b,k),s1=ap(w,b,k),s2=ap(s1,a,k);
+var h='<div class="st">1. Word: '+w+'</div><div class="st">2. After step 1 ('+N[a]+'): '+r1+'</div><div class="st">3. After step 2 ('+N[b]+'): <b>'+r2+'</b></div>';
+h+='<div class="st">4. Steps swapped ('+N[b]+' first): '+s2+(s2===r2?' (same here)':' (different: order matters)')+'</div>';o.innerHTML=h}
+['ch04-l3w','ch04-l3k','ch04-l3a','ch04-l3b'].forEach(function(i){$(i).addEventListener('input',run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“If a word starts with a vowel, each letter is moved one step forward; otherwise the word is written backwards. How is ORANGE written?”</li><li>“In a code, vowels are replaced by the next letter and consonants by their opposite letters. Code PIANO.”</li><li>“Each letter is first moved 2 steps forward and then replaced by its opposite letter. Code BAT.”</li><li>“If the word has an even number of letters it is reversed; if odd, each letter moves one step back. Code PUNE.”</li></ul><div class="tip"><b>Convention for this chapter.</b> “Next letter” means position + 1 (Z wraps to A). Real questions may state conventions differently; the question text rules.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as directed for this guide; the notification says ¼ of the marks, so the call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231.</p><div class="quiz"><script type="application/json">[
+{
+"q": "Rule: if the word starts with a vowel, move every letter one step forward; otherwise write the letters in reverse order. Code <b>ORANGE<\/b>.",
+"o": [
+"EGNARO",
+"NQZMFD",
+"PSBOHF",
+"LIZMTV"
+],
+"a": 2,
+"e": "O is a vowel, so +1: O→P, R→S, A→B, N→O, G→H, E→F: PSBOHF.",
+"t": [
+"That uses the “otherwise” branch; ORANGE starts with a vowel (O)",
+"That moves backward; the rule says forward",
+"",
+"That is the opposite-letter rule, not in this question"
+]
+},
+{
+"q": "Same rule (vowel start: +1 each letter; otherwise reverse the word). Code <b>MANGO<\/b>.",
+"o": [
+"OGNAM",
+"NBOHP",
+"PHOBN",
+"NZMTL"
+],
+"a": 0,
+"e": "M is a consonant, so reverse the word: OGNAM.",
+"t": [
+"",
+"That applies +1; M is a consonant, so the “otherwise” branch (reverse) applies",
+"That does both steps; only one branch applies",
+"That is the opposite-letter rule, not in this question"
+]
+},
+{
+"q": "Each letter is first moved 2 steps forward and THEN replaced by its opposite letter. Code <b>BAT<\/b>.",
+"o": [
+"ABI",
+"DCV",
+"YZG",
+"WXE"
+],
+"a": 3,
+"e": "After +2: DCV. Opposite: D→W, C→X, V→E: WXE.",
+"t": [
+"Steps swapped: opposite first, then +2 gives ABI",
+"Only step 1 done (DCV); step 2 is missing",
+"Only the opposite step done (YZG); the +2 step is missing",
+""
+]
+},
+{
+"q": "Vowels (A, E, I, O, U) are replaced by the next letter; every consonant is replaced by its opposite letter. Code <b>PIANO<\/b>.",
+"o": [
+"QRZOL",
+"KJBMP",
+"KRZML",
+"QJBOP"
+],
+"a": 1,
+"e": "P(consonant)→K, I(vowel)→J, A(vowel)→B, N(consonant)→M, O(vowel)→P: KJBMP.",
+"t": [
+"Rules swapped: vowels got the opposite letter and consonants got +1",
+"",
+"Opposite letter for all letters; vowels should get the next letter instead",
+"Next letter for all; consonants should get the opposite letter"
+]
+},
+{
+"q": "Rule: if the word has an even number of letters, write it in reverse order; if odd, move each letter one step backward. Code <b>PUNE<\/b>.",
+"o": [
+"ENUP",
+"OTMD",
+"QVOF",
+"KFMV"
+],
+"a": 0,
+"e": "4 letters is even, so reverse: ENUP.",
+"t": [
+"",
+"That uses the odd-number branch; PUNE has 4 letters, which is even",
+"That moves forward, and applies the wrong branch",
+"That is the opposite-letter rule, not in this question"
+]
+},
+{
+"q": "Rule: even number of letters: reverse; odd: each letter one step backward. Code <b>DELHI<\/b>.",
+"o": [
+"IHLED",
+"EFMIJ",
+"CDKGH",
+"HGKDC"
+],
+"a": 2,
+"e": "5 letters is odd, so each letter moves one back: D→C, E→D, L→K, H→G, I→H: CDKGH.",
+"t": [
+"That uses the even branch; DELHI has 5 letters, which is odd",
+"That moves forward; the odd branch moves backward",
+"",
+"That does both steps; only one branch applies"
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What do I test first, and on which word? (2) In a chain, which step goes first? (3) What is +2 then opposite on A? (4) Do I apply both branches of an if-otherwise rule?</div><div class="mem"><b>Memorise this</b><br>1. Test the ORIGINAL word, pick ONE branch.<br>2. Chain = step 1 on every letter, then step 2.<br>3. Order matters: A with +2 then opposite = X; opposite then +2 = B.<br>4. Write rows under the word.<br>5. Test the first letter through all steps to eliminate options.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Function_composition">Wikipedia: Function composition</a> · <a href="https://en.wikipedia.org/wiki/Substitution_cipher">Wikipedia: Substitution cipher</a> · <a href="https://en.wikipedia.org/wiki/English_alphabet">Wikipedia: English alphabet</a>. Every rule application, worked example and quiz answer: derived, Python-checked.<br><b>UNVERIFIED:</b> the exact conditional rules used in real papers; whether “next letter” wraps from Z in real questions.</p></section>
+<p class="src"><b>Chapter sources:</b> Wikipedia (Caesar cipher, Atbash, Substitution cipher, Modular arithmetic, English alphabet, Function composition). Marking: the official notification says Reasoning 30 Q for 25 marks (about 0.8333 per question) and −¼ of marks per wrong answer; this guide uses a flat −0.25 as directed.<br><b>UNVERIFIED:</b> wording, rules and count of real coding questions; topic lists are third-party, not official.</p>
+</article>
