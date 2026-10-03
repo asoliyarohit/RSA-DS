@@ -23,7 +23,7 @@
 <div class="box">Total = rank from left + rank from right − 1</div>
 <div class="box">Rank from the other end = Total − rank + 1</div>
 <div class="box">Between two people = |rank of one − rank of the other| − 1, with both ranks counted from the SAME end</div>
-<div class="box">Different people, one rank from the left (a) and one from the right (b): if a + b &lt; Total then between = Total − a − b; if a + b &gt; Total + 1 (the ranks overlap) then between = a + b − Total − 2. If a + b = Total + 1 they are the same person.</div>
+<div class="box">Different people, one rank from the left (a) and one from the right (b): if a + b ≤ Total then between = Total − a − b; if a + b &gt; Total + 1 (the ranks overlap) then between = a + b − Total − 2. If a + b = Total + 1 they are the same person.</div>
 <div class="box">Swap: after two people swap, each sits in the other's old place. Translate the new rank into the old place of the other person.</div>
 <p class="src">Total, other-end and between formulas: Oliveboard, Testbook, BYJU'S (see Sources). Overlap and non-overlap between rules, same-person case: Testbook, BYJU'S; also derived, Python-checked over every total up to 39 and every pair of ranks.</p></section>
 
@@ -182,7 +182,7 @@ s.innerHTML='<div class="st">1. Second person from the left: '+n+' − '+q+' + 1
 <section class="card"><h2><span class="n">10</span>Lock it in</h2>
 <div class="tip"><b>Cover the page, say it out loud:</b> (1) Total from left and right ranks? (2) Rank from the other end? (3) How many between two people?</div>
 <div class="mem"><b>Memorise this</b><br>1. Total = left + right − 1.<br>2. Other end = total − rank + 1.<br>3. Between = gap of ranks − 1 (same end).<br>4. Ranks add to more than total: between = a + b − total − 2.<br>5. Swap: A takes B's old place.</div></section>
-<p class="src"><b>Sources:</b> <a href="https://www.oliveboard.in/blog/order-and-ranking/">Oliveboard: Order and Ranking</a> · <a href="https://testbook.com/reasoning/order-and-ranking-reasoning">Testbook: Order and Ranking</a> · <a href="https://byjus.com/govt-exams/ranking-and-order-logical-reasoning/">BYJU'S: Ranking and Order</a>. All numbers and the between rules: derived, Python-checked.<br><b>UNVERIFIED:</b> that Oliveboard's printed "gap" formula has the right signs for every case (we use our own, checked version); whether PFRDA asks this topic and how many questions.</p>
+<p class="src"><b>Sources:</b> <a href="https://www.oliveboard.in/blog/order-and-ranking/">Oliveboard: Order and Ranking</a> · <a href="https://testbook.com/reasoning/order-and-ranking-reasoning">Testbook: Order and Ranking</a> · <a href="https://byjus.com/govt-exams/ranking-and-order-logical-reasoning/">BYJU'S: Ranking and Order</a>. All numbers and the between rules: derived, Python-checked.<br><b>UNVERIFIED:</b> none for the formulas; note Oliveboard's printed "gap" formula ends in −1, which our Python check shows is one too many for the overlap case, so we use Testbook/BYJU'S −2; whether PFRDA asks this topic and how many questions.</p>
 </section>
 
 <section class="lesson" id="ch07-l2"><h2 class="lt">Lesson 2 · Alphanumeric series</h2><p class="oneline">In one line: a mixed row of digits, letters and symbols is just a numbered row, so number every element and count.</p>
@@ -379,7 +379,7 @@ o.innerHTML=h}
 <div class="box">Alphabet: place from left + place from right = 27</div>
 <div class="box">Letters between two letters = (bigger place − smaller place) − 1</div>
 <div class="box">Two clues, "exactly k between": try both orders (B right of A and B left of A). Each can give a different total.</div>
-<p class="src">Top/bottom ranking and minimum-persons idea: Oliveboard, BYJU'S (see Sources). 26 letters and vowels A E I O U: Wikipedia "English alphabet". Sum-27 rule, opposite letters, E-J-O-T-Y and two-case totals: derived, Python-checked.</p></section>
+<p class="src">Top/bottom ranking and minimum-persons idea: Oliveboard, BYJU'S (see Sources). 26 letters and vowels A E I O U: Wikipedia "English alphabet". Sum-27 rule, opposite letters, E-J-O-T-Y and two-case totals: derived, Python-checked. Minimum total in the two-case example also matches BYJU'S "sum of positions − persons between − 2" (8 + 12 − 5 − 2 = 13).</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
 <p><b>A is 8th from the left, B is 12th from the right, exactly 5 between. Possible totals?</b></p>
@@ -389,11 +389,11 @@ o.innerHTML=h}
 <div class="st">Step 3. Both are valid rows. If the question says "minimum", answer <b>13</b>. If "maximum", <b>25</b>. If it asks "the total" with no more clues, it cannot be fixed.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
-<p><b>In the word CHAMPION, how many letter pairs have as many letters between them in the word as in the alphabet?</b></p>
+<p><b>In the word CHAMPION, how many letter pairs have as many letters between them in the word as in the alphabet? (Convention: a pair counts whether its letters appear in the word in alphabet order or in reverse order.)</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Number the word: C1 H2 A3 M4 P5 I6 O7 N8. Alphabet places: C3 H8 A1 M13 P16 I9 O15 N14.</div>
-<div class="st">Step 2. Compare the gaps for every pair. Pairs that match: C and A (1 between both ways), H and N (5 and 5), O and N (0 and 0).</div>
-<div class="st">Step 3. Answer: <b>3 pairs</b>. We tested all 28 pairs by code.</div>
+<div class="st">Step 2. Compare the gaps for every pair. Pairs that match: C and A (1 between both ways, reverse order), H and N (5 and 5, alphabet order), O and N (0 and 0, reverse order).</div>
+<div class="st">Step 3. Answer: <b>3 pairs</b>. We tested all 28 pairs by code. Careful: if a question counts only pairs in alphabet order (forward), the answer would be 1 (HN). Read the convention.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
@@ -405,7 +405,7 @@ o.innerHTML=h}
 <p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
 
 <section class="card"><h2><span class="n">6</span>Speed method and drill</h2>
-<p>Memorise the anchors E, J, O, T, Y (5, 10, 15, 20, 25). Any letter is within 2 steps of an anchor, so you rarely count from A. For the other end use the sum 27.</p>
+<p>Memorise the anchors E, J, O, T, Y (5, 10, 15, 20, 25). Every letter from C to Z is within 2 steps of an anchor (A and B sit right at the start), so you rarely count from A. For the other end use the sum 27.</p>
 <div class="tip"><b>Elimination:</b> an answer outside A to Z, or a place number above 26, is wrong immediately. For ranks, an answer larger than the total is wrong.</div>
 <h3>Speed drill</h3>
 <p class="prog">Say it before you tap Show. Aim: under 5 seconds each.</p>
@@ -430,13 +430,13 @@ o.innerHTML=h}
 <li>"Which letter is 5th to the right of the 9th letter from the left end of the alphabet?"</li>
 <li>"How many letters are between the 6th from the left and 4th from the right in the alphabet?"</li>
 <li>"In the word ____, how many letter pairs have as many letters between them as in the alphabet?"</li></ul>
-<div class="tip"><b>Convention for this guide:</b> "to the right" in the alphabet means towards Z. A pair is counted once, in either order.</div></section>
+<div class="tip"><b>Convention for this guide:</b> "to the right" in the alphabet means towards Z. In letter-pair questions a pair is counted once, and it counts whether its letters sit in the word in alphabet order or in reverse order (forward and backward both count).</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
 <p class="prog">Right = +0.8333, wrong = −0.25. Guess only above about 23%.</p>
 <div class="quiz"><script type="application/json">[
 {
-"q": "In a class of 40, Anil is 12th from the top. Bhavna is 9 places below Anil. What is Bhavna's rank from the bottom?",
+"q": "In a class of 40, Anil is 12th from the top. Bhavna is 9 places below Anil (9 ranks further down the list). What is Bhavna's rank from the bottom?",
 "o": [
 "20",
 "21",
@@ -504,7 +504,7 @@ o.innerHTML=h}
 ]
 },
 {
-"q": "In the word CHAMPION, how many pairs of letters have as many letters between them in the word as they have between them in the alphabet? (Count each pair once, either order.)",
+"q": "In the word CHAMPION, how many pairs of letters have as many letters between them in the word as they have between them in the alphabet? (Count each pair once. A pair counts whether its letters appear in the word in alphabet order or in reverse order.)",
 "o": [
 "2",
 "3",
@@ -517,7 +517,7 @@ o.innerHTML=h}
 "Missed one pair. The pairs are CA, HN and ON.",
 "",
 "Counted one pair too many. Test every pair, do not guess.",
-"Only found the adjacent pair ON."
+"Counted only pairs in alphabet order (HN). This question also counts reverse-order pairs CA and ON."
 ]
 }
 ]</script></div></section>
