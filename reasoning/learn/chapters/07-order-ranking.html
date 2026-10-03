@@ -1,0 +1,530 @@
+<article class="chapter" id="ch07" data-no="07" data-title="Order, Ranking, Alphanumeric series" data-tag="Counting positions · 3 lessons · ~45 min">
+<h1>Order, Ranking, Alphanumeric series</h1>
+<p class="oneline">In one line: these questions are all about "who or what stands where", and one tiny habit (count the person once, not twice) wins most of them.</p>
+
+<section class="lesson" id="ch07-l1"><h2 class="lt">Lesson 1 · Rank in a row</h2><p class="oneline">In one line: a person's rank from the left plus their rank from the right counts them twice, so total = left + right − 1.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>You queue at a railway ticket window in Lucknow. Someone says "you are 9th from the front". You turn around and count 16 people from the back, counting yourself. How many people in the queue? You are in both counts, so you were counted twice.</p>
+<div class="bars" role="img" aria-label="A row of 24 people: 8 in front, you, 15 behind"><div class="row"><span class="a" style="width:33%">8 in front</span><span class="b" style="width:8%">You</span><span class="a" style="width:59%">15 behind</span></div></div>
+<p class="cap">8 + 1 + 15 = 24. Left rank 9 and right rank 16 add to 25, one too many.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">A <b>rank</b> (or position) says "which number in the line am I", and you count yourself. First in line is rank 1.</div>
+<div class="st">You can count from either end. "9th from the left" and "16th from the right" can describe the same person.</div>
+<div class="st">Picture the row with the person in the middle. People in front of them: rank − 1. People behind: the other rank − 1. Add the person: that is the whole row.</div>
+<div class="st">So <b>total = left rank + right rank − 1</b>. The −1 removes the double-counted person.</div>
+<div class="st">To switch ends for one person: <b>other-end rank = total − rank + 1</b>.</div>
+<div class="st">"How many between A and B" means the people strictly in the gap, not A and not B. Put both on the same end, subtract the ranks, then subtract 1.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Total = rank from left + rank from right − 1</div>
+<div class="box">Rank from the other end = Total − rank + 1</div>
+<div class="box">Between two people = |rank of one − rank of the other| − 1, with both ranks counted from the SAME end</div>
+<div class="box">Different people, one rank from the left (a) and one from the right (b): if a + b &lt; Total then between = Total − a − b; if a + b &gt; Total + 1 (the ranks overlap) then between = a + b − Total − 2. If a + b = Total + 1 they are the same person.</div>
+<div class="box">Swap: after two people swap, each sits in the other's old place. Translate the new rank into the old place of the other person.</div>
+<p class="src">Total, other-end and between formulas: Oliveboard, Testbook, BYJU'S (see Sources). Overlap and non-overlap between rules, same-person case: Testbook, BYJU'S; also derived, Python-checked over every total up to 39 and every pair of ranks.</p></section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Ravi is 7th from the left and 12th from the right. How many people?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Left rank 7, right rank 12.</div>
+<div class="st">Step 2. Add: 7 + 12 = 19. Ravi is counted twice.</div>
+<div class="st">Step 3. Subtract 1: <b>18 people</b>.</div>
+<div class="st">Check: 6 in front + Ravi + 11 behind = 18.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>Row of 30. A is 8th from the left, B is 12th from the right. How many between?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. B from the left: 30 − 12 + 1 = 19.</div>
+<div class="st">Step 2. Both ranks from the left: 8 and 19.</div>
+<div class="st">Step 3. 19 − 8 = 11, then − 1 for B himself: <b>10 between</b>.</div>
+<div class="st">Check with the shortcut: 8 + 12 = 20 is less than 30, so between = 30 − 20 = 10.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">"9th from the left and 16th from the right. Total?" The tempting answer is 9 + 16 = 25.</div>
+<div class="st">That counts the person twice. The right total is 24.</div>
+<div class="st">Same trap for "between": 19 − 8 = 11 looks right, but it counts B. Always take 1 more away.</div>
+<div class="st">Overlap trap: if the two ranks add to MORE than the total, the people are on the "wrong" sides. Do not use total − a − b (it goes negative). Use a + b − total − 2.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Speed method and drill</h2>
+<p>Elimination: the total must be at least as big as each rank. If your answer is smaller than any given rank, it is wrong. Then use total = left + right − 1, which takes about 5 seconds.</p>
+<div class="tip"><b>Fast order:</b> 1) write the total or the missing rank, 2) put both people on the same end, 3) subtract, 4) take 1 away for "between".</div>
+<h3>Speed drill</h3>
+<p class="prog">Say the answer before you tap Show. Aim: under 5 seconds each.</p>
+<div class="drill"><script type="application/json">[["Rank from left 10, rank from right 15. Total = ?", "24"], ["Left rank 6, right rank 6. Total = ?", "11"], ["Total 40, left rank 14. Right rank = ?", "27"], ["Total 30, left rank 1. Right rank = ?", "30"], ["Left 21, right 4. Total = ?", "24"], ["Total 31, left rank 9. People to her right = ?", "22"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: row calculator</h2>
+<b>One person, two ranks</b>
+<label for="ch07-a">Rank from left</label><input id="ch07-a" type="number" value="9" inputmode="numeric" min="1">
+<label for="ch07-b">Rank from right</label><input id="ch07-b" type="number" value="16" inputmode="numeric" min="1">
+<div class="stepbox" style="margin-top:10px" id="ch07-s1"></div>
+<hr><b>Two different people</b>
+<label for="ch07-n">Total people in the row</label><input id="ch07-n" type="number" value="30" inputmode="numeric" min="2">
+<label for="ch07-p">First person: rank from left</label><input id="ch07-p" type="number" value="8" inputmode="numeric" min="1">
+<label for="ch07-q">Second person: rank from right</label><input id="ch07-q" type="number" value="12" inputmode="numeric" min="1">
+<div class="stepbox" style="margin-top:10px" id="ch07-s2"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+function lab(){var a=parseInt($('ch07-a').value,10),b=parseInt($('ch07-b').value,10),t=$('ch07-s1');
+if(!(a>=1)||!(b>=1)){t.innerHTML='<div class="st">Enter two ranks of 1 or more.</div>'}else{var N=a+b-1;
+t.innerHTML='<div class="st">1. Add: '+a+' + '+b+' = '+(a+b)+'</div><div class="st">2. Take away 1 (counted twice): <b>total = '+N+'</b></div><div class="st">3. In front: '+(a-1)+'. Behind: '+(b-1)+'.</div>'}
+var n=parseInt($('ch07-n').value,10),p=parseInt($('ch07-p').value,10),q=parseInt($('ch07-q').value,10),s=$('ch07-s2');
+if(!(n>=2)||!(p>=1)||!(q>=1)||p>n||q>n){s.innerHTML='<div class="st">Enter a total of 2 or more, and ranks between 1 and the total.</div>';return}
+var pq=n-q+1;
+if(pq===p){s.innerHTML='<div class="st">The second person is '+pq+'th from the left. That is the SAME person as the first.</div>';return}
+var bt=Math.abs(p-pq)-1;
+s.innerHTML='<div class="st">1. Second person from the left: '+n+' − '+q+' + 1 = '+pq+'</div><div class="st">2. Both from the left: '+p+' and '+pq+'. Gap = '+Math.abs(p-pq)+'</div><div class="st">3. Take away 1: <b>'+bt+' people between</b></div><div class="st">'+(p+q<n?'Shortcut: '+p+' + '+q+' &lt; '+n+', so '+n+' − '+p+' − '+q+' = '+bt:p+q===n?'Shortcut: ranks add to the total, so they stand next to each other (0 between).':'Overlap: '+p+' + '+q+' + ... = '+(p+q)+', so '+(p+q)+' − '+n+' − 2 = '+bt)+'</div>'}
+['ch07-a','ch07-b','ch07-n','ch07-p','ch07-q'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"In a row of students, X is 14th from the left and 19th from the right. How many students are in the row?"</li>
+<li>"In a class of 45, Y ranks 17th from the top. What is the rank from the bottom?"</li>
+<li>"How many people are between A and B?" with ranks from opposite ends.</li>
+<li>"A and B swap places. Now A is 20th from the left. Find the total."</li></ul>
+<div class="tip"><b>How wrong options are built.</b> Look for the answer one too big (forgot −1) and one too small (took 1 away twice). If you got one of those, re-count the person.</div></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25. Guess only if your chance of being right is above about 23%. Crossing out one option improves your odds.</p>
+<div class="quiz"><script type="application/json">[
+{
+"q": "Seema stands in a row. She is 9th from the left and 16th from the right. How many people are in the row?",
+"o": [
+"25",
+"24",
+"23",
+"7"
+],
+"a": 1,
+"e": "Total = left + right − 1 = 9 + 16 − 1 = 24. Seema is counted in both ranks, so take 1 away.",
+"t": [
+"Added 9 + 16 and forgot to take away 1 (Seema was counted twice).",
+"",
+"Subtracted 2. Only ONE person (Seema) is double-counted, so subtract 1.",
+"Took the difference 16 − 9. That is not the total."
+]
+},
+{
+"q": "In a queue of 35 people, Neha is 11th from the front. What is her position from the back?",
+"o": [
+"24",
+"46",
+"11",
+"25"
+],
+"a": 3,
+"e": "From the back = 35 − 11 + 1 = 25. Check: 11 + 25 − 1 = 35.",
+"t": [
+"35 − 11 = 24 is only the number of people behind her. Add 1 for Neha herself.",
+"Added 35 + 11. Position from the other end is total − position + 1.",
+"Assumed the same number from both ends, which is only true at the exact middle.",
+""
+]
+},
+{
+"q": "In a row of 36, P is 10th from the left and Q is 14th from the right. How many people stand between P and Q? (Between means not counting P or Q.)",
+"o": [
+"12",
+"13",
+"14",
+"11"
+],
+"a": 0,
+"e": "Q is 36 − 14 + 1 = 23rd from the left. People between = 23 − 10 − 1 = 12. Shortcut: total − (10 + 14) = 12.",
+"t": [
+"",
+"Q is 23rd from the left. 23 − 10 = 13 still counts Q himself; subtract 1 more.",
+"Used Q's right rank (14) as if it were a gap.",
+"Subtracted 1 twice."
+]
+},
+{
+"q": "In a row of 25, A is 18th from the left and B is 14th from the right. How many people stand between A and B?",
+"o": [
+"6",
+"7",
+"5",
+"4"
+],
+"a": 2,
+"e": "B is 25 − 14 + 1 = 12th from the left, and A is 18th. Between = 18 − 12 − 1 = 5. Overlap formula: 18 + 14 − 25 − 2 = 5.",
+"t": [
+"Used 18 + 14 − 25 − 1. When the ranks overlap, the last number is 2, not 1.",
+"Used 18 + 14 − 25 = 7 and forgot to remove A and B themselves.",
+"",
+"Subtracted 3 in the overlap formula. It is 2."
+]
+},
+{
+"q": "A is 7th from the left and B is 12th from the right in a row. They swap places. Now A is 15th from the left. How many people are in the row?",
+"o": [
+"27",
+"19",
+"20",
+"26"
+],
+"a": 3,
+"e": "After the swap A sits in B's old place. So B's old place is 15th from the left and 12th from the right. Total = 15 + 12 − 1 = 26. Check: B at 15, A at 7, swap gives A 15th.",
+"t": [
+"15 + 12 = 27 but B's old spot is counted in both ranks. Subtract 1.",
+"Added the starting ranks 7 + 12 and ignored the swap.",
+"Added 7 + 12 + 1. It ignores what the swap tells you.",
+""
+]
+}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Total from left and right ranks? (2) Rank from the other end? (3) How many between two people?</div>
+<div class="mem"><b>Memorise this</b><br>1. Total = left + right − 1.<br>2. Other end = total − rank + 1.<br>3. Between = gap of ranks − 1 (same end).<br>4. Ranks add to more than total: between = a + b − total − 2.<br>5. Swap: A takes B's old place.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.oliveboard.in/blog/order-and-ranking/">Oliveboard: Order and Ranking</a> · <a href="https://testbook.com/reasoning/order-and-ranking-reasoning">Testbook: Order and Ranking</a> · <a href="https://byjus.com/govt-exams/ranking-and-order-logical-reasoning/">BYJU'S: Ranking and Order</a>. All numbers and the between rules: derived, Python-checked.<br><b>UNVERIFIED:</b> that Oliveboard's printed "gap" formula has the right signs for every case (we use our own, checked version); whether PFRDA asks this topic and how many questions.</p>
+</section>
+
+<section class="lesson" id="ch07-l2"><h2 class="lt">Lesson 2 · Alphanumeric series</h2><p class="oneline">In one line: a mixed row of digits, letters and symbols is just a numbered row, so number every element and count.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A train coach has seats marked 7, R, #, 3, K and so on. A friend says "go 4 seats to the right of seat number 9". You put a finger on seat 9, then hop 4 times. That is a whole alphanumeric series question.</p>
+<div class="bars" role="img" aria-label="Finger on position 9, four hops right to position 13"><div class="row"><span class="a" style="width:60%">Start at 9th</span><span class="b" style="width:40%">4 hops → 13th</span></div></div>
+<p class="cap">9 + 4 = 13. The finger spot itself is NOT a hop.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">An <b>alphanumeric series</b> is a row that mixes letters, numbers (digits) and symbols such as # @ $ % &amp; *.</div>
+<div class="st">Number every element from the left: 1, 2, 3 ... Write the numbers under the series. This is the single most useful move.</div>
+<div class="st">Series of 20? Then the 1st from the right is the 20th from the left. In general, <b>rank from right = total − rank from left + 1</b>, just like Lesson 1.</div>
+<div class="st">"4th to the right of the 9th from the left": find the 9th, then go 4 steps right, so you land on 9 + 4 = 13th. "To the left" subtracts instead.</div>
+<div class="st">"Immediately followed by" means the very next element. "Between" means strictly inside, not counting the two ends.</div>
+<div class="st">Vowels are A, E, I, O, U. Every other letter is a consonant. Digits are 0 to 9. Symbols are everything else.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">m-th to the right of the n-th from the left = position n + m from the left</div>
+<div class="box">m-th to the left of the n-th from the left = position n − m from the left</div>
+<div class="box">n-th from the right = position (total − n + 1) from the left</div>
+<div class="box">Elements strictly between positions i and j = j − i − 1</div>
+<p class="src">Question types ("n-th from left/right", "m-th to the right of n-th", "immediately preceded/followed", "between"): TutorialsPoint and Unacademy (see Sources). Position arithmetic: derived, Python-checked on the series below.</p></section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>Series: 7 R # 3 K @ 9 M $ 2 T 5 &amp; E 8 % L 4 * U (20 elements). Which is the 3rd to the right of the 5th from the left?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Number them: 1:7 2:R 3:# 4:3 5:K 6:@ 7:9 8:M 9:$ 10:2 11:T 12:5 13:&amp; 14:E 15:8 16:% 17:L 18:4 19:* 20:U.</div>
+<div class="st">Step 2. 5th from the left is K.</div>
+<div class="st">Step 3. 3 steps right: @, 9, M. Land on 5 + 3 = 8th: <b>M</b>.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>Same series. How many vowels are immediately preceded by a symbol and immediately followed by a digit?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. List the vowels: E (14th) and U (20th).</div>
+<div class="st">Step 2. E: before it is &amp; (symbol), after it is 8 (digit). Both tests pass.</div>
+<div class="st">Step 3. U: before it is * (symbol), but U is last so nothing follows. It fails.</div>
+<div class="st">Step 4. Answer: <b>1</b>.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">"4th to the right of the 9th": the 9th is hop zero. Start your count on the NEXT element.</div>
+<div class="st">So hops land on 10, 11, 12, 13. Answer is the 13th, not the 12th.</div>
+<div class="st">"To the right" does not flip when the reference is counted from the right. The 6th from the right is still a place in the row. Moving to its left means a smaller position number.</div>
+<div class="st">Also check the edge: "followed by" for the last element has no answer, so that element does not count.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Speed method</h2>
+<p>1) Write position numbers under the series once. 2) For "how many" questions, circle the target type (for example every letter) first, then check the neighbour rule on each circle. 3) For removed or reversed series, rewrite the series once, then renumber.</p>
+<div class="tip"><b>Elimination:</b> if the answer must be a symbol, cross out digits and letters in the options. Two options left means a 50% guess, well above the 23% line.</div>
+<h3>Lab: series tracker</h3>
+<label for="ch07-sr">Series (separate with spaces)</label><input id="ch07-sr" type="text" value="7 R # 3 K @ 9 M $ 2 T 5 &amp; E 8 % L 4 * U" autocomplete="off">
+<label for="ch07-sn">Start at the n-th element</label><input id="ch07-sn" type="number" value="9" inputmode="numeric" min="1">
+<label for="ch07-sd">Counted from</label><select id="ch07-sd"><option value="L">the left</option><option value="R">the right</option></select>
+<label for="ch07-sm">Then move m steps (m can be 0)</label><input id="ch07-sm" type="number" value="4" inputmode="numeric" min="0">
+<label for="ch07-sw">Move to the</label><select id="ch07-sw"><option value="R">right</option><option value="L">left</option></select>
+<div class="stepbox" style="margin-top:10px" id="ch07-s3"></div>
+<script>(function(){function $(i){return document.getElementById(i)}function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function lab(){var a=$('ch07-sr').value.trim().split(/\s+/).filter(Boolean),T=a.length,n=parseInt($('ch07-sn').value,10),m=parseInt($('ch07-sm').value,10),d=$('ch07-sd').value,w=$('ch07-sw').value,o=$('ch07-s3');
+if(T<1||!(n>=1)||!(m>=0)||n>T){o.innerHTML='<div class="st">Enter a series, an n between 1 and '+T+', and m of 0 or more.</div>';return}
+var p=d==='L'?n:T-n+1,q=w==='R'?p+m:p-m;
+var h='<div class="st">1. Series has '+T+' elements. Position '+n+' from the '+(d==='L'?'left':'right')+' = position '+p+' from the left: <b>'+esc(a[p-1])+'</b></div>';
+if(q<1||q>T){h+='<div class="st">2. Moving '+m+' to the '+(w==='R'?'right':'left')+' gives position '+q+', outside the series. No such element.</div>'}else{h+='<div class="st">2. Move '+m+' to the '+(w==='R'?'right':'left')+': '+p+(w==='R'?' + ':' − ')+m+' = position '+q+'</div><div class="st">3. Answer: <b>'+esc(a[q-1])+'</b></div>'}
+o.innerHTML=h}
+['ch07-sr','ch07-sn','ch07-sm'].forEach(function(i){$(i).addEventListener('input',lab)});['ch07-sd','ch07-sw'].forEach(function(i){$(i).addEventListener('change',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">7</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"Which element is 5th to the left of the 12th from the right?"</li>
+<li>"How many symbols are immediately followed by a letter?"</li>
+<li>"How many consonants are preceded by a digit and followed by a symbol?"</li>
+<li>"If all the digits are removed, which is the 6th from the left?"</li>
+<li>"How many digits lie between K and T?"</li></ul>
+<div class="tip"><b>How wrong options are built.</b> Expect the neighbour of the right answer (off by one), the mirror answer (counted from the wrong end), and the raw count with no condition applied.</div></section>
+
+<section class="card"><h2><span class="n">8</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25. Guess only above about 23%. Series used in Q1 to Q5 is repeated in each question, so you can number it once.</p>
+<div class="quiz"><script type="application/json">[
+{
+"q": "Series: 7 R # 3 K @ 9 M $ 2 T 5 &amp; E 8 % L 4 * U. Which element is 4th to the right of the 9th element from the left?",
+"o": [
+"5",
+"E",
+"&amp;",
+"K"
+],
+"a": 2,
+"e": "9th from left is $. Move 4 to the right: 2, T, 5, &. Answer &.",
+"t": [
+"Counted the 9th element itself as step 1, so you stopped one short.",
+"Went one step too far (5 steps instead of 4).",
+"",
+"Went 4 steps to the LEFT of the 9th element."
+]
+},
+{
+"q": "Same series: 7 R # 3 K @ 9 M $ 2 T 5 &amp; E 8 % L 4 * U. Which element is 3rd to the left of the 6th element from the right?",
+"o": [
+"5",
+"4",
+"#",
+"T"
+],
+"a": 0,
+"e": "The series has 20 elements. 6th from the right is the 15th from the left: 8. Move 3 to the left: E, &, 5. Answer 5.",
+"t": [
+"",
+"Moved 3 to the RIGHT of the 6th from right (8 → % → L → 4).",
+"Took 6th from the LEFT, not the right.",
+"Counted the 6th from the right one place off (E instead of 8)."
+]
+},
+{
+"q": "Same series. How many letters are immediately followed by a symbol? (Immediately = the very next element.)",
+"o": [
+"7",
+"6",
+"2",
+"3"
+],
+"a": 3,
+"e": "Check each letter's next element: R then #, K then @, M then $ are symbols. T then 5, E then 8, L then 4 are digits. U is last. So 3.",
+"t": [
+"Counted every letter (R, K, M, T, E, L, U) without checking what follows.",
+"Counted letters that have any element after them (U has none), ignoring the symbol test.",
+"Missed one of R#, K@, M$.",
+""
+]
+},
+{
+"q": "Same series. How many digits are between K and T? (Do not count K or T.)",
+"o": [
+"5",
+"2",
+"3",
+"1"
+],
+"a": 1,
+"e": "Between K and T are @, 9, M, $, 2. Only 9 and 2 are digits, so 2.",
+"t": [
+"Counted every element between K and T: @ 9 M $ 2.",
+"",
+"Also counted the digit 5, which lies after T.",
+"Stopped after the first digit 9."
+]
+},
+{
+"q": "Same series. Remove every symbol, then read from the left. Which is the 8th element?",
+"o": [
+"M",
+"5",
+"T",
+"2"
+],
+"a": 2,
+"e": "After removing # @ $ & % * the series is 7 R 3 K 9 M 2 T 5 E 8 L 4 U (14 elements). 8th is T.",
+"t": [
+"8th element of the ORIGINAL series. The symbols were not removed.",
+"9th element after removal (counted one extra).",
+"",
+"7th element after removal (counted one too few)."
+]
+}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">9</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What do I write under the series first? (2) Where does the count of hops start? (3) What does "immediately followed" mean for the last element?</div>
+<div class="mem"><b>Memorise this</b><br>1. Number the series first.<br>2. m to the right of n: position n + m.<br>3. n-th from the right: total − n + 1 from the left.<br>4. Between i and j: j − i − 1.<br>5. Last element has no "followed by".</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.tutorialspoint.com/reasoning/reasoning_alpha_numeric_sequence.htm">TutorialsPoint: Alpha Numeric Sequence</a> · <a href="https://unacademy.com/content/bank-exam/study-material/reasoning/note-on-alphanumeric-series-and-examples/">Unacademy: Alphanumeric Series</a> · <a href="https://en.wikipedia.org/wiki/English_alphabet">Wikipedia: English alphabet</a> (vowels A E I O U). All answers on the sample series: derived, Python-checked.<br><b>UNVERIFIED:</b> how exam setters treat "to the left of" when the reference is counted from the right (we state our convention above); whether PFRDA uses this question type.</p>
+</section>
+
+<section class="lesson" id="ch07-l3"><h2 class="lt">Lesson 3 · Rank by marks, and the alphabet as a row</h2><p class="oneline">In one line: class ranks work like a row from the top, and the English alphabet is simply a row of 26 letters.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A school notice board lists class ranks. Anil is 12th from the top in a class of 40. Bhavna is 9 places below him. Top of the list is rank 1, bottom is rank 40. It is the same row as Lesson 1, just standing upright.</p>
+<div class="bars" role="img" aria-label="Class of 40: Anil at 12, Bhavna at 21"><div class="row"><span class="a" style="width:30%">Top 11</span><span class="b" style="width:3%">A</span><span class="a" style="width:22%">8</span><span class="b" style="width:3%">B</span><span class="a" style="width:42%">19 below</span></div></div>
+<p class="cap">Anil 12th, Bhavna 12 + 9 = 21st from the top, so 40 − 21 + 1 = 20th from the bottom.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">"Top" is the left end and "bottom" is the right end. Every rule from Lesson 1 works. Total = rank from top + rank from bottom − 1.</div>
+<div class="st">"9 places below" means 9 ranks further down: rank + 9. "9 places above" means rank − 9.</div>
+<div class="st">The English alphabet has 26 letters. Treat it as a row: A is 1st from the left, Z is 1st from the right.</div>
+<div class="st">Because 26 + 1 = 27, a letter's place from the left plus its place from the right is 27. So the 7th from the right is the 27 − 7 = 20th letter, T.</div>
+<div class="st">Letter at the same place from the other end is the "opposite letter": A and Z, B and Y, F and U, K and P.</div>
+<div class="st">Handy anchors: E, J, O, T, Y are the 5th, 10th, 15th, 20th, 25th letters. Vowels A E I O U are 1, 5, 9, 15, 21.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">Rank from bottom = Total − rank from top + 1</div>
+<div class="box">Alphabet: place from left + place from right = 27</div>
+<div class="box">Letters between two letters = (bigger place − smaller place) − 1</div>
+<div class="box">Two clues, "exactly k between": try both orders (B right of A and B left of A). Each can give a different total.</div>
+<p class="src">Top/bottom ranking and minimum-persons idea: Oliveboard, BYJU'S (see Sources). 26 letters and vowels A E I O U: Wikipedia "English alphabet". Sum-27 rule, opposite letters, E-J-O-T-Y and two-case totals: derived, Python-checked.</p></section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>A is 8th from the left, B is 12th from the right, exactly 5 between. Possible totals?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Case 1: B is right of A. B is 8 + 5 + 1 = 14th from the left. Total = 14 + 12 − 1 = 25.</div>
+<div class="st">Step 2. Case 2: B is left of A. B is 8 − 5 − 1 = 2nd from the left. Total = 2 + 12 − 1 = 13.</div>
+<div class="st">Step 3. Both are valid rows. If the question says "minimum", answer <b>13</b>. If "maximum", <b>25</b>. If it asks "the total" with no more clues, it cannot be fixed.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>In the word CHAMPION, how many letter pairs have as many letters between them in the word as in the alphabet?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Number the word: C1 H2 A3 M4 P5 I6 O7 N8. Alphabet places: C3 H8 A1 M13 P16 I9 O15 N14.</div>
+<div class="st">Step 2. Compare the gaps for every pair. Pairs that match: C and A (1 between both ways), H and N (5 and 5), O and N (0 and 0).</div>
+<div class="st">Step 3. Answer: <b>3 pairs</b>. We tested all 28 pairs by code.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">"7th from the right end of the alphabet": many people compute 26 − 7 = 19 and land on S.</div>
+<div class="st">That gives the number of letters in front of the target, not its place. The place is 27 − 7 = 20, which is T.</div>
+<div class="st">The same off-by-one hides in "between": letters between E (5) and R (18) is 18 − 5 − 1 = 12, not 13.</div>
+<div class="st">And with two clues, one order is rarely the only order. Check both.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Speed method and drill</h2>
+<p>Memorise the anchors E, J, O, T, Y (5, 10, 15, 20, 25). Any letter is within 2 steps of an anchor, so you rarely count from A. For the other end use the sum 27.</p>
+<div class="tip"><b>Elimination:</b> an answer outside A to Z, or a place number above 26, is wrong immediately. For ranks, an answer larger than the total is wrong.</div>
+<h3>Speed drill</h3>
+<p class="prog">Say it before you tap Show. Aim: under 5 seconds each.</p>
+<div class="drill"><script type="application/json">[["Position of M", "13"], ["Position of T", "20"], ["Opposite letter of F (same place from the other end)", "U"], ["Opposite letter of K", "P"], ["Letter at position 10", "J"], ["Letters between D and M", "8"], ["Vowels A E I O U have which positions?", "1, 5, 9, 15, 21"], ["5th from the right end of the alphabet", "V"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: alphabet finder</h2>
+<label for="ch07-la">Letter 1</label><input id="ch07-la" type="text" value="E" maxlength="1" autocomplete="off">
+<label for="ch07-lb">Letter 2 (for "between")</label><input id="ch07-lb" type="text" value="R" maxlength="1" autocomplete="off">
+<div class="stepbox" style="margin-top:10px" id="ch07-s4"></div>
+<script>(function(){function $(i){return document.getElementById(i)}var A='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function lab(){var a=$('ch07-la').value.toUpperCase(),b=$('ch07-lb').value.toUpperCase(),o=$('ch07-s4'),i=A.indexOf(a),j=A.indexOf(b);
+if(a.length!==1||i<0){o.innerHTML='<div class="st">Type one letter A to Z in Letter 1.</div>';return}
+var h='<div class="st">1. '+a+' is the '+(i+1)+'th from the left and the '+(27-(i+1))+'th from the right (sum 27).</div><div class="st">2. Opposite letter: <b>'+A[25-i]+'</b></div>';
+if(b.length===1&&j>=0){var lo=Math.min(i,j),hi=Math.max(i,j);h+='<div class="st">3. Between '+a+' and '+b+': '+(hi+1)+' − '+(lo+1)+' − 1 = <b>'+(hi-lo-1)+' letters</b></div>'}
+o.innerHTML=h}
+['ch07-la','ch07-lb'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"Rahul ranks 14th from the top in a class of 50. Find his rank from the bottom."</li>
+<li>"P is 6 places above Q, who is 20th from the top. What is P's rank?"</li>
+<li>"Which letter is 5th to the right of the 9th letter from the left end of the alphabet?"</li>
+<li>"How many letters are between the 6th from the left and 4th from the right in the alphabet?"</li>
+<li>"In the word ____, how many letter pairs have as many letters between them as in the alphabet?"</li></ul>
+<div class="tip"><b>Convention for this guide:</b> "to the right" in the alphabet means towards Z. A pair is counted once, in either order.</div></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25. Guess only above about 23%.</p>
+<div class="quiz"><script type="application/json">[
+{
+"q": "In a class of 40, Anil is 12th from the top. Bhavna is 9 places below Anil. What is Bhavna's rank from the bottom?",
+"o": [
+"20",
+"21",
+"19",
+"29"
+],
+"a": 0,
+"e": "Bhavna is 12 + 9 = 21st from the top. From the bottom: 40 − 21 + 1 = 20. Convention: 9 places below means 9 ranks further down.",
+"t": [
+"",
+"That is Bhavna's rank from the TOP (12 + 9).",
+"40 − 21 forgets the +1 when switching ends.",
+"That is Anil's rank from the bottom (40 − 12 + 1)."
+]
+},
+{
+"q": "In a row, A is 8th from the left and B is 12th from the right. Exactly 5 people stand between them. What is the smallest possible number of people in the row?",
+"o": [
+"25",
+"13",
+"19",
+"20"
+],
+"a": 1,
+"e": "Two cases (checked by trying every total). B right of A: B is 14th from the left, total = 14 + 12 − 1 = 25. B left of A: B is 2nd from the left, total = 2 + 12 − 1 = 13. Smallest is 13.",
+"t": [
+"This is the biggest possible total (B on the right of A).",
+"",
+"8 + 12 − 1 treats A and B as one person; it ignores the 5 between.",
+"Just added 8 + 12. This ignores the 5 between them."
+]
+},
+{
+"q": "In the English alphabet A to Z, which letter is the 3rd to the right of the 7th letter from the right end?",
+"o": [
+"V",
+"J",
+"Q",
+"W"
+],
+"a": 3,
+"e": "7th from the right = 27 − 7 = 20th letter = T. 3rd to the right: U, V, W. Answer W.",
+"t": [
+"Used 26 − 7 as the 7th from the right. The alphabet has 26 letters, so the 7th from the right is the 27 − 7 = 20th (T).",
+"Took the 7th from the LEFT (G) and moved 3 right.",
+"Moved 3 to the LEFT of T instead of the right.",
+""
+]
+},
+{
+"q": "How many letters lie between the 5th letter from the left and the 9th letter from the right end of the English alphabet?",
+"o": [
+"13",
+"11",
+"12",
+"14"
+],
+"a": 2,
+"e": "5th from left = E (5). 9th from right = 27 − 9 = 18 = R. Between E and R: 18 − 5 − 1 = 12.",
+"t": [
+"18 − 5 = 13 still counts R itself; subtract 1.",
+"Subtracted 1 twice.",
+"",
+"Counted R as well as E (18 − 5 + 1)."
+]
+},
+{
+"q": "In the word CHAMPION, how many pairs of letters have as many letters between them in the word as they have between them in the alphabet? (Count each pair once, either order.)",
+"o": [
+"2",
+"3",
+"4",
+"1"
+],
+"a": 1,
+"e": "Tested every pair by code: CA (1 letter between in the word: H, and 1 in the alphabet: B), HN (5 and 5) and ON (0 and 0). So 3.",
+"t": [
+"Missed one pair. The pairs are CA, HN and ON.",
+"",
+"Counted one pair too many. Test every pair, do not guess.",
+"Only found the adjacent pair ON."
+]
+}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Alphabet places add to what? (2) Which letters are the anchors 5, 10, 15, 20, 25? (3) "Exactly k between": how many cases?</div>
+<div class="mem"><b>Memorise this</b><br>1. Bottom rank = total − top rank + 1.<br>2. Alphabet: left place + right place = 27.<br>3. Anchors E J O T Y = 5 10 15 20 25.<br>4. Between = place gap − 1.<br>5. "Exactly k between": try both orders.</div></section>
+<p class="src"><b>Sources:</b> <a href="https://www.oliveboard.in/blog/order-and-ranking/">Oliveboard: Order and Ranking</a> · <a href="https://byjus.com/govt-exams/ranking-and-order-logical-reasoning/">BYJU'S: Ranking and Order (minimum-persons rule)</a> · <a href="https://en.wikipedia.org/wiki/English_alphabet">Wikipedia: English alphabet</a>. Every answer and all alphabet facts: derived, Python-checked.<br><b>UNVERIFIED:</b> how setters word "places below/above" in exams (our convention: 9 places below = rank + 9); whether tied ranks appear in PFRDA papers (not covered here).</p>
+</section>
+</article>
