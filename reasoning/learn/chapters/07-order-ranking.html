@@ -76,9 +76,9 @@ t.innerHTML='<div class="st">1. Add: '+a+' + '+b+' = '+(a+b)+'</div><div class="
 var n=parseInt($('ch07-n').value,10),p=parseInt($('ch07-p').value,10),q=parseInt($('ch07-q').value,10),s=$('ch07-s2');
 if(!(n>=2)||!(p>=1)||!(q>=1)||p>n||q>n){s.innerHTML='<div class="st">Enter a total of 2 or more, and ranks between 1 and the total.</div>';return}
 var pq=n-q+1;
-if(pq===p){s.innerHTML='<div class="st">The second person is '+pq+'th from the left. That is the SAME person as the first.</div>';return}
+if(pq===p){s.innerHTML='<div class="st">The second person is at place '+pq+' from the left. That is the SAME person as the first.</div>';return}
 var bt=Math.abs(p-pq)-1;
-s.innerHTML='<div class="st">1. Second person from the left: '+n+' − '+q+' + 1 = '+pq+'</div><div class="st">2. Both from the left: '+p+' and '+pq+'. Gap = '+Math.abs(p-pq)+'</div><div class="st">3. Take away 1: <b>'+bt+' people between</b></div><div class="st">'+(p+q<n?'Shortcut: '+p+' + '+q+' &lt; '+n+', so '+n+' − '+p+' − '+q+' = '+bt:p+q===n?'Shortcut: ranks add to the total, so they stand next to each other (0 between).':'Overlap: '+p+' + '+q+' + ... = '+(p+q)+', so '+(p+q)+' − '+n+' − 2 = '+bt)+'</div>'}
+s.innerHTML='<div class="st">1. Second person from the left: '+n+' − '+q+' + 1 = '+pq+'</div><div class="st">2. Both from the left: '+p+' and '+pq+'. Gap = '+Math.abs(p-pq)+'</div><div class="st">3. Take away 1: <b>'+bt+' people between</b></div><div class="st">'+(p+q<n?'Shortcut: '+p+' + '+q+' &lt; '+n+', so '+n+' − '+p+' − '+q+' = '+bt:p+q===n?'Shortcut: ranks add to the total, so they stand next to each other (0 between).':'Overlap: '+p+' + '+q+' = '+(p+q)+' is more than '+n+', so '+(p+q)+' − '+n+' − 2 = '+bt)+'</div>'}
 ['ch07-a','ch07-b','ch07-n','ch07-p','ch07-q'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
 
 <section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
@@ -229,7 +229,7 @@ s.innerHTML='<div class="st">1. Second person from the left: '+n+' − '+q+' + 1
 <div class="trap"><div class="stepbox" data-steps>
 <div class="st">"4th to the right of the 9th": the 9th is hop zero. Start your count on the NEXT element.</div>
 <div class="st">So hops land on 10, 11, 12, 13. Answer is the 13th, not the 12th.</div>
-<div class="st">"To the right" does not flip when the reference is counted from the right. The 6th from the right is still a place in the row. Moving to its left means a smaller position number.</div>
+<div class="st">"To the right" always means towards the end of the series, even if the reference was counted from the right. Convert the reference to a left position first, then add for right and subtract for left.</div>
 <div class="st">Also check the edge: "followed by" for the last element has no answer, so that element does not count.</div>
 <p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
 
@@ -418,7 +418,7 @@ o.innerHTML=h}
 <script>(function(){function $(i){return document.getElementById(i)}var A='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 function lab(){var a=$('ch07-la').value.toUpperCase(),b=$('ch07-lb').value.toUpperCase(),o=$('ch07-s4'),i=A.indexOf(a),j=A.indexOf(b);
 if(a.length!==1||i<0){o.innerHTML='<div class="st">Type one letter A to Z in Letter 1.</div>';return}
-var h='<div class="st">1. '+a+' is the '+(i+1)+'th from the left and the '+(27-(i+1))+'th from the right (sum 27).</div><div class="st">2. Opposite letter: <b>'+A[25-i]+'</b></div>';
+var h='<div class="st">1. '+a+' is place '+(i+1)+' from the left and place '+(27-(i+1))+' from the right (sum 27).</div><div class="st">2. Opposite letter: <b>'+A[25-i]+'</b></div>';
 if(b.length===1&&j>=0){var lo=Math.min(i,j),hi=Math.max(i,j);h+='<div class="st">3. Between '+a+' and '+b+': '+(hi+1)+' − '+(lo+1)+' − 1 = <b>'+(hi-lo-1)+' letters</b></div>'}
 o.innerHTML=h}
 ['ch07-la','ch07-lb'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
