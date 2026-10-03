@@ -86,10 +86,14 @@ def fills(sig: pd.DataFrame, frames) -> pd.DataFrame:
             continue
         d = pd.Timestamp(r.date_in); i = f.index.get_loc(d); cfd = cost_for(r.instrument)
         o, h, l, c = (float(f[k].iloc[i]) for k in ("open", "high", "low", "close"))
+        nxt_o = float(f["open"].iloc[i + 1]) if i + 1 < len(f) else float("nan")
+        # non-positive or missing prices (e.g. WTI -$37 on 2020-04-20) make percentage returns meaningless: no fill, no phantom profit
+        if min(o, h, l, c) <= 0 or (r.kind == "CLOSE" and not nxt_o > 0) or not np.isfinite([o, h, l, c]).all():
+            continue
         if r.kind == "OPEN":
             stop = o * (1 - r.dir * r.stop_pct)
             hit = (l <= stop) if r.dir > 0 else (h >= stop)
-            ret = r.dir * ((stop if hit else c) / o - 1) - cfd.round_trip_cost()
+            ret = max(r.dir * ((stop if hit else c) / o - 1), -1.0) - cfd.round_trip_cost()
         elif r.kind == "CLOSE":
             if i + 1 >= len(f):
                 continue

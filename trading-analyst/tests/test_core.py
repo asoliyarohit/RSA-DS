@@ -147,3 +147,13 @@ def test_judge_detects_score_and_stop_leaks():
     assert judge.lookahead_check(make(None), fr)[0]
     assert not judge.lookahead_check(make("score"), fr)[0]
     assert not judge.lookahead_check(make("stop"), fr)[0]
+
+
+def test_judge_ignores_nonpositive_prices():
+    from arena import judge
+    idx = pd.bdate_range("2020-04-15", periods=8)
+    f = pd.DataFrame({"open": [20, 19, 18, -30, 5, 5, 5, 5.0], "high": [21, 20, 19, -20, 6, 6, 6, 6.0],
+                      "low": [19, 18, 17, -40, 4, 4, 4, 4.0], "close": [19, 18, 17, -37, 5, 5, 5, 5.0]}, index=idx)
+    sig = pd.DataFrame([{"instrument": "CL=F", "date_in": idx[3], "kind": "OPEN", "dir": -1, "stop_pct": 0.05, "score": 1.0},
+                        {"instrument": "CL=F", "date_in": idx[2], "kind": "CLOSE", "dir": -1, "stop_pct": 0.05, "score": 1.0}])
+    assert judge.fills(sig, {"CL=F": f}).empty
