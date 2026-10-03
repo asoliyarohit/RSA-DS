@@ -138,10 +138,15 @@ def cmd_guard(args):
         print(json.dumps(guard.status(), indent=1))
 
 
+def cmd_intraday(args):
+    from . import intraday
+    intraday.collect() if args.action == "call" else intraday.test()
+
+
 def main():
     ap = argparse.ArgumentParser(prog="analyst")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall), ("journal", cmd_journal), ("guard", cmd_guard)):
+    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall), ("journal", cmd_journal), ("guard", cmd_guard), ("intraday", cmd_intraday)):
         p = sp.add_parser(name); p.set_defaults(fn=fn)
         p.add_argument("--leverage", type=float, default=0.0, help="override broker leverage cap")
         p.add_argument("--broker", choices=list(PROFILES), default="revolut")

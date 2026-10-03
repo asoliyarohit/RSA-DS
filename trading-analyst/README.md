@@ -30,6 +30,9 @@ loss stops, 20% drawdown HALT (human reset), risk x0.5 after 3 straight losses (
 and risk = 0 (paper only) until the journal shows 100+ settled calls with positive mean and t>1.65. It can only reduce or block risk, never raise it.
 It limits how fast you can lose; it cannot create an edge.
 
+`python -m analyst intraday call|report`: daily archive of free 5m/60m bars (committed under data/intraday so history grows) and the pre-registered intraday tests.
+Result so far: first-hour->last-half-hour (721 days) and opening-range breakout (60 days) have no net edge on SPY/QQQ/DIA/GLD.
+
 ## What the evidence says (honest)
 | Setup | Out-of-sample result | Verdict |
 |---|---|---|

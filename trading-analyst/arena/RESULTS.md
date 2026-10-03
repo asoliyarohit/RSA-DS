@@ -43,3 +43,9 @@ Findings: (1) 'direction is irrelevant / shorts earn in down markets' is NOT sup
 (2020 Q1 the model was long: -65 bps/slot) and bleed in bull years. (2) Naive daily-capture trend-following loses net in every class (gross ~2-12 bps vs 4-66 bps costs).
 (3) Data traps found: Yahoo futures roll gaps (a CFD never receives them), stale opens on metals, WTI -$37 print, same-day VIX leak (IC 0.21 -> 0.05 once lagged), foreign-index ETFs priced as 20x CFDs.
 (4) Judge fixes this round: per-instrument leverage tiers, non-positive-price guard.
+
+## Intraday tests (user chose option 2): free 60m (730 days) + 5m (60 days) bars; 4 pre-registered trials (analyst/intraday.py)
+- T1 Gao FOLLOW (first-hour direction -> last half-hour), SPY/QQQ/DIA/GLD, 721 days: -5.0 bps/day net (t -9.1); indices only -4.0. Gross ~ -0.3 bps.
+- T2 Gao FADE: -4.5 bps/day net (t -8.1). Gross ~ +0.3 bps. => the first-hour -> last-half-hour link is ZERO in 2023-26 (resolution +/-1.4 bps).
+- T3 ORB breakout (5m, 60 days only): -10.3 bps/day net (t -2.95). Gross ~ -5.5 bps (breakouts failed). The mirror (fade the break) was NOT pre-registered; its gross would be ~+5.5 bps vs ~4.8 bps cost, i.e. ~0 net, so it is not pursued.
+- The archive (data/intraday/) is committed so 5m history keeps growing past the 60-day free limit: `python -m analyst intraday call` once a day.
