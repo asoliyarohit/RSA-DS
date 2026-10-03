@@ -1,0 +1,376 @@
+<article class="chapter" id="ch12" data-no="12" data-title="Data Sufficiency (reasoning style)" data-tag="ordering · blood relations · directions · 3 lessons">
+<h1>Data Sufficiency (reasoning style)</h1>
+<p class="oneline">In one line: you are not asked for the answer, only whether the statements pin down exactly ONE answer. Three lessons: ordering, blood relations, directions. Every verdict was checked by trying all possibilities.</p>
+<section class="lesson" id="ch12-l1"><h2 class="lt">Lesson 1 · Ordering: is the order pinned down?</h2><p class="oneline">In one line: a data sufficiency question does not ask “what is the answer?”. It asks “do the statements pin down ONE answer?”. Here the answers are about who is taller, rank, tallest or shortest.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>At the chai stall your friend says: “Ravi stands ahead of Sunil in the queue.” You ask: “So is Ravi first?” You cannot say; someone else may be ahead of both. Then she adds: “Ravi is ahead of everyone else too.” Now you can say yes. You did not need the whole queue order. You only needed enough to be certain.</p><div class="bars" role="img" aria-label="Asha taller than Bala taller than Chitra"><div class="row"><span class="a" style="width:100%">Asha</span></div><div class="row"><span class="a" style="width:78%">Bala</span></div><div class="row"><span class="a" style="width:56%">Chitra</span></div></div><p class="cap">A chain Asha &gt; Bala &gt; Chitra settles Asha vs Chitra without ever comparing them directly.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">A <b>data sufficiency</b> question gives a question and two statements, I and II. You decide whether the statements give enough information to answer. You do not need to find a full solution.</div><div class="st">Think of every possible arrangement of the people that obeys the statement. If all of those arrangements give the SAME answer, the statement is <b>sufficient</b>. If two of them give different answers, it is <b>not sufficient</b>.</div><div class="st">Conventions used in this chapter: everyone has a different height; only the people named exist; “taller” is the only thing compared; you use nothing outside the statements. (Each convention stops guessing.)</div><div class="st">A definite “No” is a full answer. If the statements prove Asha is NOT taller than Chitra, that is sufficient. “Sufficient” means certain, not “yes”.</div><div class="st">Three tests, in this order: (1) I alone, pretending II does not exist; (2) II alone, pretending I does not exist; (3) both together.</div><div class="st">To prove “not sufficient”, build two different line-ups that both obey the statement but disagree. If you can build them, stop: not sufficient.</div><div class="st">Then pick the option that matches your three results (table in the next card).</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Sufficient: every arrangement obeying the statement(s) gives one answer. Insufficient: two obeying arrangements disagree.</div><div class="box">If I alone is sufficient, I and II together are sufficient too (extra true information cannot hurt).</div><div class="box"><b>Chain rule.</b> Write each “A taller than B” as an arrow A → B. “X taller than Y?” is settled exactly when a chain of arrows leads from X to Y or from Y to X. “Who is tallest?” is settled exactly when one person has a chain to EVERY other person.</div><div class="tw"><table><tr><th>I alone sufficient?</th><th>II alone sufficient?</th><th>Together?</th><th>Pick</th></tr><tr><td>Yes</td><td>No</td><td>(yes)</td><td>I alone</td></tr><tr><td>No</td><td>Yes</td><td>(yes)</td><td>II alone</td></tr><tr><td>Yes</td><td>Yes</td><td>(yes)</td><td>Either alone</td></tr><tr><td>No</td><td>No</td><td>Yes</td><td>Both needed</td></tr><tr><td>No</td><td>No</td><td>No</td><td>Not enough</td></tr></table></div><p class="src">Strict ordering (all different, any two comparable, chains carry through): Wikipedia “Total order”. Three-test method: GeeksforGeeks. Chain rule: derived, Python-checked (20,352 checks on 3, 4 and 5 people with random statement sets, 0 mismatches). The “either alone” row is our extension of the four options on the fetched page.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Is Dev taller than Chitra? (people: Asha, Bala, Chitra, Dev)</b><br>I. Dev is taller than Bala.<br>II. Bala is taller than Chitra.</p><div class="stepbox" data-steps><div class="st">Test I alone: Dev &gt; Bala. Chitra is not mentioned. Chitra could be above Dev or below Bala. Two line-ups disagree, so I is not sufficient.</div><div class="st">Test II alone: Bala &gt; Chitra. Dev is not mentioned. Dev could be above or below Chitra. Not sufficient.</div><div class="st">Together: Dev &gt; Bala and Bala &gt; Chitra give the chain Dev → Bala → Chitra. Dev is taller than Chitra, in every line-up.</div><div class="st">Verdict (checked by trying all 24 line-ups): <b>Both needed</b>. Answers: I alone {No / Yes}, II alone {No / Yes}, together {Yes}.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>What is Chitra's rank from the top among the five? (people: Asha, Bala, Chitra, Dev, Esha)</b><br>I. Asha is taller than Chitra; Bala is taller than Chitra.<br>II. Chitra is taller than Dev; Chitra is taller than Esha.</p><div class="stepbox" data-steps><div class="st">Rank 1 means tallest. Count how many people are above Chitra, then add 1.</div><div class="st">I alone: Asha and Bala are above Chitra. Dev and Esha are unknown, so Chitra is rank 3, 4 or 5.</div><div class="st">II alone: Chitra is above Dev and Esha, so at most 2 people (Asha, Bala) can be above her: rank 1, 2 or 3.</div><div class="st">Together: exactly Asha and Bala above (2 people), so Chitra is rank 3. Verdict (all 120 line-ups tried): <b>Both needed</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><p><b>Is Asha taller than Chitra? (people: Asha, Bala, Chitra)</b><br>I. Chitra is taller than Bala.<br>II. Bala is taller than Asha.</p><div class="stepbox" data-steps><div class="st">Together: Chitra &gt; Bala &gt; Asha. So Asha is NOT taller than Chitra.</div><div class="st">Wrong thought: “the answer is No, so the statements did not help. Not enough.”</div><div class="st">Why that is wrong: the question has a definite answer, No, in every line-up that fits. Pinned down is pinned down.</div><div class="st">Right: Neither statement alone settles it (each leaves both line-ups open), together they do: <b>Both needed</b>. Never confuse “No” with “cannot say”.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: draw arrows, look for a chain</h2><div class="tip"><b>The arrow method (10 seconds).</b> Draw each statement as an arrow from taller to shorter. Question about two people: is there a path of arrows between them? Question about “tallest”: does one person have a path to everybody? Do this for I, then II, then both drawn together. No path means not settled.</div><h3>Speed drill (8 items)</h3><p class="prog">Say your verdict aloud before tapping Show. The brackets show which answers each statement leaves possible.</p><div class="drill"><script type="application/json">[["Who is the tallest of the three? (people: Asha, Bala, Chitra)  I. Asha is taller than Bala.  II. Chitra is taller than Bala.", "Not enough  (I: Asha/Chitra · II: Asha/Chitra · both: Asha/Chitra)"], ["Who is the tallest of the three? (people: Asha, Bala, Chitra)  I. Asha is taller than Bala; Asha is taller than Chitra.  II. Bala is taller than Chitra.", "I alone  (I: Asha · II: Asha/Bala · both: Asha)"], ["Is Bala taller than Chitra? (people: Asha, Bala, Chitra)  I. Asha is taller than Bala.  II. Asha is taller than Chitra.", "Not enough  (I: No/Yes · II: No/Yes · both: No/Yes)"], ["Who is the shortest of the three? (people: Asha, Bala, Chitra)  I. Asha is taller than Chitra.  II. Bala is taller than Chitra.", "Both needed  (I: Bala/Chitra · II: Asha/Chitra · both: Chitra)"], ["Is Chitra taller than Asha? (people: Asha, Bala, Chitra)  I. Asha is taller than Bala.  II. Bala is taller than Chitra.", "Both needed  (I: No/Yes · II: No/Yes · both: No)"], ["Is Asha taller than Bala? (people: Asha, Bala, Chitra)  I. Asha is taller than Bala.  II. Bala is taller than Chitra.", "I alone  (I: Yes · II: No/Yes · both: Yes)"], ["Who is the tallest of the four? (people: Asha, Bala, Chitra, Dev)  I. Asha is taller than Bala; Chitra is taller than Dev.  II. Bala is taller than Chitra.", "Both needed  (I: Asha/Chitra · II: Asha/Bala/Dev · both: Asha)"], ["Is Bala taller than Dev? (people: Asha, Bala, Chitra, Dev)  I. Asha is taller than Bala.  II. Dev is taller than Chitra.", "Not enough  (I: No/Yes · II: No/Yes · both: No/Yes)"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: ordering tester</h2><p class="prog">Four people A, B, C, D. Type statements as A&gt;B (A taller than B), separated by commas. For the question type A&gt;B to ask “is A taller than B?”, or type tallest or shortest.</p>
+<label for="ch12-l1s1">Statement I</label><input id="ch12-l1s1" type="text" value="A>B, B>C" autocomplete="off">
+<label for="ch12-l1s2">Statement II</label><input id="ch12-l1s2" type="text" value="A>D, D>C" autocomplete="off">
+<label for="ch12-l1q">Question</label><input id="ch12-l1q" type="text" value="A>C" autocomplete="off">
+<div class="stepbox" style="margin-top:10px" id="ch12-l1o"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+var L='ABCD',perms=[];(function g(a,r){if(!r.length){perms.push(a);return}for(var i=0;i<r.length;i++)g(a.concat(r[i]),r.slice(0,i).concat(r.slice(i+1)))})([],[0,1,2,3]);
+function parse(s){var o=[],bad=false;s.split(',').forEach(function(t){t=t.replace(/\s/g,'').toUpperCase();if(!t)return;var m=/^([A-D])([<>])([A-D])$/.exec(t);if(!m||m[1]===m[3]){bad=true;return}o.push(m[2]==='>'?[L.indexOf(m[1]),L.indexOf(m[3])]:[L.indexOf(m[3]),L.indexOf(m[1])])});return bad?null:o}
+function ok(p,c){return c.every(function(x){return p.indexOf(x[0])<p.indexOf(x[1])})}
+function qf(q){q=q.replace(/\s/g,'').toUpperCase();if(q==='TALLEST')return function(p){return L[p[0]]};if(q==='SHORTEST')return function(p){return L[p[3]]};var m=/^([A-D])>([A-D])$/.exec(q);if(!m||m[1]===m[2])return null;var a=L.indexOf(m[1]),b=L.indexOf(m[2]);return function(p){return p.indexOf(a)<p.indexOf(b)?'Yes':'No'}}
+function lab(){var c1=parse($('ch12-l1s1').value),c2=parse($('ch12-l1s2').value),Q=qf($('ch12-l1q').value),o=$('ch12-l1o');
+if(!c1||!c2||!Q){o.innerHTML='<div class="st">Use letters A to D like A&gt;B, separated by commas. Question: A&gt;B, tallest or shortest.</div>';return}
+function an(cs){var s={},n=0;perms.forEach(function(p){if(ok(p,cs)){n++;s[Q(p)]=1}});return{n:n,s:Object.keys(s).sort()}}
+var a1=an(c1),a2=an(c2),a12=an(c1.concat(c2)),h='';
+if(!a1.n||!a2.n||!a12.n){o.innerHTML='<div class="st">These statements contradict each other or themselves. No line-up fits.</div>';return}
+function r(n,a){return '<div class="st">'+n+': '+a.n+' of 24 line-ups fit. Answers possible: <b>'+a.s.join(' / ')+'</b>. '+(a.s.length===1?'Sufficient.':'Not sufficient.')+'</div>'}
+var s1=a1.s.length===1,s2=a2.s.length===1,s12=a12.s.length===1,v=!s12?'Not enough':(s1&&s2)?'Either alone':s1?'I alone':s2?'II alone':'Both needed';
+o.innerHTML=r('I alone',a1)+r('II alone',a2)+r('Both together',a12)+'<div class="st"><b>Verdict: '+v+'</b></div>'}
+['ch12-l1s1','ch12-l1s2','ch12-l1q'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“Is P taller than Q? I. P is taller than R. II. R is taller than Q.”</li><li>“Who is the tallest among five people? I. … II. …”</li><li>“What is the rank of X from the top? I. Four people are taller than X. II. …”</li><li>Options in our five-option form: I alone / II alone / both needed / either alone / not enough.</li></ul><div class="tip"><b>No frequency claim.</b> The official notification gives no Reasoning topic list, so we make no claim about how often this type appears. Practise it as a compact, mechanical type.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this build; the official wording is ¼ of the marks assigned and the call letter settles it). Guess only if your chance of being right is above about 23%. Option wording below is our five-option convention; real papers may word or order the options differently, so read them every time.</p><p class="prog">Conventions: everyone has a different height; rank 1 = tallest; use only the statements.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "Is Asha taller than Chitra? (people: Asha, Bala, Chitra, Dev)<br>I. Asha is taller than Bala; Bala is taller than Chitra.<br>II. Asha is taller than Dev; Dev is taller than Chitra.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 3,
+  "e": "Answers still possible: I alone gives {Yes}; II alone gives {Yes}; together give {Yes}. Each statement alone builds a full chain from Asha down to Chitra.",
+  "t": [
+   "Statement II alone also settles it (Yes), so the exact choice is wider than this.",
+   "Statement I alone also settles it (Yes), so the exact choice is wider than this.",
+   "Statement I alone already fixes the answer (Yes), so combining is not needed.",
+   "",
+   "Together they do fix the answer: Yes."
+  ]
+ },
+ {
+  "q": "Who is the shortest of the five? (people: Asha, Bala, Chitra, Dev, Esha)<br>I. Asha is taller than Bala; Chitra is taller than Dev.<br>II. Bala is taller than Esha.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 4,
+  "e": "Answers still possible: I alone gives {Bala / Dev / Esha}; II alone gives {Asha / Chitra / Dev / Esha}; together give {Dev / Esha}. Dev and Esha both have nobody shown below them, so either could be the shortest.",
+  "t": [
+   "Statement I alone leaves more than one answer open: Bala (e.g. Asha > Chitra > Dev > Esha > Bala) vs Dev (e.g. Asha > Bala > Chitra > Esha > Dev).",
+   "Statement II alone leaves more than one answer open: Asha (e.g. Bala > Chitra > Dev > Esha > Asha) vs Chitra (e.g. Asha > Bala > Dev > Esha > Chitra).",
+   "Even together they leave more than one answer: Dev (e.g. Asha > Bala > Chitra > Esha > Dev) vs Esha (e.g. Asha > Bala > Chitra > Dev > Esha).",
+   "Neither works alone. I alone: Bala (e.g. Asha > Chitra > Dev > Esha > Bala) vs Dev (e.g. Asha > Bala > Chitra > Esha > Dev).",
+   ""
+  ]
+ },
+ {
+  "q": "Is Dev taller than Esha? (people: Bala, Chitra, Dev, Esha)<br>I. Bala is taller than Chitra.<br>II. Dev is taller than Bala; Bala is taller than Esha.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 1,
+  "e": "Answers still possible: I alone gives {No / Yes}; II alone gives {Yes}; together give {Yes}. II gives the chain Dev &gt; Bala &gt; Esha. I mentions neither Dev nor Esha.",
+  "t": [
+   "Statement I alone leaves more than one answer open: No (e.g. Bala > Chitra > Esha > Dev) vs Yes (e.g. Bala > Chitra > Dev > Esha).",
+   "",
+   "Statement II alone already fixes the answer (Yes), so combining is not needed.",
+   "Statement I alone leaves more than one answer open: No (e.g. Bala > Chitra > Esha > Dev) vs Yes (e.g. Bala > Chitra > Dev > Esha).",
+   "Together they do fix the answer: Yes."
+  ]
+ },
+ {
+  "q": "What is Bala's rank from the top (rank 1 = tallest) among the five? (people: Asha, Bala, Chitra, Dev, Esha)<br>I. Asha is taller than Bala; Chitra is taller than Bala; Dev is taller than Bala.<br>II. Bala is taller than Esha.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 2,
+  "e": "Answers still possible: I alone gives {rank 4 / rank 5}; II alone gives {rank 1 / rank 2 / rank 3 / rank 4}; together give {rank 4}. Three above Bala (I) and one below (II): 3 + 1 + Bala = all five, so Bala is 4th. I alone leaves Esha either above or below.",
+  "t": [
+   "Statement I alone leaves more than one answer open: rank 4 (e.g. Asha > Chitra > Dev > Bala > Esha) vs rank 5 (e.g. Asha > Chitra > Dev > Esha > Bala).",
+   "Statement II alone leaves more than one answer open: rank 1 (e.g. Bala > Asha > Chitra > Dev > Esha) vs rank 2 (e.g. Asha > Bala > Chitra > Dev > Esha).",
+   "",
+   "Neither works alone. I alone: rank 4 (e.g. Asha > Chitra > Dev > Bala > Esha) vs rank 5 (e.g. Asha > Chitra > Dev > Esha > Bala).",
+   "Together they do fix the answer: rank 4."
+  ]
+ },
+ {
+  "q": "Who is the tallest of the four? (people: Asha, Bala, Chitra, Dev)<br>I. Dev is taller than Asha; Dev is taller than Bala; Dev is taller than Chitra.<br>II. Asha is taller than Bala.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 0,
+  "e": "Answers still possible: I alone gives {Dev}; II alone gives {Asha / Chitra / Dev}; together give {Dev}. Dev beats all three others, so Dev is the tallest. II says nothing about Dev.",
+  "t": [
+   "",
+   "Statement II alone leaves more than one answer open: Asha (e.g. Asha > Bala > Chitra > Dev) vs Chitra (e.g. Chitra > Asha > Bala > Dev).",
+   "Statement I alone already fixes the answer (Dev), so combining is not needed.",
+   "Statement II alone leaves more than one answer open: Asha (e.g. Asha > Bala > Chitra > Dev) vs Chitra (e.g. Chitra > Asha > Bala > Dev).",
+   "Together they do fix the answer: Dev."
+  ]
+ }
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What does “sufficient” mean? (2) Is a definite “No” sufficient? (3) What are the three tests, in order? (4) What must exist for “who is tallest” to be settled?</div><div class="mem"><b>Memorise this</b><br>1. Sufficient = every line-up that fits gives the SAME answer.<br>2. A definite No is sufficient.<br>3. Test I alone, II alone, then both.<br>4. Draw arrows: need a chain between the two people.<br>5. Tallest settled only if one person beats everyone else.</div></section><p class="src"><b>Sources:</b> <a href="https://www.geeksforgeeks.org/data-sufficiency/">GeeksforGeeks: Data Sufficiency (logical reasoning)</a> · <a href="https://en.wikipedia.org/wiki/Graduate_Management_Admission_Test">Wikipedia: GMAT (Data Sufficiency question type)</a> · <a href="https://en.wikipedia.org/wiki/Total_order">Wikipedia: Total order</a>. Python: every verdict, rank, drill item and lab check comes from trying all line-ups of the named people. <br><b>UNVERIFIED:</b> the exact option wording and ordering used in PFRDA papers (the fetched page lists four options; our fifth, “either alone”, is our own extension so every outcome has a choice); whether this question type appears in PFRDA Phase 1 at all (the notification gives no Reasoning topic list).</p></section>
+<section class="lesson" id="ch12-l2"><h2 class="lt">Lesson 2 · Blood relations: link plus gender</h2><p class="oneline">In one line: to answer “is X the uncle/daughter/grandmother of Y?” you need two things, the LINK between the two people and the GENDER the relation word demands. Statements may give one, the other, or both.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>In the family WhatsApp group someone writes: “Mohan is Priya’s parent.” Is Mohan her father? You cannot tell: “parent” hides gender. Someone adds “Mohan is a man.” Now it is settled. The word “parent” gave the link; the extra line gave the gender.</p><div class="bars" role="img" aria-label="Link plus gender gives father"><div class="row"><span class="a" style="width:60%">link: parent of</span><span class="b" style="width:40%">gender: male</span></div></div><p class="cap">Link + gender = “father”. One without the other is not enough.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Here people are letters A, B, C. A letter says nothing about gender. Gender is only what a statement says.</div><div class="st">Some words HIDE gender: parent, child, sibling. Some GIVE it: father, mother, son, daughter, brother, sister.</div><div class="st">Convention: brother and sister mean <b>full</b> siblings, sharing the same father AND the same mother. (A half-sibling shares only one parent; Wikipedia, Sibling.)</div><div class="st">Two facts can be separate. “C is the daughter of A” needs: A is a parent of C, AND C is female.</div><div class="st">A sibling link copies parents. If A is the father of B and C is B’s sister, then A is C’s father too: same parents.</div><div class="st">The reverse is NOT true. “A is a parent of B” and “A is a parent of C” do not make B and C full siblings; they could be half-siblings.</div><div class="st">To prove “not sufficient”, draw two different family trees that both obey the statements but give different answers. We checked every tree for three people (details below).</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Link words: parent / child / sibling hide gender. Gender words: father, mother, son, daughter, brother, sister fix it.</div><div class="box">Sibling = same two parents. A sibling’s parent is your parent.</div><div class="box">Grandparent = parent of a parent. Uncle (this chapter) = a man who is a brother of one of your parents. Aunt = a woman who is a sister of one of your parents.</div><div class="box">A definite “No” is sufficient. Example: “C is female” proves C is not “the son of A”.</div><p class="src">Sibling definitions: Wikipedia “Sibling”. Grandparent, uncle, aunt and cousin as relatives of parents: Wikipedia “Kinship”. Rules and verdicts: derived, Python-checked on all 24,948 family models of three people (each person has a gender, a father and a mother who may be one of the three or an outsider; nobody is their own ancestor). No marriage or in-law relations are used.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Is A the uncle of C?</b><br>I. A is the brother of B.<br>II. B is a parent of C.</p><div class="stepbox" data-steps><div class="st">Uncle needs: A is male AND A is a brother of one of C’s parents.</div><div class="st">I alone: A is male and B’s brother. But C may not be B’s child. Link to C missing. Not sufficient.</div><div class="st">II alone: B is a parent of C. Nothing about A. Not sufficient.</div><div class="st">Together: A (male) is a full brother of B, and B is a parent of C, so A is a brother of C’s parent: uncle. Verdict (all 3-person family models): <b>Both needed</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Is A the grandmother of C?</b><br>I. A is the mother of B.<br>II. B is the father of C.</p><div class="stepbox" data-steps><div class="st">Grandmother needs: A is a parent of a parent of C, AND A is female.</div><div class="st">I alone: A is B’s mother (so female), but C is not linked. Not sufficient.</div><div class="st">II alone: B is C’s father. A is not mentioned. Not sufficient.</div><div class="st">Together: A → B → C is a chain of two parent steps, and A is a mother, so A is C’s grandmother. Verdict: <b>Both needed</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><p><b>Is A the father of B?</b><br>I. A is a parent of B.<br>II. B is a child of A.</p><div class="stepbox" data-steps><div class="st">Statement I: A is a parent of B. Statement II: B is a child of A. These are the same fact said twice.</div><div class="st">Wrong thought: “two statements agree, so I am sure. A is the father.”</div><div class="st">Why wrong: “parent” does not say male. A could be B’s mother. Agreeing statements are still just one link.</div><div class="st">Right: no gender anywhere, so <b>Not enough</b>. Look for the gender word before you say yes.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: link? gender? route?</h2><div class="tip"><b>Three quick questions.</b> (1) Do the statements connect the two people in the question (a route)? (2) Does the answer word need a gender, and does any statement give it? (3) Does the route pass through a sibling link (copy parents) or a parent link (go up one generation)? If any answer is no, not sufficient. Remember: a gender fact that contradicts the relation word can prove a definite “No”.</div><h3>Speed drill (8 items)</h3><p class="prog">Say the verdict aloud, then Show.</p><div class="drill"><script type="application/json">[["Is A the aunt of C?  I. A is the sister of B.  II. B is a parent of C.", "Both needed  (I: No/Yes · II: No/Yes · both: Yes)"], ["Is B female?  I. B is the mother of A.  II. B is a sibling of C.", "I alone  (I: female · II: female/male · both: female)"], ["Is A the father of C?  I. A is the father of B.  II. C is a sibling of B.", "Both needed  (I: No/Yes · II: No/Yes · both: Yes)"], ["Is C the son of A?  I. A is the father of B.  II. C is the brother of B.", "Both needed  (I: No/Yes · II: No/Yes · both: Yes)"], ["Is C the son of A?  I. A is a parent of C.  II. C is female.", "II alone  (I: No/Yes · II: No · both: No)"], ["Is B male?  I. B is a sibling of A.  II. B is the father of C.", "II alone  (I: female/male · II: male · both: male)"], ["Is A the grandparent of C?  I. A is a parent of B.  II. B is a parent of C.", "Both needed  (I: No/Yes · II: No/Yes · both: Yes)"], ["Are B and C siblings?  I. A is a parent of B.  II. A is a parent of C.", "Not enough  (I: No/Yes · II: No/Yes · both: No/Yes)"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: family model tester (people A, B, C)</h2><p class="prog">Pick up to two statements and a question. The page tries every possible family of A, B, C and tells you whether each statement settles the question.</p>
+<label for="ch12-l2s1">Statement I</label><select id="ch12-l2s1"></select>
+<label for="ch12-l2s2">Statement II</label><select id="ch12-l2s2"></select>
+<label for="ch12-l2q">Question</label><select id="ch12-l2q"></select>
+<div class="stepbox" style="margin-top:10px" id="ch12-l2o"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+var N=['A','B','C'],G=['M','F'],models=[];
+function anc(fa,mo,p){var seen={},st=[p];while(st.length){var c=st.pop();var ps=[fa[c],mo[c]];for(var k=0;k<2;k++){var q=ps[k];if(q===undefined)continue;if(q===p)return false;if(q<3&&!seen[q]){seen[q]=1;st.push(q)}}}return true}
+(function(){for(var g=0;g<8;g++){var gen=[g&1,(g>>1)&1,(g>>2)&1];var ms=[3,4,5],fs=[3,4,5];for(var i=0;i<3;i++){if(gen[i]===0)ms.push(i);else fs.push(i)}
+ ms.forEach(function(a0){ms.forEach(function(a1){ms.forEach(function(a2){var fa=[a0,a1,a2];fs.forEach(function(b0){fs.forEach(function(b1){fs.forEach(function(b2){var mo=[b0,b1,b2];
+ for(var p=0;p<3;p++)if(fa[p]===p||mo[p]===p)return;for(var p2=0;p2<3;p2++)if(!anc(fa,mo,p2))return;models.push({g:gen,fa:fa,mo:mo})})})})})})})}})();
+function par(m,p){return [m.fa[p],m.mo[p]]}
+function sib(m,a,b){return a!==b&&m.fa[a]===m.fa[b]&&m.mo[a]===m.mo[b]}
+var K={father:function(m,x,y){return m.fa[y]===x},mother:function(m,x,y){return m.mo[y]===x},parent:function(m,x,y){return m.fa[y]===x||m.mo[y]===x},
+ brother:function(m,x,y){return m.g[x]===0&&sib(m,x,y)},sister:function(m,x,y){return m.g[x]===1&&sib(m,x,y)},sibling:function(m,x,y){return sib(m,x,y)},
+ son:function(m,x,y){return m.g[x]===0&&par(m,x).indexOf(y)>=0},daughter:function(m,x,y){return m.g[x]===1&&par(m,x).indexOf(y)>=0},
+ grandparent:function(m,x,y){return par(m,y).some(function(p){return p<3&&par(m,p).indexOf(x)>=0})},
+ uncle:function(m,x,y){return m.g[x]===0&&par(m,y).some(function(p){return p<3&&sib(m,x,p)})}};
+var W={father:'the father of',mother:'the mother of',parent:'a parent of',brother:'the brother of',sister:'the sister of',sibling:'a sibling of',son:'the son of',daughter:'the daughter of',grandparent:'a grandparent of',uncle:'the uncle of'};
+var atoms={},sel1=$('ch12-l2s1'),sel2=$('ch12-l2s2'),selq=$('ch12-l2q');
+function add(sel,key,txt){var o=document.createElement('option');o.value=key;o.textContent=txt;sel.appendChild(o)}
+add(sel1,'','(no statement)');add(sel2,'','(no statement)');
+function mk(kinds,sels,withG){kinds.forEach(function(k){for(var x=0;x<3;x++)for(var y=0;y<3;y++)if(x!==y){var key=k+','+x+','+y,t=N[x]+' is '+W[k]+' '+N[y];atoms[key]=function(k,x,y){return function(m){return K[k](m,x,y)}}(k,x,y);sels.forEach(function(s){add(s,key,t)})}});
+ if(withG)for(var x=0;x<3;x++){['male','female'].forEach(function(gg,gi){var key=gg+','+x;atoms[key]=function(x,gi){return function(m){return m.g[x]===gi}}(x,gi);sels.forEach(function(s){add(s,key,N[x]+' is '+gg)})})}}
+mk(['father','mother','parent','brother','sister','sibling'],[sel1,sel2],true);
+(function(){ // question: yes/no atoms with extra kinds
+ var qk=['father','mother','son','daughter','brother','sister','grandparent','uncle'];qk.forEach(function(k){for(var x=0;x<3;x++)for(var y=0;y<3;y++)if(x!==y){var key=k+','+x+','+y;atoms[key]=atoms[key]||function(k,x,y){return function(m){return K[k](m,x,y)}}(k,x,y);add(selq,key,'Is '+N[x]+' '+W[k]+' '+N[y]+'?')}});
+ for(var x=0;x<3;x++)['male','female'].forEach(function(gg){add(selq,gg+','+x,'Is '+N[x]+' '+gg+'?')})})();
+selq.value='daughter,2,0';sel1.value='father,0,1';sel2.value='sister,2,1';
+function lab(){var f1=sel1.value?atoms[sel1.value]:function(){return true},f2=sel2.value?atoms[sel2.value]:function(){return true},q=atoms[selq.value],o=$('ch12-l2o');
+ var A={1:{},2:{},12:{}},n={1:0,2:0,12:0};
+ models.forEach(function(m){var a=f1(m),b=f2(m);if(!a&&!b)return;var r=q(m)?'Yes':'No';if(a){A[1][r]=1;n[1]++}if(b){A[2][r]=1;n[2]++}if(a&&b){A[12][r]=1;n[12]++}});
+ if(!n[12]){o.innerHTML='<div class="st">These two statements cannot both be true for any family of A, B, C.</div>';return}
+ function line(nm,k){var s=Object.keys(A[k]).sort();return '<div class="st">'+nm+': answers possible <b>'+s.join(' / ')+'</b>. '+(s.length===1?'Sufficient.':'Not sufficient.')+'</div>'}
+ var s1=Object.keys(A[1]).length===1,s2=Object.keys(A[2]).length===1,s12=Object.keys(A[12]).length===1,v=!s12?'Not enough':(s1&&s2)?'Either alone':s1?'I alone':s2?'II alone':'Both needed';
+ o.innerHTML=line('I alone',1)+line('II alone',2)+line('Both together',12)+'<div class="st"><b>Verdict: '+v+'</b> <span class="cap">(brother and sister mean full siblings; no marriages modelled; with no statement chosen the box counts as always true)</span></div>'}
+[sel1,sel2,selq].forEach(function(s){s.addEventListener('change',lab)});lab()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“How is P related to Q? I. P is the sister of R. II. R is the father of Q.”</li><li>“Is M the grandfather of N? I. … II. …”</li><li>“What is the gender of T? I. T is a sibling of U. II. T is the mother of V.”</li><li>Watch for words that hide gender (parent, child, sibling, cousin) versus words that give it.</li></ul><div class="tip"><b>No frequency claim.</b> The official notification gives no topic list for Reasoning; we do not claim this type appears. The conventions here (full siblings, no in-laws) are ours; if a real question states otherwise, follow the question.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this build; the official wording is ¼ of the marks assigned and the call letter settles it). Guess only if your chance of being right is above about 23%. Option wording below is our five-option convention; real papers may word or order the options differently, so read them every time.</p><p class="prog">Conventions: letters carry no gender; brother/sister mean full siblings; use only the statements.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "Is C the daughter of A?<br>I. A is the father of B.<br>II. C is the sister of B.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 2,
+  "e": "Answers still possible: I alone gives {No / Yes}; II alone gives {No / Yes}; together give {Yes}. Full sisters share both parents, so A (B's father) is also C's father; and C is female.",
+  "t": [
+   "Statement I alone leaves more than one answer open: No (e.g. A is male; B is male; C is male; C is the father of A; A is the father of B) vs Yes (e.g. A is male; B is male; C is female; A is the father of B; C is the mother of B; A is the father of C).",
+   "Statement II alone leaves more than one answer open: No (e.g. A is male; B is male; C is female; B is the father of A; C is the mother of A; B and C are full siblings) vs Yes (e.g. A is male; B is male; C is female; A is the father of B; A is the father of C; B and C are full siblings).",
+   "",
+   "Neither works alone. I alone: No (e.g. A is male; B is male; C is male; C is the father of A; A is the father of B) vs Yes (e.g. A is male; B is male; C is female; A is the father of B; C is the mother of B; A is the father of C).",
+   "Together they do fix the answer: Yes."
+  ]
+ },
+ {
+  "q": "Is A the grandfather of C? (A, B, C are three people)<br>I. A is the father of B, and B is the mother of C.<br>II. C is male.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 0,
+  "e": "Answers still possible: I alone gives {Yes}; II alone gives {No / Yes}; together give {Yes}. I is a complete chain A → B → C with A male (father): a grandfather. II only gives C's gender.",
+  "t": [
+   "",
+   "Statement II alone leaves more than one answer open: No (e.g. A is male; B is male; C is male; B is the father of A; C is the father of B) vs Yes (e.g. A is male; B is male; C is male; A is the father of B; B is the father of C).",
+   "Statement I alone already fixes the answer (Yes), so combining is not needed.",
+   "Statement II alone leaves more than one answer open: No (e.g. A is male; B is male; C is male; B is the father of A; C is the father of B) vs Yes (e.g. A is male; B is male; C is male; A is the father of B; B is the father of C).",
+   "Together they do fix the answer: Yes."
+  ]
+ },
+ {
+  "q": "Is B male?<br>I. B is the brother of C.<br>II. B is the father of A.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 3,
+  "e": "Answers still possible: I alone gives {male}; II alone gives {male}; together give {male}. \"Brother\" and \"father\" each fix gender as male.",
+  "t": [
+   "Statement II alone also settles it (male), so the exact choice is wider than this.",
+   "Statement I alone also settles it (male), so the exact choice is wider than this.",
+   "Statement I alone already fixes the answer (male), so combining is not needed.",
+   "",
+   "Together they do fix the answer: male."
+  ]
+ },
+ {
+  "q": "Is B the uncle of C? (uncle = a man who is a brother of one of C's parents)<br>I. C is the daughter of A.<br>II. B is male.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 4,
+  "e": "Answers still possible: I alone gives {No / Yes}; II alone gives {No / Yes}; together give {No / Yes}. Nothing says B is a brother of A (or of C's other parent), so B could be an unrelated man. Gender alone is not a relation.",
+  "t": [
+   "Statement I alone leaves more than one answer open: No (e.g. A is male; B is male; C is female; B is the father of A; A is the father of C) vs Yes (e.g. A is male; B is male; C is female; A is the father of C; A and B are full siblings).",
+   "Statement II alone leaves more than one answer open: No (e.g. A is male; B is male; C is male; B is the father of A; C is the father of B) vs Yes (e.g. A is male; B is male; C is male; A is the father of C; A and B are full siblings).",
+   "Even together they leave more than one answer: No (e.g. A is male; B is male; C is female; B is the father of A; A is the father of C) vs Yes (e.g. A is male; B is male; C is female; A is the father of C; A and B are full siblings).",
+   "Neither works alone. I alone: No (e.g. A is male; B is male; C is female; B is the father of A; A is the father of C) vs Yes (e.g. A is male; B is male; C is female; A is the father of C; A and B are full siblings).",
+   ""
+  ]
+ },
+ {
+  "q": "Is C female?<br>I. C is a sibling of A.<br>II. C is the sister of B.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 1,
+  "e": "Answers still possible: I alone gives {female / male}; II alone gives {female}; together give {female}. \"Sibling\" hides gender; \"sister\" fixes it as female.",
+  "t": [
+   "Statement I alone leaves more than one answer open: female (e.g. A is male; B is male; C is female; B is the father of A; B is the father of C; A and C are full siblings) vs male (e.g. A is male; B is male; C is male; B is the father of A; B is the father of C; A and C are full siblings).",
+   "",
+   "Statement II alone already fixes the answer (female), so combining is not needed.",
+   "Statement I alone leaves more than one answer open: female (e.g. A is male; B is male; C is female; B is the father of A; B is the father of C; A and C are full siblings) vs male (e.g. A is male; B is male; C is male; B is the father of A; B is the father of C; A and C are full siblings).",
+   "Together they do fix the answer: female."
+  ]
+ }
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) Which words hide gender? (2) What two things does “daughter of” need? (3) Do two children of one parent have to be full siblings? (4) Can a gender fact give a definite No?</div><div class="mem"><b>Memorise this</b><br>1. Answer = link + gender.<br>2. parent, child, sibling hide gender.<br>3. Full siblings share both parents.<br>4. One common parent does not make siblings.<br>5. A definite No is sufficient.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Sibling">Wikipedia: Sibling</a> · <a href="https://en.wikipedia.org/wiki/Kinship">Wikipedia: Kinship</a> · <a href="https://www.geeksforgeeks.org/data-sufficiency/">GeeksforGeeks: Data Sufficiency</a>. Python: every verdict, drill item and the lab come from enumerating all three-person family models (24,948).<br><b>UNVERIFIED:</b> the exact option wording and ordering used in PFRDA papers (the fetched page lists four options; our fifth, “either alone”, is our own extension so every outcome has a choice); whether this question type appears in PFRDA Phase 1 at all (the notification gives no Reasoning topic list).</p></section>
+<section class="lesson" id="ch12-l3"><h2 class="lt">Lesson 3 · Directions: arrows on a map</h2><p class="oneline">In one line: each statement is an arrow on a map (a direction, sometimes a distance). You can place a point only if the arrows pin it down.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>An auto driver says: “Go east to the temple.” You ask: “How far?” He shrugs. You know the direction but not the distance. Another person says: “The temple is 4 km from the school, due east of it.” Together you could place the temple exactly. Direction-only and distance-only are both partial.</p><div class="bars" role="img" aria-label="East 4 then north 3 gives 5"><div class="row"><span class="a" style="width:57%">4 km east</span><span class="b" style="width:43%">3 km north</span></div></div><p class="cap">4 east and 3 north: the straight-line gap is 5 km (3-4-5 triangle).</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Draw a map. North is up, east is right. Put the first person at the middle point, called the origin. Every other person has an east-west position and a north-south position.</div><div class="st">Conventions: flat map, straight-line moves, distances in km. “Q is east of P” means due east: exactly on the east line from P, distance unknown. “Q is 4 km east of P” gives the distance too.</div><div class="st">“North-east of” means strictly north AND strictly east (not on a straight line). We use it for answers, not for statements.</div><div class="st">Each statement is an arrow. To relate R to P, chain arrows P → Q → R. Add the east-west pieces together and, separately, the north-south pieces.</div><div class="st">To state the DIRECTION of R from P you need only the sign of each total: east or west or zero, north or south or zero. To state the DISTANCE you need both totals as numbers.</div><div class="st">Distance formula (Pythagoras): gap = √(east-west total² + north-south total²). Example 3 and 4 give 5.</div><div class="st">The danger: an unknown-length piece. East 3 then west by an unknown amount could end east, at the start, or west. Same-way pieces never cancel; opposite-way pieces can.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Sum each axis separately: east-west pieces together, north-south pieces together.</div><div class="box">Pieces on one axis all pointing the same way: the sign is fixed even if lengths are unknown.</div><div class="box">Exactly ONE unknown-length piece on an axis: add up the known pieces. If their total points the same way as the unknown piece (or is zero), the direction is fixed. If it points the opposite way, the direction can flip, so not sufficient.</div><div class="box">Two or more unknown-length pieces on an axis: do not trust a shortcut; test with two small examples.</div><div class="box">Distance needs every piece known (or fixed by a statement that gives the whole chain).</div><p class="src">Cardinal and intercardinal directions: Wikipedia “Cardinal direction”. Coordinates and distance formula: Wikipedia “Cartesian coordinate system”. Sum and one-unknown-piece rules: derived, Python-checked (3,524 cases: up to 4 pieces on one axis, one unknown length from 1 to 39, known lengths 2, 3, 5; 0 mismatches). Verdicts below: every point of an integer grid from −12 to 12 km tried; “sufficient” answers also follow from the sign rules, and “not sufficient” answers come with a concrete pair of maps.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>How far is R from P?</b><br>I. Q is 3 km north of P.<br>II. R is 4 km east of Q.</p><div class="stepbox" data-steps><div class="st">I alone: Q is 3 km north of P. R is not placed. Not sufficient.</div><div class="st">II alone: R is 4 km east of Q, but Q is not placed. Not sufficient.</div><div class="st">Together: P → Q is 3 north, Q → R is 4 east. East-west total 4, north-south total 3. Distance = √(4² + 3²) = √25 = 5 km.</div><div class="st">Verdict (all grid maps tried): <b>Both needed</b>. Together the only possible answer is {5 km}.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>In which direction is R from P?</b><br>I. Q is 6 km north of P.<br>II. R is 2 km west of Q.</p><div class="stepbox" data-steps><div class="st">I alone: Q is north of P, R unplaced: R could be anywhere. Not sufficient.</div><div class="st">II alone: R is 2 km west of Q, Q unplaced. Not sufficient.</div><div class="st">Together: north-south total 6 north, east-west total 2 west. North and west: north-west. Verdict: <b>Both needed</b>, answer {north-west}.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><p><b>Is R to the east of P?</b><br>I. Q is east of P.<br>II. R is west of Q.</p><div class="stepbox" data-steps><div class="st">Q is east of P (unknown distance). R is west of Q (unknown distance).</div><div class="st">Wrong thought: “east, then west: R is back towards P, so R is west of P.” Or the opposite, “R is still east”.</div><div class="st">Test: Q 5 km east, R 2 km west of Q puts R 3 km east of P. Q 2 km east, R 5 km west of Q puts R 3 km west of P. Both fit.</div><div class="st">Right: opposite directions with unknown lengths can flip the answer. <b>Not enough</b>, even with both statements.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: arrows head to tail, mark the question marks</h2><div class="tip"><b>The 10-second map.</b> Draw each statement as an arrow head to tail. Write the length on it, or a ? if unknown. On each axis, circle any ? arrow that points against another arrow. A circle means danger: the direction can flip.</div><h3>Speed drill (8 items)</h3><p class="prog">Say the verdict aloud, then Show.</p><div class="drill"><script type="application/json">[["Is R north of P?  I. Q is north of P.  II. R is north of Q.", "Both needed  (I: No/Yes · II: No/Yes · both: Yes)"], ["Is R north of P?  I. Q is north of P and R is north of Q.  II. P is south of Q.", "I alone  (I: Yes · II: No/Yes · both: Yes)"], ["Is R north of P?  I. Q is 2 km north of P.  II. R is south of Q.", "Not enough  (I: No/Yes · II: No/Yes · both: No/Yes)"], ["Is R north of P?  I. Q is 2 km north of P.  II. R is 5 km south of Q.", "Both needed  (I: No/Yes · II: No/Yes · both: No)"], ["Is R north of P?  I. Q is 5 km north of P.  II. R is 2 km south of Q.", "Both needed  (I: No/Yes · II: No/Yes · both: Yes)"], ["How far is Q from P?  I. Q is 5 km north of P.  II. R is 3 km east of Q.", "I alone  (I: 5 km · II: many · both: 5 km)"], ["In which direction is Q from P?  I. P is south of Q.  II. R is east of Q.", "I alone  (I: north · II: many · both: north)"], ["Is R east of P?  I. Q is east of P.  II. R is east of Q.", "Both needed  (I: No/Yes · II: No/Yes · both: Yes)"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: map tester (P, Q, R)</h2><p class="prog">P is the origin. Q and R are tried at every whole-km point from −8 to 8 east and north. Each statement is “subject is [distance] direction of reference”; leave the distance blank if unknown (1 to 8 when given).</p>
+<b>Statement I</b>
+<label for="ch12-l3a1">Subject</label><select id="ch12-l3a1"><option>P</option><option selected>Q</option><option>R</option></select>
+<label for="ch12-l3d1">Direction</label><select id="ch12-l3d1"><option value="N">north of</option><option value="S">south of</option><option value="E" selected>east of</option><option value="W">west of</option></select>
+<label for="ch12-l3b1">Reference</label><select id="ch12-l3b1"><option selected>P</option><option>Q</option><option>R</option></select>
+<label for="ch12-l3n1">Distance in km (blank = unknown)</label><input id="ch12-l3n1" type="number" min="1" max="8" value="5" inputmode="numeric">
+<b>Statement II</b>
+<label for="ch12-l3a2">Subject</label><select id="ch12-l3a2"><option>P</option><option>Q</option><option selected>R</option></select>
+<label for="ch12-l3d2">Direction</label><select id="ch12-l3d2"><option value="N" selected>north of</option><option value="S">south of</option><option value="E">east of</option><option value="W">west of</option></select>
+<label for="ch12-l3b2">Reference</label><select id="ch12-l3b2"><option>P</option><option selected>Q</option><option>R</option></select>
+<label for="ch12-l3n2">Distance in km (blank = unknown)</label><input id="ch12-l3n2" type="number" min="1" max="8" value="3" inputmode="numeric">
+<label for="ch12-l3q">Question</label><select id="ch12-l3q"><option value="dir">In which direction is R from P?</option><option value="dist">How far is R from P?</option></select>
+<div class="stepbox" style="margin-top:10px" id="ch12-l3o"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+var R=[];for(var i=-8;i<=8;i++)R.push(i);var pts=[];R.forEach(function(x){R.forEach(function(y){pts.push([x,y])})});
+var V={N:[0,1],S:[0,-1],E:[1,0],W:[-1,0]};
+function stm(s,d,r,n){if(s===r)return null;var v=V[d],k=n===''?null:parseInt(n,10);if(n!==''&&(isNaN(k)||k<1||k>8))return null;var idx={P:0,Q:1,R:2};
+ return function(m){var a=m[idx[s]],b=m[idx[r]],dx=a[0]-b[0],dy=a[1]-b[1];if(v[0]===0)return dx===0&&dy*v[1]>0&&(k===null||Math.abs(dy)===k);return dy===0&&dx*v[0]>0&&(k===null||Math.abs(dx)===k)}}
+function comp(dx,dy){var s='';if(dy>0)s+='north';if(dy<0)s+='south';if(dx>0)s+=(s?'-':'')+'east';if(dx<0)s+=(s?'-':'')+'west';return s||'same point'}
+function lab(){var f1=stm($('ch12-l3a1').value,$('ch12-l3d1').value,$('ch12-l3b1').value,$('ch12-l3n1').value),f2=stm($('ch12-l3a2').value,$('ch12-l3d2').value,$('ch12-l3b2').value,$('ch12-l3n2').value),o=$('ch12-l3o'),dq=$('ch12-l3q').value==='dir';
+ if(!f1||!f2){o.innerHTML='<div class="st">Each statement needs two different people and a distance from 1 to 8 (or blank).</div>';return}
+ var A=[{},{},{}],n=[0,0,0];
+ pts.forEach(function(q){pts.forEach(function(r){var m=[[0,0],q,r],a=f1(m),b=f2(m);if(!a&&!b)return;var ans=dq?comp(r[0],r[1]):(Math.round(Math.sqrt(r[0]*r[0]+r[1]*r[1])*10)/10)+' km';if(a){A[0][ans]=1;n[0]++}if(b){A[1][ans]=1;n[1]++}if(a&&b){A[2][ans]=1;n[2]++}})});
+ if(!n[2]){o.innerHTML='<div class="st">These statements cannot both be true on this grid.</div>';return}
+ function line(nm,k){var s=Object.keys(A[k]).sort(),t=s.length>4?'many different answers, e.g. '+s.slice(0,3).join(' / '):s.join(' / ');return '<div class="st">'+nm+': <b>'+t+'</b>. '+(s.length===1?'Sufficient.':'Not sufficient.')+'</div>'}
+ var s1=Object.keys(A[0]).length===1,s2=Object.keys(A[1]).length===1,s12=Object.keys(A[2]).length===1,v=!s12?'Not enough':(s1&&s2)?'Either alone':s1?'I alone':s2?'II alone':'Both needed';
+ o.innerHTML=line('I alone',0)+line('II alone',1)+line('Both together',2)+'<div class="st"><b>Verdict: '+v+'</b></div>'}
+['ch12-l3a1','ch12-l3d1','ch12-l3b1','ch12-l3n1','ch12-l3a2','ch12-l3d2','ch12-l3b2','ch12-l3n2','ch12-l3q'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“In which direction is R with respect to P? I. Q is 4 km east of P. II. R is 3 km north of Q.”</li><li>“How far is B from A? I. … II. …”</li><li>“Is X to the north-west of Y? I. … II. …”</li><li>Check whether each statement gives a direction only, a distance only, or both.</li></ul><div class="tip"><b>No frequency claim.</b> The notification lists no Reasoning topics. Real direction questions often use turns (left, right) and bearings; this lesson uses plain compass directions only, so apply the same arrow method but check how the question words its turns.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this build; the official wording is ¼ of the marks assigned and the call letter settles it). Guess only if your chance of being right is above about 23%. Option wording below is our five-option convention; real papers may word or order the options differently, so read them every time.</p><p class="prog">Conventions: flat map, km, straight lines. “East of” = due east, distance unknown unless given. North-east = strictly north and strictly east. In examples, P(0,0) means P is the origin; first number east, second north, in km.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "How far is Q from P?<br>I. Q is east of P.<br>II. P is 7 km west of Q.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 1,
+  "e": "Answers still possible: I alone gives {many answers, e.g. 1 km / 10 km / 11 km}; II alone gives {7 km}; together give {7 km}. II alone: P is 7 km west of Q, so Q is 7 km east of P. I gives direction only.",
+  "t": [
+   "Statement I alone leaves more than one answer open: 1 km (e.g. P(0,0), Q(1,0), R(0,0)) vs 10 km (e.g. P(0,0), Q(10,0), R(0,0)).",
+   "",
+   "Statement II alone already fixes the answer (7 km), so combining is not needed.",
+   "Statement I alone leaves more than one answer open: 1 km (e.g. P(0,0), Q(1,0), R(0,0)) vs 10 km (e.g. P(0,0), Q(10,0), R(0,0)).",
+   "Together they do fix the answer: 7 km."
+  ]
+ },
+ {
+  "q": "Is R to the east of P?<br>I. R is 2 km east of Q, and Q is 3 km east of P.<br>II. P is 5 km west of R.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 3,
+  "e": "Answers still possible: I alone gives {Yes}; II alone gives {Yes}; together give {Yes}. I: R is 2 km further east than Q, which is 3 km east of P (5 km east). II: P is 5 km west of R, the same fact.",
+  "t": [
+   "Statement II alone also settles it (Yes), so the exact choice is wider than this.",
+   "Statement I alone also settles it (Yes), so the exact choice is wider than this.",
+   "Statement I alone already fixes the answer (Yes), so combining is not needed.",
+   "",
+   "Together they do fix the answer: Yes."
+  ]
+ },
+ {
+  "q": "In which direction is R from P?<br>I. Q is 4 km east of P, and R is 3 km north of Q.<br>II. P is west of Q.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 0,
+  "e": "Answers still possible: I alone gives {north-east}; II alone gives {many answers, e.g. east / north / north-east}; together give {north-east}. I gives the whole walk: 4 east then 3 north, so R is north-east of P. II repeats only Q's side.",
+  "t": [
+   "",
+   "Statement II alone leaves more than one answer open: east (e.g. P(0,0), Q(1,0), R(1,0)) vs north (e.g. P(0,0), Q(1,0), R(0,1)).",
+   "Statement I alone already fixes the answer (north-east), so combining is not needed.",
+   "Statement II alone leaves more than one answer open: east (e.g. P(0,0), Q(1,0), R(1,0)) vs north (e.g. P(0,0), Q(1,0), R(0,1)).",
+   "Together they do fix the answer: north-east."
+  ]
+ },
+ {
+  "q": "Is R to the north-east of P? (north-east = strictly north AND strictly east)<br>I. Q is 5 km east of P.<br>II. R is 3 km north of Q.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 2,
+  "e": "Answers still possible: I alone gives {No / Yes}; II alone gives {No / Yes}; together give {Yes}. East piece from I, north piece from II: R = (5, 3).",
+  "t": [
+   "Statement I alone leaves more than one answer open: No (e.g. P(0,0), Q(5,0), R(0,0)) vs Yes (e.g. P(0,0), Q(5,0), R(1,1)).",
+   "Statement II alone leaves more than one answer open: No (e.g. P(0,0), Q(0,0), R(0,3)) vs Yes (e.g. P(0,0), Q(1,0), R(1,3)).",
+   "",
+   "Neither works alone. I alone: No (e.g. P(0,0), Q(5,0), R(0,0)) vs Yes (e.g. P(0,0), Q(5,0), R(1,1)).",
+   "Together they do fix the answer: Yes."
+  ]
+ },
+ {
+  "q": "In which direction is R from P?<br>I. Q is 3 km east of P.<br>II. R is west of Q.",
+  "o": [
+   "I alone suffices; II alone does not",
+   "II alone suffices; I alone does not",
+   "Both together are needed; neither alone suffices",
+   "Either statement alone suffices",
+   "Even both together are not enough"
+  ],
+  "a": 4,
+  "e": "Answers still possible: I alone gives {many answers, e.g. east / north / north-east}; II alone gives {many answers, e.g. east / north / north-east}; together give {east / same point / west}. R is west of Q by an unknown amount: that can leave R east of P, at P, or west of P.",
+  "t": [
+   "Statement I alone leaves more than one answer open: east (e.g. P(0,0), Q(3,0), R(1,0)) vs north (e.g. P(0,0), Q(3,0), R(0,1)).",
+   "Statement II alone leaves more than one answer open: east (e.g. P(0,0), Q(2,0), R(1,0)) vs north (e.g. P(0,0), Q(1,1), R(0,1)).",
+   "Even together they leave more than one answer: east (e.g. P(0,0), Q(3,0), R(1,0)) vs same point (e.g. P(0,0), Q(3,0), R(0,0)).",
+   "Neither works alone. I alone: east (e.g. P(0,0), Q(3,0), R(1,0)) vs north (e.g. P(0,0), Q(3,0), R(0,1)).",
+   ""
+  ]
+ }
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What does a statement give: direction, distance or both? (2) Which two totals do I need for a direction? (3) Why can “east then west, lengths unknown” not be settled? (4) What is the distance formula?</div><div class="mem"><b>Memorise this</b><br>1. Statements are arrows; add east-west and north-south separately.<br>2. Direction needs the sign of each total.<br>3. Distance = √(EW² + NS²), needs all lengths.<br>4. Same-way arrows are safe; opposite-way unknown arrows can flip.<br>5. Test two small maps before saying sufficient.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Cardinal_direction">Wikipedia: Cardinal direction</a> · <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Wikipedia: Cartesian coordinate system</a> · <a href="https://www.geeksforgeeks.org/data-sufficiency/">GeeksforGeeks: Data Sufficiency</a>. Python: every verdict, drill item and the lab come from trying all grid points.<br><b>UNVERIFIED:</b> the exact option wording and ordering used in PFRDA papers (the fetched page lists four options; our fifth, “either alone”, is our own extension so every outcome has a choice); whether this question type appears in PFRDA Phase 1 at all (the notification gives no Reasoning topic list).</p></section>
+</article>
