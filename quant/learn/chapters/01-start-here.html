@@ -22,6 +22,7 @@
 <div class="box">Penalty per wrong answer = 1.25 ÷ 4 = 0.3125</div>
 <div class="box">Score = 1.25 × (right) − 0.3125 × (wrong). Skipped = 0.</div>
 <div class="box">Break-even chance (the chance of being right at which a guess neither gains nor loses on average) = 0.3125 ÷ (1.25 + 0.3125) = 0.3125 ÷ 1.5625 = 0.2 = 20%</div>
+<div class="tip"><b>Check this against your call letter.</b> The official notification says "negative marking (1/4th of marks assigned to the question)". It does not print marks per question. We worked 1.25 out from its table (25 marks ÷ 20 questions), so the penalty is 0.3125. <i>Sources differ:</i> some coaching pages say a flat −0.25. If it is a flat −0.25, break-even is 0.25 ÷ 1.5 ≈ 16.7%. Using 20% as your guess rule is safe under both readings.</div>
 <p class="src">Source: official PFRDA Officer Grade A (Assistant Manager) 2026 notification, pages 6-7 (see Sources). The break-even line is our arithmetic, checked by Python.</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
@@ -88,7 +89,7 @@ var e=p/100*1.25-(1-p/100)*0.3125;g.innerHTML='<div class="st">Expected marks = 
 <div class="tip"><b>What it means for you.</b> DI and equations were the biggest blocks in 2025, so they are placed after the basics in this guide. Cut-offs can change each year, so aim for accuracy, not a magic number.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
-<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
+<p class="prog">Right = +1.25, wrong = −0.3125 (¼ of 1.25; our calculation, some sites say −0.25). Guess only if your chance of being right is above 20%.</p>
 <div class="quiz"><script type="application/json">[
 {"q":"How many Quant questions are there in Paper 1, and for how many marks?","o":["25 questions, 20 marks","20 questions, 20 marks","30 questions, 25 marks","20 questions, 25 marks"],"a":3,"e":"The official notification gives Quant 20 questions for 25 marks. One snippet elsewhere said 25 Q / 20 marks; the official PDF wins.","t":["Reversed numbers, seen in a non-official snippet","Marks are 25, not 20","30 questions is Reasoning, not Quant",""]},
 {"q":"A student gets 14 right, 4 wrong and skips 2. Quant score?","o":["17.5","13.5","16.25","14.0"],"a":2,"e":"14 × 1.25 = 17.5. 4 × 0.3125 = 1.25. 17.5 − 1.25 = 16.25.","t":["Ignores the penalty","Used −1 per wrong answer instead of −0.3125 (17.5 − 4)","",  "Counted only the right answers as 1 mark each"]},

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PFRDA Reasoning Lab</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1c1b19;--mute:#5d5a52;--line:#d9d5c9;--acc:#1f5fbf;--accbg:#e4edfb;--ok:#17703a;--okbg:#e0f3e6;--bad:#a8281c;--badbg:#fbe4e1;--warn:#7a5200;--warnbg:#fff1cc;--bar:#3b7ddd;--bar2:#e08a1e;--r:12px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15161a;--card:#1f2127;--ink:#ecebe6;--mute:#a4a198;--line:#383b44;--acc:#7fb0ff;--accbg:#1f2d47;--ok:#6fd695;--okbg:#17301f;--bad:#ff8f84;--badbg:#3a1d1a;--warn:#f2c35c;--warnbg:#382c10;--bar:#7fb0ff;--bar2:#f2b04c}}
+:root[data-theme="dark"]{--bg:#15161a;--card:#1f2127;--ink:#ecebe6;--mute:#a4a198;--line:#383b44;--acc:#7fb0ff;--accbg:#1f2d47;--ok:#6fd695;--okbg:#17301f;--bad:#ff8f84;--badbg:#3a1d1a;--warn:#f2c35c;--warnbg:#382c10;--bar:#7fb0ff;--bar2:#f2b04c}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow-wrap:anywhere}
+main{max-width:680px;margin:0 auto;padding:12px 16px 80px}
+h1{font-size:1.6rem;margin:.3em 0}h2{font-size:1.15rem;margin:0 0 .5em;display:flex;gap:.5em;align-items:center}h3{font-size:1rem;margin:.8em 0 .3em}
+h2 .n{background:var(--acc);color:var(--bg);border-radius:99px;min-width:1.7em;height:1.7em;display:inline-grid;place-items:center;font-size:.85rem;flex:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin:14px 0}
+.oneline{background:var(--accbg);border-left:5px solid var(--acc);padding:12px;border-radius:var(--r);font-weight:600}
+.box{background:var(--accbg);border:2px solid var(--acc);border-radius:var(--r);padding:12px;margin:10px 0;font-weight:600}
+.trap{background:var(--badbg);border-left:5px solid var(--bad);padding:12px;border-radius:var(--r)}
+.tip{background:var(--warnbg);border-left:5px solid var(--warn);padding:12px;border-radius:var(--r);margin:10px 0}
+.mem{background:var(--okbg);border:2px solid var(--ok);border-radius:var(--r);padding:12px;margin-top:12px}
+button{font:inherit;min-height:44px;padding:8px 16px;border-radius:10px;border:2px solid var(--acc);background:var(--acc);color:var(--bg);font-weight:600;cursor:pointer}
+button.ghost{background:transparent;color:var(--acc)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--warn);outline-offset:2px}
+button:disabled{opacity:.5;cursor:default}
+.hid{display:none!important}
+.stepbox .st{padding:10px 12px;margin:8px 0;border-left:4px solid var(--acc);background:var(--bg);border-radius:8px}
+.prog{color:var(--mute);font-size:.85rem;margin:6px 0}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}th{background:var(--accbg)}
+.q{border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}
+.opts{display:grid;gap:8px;margin:8px 0}
+.opts button{background:var(--card);color:var(--ink);border-color:var(--line);text-align:left}
+.opts button.right{background:var(--okbg);border-color:var(--ok)}.opts button.wrong{background:var(--badbg);border-color:var(--bad)}
+.fb{padding:8px 10px;border-radius:8px;margin-top:6px}.fb.ok{background:var(--okbg)}.fb.no{background:var(--badbg)}
+.fb ul{margin:.4em 0 0;padding-left:1.2em;font-size:.92rem}
+input[type=number],input[type=text],select{font:inherit;width:100%;min-height:44px;padding:6px 10px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+label{display:block;font-weight:600;margin-top:8px}
+.big{font-size:1.4rem;font-weight:700}
+.src{font-size:.85rem;color:var(--mute)}
+a{color:var(--acc)}
+.bars{margin:10px 0}.bars .row{display:flex;height:30px;margin:6px 0;border-radius:6px;overflow:hidden;font-size:.85rem;color:#10131a;font-weight:600}
+.bars .row>span{display:flex;align-items:center;padding:0 8px;white-space:nowrap}.bars .a{background:var(--bar)}.bars .b{background:var(--bar2)}
+.cap{color:var(--mute);font-size:.85rem}
+.sort .item{display:block;width:100%;margin:6px 0;text-align:left;background:var(--card);color:var(--ink);border-color:var(--line)}
+.sort .item.sel{border-color:var(--acc);background:var(--accbg)}
+/* nav */
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;padding:8px 16px;max-width:none}
+.topbar .t{flex:1;font-weight:700;font-size:.95rem}
+.topbar button{min-height:40px;padding:4px 12px}
+#toc{position:fixed;inset:0;background:var(--bg);z-index:9;overflow:auto;padding:16px}
+#toc .in{max-width:680px;margin:0 auto}
+#toc a.ch{display:flex;gap:10px;align-items:center;padding:12px;margin:8px 0;border:1px solid var(--line);border-radius:var(--r);background:var(--card);text-decoration:none;color:var(--ink);min-height:48px}
+#toc a.ch .no{font-weight:700;color:var(--acc);min-width:2em}
+#toc a.ch.done::after{content:"\2713";margin-left:auto;color:var(--ok);font-weight:700}
+#toc .tag{font-size:.75rem;color:var(--mute)}
+.pager{display:flex;gap:8px;justify-content:space-between;margin:20px 0}
+.chapter{display:none}.chapter.on{display:block}
+@media (min-width:600px){.opts.two{grid-template-columns:1fr 1fr}}
+@media print{.topbar,.pager,button{display:none}}
+</style></head><body>
+<div class="topbar"><button class="ghost" id="tocBtn" type="button">Contents</button><span class="t" id="ttl">PFRDA Reasoning Lab</span><button class="ghost" id="themeBtn" type="button" aria-label="Toggle light or dark theme">Theme</button></div>
+<div id="toc" class="hid"><div class="in">
+<h1>PFRDA Grade A · Reasoning Lab</h1>
+<p class="src">Phase 1 · 15 Oct 2026 · Reasoning = 30 Q, 25 marks, −¼ per wrong answer (official PFRDA notification). Start at <b>Start Here</b>, then go in order. One lesson a sitting.</p>
+<div id="toclist"></div></div></div>
+<main id="app">
+@@CHAPTERS@@
+<div class="pager"><button class="ghost" id="prev" type="button">Previous</button><button id="next" type="button">Next chapter</button></div>
+</main>
+<script>
+(function(){
+var root=document.documentElement;
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+var th=ls('rlTheme');if(th)root.setAttribute('data-theme',th);
+document.getElementById('themeBtn').onclick=function(){var d=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);var n=d?'light':'dark';root.setAttribute('data-theme',n);ls('rlTheme',n)};
+/* step reveal */
+document.querySelectorAll('[data-steps]').forEach(function(b){var s=b.querySelectorAll('.st'),i=1,btn=b.querySelector('[data-next]'),p=b.querySelector('.prog');s.forEach(function(e,k){if(k>0)e.classList.add('hid')});
+function u(){p.textContent='Step '+i+' of '+s.length;if(i>=s.length){btn.textContent='Done';btn.disabled=true}}u();btn.onclick=function(){if(i<s.length){s[i].classList.remove('hid');i++;u()}}});
+/* quiz */
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+document.querySelectorAll('.quiz').forEach(function(box,qi){var Q=JSON.parse(box.querySelector('script').textContent),score=0,done=0,neg=0;
+ Q.forEach(function(x,k){var d=document.createElement('div');d.className='q';var h='<b>Q'+(k+1)+'. '+x.q+'</b><div class="opts two">';
+  x.o.forEach(function(t,j){h+='<button type="button" data-j="'+j+'">'+'ABCDE'[j]+'. '+t+'</button>'});d.innerHTML=h+'</div><div class="fb hid"></div>';box.appendChild(d);
+  var bs=d.querySelectorAll('button'),fb=d.querySelector('.fb'),lock=false;
+  bs.forEach(function(b){b.onclick=function(){if(lock)return;lock=true;var j=+b.dataset.j;bs[x.a].classList.add('right');if(j!==x.a){b.classList.add('wrong');neg++}else score++;done++;
+   var m=(j===x.a?'Correct. ':'Not quite. Answer '+'ABCDE'[x.a]+'. ')+x.e;fb.className='fb '+(j===x.a?'ok':'no');fb.textContent=m;
+   if(x.t){var ul=document.createElement('ul');x.t.forEach(function(t,jj){if(t&&jj!==x.a){var li=document.createElement('li');li.textContent='Option '+'ABCDE'[jj]+': '+t;ul.appendChild(li)}});if(ul.children.length)fb.appendChild(ul)}
+   if(done===Q.length){var r=document.createElement('p');r.className='big';r.textContent='Score '+score+'/'+Q.length+' · exam-scale marks '+(score*25/30-neg*25/120).toFixed(2)+' of '+(Q.length*25/30).toFixed(2);box.appendChild(r)}}});
+ })});
+/* drill: [["prompt","answer"],...] */
+document.querySelectorAll('.drill').forEach(function(box){var D=JSON.parse(box.querySelector('script').textContent),cur,t0,n=0,tot=0;
+ box.insertAdjacentHTML('beforeend','<p class="big dq">Tap start</p><p class="da hid"></p><p class="prog dst"></p><button type="button" class="go">Start drill</button> <button type="button" class="ghost sh hid">Show answer</button> <button type="button" class="ghost nx hid">I knew it · next</button>');
+ var dq=box.querySelector('.dq'),da=box.querySelector('.da'),go=box.querySelector('.go'),sh=box.querySelector('.sh'),nx=box.querySelector('.nx'),st=box.querySelector('.dst');
+ function pick(){cur=D[Math.floor(Math.random()*D.length)];dq.textContent=cur[0];da.classList.add('hid');sh.classList.remove('hid');nx.classList.add('hid');t0=Date.now()}
+ go.onclick=function(){pick();go.textContent='Skip (did not know)'};
+ sh.onclick=function(){da.textContent=cur[1];da.classList.remove('hid');sh.classList.add('hid');nx.classList.remove('hid');go.textContent='Next (missed)'};
+ nx.onclick=function(){n++;tot+=(Date.now()-t0)/1000;st.textContent='Known: '+n+' · avg '+(tot/n).toFixed(1)+' s each (aim: under 5 s)';pick()};
+});
+/* chapters + nav */
+var chs=[].slice.call(document.querySelectorAll('.chapter')),list=document.getElementById('toclist'),toc=document.getElementById('toc');
+var seen=JSON.parse(ls('rlSeen')||'{}');
+chs.forEach(function(c,i){var a=document.createElement('a');a.className='ch'+(seen[c.id]?' done':'');a.href='#'+c.id;a.innerHTML='<span class="no">'+(c.dataset.no||i)+'</span><span><b>'+esc(c.dataset.title)+'</b><br><span class="tag">'+esc(c.dataset.tag||'')+'</span></span>';list.appendChild(a)});
+function show(id){var i=Math.max(0,chs.findIndex(function(c){return c.id===id}));chs.forEach(function(c,k){c.classList.toggle('on',k===i)});toc.classList.add('hid');document.getElementById('ttl').textContent=chs[i].dataset.title;
+ seen[chs[i].id]=1;ls('rlSeen',JSON.stringify(seen));list.children[i].classList.add('done');window.scrollTo(0,0);
+ document.getElementById('prev').style.visibility=i?'visible':'hidden';var nb=document.getElementById('next');nb.style.visibility=i<chs.length-1?'visible':'hidden';
+ document.getElementById('prev').onclick=function(){location.hash=chs[i-1].id};nb.onclick=function(){location.hash=chs[i+1].id}}
+function route(){var h=location.hash.slice(1);if(!h){toc.classList.remove('hid');chs.forEach(function(c){c.classList.remove('on')});document.getElementById('ttl').textContent='PFRDA Reasoning Lab';return}show(h)}
+window.addEventListener('hashchange',route);document.getElementById('tocBtn').onclick=function(){toc.classList.toggle('hid')};
+toc.addEventListener('click',function(e){if(e.target.closest('a'))setTimeout(function(){toc.classList.add('hid')},0)});
+route();
+})();
+</script></body></html>

@@ -88,7 +88,7 @@ s.innerHTML='<div class="st">1. Take 1 unit of distance each way. Times: 1/'+a+'
 <div class="tip"><b>How the wrong options are built.</b> The plain mean of the two speeds is almost always planted. Also: forgetting to change minutes into hours, and mixing km/h with m/s.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
-<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20% (derived, Python-checked: 1.25p − 0.3125(1 − p) &gt; 0 when p &gt; 0.2).</p>
+<p class="prog">Right = +1.25, wrong = −0.3125 (¼ of 1.25; our calculation, some sites say −0.25). Guess only if your chance of being right is above 20% (derived, Python-checked: 1.25p − 0.3125(1 − p) &gt; 0 when p &gt; 0.2).</p>
 <div class="quiz"><script type="application/json">[
 {"q":"A train runs at 54 km/h. What is that in m/s?","o":["194.4","18","15","27"],"a":2,"e":"54 × 5/18 = 15 m/s. (54 ÷ 18 = 3, then × 5 = 15.)","t":["Multiplied by 3.6: wrong direction. km/h to m/s means divide by 3.6","Divided by 3 instead of 3.6","","Halved 54"]},
 {"q":"A man goes to a market at 30 km/h and returns by the same road at 60 km/h. Average speed for the round trip?","o":["45 km/h","40 km/h","48 km/h","36 km/h"],"a":1,"e":"2 × 30 × 60 ÷ (30 + 60) = 3600 ÷ 90 = 40 km/h. Check: for 60 km each way, times are 2 h and 1 h, so 120 km in 3 h = 40.","t":["Plain mean of 30 and 60","","That is the answer for 60 and 40, not for 30 and 60","3600 ÷ 100: divided by the wrong number (the sum is 90)"]},
@@ -191,7 +191,7 @@ s.innerHTML='<div class="st">Distance to clear = '+f(d)+' m</div><div class="st"
 <div class="tip"><b>How the wrong options are built.</b> Expect the answer for train length only, the answer for platform length only, the answer with speeds subtracted instead of added, and the answer with units not converted.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
-<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20% (derived, Python-checked: 1.25p − 0.3125(1 − p) &gt; 0 when p &gt; 0.2).</p>
+<p class="prog">Right = +1.25, wrong = −0.3125 (¼ of 1.25; our calculation, some sites say −0.25). Guess only if your chance of being right is above 20% (derived, Python-checked: 1.25p − 0.3125(1 − p) &gt; 0 when p &gt; 0.2).</p>
 <div class="quiz"><script type="application/json">[
 {"q":"A 150 m train runs at 54 km/h. Time to pass a pole?","o":["10 s","2.8 s","15 s","20 s"],"a":0,"e":"54 km/h = 15 m/s. Time = 150 ÷ 15 = 10 s.","t":["","150 ÷ 54: metres divided by km/h, not converted","15 is the speed in m/s, not the time","Counted the train length twice (300 ÷ 15)"]},
 {"q":"A 200 m train at 36 km/h crosses a 300 m platform. Time taken?","o":["20 s","30 s","10 s","50 s"],"a":3,"e":"36 km/h = 10 m/s. Distance = 200 + 300 = 500 m. 500 ÷ 10 = 50 s.","t":["200 ÷ 10: train length only","300 ÷ 10: platform length only","Subtracted the lengths (100 ÷ 10)",""]},
@@ -293,7 +293,7 @@ t.innerHTML='<div class="st">Still water = ('+x+' + '+y+') ÷ 2 = <b>'+f((x+y)/2
 <div class="tip"><b>How the wrong options are built.</b> Expect: the sum instead of the difference, the still-water speed in place of the stream speed, and the time for only one leg.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
-<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20% (derived, Python-checked: 1.25p − 0.3125(1 − p) &gt; 0 when p &gt; 0.2).</p>
+<p class="prog">Right = +1.25, wrong = −0.3125 (¼ of 1.25; our calculation, some sites say −0.25). Guess only if your chance of being right is above 20% (derived, Python-checked: 1.25p − 0.3125(1 − p) &gt; 0 when p &gt; 0.2).</p>
 <div class="quiz"><script type="application/json">[
 {"q":"Boat speed in still water is 10 km/h, stream 2 km/h. Downstream speed?","o":["8 km/h","12 km/h","10 km/h","20 km/h"],"a":1,"e":"Downstream = b + s = 10 + 2 = 12 km/h.","t":["That is the upstream speed (10 − 2)","","Ignored the stream","Multiplied instead of adding"]},
 {"q":"A boat goes downstream at 18 km/h and upstream at 10 km/h. Speed of the stream?","o":["14 km/h","8 km/h","4 km/h","28 km/h"],"a":2,"e":"s = (18 − 10) ÷ 2 = 4 km/h.","t":["That is the still-water speed (18 + 10) ÷ 2","Forgot to halve the difference","","The sum, not the difference"]},

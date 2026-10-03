@@ -85,7 +85,7 @@ t.innerHTML='<div class="st">1. Order matters, no repeats: '+(s.length?s.join(' 
 <div class="tip"><b>How the wrong options are built.</b> The planted answers are usually the repeat-allowed number (n<sup>r</sup>), the order-ignored number (nCr, a selection count taught in Lesson 2), or a stage you forgot to multiply.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
-<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
+<p class="prog">Right = +1.25, wrong = −0.3125 (¼ of 1.25; our calculation, some sites say −0.25). Guess only if your chance of being right is above 20%.</p>
 <div class="quiz"><script type="application/json">[
 {"q":"3 shirts, 4 trousers and 2 pairs of shoes. How many different outfits (one of each)?","o":["9","12","24","6"],"a":2,"e":"Three stages: 3 × 4 × 2 = 24.","t":["3 + 4 + 2: added instead of multiplied","3 × 4 only: forgot the shoes stage","","3 × 2 only: forgot the trousers stage"]},
 {"q":"In how many ways can 5 different books be arranged in a row on a shelf?","o":["120","25","10","5"],"a":0,"e":"5! = 5 × 4 × 3 × 2 × 1 = 120.","t":["","5 × 5: assumes a book can be reused","5 + 5: added instead of multiplied","Just the number of books, not the arrangements"]},
@@ -181,7 +181,7 @@ t.innerHTML='<div class="st">1. Arrangements (order matters): '+n+'P'+r+' = <b>'
 <div class="tip"><b>How the wrong options are built.</b> Expect the nPr value (forgot to divide by r!), the total ignoring the condition, and added instead of multiplied stage counts.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
-<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
+<p class="prog">Right = +1.25, wrong = −0.3125 (¼ of 1.25; our calculation, some sites say −0.25). Guess only if your chance of being right is above 20%.</p>
 <div class="quiz"><script type="application/json">[
 {"q":"7C3 = ?","o":["21","35","210","42"],"a":1,"e":"(7 × 6 × 5) ÷ (3 × 2 × 1) = 210 ÷ 6 = 35.","t":["7 × 3: wrong operation","","210 is 7P3: forgot to divide by 3!","7 × 6: only two terms, no division"]},
 {"q":"10C8 = ?","o":["90","10","80","45"],"a":3,"e":"10C8 = 10C2 = (10 × 9) ÷ 2 = 45.","t":["10 × 9: two terms but no division by 2!","Confused with 10C1 or 10C9","10 × 8: not a combination formula",""]},
@@ -288,7 +288,7 @@ $('ch18-s3').addEventListener('input',lab);lab()})();</script></section>
 <div class="tip"><b>How the wrong options are built.</b> Expect the with-replacement answer, the answer to the complement (the "none" case), and the double-counted overlap.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
-<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
+<p class="prog">Right = +1.25, wrong = −0.3125 (¼ of 1.25; our calculation, some sites say −0.25). Guess only if your chance of being right is above 20%.</p>
 <div class="quiz"><script type="application/json">[
 {"q":"A fair die is thrown. Probability of a number greater than 4?","o":["1/3","1/2","2/3","1/6"],"a":0,"e":"Favourable: 5 and 6, so 2 outcomes. 2/6 = 1/3.","t":["","1/2 counts 3 outcomes (4, 5, 6): 4 is not greater than 4","2/3 counts 4 outcomes (3, 4, 5, 6)","1/6 counts only the 6"]},
 {"q":"Two fair dice are thrown. Probability that the sum is 8?","o":["1/6","1/11","5/36","1/12"],"a":2,"e":"Pairs: (2,6) (3,5) (4,4) (5,3) (6,2) = 5. 5/36.","t":["6/36 is the sum-7 answer","Treated the 11 possible sums as equally likely","","3/36: counted (2,6) (3,5) (4,4) but forgot the reversed pairs (6,2) (5,3)"]},
