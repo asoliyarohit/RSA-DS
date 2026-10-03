@@ -100,10 +100,15 @@ def cmd_review(args):
     review(args)
 
 
+def cmd_daycall(args):
+    from .daycall import run
+    run(args)
+
+
 def main():
     ap = argparse.ArgumentParser(prog="analyst")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review)):
+    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall)):
         p = sp.add_parser(name); p.set_defaults(fn=fn)
         p.add_argument("--leverage", type=float, default=0.0, help="override broker leverage cap")
         p.add_argument("--broker", choices=list(PROFILES), default="revolut")
