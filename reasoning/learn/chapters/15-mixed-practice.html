@@ -1,0 +1,1058 @@
+<article class="chapter" id="ch15" data-no="15" data-title="Mixed Practice: 30-Q mocks" data-tag="2 full mocks · 60 questions · blocks of 5">
+<h1>Mixed Practice: two 30-question mocks</h1>
+<p class="oneline">In one line: the real Reasoning section is 30 mixed questions, so practise exactly that shape, five at a time, and score yourself with the same marks.</p>
+<section class="lesson" id="ch15-l0"><h2 class="lt">Start · How to use the mocks</h2><p class="oneline">In one line: one block of 5 is a small win you can finish in about 3 minutes; stack six of them and you have a mock.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2><p>In a cricket match nobody bowls 30 balls without a pause: they bowl overs of 6. A mock works the same way. Each block of 5 is one “over”. You finish it, see your score, take a breath, and start the next.</p></section>
+<section class="card"><h2><span class="n">2</span>How to run a mock, one step at a time</h2><div class="stepbox" data-steps><div class="st">Pick one mock (A or B). Do NOT open the chapters while you work. This is a test, not a lesson.</div><div class="st">The official paper is 90 questions in one shared 60-minute timer (PFRDA 2026 notification). Our calculation: 60 minutes ÷ 90 questions = 40 seconds per question on average, so 30 reasoning questions is about 20 minutes. That is a suggested pace, not a rule.</div><div class="st">Do a block of 5. Tap the answers. Each wrong answer tells you why every wrong option is wrong. Read that before moving on.</div><div class="st">After the 6 blocks, add the six block scores and type your total into the marks lab below.</div><div class="st">Tomorrow, redo only the questions you got wrong. That second try is where most of the learning happens.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>What is inside each mock</h2><p>Both mocks have the same topic mix. It is our own mix, chosen to match how much space each topic gets in this guide. The official notification gives no topic split for Reasoning, so we do not claim one.</p><div class="tw"><table><tr><th>Topic</th><th>Questions in each mock</th><th>Chapter</th></tr><tr><td>Syllogism</td><td>4</td><td>3</td></tr><tr><td>Inequality</td><td>4</td><td>2</td></tr><tr><td>Coding</td><td>3</td><td>4</td></tr><tr><td>Seating</td><td>3</td><td>9</td></tr><tr><td>Puzzle</td><td>3</td><td>10</td></tr><tr><td>Blood relations</td><td>2</td><td>5</td></tr><tr><td>Direction</td><td>2</td><td>6</td></tr><tr><td>Ranking</td><td>2</td><td>7</td></tr><tr><td>Input-output</td><td>2</td><td>8</td></tr><tr><td>Critical reasoning</td><td>2</td><td>11</td></tr><tr><td>Series</td><td>3</td><td>13</td></tr><tr><td><b>Total</b></td><td><b>30</b></td><td></td></tr></table></div><p class="cap">Each topic row says which chapter to open when you miss it. Question wording is typical-style, written by us.</p></section>
+<section class="card"><h2><span class="n">4</span>The rules (marks)</h2><div class="box">Reasoning: 30 questions, 25 marks, so +0.8333 per right answer (our calculation from the notification table).</div><div class="box">Wrong answer: −0.25 (flat, as directed for this guide). Official wording is “1/4th of marks assigned”; the call letter settles it.</div><div class="box">Break-even chance of being right = 0.25 ÷ (0.8333 + 0.25) = about 23%.</div></section>
+<section class="card"><h2><span class="n">5</span>Lab: mock marks calculator</h2><label for="ch15-right">Right answers (0 to 30)</label><input id="ch15-right" type="number" min="0" max="30" value="18" inputmode="numeric"><label for="ch15-wrong">Wrong answers (0 to 30)</label><input id="ch15-wrong" type="number" min="0" max="30" value="6" inputmode="numeric"><p class="big" id="ch15-out" aria-live="polite"></p><p class="prog" id="ch15-note"></p><script>(function(){
+function $(i){return document.getElementById(i)}
+function calc(r,w){r=Math.max(0,Math.min(30,Math.floor(+r||0)));w=Math.max(0,Math.min(30,Math.floor(+w||0)));if(r+w>30)w=30-r;var m=r*25/30-w*0.25;return {r:r,w:w,s:30-r-w,m:m,acc:(r+w)?r/(r+w):0}}
+function lab(){var c=calc($('ch15-right').value,$('ch15-wrong').value);
+$('ch15-out').textContent='Marks '+c.m.toFixed(2)+' of 25';
+var n='Right '+c.r+', wrong '+c.w+', skipped '+c.s+'. ';
+if(c.r+c.w===0)n+='Nothing attempted.';else n+='Accuracy on attempted: '+(c.acc*100).toFixed(0)+'%. '+(c.acc>0.231?'Above the 23% break-even, so attempting paid off.':'At or below the 23% break-even, so those attempts cost you marks.');
+$('ch15-note').textContent=n}
+['ch15-right','ch15-wrong'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+</section>
+<section class="lesson" id="ch15-l1"><h2 class="lt">Mock A · 30 questions</h2><p class="oneline">In one line: six blocks of 5, mixed topics, no peeking at the chapters.</p>
+<section class="card" id="ch15-a-b1"><h2><span class="n">1</span>Mock A · Block 1 · Q1 to Q5</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this guide; the official wording is “1/4th of marks assigned”, so check the call letter). Skipping scores 0. Guess only if your chance of being right is above about 23%.</p><p class="prog">Conventions for every item: “Some” means at least one. Every named group has at least one member. “Follows” means true in every possible case. Left and right in seating are as the people themselves see it.</p><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "Statements:<br>All pens are books.<br>Some books are cups.<br>Conclusions:<br>I. Some pens are cups.<br>II. Some cups are books.",
+"o": [
+"Both I and II follow",
+"Only I follows",
+"Neither I nor II follows",
+"Only II follows"
+],
+"a": 3,
+"e": "Syllogism (checked over all set-models). Only II holds in every model. I: the cups that are books may all lie outside the pens. II: 'Some books are cups' can be read backwards: at least one cup is a book.",
+"t": [
+"Conclusion I does not follow: the cups that are books may all lie outside the pens.",
+"Conclusion I does not follow: the cups that are books may all lie outside the pens.",
+"Conclusion II does follow: 'Some books are cups' can be read backwards: at least one cup is a book.",
+""
+]
+},
+{
+"q": "In the following, check which conclusion is definitely true.<br>P ≥ Q &gt; R = S ≤ T<br>Conclusions:<br>I. P &gt; S<br>II. T &gt; R",
+"o": [
+"Only II follows",
+"Both I and II follow",
+"Neither I nor II follows",
+"Only I follows"
+],
+"a": 3,
+"e": "Inequality (checked over all value assignments).  I: P ≥ Q > R = S gives P > S. II: S ≤ T and R = S only give T ≥ R; T = R is possible.",
+"t": [
+"Conclusion I is definitely true: P ≥ Q > R = S gives P > S.",
+"Conclusion II is not definitely true: S ≤ T and R = S only give T ≥ R; T = R is possible.",
+"Conclusion I is definitely true: P ≥ Q > R = S gives P > S.",
+""
+]
+},
+{
+"q": "If A = 1, B = 2, C = 3, … Z = 26, what is the sum of the values of the letters of the word EXAM?",
+"o": [
+"43",
+"40",
+"42",
+"44"
+],
+"a": 0,
+"e": "Coding (computed): E 5 + X 24 + A 1 + M 13 = 43.",
+"t": [
+"",
+"Count M as 10 and you get 40. M is the 13th letter.",
+"Count E as 4 and you get 42. E is the 5th letter, so 5.",
+"Count X as 25 and you get 44. X is the 24th letter."
+]
+},
+{
+"q": "Pointing at a man, Rohit said, \"His mother is the only daughter of my mother.\" How is the man related to Rohit?<br>(Rohit is a male.)",
+"o": [
+"Uncle",
+"Nephew",
+"Brother",
+"Cousin"
+],
+"a": 1,
+"e": "Blood relations (family tree built in code). Rohit's mother's only daughter = Rohit's sister (Rohit is male, so it is not Rohit). The man is her son, so Rohit's sister's son = nephew.",
+"t": [
+"An uncle is a brother of Rohit's parent. The man is a child of Rohit's sister, one generation below Rohit.",
+"",
+"A brother would have Rohit's mother as his own mother. Here his mother is Rohit's sister.",
+"A cousin's parent would be Rohit's uncle or aunt. Here the man's mother is Rohit's own sister."
+]
+},
+{
+"q": "Meena walks 10 m towards the south, turns left and walks 12 m, then turns left again and walks 15 m. How far is she now from her starting point?",
+"o": [
+"37 m",
+"17 m",
+"5 m",
+"13 m"
+],
+"a": 3,
+"e": "Direction (coordinates). Facing south, left is east: (0,−10) → (12,−10); left again faces north: (12,5). Distance = √(12² + 5²) = 13.",
+"t": [
+"37 is 10 + 12 + 15, the total path length, not the straight-line distance.",
+"17 is 12 + 5, adding the legs instead of using the right-angled triangle.",
+"5 is only the north-south gap (15 − 10); the 12 m east-west gap is missed.",
+""
+]
+}
+]</script></div></section><section class="card" id="ch15-a-b2"><h2><span class="n">2</span>Mock A · Block 2 · Q6 to Q10</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "6 friends A, B, C, D, E and F sit around a circular table, all facing the centre.<br>• B sits second to the right of E.<br>• A and F are not neighbours.<br>• A and D are neighbours.<br>• E sits to the immediate right of D.<br>Who sits exactly opposite B?",
+"o": [
+"B",
+"F",
+"D",
+"A"
+],
+"a": 2,
+"e": "Seating (brute-forced over all 120 circular orders; exactly 1 fits). Going clockwise (seen from above): A C B F E D; B faces D.",
+"t": [
+"B is 0 seats clockwise from B; the opposite seat is 3 away.",
+"F is 1 seats clockwise from B; the opposite seat is 3 away.",
+"",
+"A is 4 seats clockwise from B; the opposite seat is 3 away."
+]
+},
+{
+"q": "In a row of students, Anil is 12th from the left end and Sunil is 15th from the right end. If they exchange places, Anil becomes 22nd from the left end. How many students are in the row?",
+"o": [
+"35",
+"37",
+"27",
+"36"
+],
+"a": 3,
+"e": "Ranking (checked by simulation for n = 36). After the swap Anil stands where Sunil stood. So Sunil was 22nd from the left and 15th from the right: 22 + 15 − 1 = 36.",
+"t": [
+"Subtracted 2 instead of 1.",
+"Forgot the −1. Total = left + right − 1 for the SAME person: Sunil is 22nd from the left and 15th from the right, so 22 + 15 − 1.",
+"Added Anil's 12 to Sunil's 15, but those two ranks are measured from opposite ends of different people.",
+""
+]
+},
+{
+"q": "A machine rearranges numbers by a fixed rule. Step I: the smallest number is moved to the left end. Step II: the largest number is moved to the right end. Step III: the next smallest goes to the second place from the left. Step IV: the next largest goes to the second place from the right. Steps continue in this pattern.<br>Input: 52 17 84 31 66 45<br>What is Step IV?",
+"o": [
+"17 31 52 66 45 84",
+"17 31 45 66 52 84",
+"17 31 52 45 66 84",
+"17 31 45 52 66 84"
+],
+"a": 2,
+"e": "Input-output (simulated in code). Step I: 17 52 84 31 66 45 → Step II: 17 52 31 66 45 84 → Step III: 17 31 52 66 45 84 → Step IV: 17 31 52 45 66 84 → Step V: 17 31 45 52 66 84.",
+"t": [
+"That is Step III. Step IV still has to place the next largest (66) second from the right.",
+"No step of the rule produces this order: 52 and 66 have swapped for no reason.",
+"",
+"That is Step V, one step too far."
+]
+},
+{
+"q": "Find the next term: 3, 8, 15, 24, 35, ?",
+"o": [
+"50",
+"48",
+"47",
+"46"
+],
+"a": 1,
+"e": "Series (rule fitted in code). Gaps 5, 7, 9, 11, 13; each term is n² − 1 for n = 2, 3, 4, 5, 6, next n = 7: 49 − 1 = 48.",
+"t": [
+"50 uses +15, skipping the pattern.",
+"",
+"47 uses +12; the gaps are odd numbers 5, 7, 9, 11, 13.",
+"46 repeats the last gap (+11). The gaps grow by 2 each time, so the next gap is 13."
+]
+},
+{
+"q": "Statements:<br>Some doctors are teachers.<br>All teachers are writers.<br>No writer is a singer.<br>Conclusions:<br>I. No doctor is a singer.<br>II. All writers are teachers.",
+"o": [
+"Only II follows",
+"Both I and II follow",
+"Only I follows",
+"Neither I nor II follows"
+],
+"a": 3,
+"e": "Syllogism (checked over all set-models). Neither holds in every model: a counter-model exists for each. I: the doctors who are not teachers could still be singers. II: teachers sit inside writers; some writers may not be teachers.",
+"t": [
+"Conclusion II does not follow: teachers sit inside writers; some writers may not be teachers.",
+"Conclusion I does not follow: the doctors who are not teachers could still be singers.",
+"Conclusion I does not follow: the doctors who are not teachers could still be singers.",
+""
+]
+}
+]</script></div></section><section class="card" id="ch15-a-b3"><h2><span class="n">3</span>Mock A · Block 3 · Q11 to Q15</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "Six friends A, B, C, D, E and F each visit the dentist on a different day from Monday to Saturday, one friend per day.<br>• E visits earlier in the week than A.<br>• B visits the day immediately after D.<br>• A visits the day immediately after B.<br>• Exactly one day separates the visits of C and A.<br>On which day does A visit?",
+"o": [
+"Thursday",
+"Friday",
+"Saturday",
+"Monday"
+],
+"a": 0,
+"e": "Puzzle, days (brute-forced over all 720 schedules; exactly 1 fits). Mon: E, Tue: D, Wed: B, Thu: A, Fri: F, Sat: C.",
+"t": [
+"",
+"A visits on Thursday; on Friday it is F.",
+"A visits on Thursday; on Saturday it is C.",
+"A visits on Thursday; on Monday it is E."
+]
+},
+{
+"q": "Symbols: P @ Q means P &gt; Q; P # Q means P &lt; Q; P $ Q means P ≥ Q; P % Q means P ≤ Q; P &amp; Q means P = Q.<br>M $ N @ O &amp; P % Q<br>Conclusions:<br>I. M @ P<br>II. Q $ O",
+"o": [
+"Only I follows",
+"Both I and II follow",
+"Only II follows",
+"Neither I nor II follows"
+],
+"a": 1,
+"e": "Inequality (checked over all value assignments). Decoded chain: M ≥ N > O = P ≤ Q. I: decoded M ≥ N > O = P gives M > P. II: decoded O = P ≤ Q gives Q ≥ O, so Q $ O is true.",
+"t": [
+"Conclusion II is definitely true: decoded O = P ≤ Q gives Q ≥ O, so Q $ O is true.",
+"",
+"Conclusion I is definitely true: decoded M ≥ N > O = P gives M > P.",
+"Conclusion I is definitely true: decoded M ≥ N > O = P gives M > P."
+]
+},
+{
+"q": "Argument: \"After the new flyover opened, accidents on the road below it fell by 30%. So the flyover has made the road below safer.\"<br>Which of the following, if true, most WEAKENS the argument?",
+"o": [
+"Very few accidents have happened on the flyover itself.",
+"Drivers say the flyover is easy to use.",
+"The flyover has two lanes in each direction.",
+"In the same months the road below was closed to heavy trucks, which had caused most of its earlier accidents."
+],
+"a": 3,
+"e": "Critical reasoning (judgement item, not machine-checkable). The correct option offers a rival cause for the same fall in accidents, which weakens the claim that the flyover caused it. The others are irrelevant or mildly supportive.",
+"t": [
+"This does not give another cause for the fall below; if anything it fits the flyover being safe.",
+"An opinion about the flyover does not touch the cause of the fall.",
+"Lane count says nothing about why accidents on the road below fell.",
+""
+]
+},
+{
+"q": "In a code language, \"sun rises early\" is written \"ka mo ti\", \"early bird sings\" is written \"ti pa re\" and \"sun bird flies\" is written \"ka pa zu\". What is the code for \"bird\"?",
+"o": [
+"re",
+"ka",
+"pa",
+"ti"
+],
+"a": 2,
+"e": "Coding (all 720 word-to-code assignments tested; only one value for bird fits). The word common to sentences 2 and 3 is \"bird\", and the code common to them is pa.",
+"t": [
+"re appears only in the 2nd sentence, so it is \"sings\" (the word that is only in that sentence).",
+"ka is in the 1st and 3rd sentences, the two with \"sun\". So ka is \"sun\".",
+"",
+"ti is in the 1st and 2nd sentences, the two with \"early\". So ti is \"early\"."
+]
+},
+{
+"q": "In the English alphabet, which letter is the 4th to the left of the 9th letter from the right end?",
+"o": [
+"O",
+"N",
+"J",
+"M"
+],
+"a": 1,
+"e": "Ranking (computed). 9th from the right = 26 − 9 + 1 = 18th letter = R. Four to the left: 14th letter = N.",
+"t": [
+"O is only the 3rd to the left of R. Count R itself as the start, then 4 steps.",
+"",
+"J is the 9th letter from the LEFT end, mixing up the two ends.",
+"M is the 5th to the left of R, one step too many."
+]
+}
+]</script></div></section><section class="card" id="ch15-a-b4"><h2><span class="n">4</span>Mock A · Block 4 · Q16 to Q20</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "6 friends P, Q, R, S, T and U sit in a row facing north. Left and right are as the friends themselves see it.<br>• Exactly 3 persons sit between Q and U.<br>• Q and S sit next to each other.<br>• S and T sit next to each other.<br>• Exactly 1 person sits between R and S.<br>• R sits at the extreme right end.<br>Who sits third from the left end?",
+"o": [
+"S",
+"Q",
+"T",
+"U"
+],
+"a": 2,
+"e": "Seating (brute-forced over all 720 orders; exactly 1 fits). Left to right: U P T S Q R.",
+"t": [
+"S sits fourth from the left, not third.",
+"Q sits fifth from the left, not third.",
+"",
+"U sits first from the left, not third."
+]
+},
+{
+"q": "Statements:<br>No tree is a flower.<br>All flowers are plants.<br>Some plants are rocks.<br>Conclusions:<br>I. Some plants are not trees.<br>II. Some rocks are plants.",
+"o": [
+"Neither I nor II follows",
+"Only II follows",
+"Both I and II follow",
+"Only I follows"
+],
+"a": 2,
+"e": "Syllogism (checked over all set-models). Both conclusions hold in every model. I: flowers are plants and are never trees, and (terms are non-empty) at least one flower exists, so some plants are not trees. II: 'Some plants are rocks' read backwards gives at least one rock that is a plant.",
+"t": [
+"Conclusion I does follow: flowers are plants and are never trees, and (terms are non-empty) at least one flower exists, so some plants are not trees.",
+"Conclusion I does follow: flowers are plants and are never trees, and (terms are non-empty) at least one flower exists, so some plants are not trees.",
+"",
+"Conclusion II does follow: 'Some plants are rocks' read backwards gives at least one rock that is a plant."
+]
+},
+{
+"q": "Five people V, W, X, Y and Z live in a five-storey building, one person per floor. Floor 1 is the lowest, floor 5 the topmost.<br>• Z lives on neither the top nor the bottom floor.<br>• Exactly one floor lies between the floors of X and Z.<br>• X lives above Y.<br>• V lives on the floor immediately above W.<br>Who lives on floor 3?",
+"o": [
+"Z",
+"W",
+"V",
+"X"
+],
+"a": 0,
+"e": "Puzzle, floors (brute-forced over all 120 assignments; exactly 1 fits). Floor 1 to 5: W V Z Y X.",
+"t": [
+"",
+"W lives on floor 1, not floor 3.",
+"V lives on floor 2, not floor 3.",
+"X lives on floor 5, not floor 3."
+]
+},
+{
+"q": "A is the sister of B. C is the mother of B. D is the father of C. E is the mother of D. How is A related to E?",
+"o": [
+"Daughter",
+"Great-granddaughter",
+"Great-grandmother",
+"Granddaughter"
+],
+"a": 1,
+"e": "Blood relations (generation count built in code). A and B are C's children; C is D's child; D is E's child. A is 3 generations below E and female: great-granddaughter.",
+"t": [
+"A daughter is one generation below E. A is three generations below E.",
+"",
+"The line goes down from E to A, so A is the younger one, not the great-grandmother.",
+"A would be a granddaughter if E were C's mother. E is D's mother and D is C's father, so E is C's grandmother, and A is C's child: one more step down."
+]
+},
+{
+"q": "Find the next letter: A, C, F, J, O, ?",
+"o": [
+"U",
+"T",
+"V",
+"S"
+],
+"a": 0,
+"e": "Series (checked in code). Positions 1, 3, 6, 10, 15; gaps 2, 3, 4, 5, next gap 6: 15 + 6 = 21 = U.",
+"t": [
+"",
+"T is O + 5, repeating the last gap. The gaps rise 2, 3, 4, 5, so the next is 6.",
+"V is O + 7, one gap too big.",
+"S is O + 4, going back to an earlier gap."
+]
+}
+]</script></div></section><section class="card" id="ch15-a-b5"><h2><span class="n">5</span>Mock A · Block 5 · Q21 to Q25</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "In the following, check which conclusion is definitely true.<br>K ≥ L = M ≤ N<br>Conclusions:<br>I. K ≥ N<br>II. K &lt; N",
+"o": [
+"Only I follows",
+"Either I or II follows",
+"Only II follows",
+"Neither I nor II follows"
+],
+"a": 1,
+"e": "Inequality (checked over all value assignments). K and N are only linked through the common lower value L = M, so K can be bigger, equal or smaller than N. I and II are exact opposites (≥ against <), so exactly one is true in every case. I: K and N both sit above M, so nothing compares them. II: same reason; K < N is not forced.",
+"t": [
+"Conclusion I is not definitely true: K and N both sit above M, so nothing compares them.",
+"",
+"Conclusion II is not definitely true: same reason; K < N is not forced.",
+"One of the two is true in every case (they are exact opposites), so 'neither' cannot be right."
+]
+},
+{
+"q": "In a code, each letter is replaced by its opposite letter in the alphabet (A ↔ Z, B ↔ Y, C ↔ X, …). How is LION written in this code?",
+"o": [
+"MJPO",
+"MLRO",
+"ORLM",
+"KHNM"
+],
+"a": 2,
+"e": "Coding (computed). L (12) ↔ O (15), I (9) ↔ R (18), O ↔ L, N (14) ↔ M (13): ORLM. Opposite letter = 27 − position.",
+"t": [
+"That moves every letter one step forward (L→M). The code uses the mirror letter: L is 12th from the left, so it becomes the 12th from the right = O.",
+"The letters are right (ORLM) but reversed; the code does not reverse the word.",
+"",
+"That moves every letter one step back. The code uses the mirror letter."
+]
+},
+{
+"q": "Dev faces north. He turns 135° clockwise, then 90° anticlockwise, then 180° clockwise. Which direction is he facing now?",
+"o": [
+"South-west",
+"South",
+"North-east",
+"South-east"
+],
+"a": 0,
+"e": "Direction (angles in code, clockwise from north). 0° + 135° = 135° (SE); − 90° = 45° (NE); + 180° = 225° (SW).",
+"t": [
+"",
+"South is 180°; the total turn is 225°, which is south-west.",
+"North-east is 45°, where he is after the SECOND turn.",
+"South-east is 135°, where he is after the FIRST turn only."
+]
+},
+{
+"q": "A machine works on numbers by a fixed rule. In each step it makes ONE left-to-right pass: it compares each pair of neighbours and swaps them if the left one is bigger.<br>Input: 34 12 58 21 9<br>What is Step III?",
+"o": [
+"12 34 21 9 58",
+"9 12 21 34 58",
+"12 21 9 34 58",
+"12 9 21 34 58"
+],
+"a": 3,
+"e": "Input-output (simulated). Step I: 12 34 21 9 58; Step II: 12 21 9 34 58; Step III: 12 9 21 34 58; Step IV: 9 12 21 34 58.",
+"t": [
+"That is Step I, the first pass only.",
+"That is Step IV (the sorted line), one pass too many.",
+"That is Step II. Step III is one more pass.",
+""
+]
+},
+{
+"q": "Statement: In a survey of 200 households in a colony, 150 said they separate dry and wet waste at home.<br>Which of the following can be inferred from the statement alone?",
+"o": [
+"All households in the city separate waste.",
+"The other 50 households do not care about cleanliness.",
+"Waste separation will become compulsory next year.",
+"Three out of every four surveyed households separate waste at home."
+],
+"a": 3,
+"e": "Critical reasoning (arithmetic checked: 150 ÷ 200 = 0.75). Only the option that restates the numbers is supported by the statement alone.",
+"t": [
+"The survey covers one colony, not the whole city, and only a part said yes.",
+"The statement gives no reason; they may simply not have a system yet.",
+"Nothing about a future rule is stated.",
+""
+]
+}
+]</script></div></section><section class="card" id="ch15-a-b6"><h2><span class="n">6</span>Mock A · Block 6 · Q26 to Q30</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "Five friends A, B, C, D and E have different heights.<br>• C is taller than B.<br>• D is taller than A.<br>• C is taller than E.<br>• C is taller than D.<br>Who is the tallest?",
+"o": [
+"A",
+"C",
+"D",
+"E"
+],
+"a": 1,
+"e": "Puzzle, comparison (all 120 height orders tested; the 12 that fit all clues share the same tallest: C).",
+"t": [
+"The clues put someone taller than A, so A is not the tallest.",
+"",
+"The clues put someone taller than D, so D is not the tallest.",
+"The clues put someone taller than E, so E is not the tallest."
+]
+},
+{
+"q": "7 friends P, Q, R, S, T, U and V sit in a row facing north. Left and right are as the friends themselves see it.<br>• Exactly 1 person sits between R and S.<br>• T sits to the immediate left of U.<br>• Exactly 2 persons sit between Q and S.<br>• S and U sit next to each other.<br>• Exactly 4 persons sit between T and V.<br>Who sits fourth from the left end?",
+"o": [
+"U",
+"V",
+"T",
+"S"
+],
+"a": 3,
+"e": "Seating (brute-forced over all 5040 orders; exactly 1 fits). Left to right: Q T U S P R V.",
+"t": [
+"U sits third from the left, not fourth.",
+"V sits seventh from the left, not fourth.",
+"T sits second from the left, not fourth.",
+""
+]
+},
+{
+"q": "Statements:<br>All stones are rocks.<br>Some rocks are gems.<br>Conclusions:<br>I. Some stones are gems.<br>II. No stone is a gem.",
+"o": [
+"Neither I nor II follows",
+"Either I or II follows",
+"Only I follows",
+"Only II follows"
+],
+"a": 1,
+"e": "Syllogism (checked over all set-models). Neither holds alone, but in every model exactly one of the two is true, so either-or. I: a model exists where the stones are not the gem rocks. II: a model exists where a stone is a gem.",
+"t": [
+"In every model one of the two is true (they cover all cases), so 'neither' cannot be right.",
+"",
+"Conclusion I does not follow: a model exists where the stones are not the gem rocks.",
+"Conclusion II does not follow: a model exists where a stone is a gem."
+]
+},
+{
+"q": "In the following, check which conclusion is definitely true.<br>H ≤ J &lt; K = L ≥ M<br>Conclusions:<br>I. M &lt; K<br>II. J &lt; L",
+"o": [
+"Only II follows",
+"Only I follows",
+"Neither I nor II follows",
+"Both I and II follow"
+],
+"a": 0,
+"e": "Inequality (checked over all value assignments).  I: K = L ≥ M gives M ≤ K; M = K is possible. II: J < K = L gives J < L.",
+"t": [
+"",
+"Conclusion I is not definitely true: K = L ≥ M gives M ≤ K; M = K is possible.",
+"Conclusion II is definitely true: J < K = L gives J < L.",
+"Conclusion I is not definitely true: K = L ≥ M gives M ≤ K; M = K is possible."
+]
+},
+{
+"q": "Which number is the odd one out?<br>16, 25, 36, 48, 64",
+"o": [
+"64",
+"48",
+"36",
+"25"
+],
+"a": 1,
+"e": "Odd one out (checked in code). 16, 25, 36 and 64 are perfect squares; 48 is not (6² = 36, 7² = 49).",
+"t": [
+"64 = 8², a perfect square like the rest.",
+"",
+"36 = 6², a perfect square like the rest.",
+"25 = 5², a perfect square like the rest."
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">7</span>Lock it in · Mock A</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) Which topic cost me the most marks in this mock? (2) Which wrong answers were careless and which were “did not know the method”? (3) For each wrong one, which chapter do I open? (4) Did I guess only when I could cross out an option?</div><div class="mem"><b>Memorise this</b><br>1. Right = +0.8333, wrong = −0.25, skip = 0.<br>2. Do the fast topics first: syllogism, inequality, coding, series, ranking.<br>3. Leave long seating and puzzle sets for the second pass.<br>4. Cross out options first; guess only with a real chance above about 23%.<br>5. After a mock, redo every wrong question one day later.</div></section>
+</section>
+<section class="lesson" id="ch15-l2"><h2 class="lt">Mock B · 30 questions</h2><p class="oneline">In one line: the same shape with fresh questions. Try it after you have redone the wrong ones from Mock A.</p>
+<section class="card" id="ch15-b-b1"><h2><span class="n">1</span>Mock B · Block 1 · Q1 to Q5</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this guide; the official wording is “1/4th of marks assigned”, so check the call letter). Skipping scores 0. Guess only if your chance of being right is above about 23%.</p><p class="prog">Conventions for every item: “Some” means at least one. Every named group has at least one member. “Follows” means true in every possible case. Left and right in seating are as the people themselves see it.</p><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "Statements:<br>All cats are dogs.<br>No dog is a rat.<br>Conclusions:<br>I. Some cats are rats.<br>II. No cat is a rat.",
+"o": [
+"Neither I nor II follows",
+"Both I and II follow",
+"Only II follows",
+"Only I follows"
+],
+"a": 2,
+"e": "Syllogism (checked over all set-models). Only II holds in every model. I: cats are inside dogs and no dog is a rat, so no cat can be a rat. II: cats sit inside dogs, so every cat is outside the rats: this is definitely true.",
+"t": [
+"Conclusion II does follow: cats sit inside dogs, so every cat is outside the rats: this is definitely true.",
+"Conclusion I does not follow: cats are inside dogs and no dog is a rat, so no cat can be a rat.",
+"",
+"Conclusion I does not follow: cats are inside dogs and no dog is a rat, so no cat can be a rat."
+]
+},
+{
+"q": "In the following, check which conclusion is definitely true.<br>P &lt; Q ≥ R = S<br>Conclusions:<br>I. P &lt; S<br>II. P &gt; S",
+"o": [
+"Neither I nor II follows",
+"Both I and II follow",
+"Only I follows",
+"Only II follows"
+],
+"a": 0,
+"e": "Inequality (checked over all value assignments).  I: P and S are both below Q, so P and S are not compared. II: same reason; P = S is also possible, so neither strict result is forced.",
+"t": [
+"",
+"Conclusion I is not definitely true: P and S are both below Q, so P and S are not compared.",
+"Conclusion I is not definitely true: P and S are both below Q, so P and S are not compared.",
+"Conclusion II is not definitely true: same reason; P = S is also possible, so neither strict result is forced."
+]
+},
+{
+"q": "In a code language, each letter of a word is moved 2 places forward in the alphabet and the whole word is then written backwards. How is BEAT written?",
+"o": [
+"DGCV",
+"UBFC",
+"VCGD",
+"TAEB"
+],
+"a": 2,
+"e": "Coding (computed). BEAT → +2 each: DGCV → backwards: VCGD.",
+"t": [
+"Shifted by 2 (DGCV) but not reversed.",
+"Shifted by only 1 before reversing.",
+"",
+"Reversed (TAEB) but not shifted."
+]
+},
+{
+"q": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+"o": [
+"Paternal uncle",
+"Father",
+"Maternal uncle",
+"Cousin"
+],
+"a": 0,
+"e": "Blood relations (family tree built in code). A, B, C are siblings (A male, B female, C male). C's child D: A is a brother of D's father = paternal uncle.",
+"t": [
+"",
+"Father is C. A is C's brother.",
+"Maternal uncle is the mother's brother. A is the brother of D's FATHER.",
+"A cousin is the child of an uncle or aunt. A is the uncle himself."
+]
+},
+{
+"q": "Asha walks 6 km towards the west, turns right and walks 8 km, then turns right again and walks 6 km. How far and in which direction is she from her starting point?",
+"o": [
+"20 km, north",
+"8 km, east",
+"6 km, north-west",
+"8 km, north"
+],
+"a": 3,
+"e": "Direction (coordinates). West 6: (−6,0); right turn faces north: (−6,8); right turn faces east: (0,8). She ends 8 km due north of the start.",
+"t": [
+"20 km is the total path (6 + 8 + 6), not the straight-line gap.",
+"The 6 km west and 6 km east cancel, so she is directly north, not east.",
+"The two 6 km legs cancel out; only the 8 km northward leg remains.",
+""
+]
+}
+]</script></div></section><section class="card" id="ch15-b-b2"><h2><span class="n">2</span>Mock B · Block 2 · Q6 to Q10</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "8 friends A, B, C, D, E, F, G and H sit around a circular table, all facing the centre.<br>• A sits to the immediate left of G.<br>• G sits second to the left of F.<br>• D and F are neighbours.<br>• B sits to the immediate right of G.<br>• E sits second to the right of C.<br>Who sits exactly opposite B?",
+"o": [
+"H",
+"B",
+"A",
+"C"
+],
+"a": 0,
+"e": "Seating (brute-forced over all 5040 circular orders; exactly 1 fits). Going clockwise (seen from above): A E H C D F B G; B faces H.",
+"t": [
+"",
+"B is 0 seats clockwise from B; the opposite seat is 4 away.",
+"A is 2 seats clockwise from B; the opposite seat is 4 away.",
+"C is 5 seats clockwise from B; the opposite seat is 4 away."
+]
+},
+{
+"q": "In a row of boys, Ravi is 14th from the left end and Kunal is 20th from the right end. Ravi is to the left of Kunal and exactly 6 boys stand between them. How many boys are in the row?",
+"o": [
+"41",
+"34",
+"40",
+"39"
+],
+"a": 2,
+"e": "Ranking (checked in code). Kunal's place from the left = 14 + 6 + 1 = 21. Total = 21 + 20 − 1 = 40.",
+"t": [
+"Forgot the −1: Kunal is 21st from the left and 20th from the right, so 21 + 20 − 1.",
+"Left out the 6 boys between them (14 + 20).",
+"",
+"Subtracted one too many."
+]
+},
+{
+"q": "A machine rearranges words by a fixed rule. Step I: the alphabetically first word goes to the left end. Step II: the alphabetically last word goes to the right end. Step III: the next alphabetically first word goes to the second place from the left. Step IV: the next alphabetically last word goes to the second place from the right.<br>Input: tea pen ink map cup<br>What is Step III?",
+"o": [
+"ink cup pen map tea",
+"cup ink map pen tea",
+"cup pen ink map tea",
+"cup ink pen map tea"
+],
+"a": 3,
+"e": "Input-output (simulated). Step I: cup tea pen ink map → Step II: cup pen ink map tea → Step III: cup ink pen map tea → Step IV: cup ink map pen tea.",
+"t": [
+"The first word is not the alphabetically first one: 'cup' must be at the left end after Step I.",
+"That is Step IV, one step too far.",
+"That is Step II. Step III still has to place 'ink' second from the left.",
+""
+]
+},
+{
+"q": "Find the next term: 2, 6, 12, 20, 30, ?",
+"o": [
+"44",
+"42",
+"36",
+"40"
+],
+"a": 1,
+"e": "Series (checked in code). Terms are n(n + 1): 1×2, 2×3, 3×4, 4×5, 5×6, next 6×7 = 42.",
+"t": [
+"44 uses +14, skipping a gap.",
+"",
+"36 is 6², not matching the pattern n × (n + 1).",
+"40 repeats the last gap (+10); the gaps rise 4, 6, 8, 10, 12."
+]
+},
+{
+"q": "Statements:<br>Some pens are books.<br>No book is a bag.<br>All bags are boxes.<br>Conclusions:<br>I. Some pens are not bags.<br>II. Some boxes are not books.",
+"o": [
+"Both I and II follow",
+"Only II follows",
+"Neither I nor II follows",
+"Only I follows"
+],
+"a": 0,
+"e": "Syllogism (checked over all set-models). Both conclusions hold in every model. I: the pens that are books are never bags. II: bags are boxes and are never books, so those boxes are not books (bags exist as a term).",
+"t": [
+"",
+"Conclusion I does follow: the pens that are books are never bags.",
+"Conclusion I does follow: the pens that are books are never bags.",
+"Conclusion II does follow: bags are boxes and are never books, so those boxes are not books (bags exist as a term)."
+]
+}
+]</script></div></section><section class="card" id="ch15-b-b3"><h2><span class="n">3</span>Mock B · Block 3 · Q11 to Q15</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "Four friends P, Q, R and S each like a different fruit from apple, banana, cherry and date.<br>• P likes date.<br>• Q does not like cherry.<br>• R does not like cherry.<br>• P does not like cherry.<br>• R does not like banana.<br>Who likes apple?",
+"o": [
+"R",
+"S",
+"Q",
+"P"
+],
+"a": 0,
+"e": "Puzzle, table (brute-forced over all 24 assignments; exactly 1 fits). P: date, Q: banana, R: apple, S: cherry.",
+"t": [
+"",
+"S likes cherry, not apple.",
+"Q likes banana, not apple.",
+"P likes date, not apple."
+]
+},
+{
+"q": "Symbols: P # Q means P &gt; Q; P @ Q means P &lt; Q; P $ Q means P ≥ Q; P % Q means P ≤ Q; P &amp; Q means P = Q.<br>T # U &amp; V % W @ X<br>Conclusions:<br>I. X # U<br>II. W # T",
+"o": [
+"Both I and II follow",
+"Neither I nor II follows",
+"Only II follows",
+"Only I follows"
+],
+"a": 3,
+"e": "Inequality (checked over all value assignments). Decoded chain: T > U = V ≤ W < X. I: decoded: U = V ≤ W < X gives X > U. II: W and T are both above U or V, so they are not compared.",
+"t": [
+"Conclusion II is not definitely true: W and T are both above U or V, so they are not compared.",
+"Conclusion I is definitely true: decoded: U = V ≤ W < X gives X > U.",
+"Conclusion I is definitely true: decoded: U = V ≤ W < X gives X > U.",
+""
+]
+},
+{
+"q": "Argument: \"Students who eat the school's free breakfast score higher in exams, so the free breakfast improves exam scores.\"<br>Which of the following, if true, most STRENGTHENS the argument?",
+"o": [
+"Breakfast is served at 8 am.",
+"Many students like the menu.",
+"Many students who eat breakfast also attend extra coaching classes.",
+"When breakfast was offered to a randomly chosen half of the students, that half scored higher than the other half."
+],
+"a": 3,
+"e": "Critical reasoning (judgement item, not machine-checkable). Random offering rules out the rival explanation that stronger students simply choose breakfast, so it supports the cause claim.",
+"t": [
+"The time of the meal says nothing about its effect on scores.",
+"Liking the food is not evidence of better scores.",
+"This gives another possible cause for their higher scores, which weakens the argument.",
+""
+]
+},
+{
+"q": "In a code, \"milk is white\" is written \"7 3 5\", \"white shirt\" is written \"5 8\" and \"shirt is clean\" is written \"8 3 4\". What is the code for \"milk\"?",
+"o": [
+"4",
+"7",
+"5",
+"3"
+],
+"a": 1,
+"e": "Coding (all 120 assignments tested; only one value for milk fits). 5 = white, 8 = shirt, 3 = is, 4 = clean; the leftover code in sentence 1 is 7 = milk.",
+"t": [
+"4 appears only in sentence 3, so it stands for \"clean\".",
+"",
+"5 is in sentences 1 and 2, the ones containing \"white\". So 5 is \"white\".",
+"3 is in sentences 1 and 3, the ones containing \"is\". So 3 is \"is\"."
+]
+},
+{
+"q": "Divya is 12th from the top in a class of 45 students. What is her rank from the bottom?",
+"o": [
+"34",
+"35",
+"33",
+"32"
+],
+"a": 0,
+"e": "Ranking (computed). From the bottom = 45 − 12 + 1 = 34.",
+"t": [
+"",
+"Added 2 instead of 1.",
+"45 − 12 = 33 forgets to add 1 (Divya herself).",
+"Subtracted one extra (45 − 12 − 1)."
+]
+}
+]</script></div></section><section class="card" id="ch15-b-b4"><h2><span class="n">4</span>Mock B · Block 4 · Q16 to Q20</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "6 friends P, Q, R, S, T and U sit in a row facing north. Left and right are as the friends themselves see it.<br>• Exactly 1 person sits between R and U.<br>• Exactly 1 person sits between P and T.<br>• R sits at the extreme left end.<br>• Exactly 2 persons sit between P and Q.<br>Who sits fifth from the left end?",
+"o": [
+"P",
+"R",
+"Q",
+"U"
+],
+"a": 2,
+"e": "Seating (brute-forced over all 720 orders; exactly 1 fits). Left to right: R P U T Q S.",
+"t": [
+"P sits second from the left, not fifth.",
+"R sits first from the left, not fifth.",
+"",
+"U sits third from the left, not fifth."
+]
+},
+{
+"q": "Statements:<br>Some cars are buses.<br>Some buses are trains.<br>Conclusions:<br>I. Some cars are trains.<br>II. Some trains are cars.",
+"o": [
+"Only I follows",
+"Only II follows",
+"Neither I nor II follows",
+"Both I and II follow"
+],
+"a": 2,
+"e": "Syllogism (checked over all set-models). Neither holds in every model: a counter-model exists for each. I: the cars that are buses may not be the buses that are trains. II: same gap: two 'some' statements do not link cars and trains.",
+"t": [
+"Conclusion I does not follow: the cars that are buses may not be the buses that are trains.",
+"Conclusion II does not follow: same gap: two 'some' statements do not link cars and trains.",
+"",
+"Conclusion I does not follow: the cars that are buses may not be the buses that are trains."
+]
+},
+{
+"q": "Five people K, L, M, N and O live in a five-storey building, one person per floor. Floor 1 is the lowest, floor 5 the topmost.<br>• O lives on neither the top nor the bottom floor.<br>• K lives on the floor immediately above L.<br>• N lives on the floor immediately above M.<br>• O lives above K.<br>Who lives on floor 2?",
+"o": [
+"K",
+"N",
+"O",
+"M"
+],
+"a": 0,
+"e": "Puzzle, floors (brute-forced over all 120 assignments; exactly 1 fits). Floor 1 to 5: L K O M N.",
+"t": [
+"",
+"N lives on floor 5, not floor 2.",
+"O lives on floor 3, not floor 2.",
+"M lives on floor 4, not floor 2."
+]
+},
+{
+"q": "Introducing a woman, Raj said, \"She is the wife of the only son of my mother.\" How is the woman related to Raj?<br>(Raj is a male.)",
+"o": [
+"Mother",
+"Wife",
+"Sister-in-law",
+"Sister"
+],
+"a": 1,
+"e": "Blood relations (family tree built in code). The only son of Raj's mother is Raj himself (he is male), so the woman is Raj's wife.",
+"t": [
+"The woman is the wife of someone of Raj's own generation, not a parent.",
+"",
+"A sister-in-law here would be a brother's wife. Raj is his mother's ONLY son, so he has no brother.",
+"The woman is a wife, not a daughter of his mother."
+]
+},
+{
+"q": "Find the next letter: Z, X, U, Q, L, ?",
+"o": [
+"G",
+"E",
+"F",
+"H"
+],
+"a": 2,
+"e": "Series (checked in code). Positions 26, 24, 21, 17, 12; gaps −2, −3, −4, −5, then −6: 12 − 6 = 6 = F.",
+"t": [
+"G is L − 5, repeating the last gap. The gaps grow 2, 3, 4, 5, so next is 6.",
+"E is L − 7, one gap too big.",
+"",
+"H is L − 4, going back an earlier gap."
+]
+}
+]</script></div></section><section class="card" id="ch15-b-b5"><h2><span class="n">5</span>Mock B · Block 5 · Q21 to Q25</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "In the following, check which conclusion is definitely true.<br>M ≥ N &gt; O = P &lt; Q<br>Conclusions:<br>I. Q &gt; N<br>II. N &gt; P",
+"o": [
+"Only I follows",
+"Both I and II follow",
+"Neither I nor II follows",
+"Only II follows"
+],
+"a": 3,
+"e": "Inequality (checked over all value assignments).  I: N and Q are both above P, so they are not compared. II: N > O = P gives N > P.",
+"t": [
+"Conclusion I is not definitely true: N and Q are both above P, so they are not compared.",
+"Conclusion I is not definitely true: N and Q are both above P, so they are not compared.",
+"Conclusion II is definitely true: N > O = P gives N > P.",
+""
+]
+},
+{
+"q": "In a code, a word that starts with a vowel is written backwards; a word that starts with a consonant has its first and last letters swapped. How is PLANET written?",
+"o": [
+"TENALP",
+"PLANET",
+"TLANEP",
+"PLANTE"
+],
+"a": 2,
+"e": "Coding (computed). P is a consonant: swap first (P) and last (T): TLANEP.",
+"t": [
+"That is the full reversal, used only for words starting with a vowel. P is a consonant.",
+"The word is unchanged; the consonant rule still swaps first and last letters.",
+"",
+"That swaps the last two letters, not the first and last."
+]
+},
+{
+"q": "Tara faces east. She turns 90° anticlockwise, then 135° clockwise, then 90° anticlockwise. Which direction is she facing now?",
+"o": [
+"South-east",
+"North-east",
+"East",
+"North"
+],
+"a": 1,
+"e": "Direction (angles in code). 90° − 90° = 0° (N); + 135° = 135° (SE); − 90° = 45° (NE).",
+"t": [
+"South-east is 135°, where she is after the SECOND turn.",
+"",
+"East is 90°, the start; the total turn is −45°, so 45° (north-east).",
+"North is 0°, where she is after the FIRST turn."
+]
+},
+{
+"q": "A machine works on numbers by a fixed rule. In each step it makes ONE left-to-right pass: it compares each pair of neighbours and swaps them if the left one is bigger.<br>Input: 41 15 63 27 8<br>What is Step II?",
+"o": [
+"15 41 27 8 63",
+"8 15 27 41 63",
+"15 27 8 41 63",
+"15 8 27 41 63"
+],
+"a": 2,
+"e": "Input-output (simulated). Step I: 15 41 27 8 63; Step II: 15 27 8 41 63; Step III: 15 8 27 41 63; Step IV: 8 15 27 41 63.",
+"t": [
+"That is Step I, the first pass only.",
+"That is fully sorted, reached only after the 4th pass.",
+"",
+"That is Step III, one pass too many."
+]
+},
+{
+"q": "Statement: Of the 80 trains that ran on a route last month, 12 reached late.<br>Which of the following can be inferred from the statement alone?",
+"o": [
+"Most trains on this route will be late next month.",
+"15% of the trains on this route were late last month.",
+"Signal failures caused the late arrivals.",
+"The route needs more trains."
+],
+"a": 1,
+"e": "Critical reasoning (arithmetic checked: 12 ÷ 80 = 0.15). Only the restated figure is supported.",
+"t": [
+"Only 12 of 80 were late, and nothing is said about next month.",
+"",
+"No cause is given in the statement.",
+"Late arrivals do not by themselves show a shortage of trains."
+]
+}
+]</script></div></section><section class="card" id="ch15-b-b6"><h2><span class="n">6</span>Mock B · Block 6 · Q26 to Q30</h2><p class="prog">5 questions, aim for about 3 minutes and 20 seconds (our suggested pace, 40 s each).</p><div class="quiz"><script type="application/json">[
+{
+"q": "Five friends F, G, H, I and J have different heights.<br>• F is taller than J.<br>• G is taller than H.<br>• J is taller than I.<br>• F is taller than H.<br>• H is taller than I.<br>Who is the shortest?",
+"o": [
+"H",
+"G",
+"F",
+"I"
+],
+"a": 3,
+"e": "Puzzle, comparison (all 120 height orders tested; the 5 that fit all clues share the same shortest: I).",
+"t": [
+"The clues put someone shorter than H, so H is not the shortest.",
+"The clues put someone shorter than G, so G is not the shortest.",
+"The clues put someone shorter than F, so F is not the shortest.",
+""
+]
+},
+{
+"q": "8 friends P, Q, R, S, T, U, V and W sit in a row facing north. Left and right are as the friends themselves see it.<br>• Exactly 5 persons sit between T and V.<br>• S sits to the immediate right of W.<br>• Exactly 3 persons sit between T and U.<br>• S sits somewhere to the right of P.<br>• V sits somewhere to the right of S.<br>• Q sits at the extreme right end.<br>Who sits sixth from the left end?",
+"o": [
+"R",
+"T",
+"V",
+"Q"
+],
+"a": 0,
+"e": "Seating (brute-forced over all 40320 orders; exactly 1 fits). Left to right: T P W S U R V Q.",
+"t": [
+"",
+"T sits first from the left, not sixth.",
+"V sits seventh from the left, not sixth.",
+"Q sits eighth from the left, not sixth."
+]
+},
+{
+"q": "Statements:<br>No pen is a book.<br>Some books are bags.<br>Conclusions:<br>I. Some bags are not pens.<br>II. Some pens are bags.",
+"o": [
+"Neither I nor II follows",
+"Only I follows",
+"Only II follows",
+"Both I and II follow"
+],
+"a": 1,
+"e": "Syllogism (checked over all set-models). Only I holds in every model. I: the bags that are books cannot be pens, so at least one bag is not a pen. II: the pens are all outside the books; some pens may or may not be bags, not forced.",
+"t": [
+"Conclusion I does follow: the bags that are books cannot be pens, so at least one bag is not a pen.",
+"",
+"Conclusion I does follow: the bags that are books cannot be pens, so at least one bag is not a pen.",
+"Conclusion II does not follow: the pens are all outside the books; some pens may or may not be bags, not forced."
+]
+},
+{
+"q": "In the following, check which conclusion is definitely true.<br>R ≥ S &gt; T ≥ U, V = R<br>Conclusions:<br>I. V &gt; U<br>II. S &gt; U",
+"o": [
+"Only II follows",
+"Only I follows",
+"Both I and II follow",
+"Neither I nor II follows"
+],
+"a": 2,
+"e": "Inequality (checked over all value assignments).  I: R ≥ S > T ≥ U gives R > U (V = R is a restatement). II: S > T ≥ U gives S > U.",
+"t": [
+"Conclusion I is definitely true: R ≥ S > T ≥ U gives R > U (V = R is a restatement).",
+"Conclusion II is definitely true: S > T ≥ U gives S > U.",
+"",
+"Conclusion I is definitely true: R ≥ S > T ≥ U gives R > U (V = R is a restatement)."
+]
+},
+{
+"q": "Which letter-pair is the odd one out?<br>BD, FH, KM, PR, TW",
+"o": [
+"KM",
+"TW",
+"BD",
+"PR"
+],
+"a": 1,
+"e": "Odd one out (checked in code). BD, FH, KM, PR each skip one letter (gap 2); TW has a gap of 3 (T, U, V, W).",
+"t": [
+"K to M is a gap of 2, like most pairs.",
+"",
+"B to D is a gap of 2, like most pairs.",
+"P to R is a gap of 2, like most pairs."
+]
+}
+]</script></div></section><section class="card"><h2><span class="n">7</span>Lock it in · Mock B</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) Which topic cost me the most marks in this mock? (2) Which wrong answers were careless and which were “did not know the method”? (3) For each wrong one, which chapter do I open? (4) Did I guess only when I could cross out an option?</div><div class="mem"><b>Memorise this</b><br>1. Right = +0.8333, wrong = −0.25, skip = 0.<br>2. Do the fast topics first: syllogism, inequality, coding, series, ranking.<br>3. Leave long seating and puzzle sets for the second pass.<br>4. Cross out options first; guess only with a real chance above about 23%.<br>5. After a mock, redo every wrong question one day later.</div></section>
+</section>
+<p class="src"><b>Sources:</b> exam facts: PFRDA 2026 notification (Reasoning 30 Q / 25 marks; one 60-minute paper shared by 4 sections; Phase I on 15 Oct 2026). Conventions: <a href="https://en.wikipedia.org/wiki/Syllogism">Wikipedia: Syllogism</a> (“some” as at least one; All/No/Some/Some-not forms) · <a href="https://en.wikipedia.org/wiki/Cardinal_direction">Wikipedia: Cardinal direction</a> (compass points and degrees). Every answer in all 60 questions was checked by Python written for this chapter: syllogisms by enumerating all set-models over 5 elements; inequalities by enumerating all value assignments; seating and puzzles by brute force over all arrangements (each has exactly one solution); coding, input-output, ranking, series and directions by code or coordinates. Topic mix and the 40 s per question pace: our own choices, labelled as such.<br><b>UNVERIFIED:</b> the two Critical Reasoning items per mock that test weaken/strengthen are judgement items and cannot be machine-checked (the two inference items are arithmetic and were checked); the real exam’s topic split, question wording and option style (all typical-style, written by us); the exact negative-marking figure (call letter settles it).</p>
+</article>

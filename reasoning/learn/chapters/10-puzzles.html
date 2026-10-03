@@ -29,7 +29,7 @@ var m;if(S.length===0)m="<b>0 arrangements</b>: these clues contradict each othe
 o.innerHTML='<div class="st">'+m+'</div><div class="st">Ticked clues: '+cl.length+' of '+D.clues.length+'. Tick one more and watch the \u2713 marks disappear.</div>'}
 D.texts.forEach(function(t,k){$("ch10-l1lab-c"+k).addEventListener("change",run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper. Real sets may use more people than our five; the method is the same.</p><ul><li>"Six friends live on six floors of a building. P lives above Q but not on the top floor. R lives on an even floor. ... Who lives on the third floor?"</li><li>"Five boxes are stacked one over another. Box M is directly above N. Exactly two boxes are between P and Q. ... Which box is at the top?"</li><li>Question shapes: who is on slot k, which slot is X on, how many are between X and Y, who is immediately above X, which statement is true.</li></ul><p class="prog">Word clues: "immediately", "directly", "just" mean +1. "Above", "higher", "over" mean bigger, any gap. "Between" is strict. "Not necessarily" adds no information.</p><div class="tip"><b>How wrong options are built.</b> In our quiz they are the neighbours of the right answer (one slot off, or the same count counted wrongly). After solving, re-read the question: above or below, who or which floor.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this guide; the official wording is 1/4 of the marks assigned, and your call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Cross out one option and the odds improve.</p><div class="quiz"><script type="application/json">[
 {
-"q": "Pooja lives on the bottom floor (floor 1). Naveen lives on the floor immediately above Qadir. Meena lives above Naveen (not necessarily immediately). Omkar and Pooja live on neighbouring floors. Who lives on floor 4?",
+"q": "Meena, Naveen, Omkar, Pooja and Qadir live on floors 1 to 5 of a building (floor 1 is the bottom), one person per floor. Pooja lives on the bottom floor (floor 1). Naveen lives on the floor immediately above Qadir. Meena lives above Naveen (not necessarily immediately). Omkar and Pooja live on neighbouring floors. Who lives on floor 4?",
 "o": [
 "Meena",
 "Omkar",
@@ -46,7 +46,7 @@ D.texts.forEach(function(t,k){$("ch10-l1lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "Omkar lives on floor 3. Pooja lives somewhere between Omkar and Meena (they may be in either order). Meena lives above Omkar (not necessarily immediately). Qadir lives on the floor immediately above Naveen. On which floor does Qadir live?",
+"q": "Meena, Naveen, Omkar, Pooja and Qadir live on floors 1 to 5 of a building (floor 1 is the bottom), one person per floor. Omkar lives on floor 3. Pooja lives somewhere between Omkar and Meena (they may be in either order). Meena lives above Omkar (not necessarily immediately). Qadir lives on the floor immediately above Naveen. On which floor does Qadir live?",
 "o": [
 "Floor 2",
 "Floor 3",
@@ -63,7 +63,7 @@ D.texts.forEach(function(t,k){$("ch10-l1lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "Exactly 2 floors between Meena and Qadir. Naveen lives on the top floor. Omkar lives above Pooja (not necessarily immediately). Qadir lives on the floor immediately above Omkar. How many floors lie between Meena and Naveen?",
+"q": "Meena, Naveen, Omkar, Pooja and Qadir live on floors 1 to 5 of a building (floor 1 is the bottom), one person per floor. Exactly 2 floors between Meena and Qadir. Naveen lives on the top floor. Omkar lives above Pooja (not necessarily immediately). Qadir lives on the floor immediately above Omkar. How many floors lie between Meena and Naveen?",
 "o": [
 2,
 3,
@@ -80,7 +80,7 @@ D.texts.forEach(function(t,k){$("ch10-l1lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "The Pink box is at the top of the stack. The Red box is directly above the Blue box. Exactly 1 box between the Green box and the Pink box. The Yellow box is somewhere above the Blue box (not necessarily touching it). Which box is directly above the Green box?",
+"q": "Five boxes (Red, Blue, Green, Yellow, Pink) are stacked one on another, position 1 at the bottom, one box per position. The Pink box is at the top of the stack. The Red box is directly above the Blue box. Exactly 1 box between the Green box and the Pink box. The Yellow box is somewhere above the Blue box (not necessarily touching it). Which box is directly above the Green box?",
 "o": [
 "Red",
 "Yellow",
@@ -97,7 +97,7 @@ D.texts.forEach(function(t,k){$("ch10-l1lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "The Yellow box is at position 2 from the bottom. The Red box is directly above the Yellow box. The Green box is at the top of the stack. The Pink box and the Blue box do not touch. How many boxes are above the Red box?",
+"q": "Five boxes (Red, Blue, Green, Yellow, Pink) are stacked one on another, position 1 at the bottom, one box per position. The Yellow box is at position 2 from the bottom. The Red box is directly above the Yellow box. The Green box is at the top of the stack. The Pink box and the Blue box do not touch. How many boxes are above the Red box?",
 "o": [
 0,
 1,
@@ -105,7 +105,7 @@ D.texts.forEach(function(t,k){$("ch10-l1lab-c"+k).addEventListener("change",run)
 3
 ],
 "a": 2,
-"e": "Answer 2. Working: use the clues to place everyone (the clues fix the asked item even though other places stay open; one valid arrangement: Position 1: the Blue box Position 2: the Yellow box Position 3: the Red box Position 4: the Pink box Position 5: the Green box).",
+"e": "Answer 2. Working: Yellow 2, Red 3, Green 5 are fixed, so Pink and Blue share positions 1 and 4 (not touching either way). Python finds 2 valid arrangements (Blue 1, Pink 4 or Pink 1, Blue 4); in both, the boxes above Red are positions 4 and 5, so the answer is 2 in every case.",
 "t": [
 "0 does not match: the number above is 2.",
 "1 does not match: the number above is 2.",
@@ -142,7 +142,7 @@ var m;if(S.length===0)m="<b>0 arrangements</b>: these clues contradict each othe
 o.innerHTML='<div class="st">'+m+'</div><div class="st">Ticked clues: '+cl.length+' of '+D.clues.length+'. Tick one more and watch the \u2713 marks disappear.</div>'}
 D.texts.forEach(function(t,k){$("ch10-l2lab-c"+k).addEventListener("change",run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"Six friends were born in six different months. P was born two months before Q. R was born after S but before P. ... Who was born in the last month?"</li><li>"A seminar runs from Monday to Saturday, one speaker a day. X speaks the day after Y. Exactly two days are between Z and W. ... Who speaks on Thursday?"</li><li>Question shapes: who is on day k, on which day is X, how many days between, who comes just after X.</li></ul><p class="prog">Word clues: "earlier than", "prior to", "before" are smaller numbers. "Later than", "following", "after" are bigger. "Just before" and "the previous day" are −1. "Next day" is +1.</p><div class="tip"><b>Check the stem.</b> Our puzzles use Monday to Friday and January to May. If a real stem lists more days or months, use its list for the slot count.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this guide; the official wording is 1/4 of the marks assigned, and your call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Cross out one option and the odds improve.</p><div class="quiz"><script type="application/json">[
 {
-"q": "Lalit visits on a day between Kavya's and Mohan's visits (either order). Nisha visits on a later day than Mohan (not necessarily the next day). Ojas visits the day immediately after Kavya. Exactly 1 day falls between Nisha's and Lalit's visits. Who visits on Thursday?",
+"q": "Kavya, Lalit, Mohan, Nisha and Ojas each visit on a different day, Monday to Friday, one visit per day. Lalit visits on a day between Kavya's and Mohan's visits (either order). Nisha visits on a later day than Mohan (not necessarily the next day). Ojas visits the day immediately after Kavya. Exactly 1 day falls between Nisha's and Lalit's visits. Who visits on Thursday?",
 "o": [
 "Kavya",
 "Lalit",
@@ -159,7 +159,7 @@ D.texts.forEach(function(t,k){$("ch10-l2lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "Ojas visits the day immediately after Nisha. Nisha visits on a later day than Lalit (not necessarily the next day). Lalit visits on a day between Kavya's and Mohan's visits (either order). Exactly 1 day falls between Kavya's and Ojas's visits. On which day does Kavya visit?",
+"q": "Kavya, Lalit, Mohan, Nisha and Ojas each visit on a different day, Monday to Friday, one visit per day. Ojas visits the day immediately after Nisha. Nisha visits on a later day than Lalit (not necessarily the next day). Lalit visits on a day between Kavya's and Mohan's visits (either order). Exactly 1 day falls between Kavya's and Ojas's visits. On which day does Kavya visit?",
 "o": [
 "Wednesday",
 "Tuesday",
@@ -176,7 +176,7 @@ D.texts.forEach(function(t,k){$("ch10-l2lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "Mohan and Lalit were not born in consecutive months. Nisha's birth month is between Lalit's and Mohan's (either order). Ojas's birthday is in January, the first of the five months. Exactly 1 month falls between Mohan's and Ojas's birth months. Who was born in the month immediately after Mohan's?",
+"q": "Kavya, Lalit, Mohan, Nisha and Ojas were born in different months from January to May, one birthday per month. Mohan and Lalit were not born in consecutive months. Nisha's birth month is between Lalit's and Mohan's (either order). Ojas's birthday is in January, the first of the five months. Exactly 1 month falls between Mohan's and Ojas's birth months. Who was born in the month immediately after Mohan's?",
 "o": [
 "Kavya",
 "Lalit",
@@ -193,7 +193,7 @@ D.texts.forEach(function(t,k){$("ch10-l2lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "Kavya visits the day immediately after Lalit. Kavya visits on Friday. Mohan visits on a day between Kavya's and Ojas's visits (either order). Exactly 1 day falls between Mohan's and Ojas's visits. How many days fall between Nisha's and Lalit's visits?",
+"q": "Kavya, Lalit, Mohan, Nisha and Ojas each visit on a different day, Monday to Friday, one visit per day. Kavya visits the day immediately after Lalit. Kavya visits on Friday. Mohan visits on a day between Kavya's and Ojas's visits (either order). Exactly 1 day falls between Mohan's and Ojas's visits. How many days fall between Nisha's and Lalit's visits?",
 "o": [
 0,
 1,
@@ -210,7 +210,7 @@ D.texts.forEach(function(t,k){$("ch10-l2lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "Lalit's birth month is between Kavya's and Nisha's (either order). Ojas was born in the month immediately after Kavya's birth month. Lalit's birth month is between Kavya's and Mohan's (either order). Exactly 1 month falls between Kavya's and Nisha's birth months. How many of the five friends were born after Nisha?",
+"q": "Kavya, Lalit, Mohan, Nisha and Ojas were born in different months from January to May, one birthday per month. Lalit's birth month is between Kavya's and Nisha's (either order). Ojas was born in the month immediately after Kavya's birth month. Lalit's birth month is between Kavya's and Mohan's (either order). Exactly 1 month falls between Kavya's and Nisha's birth months. How many of the five friends were born after Nisha?",
 "o": [
 0,
 1,
@@ -220,9 +220,9 @@ D.texts.forEach(function(t,k){$("ch10-l2lab-c"+k).addEventListener("change",run)
 "a": 3,
 "e": "Answer 3. Working: use the clues to place everyone (arrangement from lowest slot to highest: January: Mohan February: Nisha March: Lalit April: Kavya May: Ojas).",
 "t": [
-"0 does not match: the number above is 3.",
-"1 counts those BELOW, not above.",
-"2 does not match: the number above is 3.",
+"0 does not match: three friends (Lalit, Kavya, Ojas) have later months.",
+"1 counts those born BEFORE Nisha (Mohan), not after.",
+"2 does not match: the number born later is 3.",
 ""
 ]
 }
@@ -255,7 +255,7 @@ var m;if(S.length===0)m="<b>0 arrangements</b>: these clues contradict each othe
 o.innerHTML='<div class="st">'+m+'</div><div class="st">Ticked clues: '+cl.length+' of '+D.clues.length+'. Tick one more and watch the \u2713 marks disappear.</div>'}
 D.texts.forEach(function(t,k){$("ch10-l3lab-c"+k).addEventListener("change",run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"Four friends P, Q, R, S each like a different sport and live in a different city. P lives in Delhi. The person who likes chess lives in Pune. ... Who likes cricket?"</li><li>"A is older than B but younger than C. D is older than C. Who is the youngest?"</li><li>Question shapes: who has value X, what does person P have, who is the tallest or shortest, how many are older than X, "cannot be determined".</li></ul><p class="prog">If a question can end in "cannot be determined", test both directions before you pick it. Chapter 12 (Data Sufficiency) trains exactly this.</p><div class="tip"><b>How wrong options are built.</b> In our quiz each wrong option is another person who really has a different value, so checking the full table tells you why it fails.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Right = +0.8333, wrong = −0.25 (flat, as set for this guide; the official wording is 1/4 of the marks assigned, and your call letter settles it). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Cross out one option and the odds improve.</p><div class="quiz"><script type="application/json">[
 {
-"q": "Ishaan studies maths. The person who studies physics lives in pune. Karan does not study physics. Leela lives in goa. Ishaan lives in kochi. Which city does Karan live in?",
+"q": "Ishaan, Jaya, Karan and Leela each study a different subject (Maths, Physics, Chemistry, Biology) and live in a different city (Pune, Goa, Kochi, Delhi). Ishaan studies Maths. The person who studies Physics lives in Pune. Karan does not study Physics. Leela lives in Goa. Ishaan lives in Kochi. Leela does not study Chemistry. Which city does Karan live in?",
 "o": [
 "Pune",
 "Goa",
@@ -265,14 +265,14 @@ D.texts.forEach(function(t,k){$("ch10-l3lab-c"+k).addEventListener("change",run)
 "a": 3,
 "e": "Answer Delhi. Full solution: Ishaan: Maths, Kochi; Jaya: Physics, Pune; Karan: Chemistry, Delhi; Leela: Biology, Goa.",
 "t": [
-"Jaya lives in pune, not Karan.",
-"Leela lives in goa, not Karan.",
-"Ishaan lives in kochi, not Karan.",
+"Jaya lives in Pune, not Karan.",
+"Leela lives in Goa, not Karan.",
+"Ishaan lives in Kochi, not Karan.",
 ""
 ]
 },
 {
-"q": "Anil travels by metro. The person who travels by bus works as a teacher. Chetan does not travel by bus. Divya works as a chef. The person who travels by bike works as a doctor. Who works as a doctor?",
+"q": "Anil, Bhavna, Chetan and Divya each travel by a different mode (Metro, Bus, Bike, Auto) and do a different job (Teacher, Chef, Doctor, Pilot). Anil travels by metro. The person who travels by bus works as a teacher. Chetan does not travel by bus. Divya works as a chef. The person who travels by bike works as a doctor. Who works as a doctor?",
 "o": [
 "Anil",
 "Bhavna",
@@ -289,7 +289,7 @@ D.texts.forEach(function(t,k){$("ch10-l3lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "Dev is taller than Esha. Esha is taller than Asha. Asha is taller than Charu. Charu is taller than Bala. Who is the tallest?",
+"q": "Asha, Bala, Charu, Dev and Esha all have different heights. Dev is taller than Esha. Esha is taller than Asha. Asha is taller than Charu. Charu is taller than Bala. Who is the tallest?",
 "o": [
 "Asha",
 "Dev",
@@ -306,7 +306,7 @@ D.texts.forEach(function(t,k){$("ch10-l3lab-c"+k).addEventListener("change",run)
 ]
 },
 {
-"q": "Asha is taller than Bala. Charu is taller than Bala. Dev is taller than Charu. Esha is taller than Dev. Who is the shortest?",
+"q": "Asha, Bala, Charu, Dev and Esha all have different heights. Asha is taller than Bala. Charu is taller than Bala. Dev is taller than Charu. Esha is taller than Dev. Who is the shortest?",
 "o": [
 "Bala",
 "Asha",
@@ -314,16 +314,16 @@ D.texts.forEach(function(t,k){$("ch10-l3lab-c"+k).addEventListener("change",run)
 "Dev"
 ],
 "a": 0,
-"e": "Answer Bala. Working: use the clues to place everyone (the clues fix the asked item even though other places stay open; one valid arrangement: Rank 1: Bala Rank 2: Asha Rank 3: Charu Rank 4: Dev Rank 5: Esha).",
+"e": "Answer Bala. Working: Esha > Dev > Charu > Bala, and Asha > Bala, so everyone is above Bala. Python finds 4 valid arrangements (Asha anywhere above Bala); Bala is shortest in all 4, so the answer is fixed even though the other places are not.",
 "t": [
 "",
-"Asha is number 2 counting from the shortest. That is not the one asked about.",
-"Charu is number 3 counting from the shortest. That is not the one asked about.",
-"Dev is number 4 counting from the shortest. That is not the one asked about."
+"Asha is above Bala (clue 1), so she cannot be shortest. Her exact place is not fixed.",
+"Charu is above Bala (clue 2), so Charu cannot be shortest.",
+"Dev is above Charu, who is above Bala, so Dev cannot be shortest."
 ]
 },
 {
-"q": "Asha is taller than Bala. Charu is taller than Asha. Dev is taller than Charu. Bala is taller than Esha. How many of the five are shorter than Asha?",
+"q": "Asha, Bala, Charu, Dev and Esha all have different heights. Asha is taller than Bala. Charu is taller than Asha. Dev is taller than Charu. Bala is taller than Esha. How many of the five are shorter than Asha?",
 "o": [
 1,
 2,
@@ -335,7 +335,7 @@ D.texts.forEach(function(t,k){$("ch10-l3lab-c"+k).addEventListener("change",run)
 "t": [
 "1 does not match: the number shorter is 2.",
 "",
-"3 counts Asha itself as well.",
+"3 counts Asha herself as well.",
 "4 does not match: the number shorter is 2."
 ]
 }
