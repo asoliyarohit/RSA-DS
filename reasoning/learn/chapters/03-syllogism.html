@@ -1,0 +1,390 @@
+<article class="chapter" id="ch03" data-no="03" data-title="Syllogism" data-tag="All / No / Some / Some-not, verified by enumeration · 3 lessons">
+<h1>Syllogism</h1>
+<p class="oneline">In one line: a syllogism question asks what MUST be true when a few statements about groups are true, and the answer comes from drawing circles, never from common sense.</p>
+<section class="lesson" id="ch03-l1"><h2 class="lt">Lesson 1 · The four statements and reversing them</h2><p class="oneline">In one line: learn what All, No, Some and Some-not mean as pictures, then learn which swaps are safe.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>In your hostel, a notice says: <b>“All hostel students must carry an ID card.”</b> Draw one big circle for ID-card holders and a small circle for hostel students <b>inside</b> it.</p><div class="bars" role="img" aria-label="Small circle inside big circle"><div class="row"><span class="a" style="width:70%">ID-card holders</span><span class="b" style="width:30%">hostel students sit inside</span></div></div><p class="cap">Can you say “all ID-card holders are hostel students”? No. Visitors carry ID cards too. That one thought is half of syllogism.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Think of each group as a <b>circle</b> (a set). A statement tells you how two circles sit.</div><div class="st"><b>All pens are books</b>: the pens circle is fully inside the books circle.</div><div class="st"><b>No pens are books</b>: the circles are apart. They do not touch.</div><div class="st"><b>Some pens are books</b>: the circles overlap, with at least one item in the overlap. “Some” means at least one, maybe all.</div><div class="st"><b>Some pens are not books</b>: at least one pen sits outside the books circle.</div><div class="st">Rule of the game: treat the statements as true, even if real life disagrees (a pen can be a book here).</div><div class="st">Rule of the game: every group named has at least one member (no empty circles).</div><div class="st">A conclusion <b>definitely follows</b> only if it is true in EVERY picture the statements allow. One legal picture that breaks it means it does not follow.</div><div class="st"><b>Reverse</b> means swapping the two groups. No and Some swap freely. All swaps only into a weaker Some. Some-not does not swap at all.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><p class="prog">Conventions used in this chapter (the usual exam-prep ones, stated so nothing is hidden): Some = at least one, possibly all. Every group named is not empty. Statements are true even if they clash with real life.</p></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">All A are B  ⇒  Some A are B, Some B are A. (NOT All B are A.)</div><div class="box">No A is B  ⇒  No B is A, Some A are not B, Some B are not A.</div><div class="box">Some A are B  ⇒  Some B are A. Nothing else.</div><div class="box">Some A are not B  ⇒  nothing new. (Some B are not A does NOT follow.)</div><div class="tw"><table><tr><th>Statement</th><th>Definitely follows (about A and B)</th></tr><tr><td>All A are B</td><td>All A are B · Some A are B · Some B are A</td></tr><tr><td>No A are B</td><td>No A are B · No B are A · Some A are not B · Some B are not A</td></tr><tr><td>Some A are B</td><td>Some A are B · Some B are A</td></tr><tr><td>Some A are not B</td><td>Some A are not B</td></tr><tr><td>Only a few A are B</td><td>Some A are B · Some B are A · Some A are not B</td></tr></table></div><p class="src">Meanings of All/No/Some/Some-not (A, E, I, O forms): <a href="https://en.wikipedia.org/wiki/Syllogism">Wikipedia: Syllogism</a>. Contradictory pairs and the traditional assumption that named groups are non-empty: <a href="https://en.wikipedia.org/wiki/Square_of_opposition">Wikipedia: Square of opposition</a>. The table is derived, Python-checked by enumerating every possible picture (every region of the two circles occupied or empty). Only a few: our exam-prep convention, see lesson 3.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Statement: All pens are books. Does “Some books are pens” follow?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Draw the pens circle inside the books circle.</div><div class="st">Step 2. Pens exist (no empty circles), so at least one item sits in pens.</div><div class="st">Step 3. That item is inside books too, so some books are pens.</div><div class="st">Step 4. Answer: <b>follows</b>. (Checked: true in all pictures.)</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Statement: No pens are books. Does “Some pens are not books” follow?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Draw two separate circles.</div><div class="st">Step 2. Pens exist, and none is inside books.</div><div class="st">Step 3. So at least one pen is not a book.</div><div class="st">Step 4. Answer: <b>follows</b>. This only works because we agreed pens is not empty.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Statement: All doctors are men. Conclusion: All men are doctors.</div><div class="st">Wrong move: flip the sentence. It feels natural.</div><div class="st">Draw it: doctors circle inside the men circle. Men can be a much bigger circle.</div><div class="st">Right: after All, the only safe reverse is <b>Some men are doctors</b>.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: say the shape, then test the swap</h2><div class="tip"><b>10-second routine.</b> (1) Name the picture: inside, apart, overlap, or sticking out. (2) Ask: is the conclusion true in that picture AND in any other legal picture? (3) If a single legal picture breaks it, cross it out. <b>Memory line:</b> No and Some swap freely. All shrinks to Some. Some-not never swaps.</div><h3>Speed drill</h3><p class="prog">Say Follows or Does not follow before you tap Show. Premise on the left of the bar, conclusion on the right.</p><div class="drill"><script type="application/json">[["All pens are books | Some pens are books?", "Follows (true in every picture)"], ["All pens are books | All books are pens?", "Does not follow: only possible"], ["All pens are books | Some books are pens?", "Follows (true in every picture)"], ["No pens are books | No books are pens?", "Follows (true in every picture)"], ["No pens are books | Some books are not pens?", "Follows (true in every picture)"], ["No pens are books | Some pens are books?", "Never true here"], ["Some pens are books | Some books are pens?", "Follows (true in every picture)"], ["Some pens are books | Some pens are not books?", "Does not follow: only possible"], ["Some pens are not books | Some books are not pens?", "Does not follow: only possible"], ["Some pens are not books | Some pens are books?", "Does not follow: only possible"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: one-statement tester</h2><p class="prog">Pick a statement, then a conclusion. The tester tries every picture of three circles (pens, books, cups) with no empty circle and tells you if the conclusion is definite, only possible, or impossible.</p><label for="ch03-l1-p1-f">Statement 1</label><div class="opts"><select id="ch03-l1-p1-f"><option value="0" selected>All</option><option value="1">No</option><option value="2">Some</option><option value="3">Some … not</option><option value="4">Only a few</option></select><select id="ch03-l1-p1-x"><option value="0" selected>pens</option><option value="1">books</option><option value="2">cups</option></select><select id="ch03-l1-p1-y"><option value="0">pens</option><option value="1" selected>books</option><option value="2">cups</option></select></div><label for="ch03-l1-c1-f">Conclusion I</label><div class="opts"><select id="ch03-l1-c1-f"><option value="0">All</option><option value="1">No</option><option value="2" selected>Some</option><option value="3">Some … not</option><option value="4">Only a few</option></select><select id="ch03-l1-c1-x"><option value="0">pens</option><option value="1" selected>books</option><option value="2">cups</option></select><select id="ch03-l1-c1-y"><option value="0" selected>pens</option><option value="1">books</option><option value="2">cups</option></select></div><div class="stepbox" style="margin-top:10px" id="ch03-l1-out"></div><script>(function(){function $(i){return document.getElementById(i)}
+var T=['pens','books','cups'],FL=['All','No','Some','Some … not','Only a few'],FK='AEIOF';
+var MODELS=(function(){var out=[];for(var m=0;m<256;m++){var ok=true;for(var t=0;t<3&&ok;t++){var any=false;for(var r=0;r<8;r++){if((m>>r&1)&&(r>>t&1))any=true}if(!any)ok=false}if(ok)out.push(m)}return out})();
+function ev(s,m){var k=s[0],x=s[1],y=s[2];
+ if(k==='F')return ev(['I',x,y],m)&&ev(['O',x,y],m);
+ var inx=false,iny=false,out=false;
+ for(var r=0;r<8;r++){if(!(m>>r&1))continue;if(r>>x&1){inx=true;if(r>>y&1)iny=true;else out=true}}
+ if(k==='A')return !out;if(k==='E')return !iny;if(k==='I')return iny;return out}
+function good(P,m){for(var i=0;i<P.length;i++)if(!ev(P[i],m))return false;return true}
+function sent(s){var x=T[s[1]],y=T[s[2]];return {A:'All '+x+' are '+y,E:'No '+x+' are '+y,I:'Some '+x+' are '+y,O:'Some '+x+' are not '+y,F:'Only a few '+x+' are '+y}[s[0]]}
+function analyse(P,C){var M=MODELS.filter(function(m){return good(P,m)});var res={n:M.length,c:[],either:false};
+ C.forEach(function(c){var t=0;M.forEach(function(m){if(ev(c,m))t++});res.c.push(t)});
+ if(C.length===2&&M.length){var all=true,none=true;M.forEach(function(m){if(!(ev(C[0],m)||ev(C[1],m)))all=false});res.either=all&&res.c[0]<M.length&&res.c[1]<M.length}
+ return res}
+var NP=1,NC=1,P0='ch03-l1';function rd(id){return [FK[parseInt($(id+'-f').value)],parseInt($(id+'-x').value),parseInt($(id+'-y').value)]}function run(){var out=$(P0+'-out'),P=[],C=[],bad=false,i;for(i=1;i<=NP;i++){var s=rd(P0+'-p'+i);if(s[1]===s[2])bad=true;P.push(s)}for(i=1;i<=NC;i++){var c=rd(P0+'-c'+i);if(c[1]===c[2])bad=true;C.push(c)}if(bad){out.innerHTML='<div class="st">Pick two different groups in each line.</div>';return}var r=analyse(P,C),h='';if(!r.n){out.innerHTML='<div class="st">These statements cannot all be true together (no picture fits).</div>';return}h+='<div class="st">'+r.n+' valid pictures fit your statements.</div>';C.forEach(function(c,k){var v=r.c[k]===r.n?'<b>Definitely follows</b> (true in all '+r.n+')':r.c[k]>0?'<b>Possible only</b> (true in '+r.c[k]+' of '+r.n+'): does NOT definitely follow':'<b>Never true</b> in any valid picture';h+='<div class="st">'+(NC>1?(k?'II. ':'I. '):'')+sent(c)+': '+v+'</div>'});if(NC===2){h+='<div class="st">'+(r.either?'<b>Either I or II</b>: neither alone is certain, but at least one is true in every picture.':(r.c[0]===r.n||r.c[1]===r.n)?'Either-or does not apply: one conclusion already follows.':'Either-or does not apply (a picture exists where both are false).')+'</div>'}out.innerHTML=h}["ch03-l1-p1", "ch03-l1-c1"].forEach(function(id){$(id+'-f').addEventListener('change',run);$(id+'-x').addEventListener('change',run);$(id+'-y').addEventListener('change',run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“Statement: Some books are pens. Conclusions: I. Some pens are books. II. Some books are not pens.” Options: Only I, Only II, Both, Neither.</li><li>“Which of the following definitely follows?” with four statements to choose from.</li><li>Look out for: the wrong reverse of All, and the word “Some” sneaking into a No-statement.</li></ul><div class="tip"><b>How wrong options are built.</b> Common plants are the reverse of All, “Some not” offered as certain, and a conclusion that is merely possible. If an option looks right only because it sounds natural, draw the picture.</div><p class="src">No topic-level Reasoning syllabus is in the official PFRDA notification. Coaching-site topic lists usually include syllogism (third-party, not official).</p></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Typical style, written by us. Right = +0.8333, wrong = −0.25 (flat, as directed for this guide). Guess only if your chance of being right is above about 23% (0.25 ÷ 1.0833). Crossing out one option first improves the odds. Convention for every question: treat the statements as true even if they clash with real life; every group named has at least one member; Some means at least one.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "Statement:<br>All pens are books.<br>Which conclusion definitely follows?",
+  "o": [
+   "All books are pens",
+   "No books are pens",
+   "Some books are pens",
+   "Some pens are not books"
+  ],
+  "a": 2,
+  "e": "Pens sit fully inside the books circle, and pens exist, so at least one book is a pen.",
+  "t": [
+   "All does not swap: the books circle can be bigger than the pens circle",
+   "Contradicts the picture: the pens inside the books circle are books",
+   "",
+   "Contradicts the picture: no pen sits outside the books circle"
+  ]
+ },
+ {
+  "q": "Statement:<br>No chairs are tables.<br>Which conclusion definitely follows?",
+  "o": [
+   "Some chairs are tables",
+   "All tables are chairs",
+   "Some tables are chairs",
+   "No tables are chairs"
+  ],
+  "a": 3,
+  "e": "No swaps freely: if the circles do not touch, they do not touch from either side.",
+  "t": [
+   "Contradicts: the circles do not overlap",
+   "Contradicts: tables would then be inside chairs, which would mean they overlap",
+   "Contradicts: the circles do not overlap",
+   ""
+  ]
+ },
+ {
+  "q": "Statement:<br>Some buses are vans.<br>Conclusions:<br>I. Some vans are buses.<br>II. Some buses are not vans.",
+  "o": [
+   "Only II follows",
+   "Only I follows",
+   "Both I and II follow",
+   "Neither I nor II follows"
+  ],
+  "a": 1,
+  "e": "I: Some swaps freely, so I follows. II: all the buses might be vans, so II is only possible.",
+  "t": [
+   "II does not follow, and I does: Some swaps freely",
+   "",
+   "II is only possible: the 'some' buses may be all the buses",
+   "I follows: Some swaps freely"
+  ]
+ },
+ {
+  "q": "Statement:<br>All doctors are men.<br>Conclusions:<br>I. Some men are doctors.<br>II. All men are doctors.",
+  "o": [
+   "Only I follows",
+   "Only II follows",
+   "Both I and II follow",
+   "Neither I nor II follows"
+  ],
+  "a": 0,
+  "e": "I follows (doctors exist and sit inside men). II is the invalid reverse: men can be a bigger circle.",
+  "t": [
+   "",
+   "II is the wrong reverse of All, and I does follow",
+   "II is the wrong reverse of All",
+   "I follows: doctors sit inside men, so some men are doctors"
+  ]
+ },
+ {
+  "q": "Statement:<br>Some books are not pens.<br>Conclusions:<br>I. Some pens are not books.<br>II. No books are pens.",
+  "o": [
+   "Only I follows",
+   "Only II follows",
+   "Both I and II follow",
+   "Neither I nor II follows"
+  ],
+  "a": 3,
+  "e": "Some-not never swaps, so I is only possible (all pens may sit inside books). II is also only possible: some books may be pens, so No books are pens is not certain. Neither follows.",
+  "t": [
+   "I does not follow: Some-not never swaps (all pens might be inside books)",
+   "II does not follow: some books may well be pens",
+   "Neither is certain",
+   ""
+  ]
+ },
+ {
+  "q": "Statement:<br>Some pens are books.<br>Which conclusion definitely follows?",
+  "o": [
+   "Some books are pens",
+   "All pens are books",
+   "Some pens are not books",
+   "No books are pens"
+  ],
+  "a": 0,
+  "e": "Some swaps freely.",
+  "t": [
+   "",
+   "Only possible: the some pens may be all pens, but not certain",
+   "Only possible: some pens may sit inside books and no pen outside",
+   "Contradicts the premise: the circles overlap"
+  ]
+ }
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What does “Some” mean? (2) What follows from All A are B? (3) Which statements swap freely? (4) When does a conclusion definitely follow?</div><div class="mem"><b>Memorise this</b><br>1. Some = at least one, maybe all.<br>2. Definite = true in EVERY legal picture.<br>3. No and Some swap freely.<br>4. All A are B gives Some B are A, never All B are A.<br>5. Some-not never swaps.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Syllogism">Wikipedia: Syllogism</a> · <a href="https://en.wikipedia.org/wiki/Square_of_opposition">Wikipedia: Square of opposition</a><br><b>UNVERIFIED:</b> whether the real exam treats “Some” as including “all”, or counts named groups as non-empty, is not stated in the notification (we state the usual exam-prep convention); how often syllogism appears is not claimed.</p></section><section class="lesson" id="ch03-l2"><h2 class="lt">Lesson 2 · Two statements, one conclusion</h2><p class="oneline">In one line: link two statements through the shared group, then test each conclusion by trying to break it with one legal picture.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>Two college rules: <b>“All first-years are students.”</b> and <b>“All students have a library card.”</b> Picture first-years inside students, and students inside card-holders. So all first-years have a library card, and (since first-years exist) some card-holders are first-years.</p><div class="bars" role="img" aria-label="Nested circles"><div class="row"><span class="a" style="width:40%">first-years</span><span class="b" style="width:60%">students, then card-holders around</span></div></div><p class="cap">Nested circles make the chain obvious. Other pairs of statements are less kind. Today we learn which ones give an answer.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Two statements share a <b>middle group</b>, the one named in both (students above).</div><div class="st">Draw the first statement. Then add the second without breaking the first.</div><div class="st">Ask of each conclusion: is it true in my picture?</div><div class="st">Then try to move the circles into a different legal picture (a Some can mean one item or many; circles can touch more or less). Does the conclusion survive?</div><div class="st">If ANY legal picture breaks the conclusion, it does not follow. That is the whole test.</div><div class="st">Quick screens (checked for every arrangement of the middle group): two Some/Some-not statements give nothing about the outer groups, and two negative statements (No or Some-not) give nothing.</div><div class="st">Two more checks: one negative statement means the conclusion must be negative. One Some statement means the conclusion must be a Some or Some-not.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><p class="prog">Conventions used in this chapter (the usual exam-prep ones, stated so nothing is hidden): Some = at least one, possibly all. Every group named is not empty. Statements are true even if they clash with real life.</p></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><p class="prog">Chain table. 1st statement is about A and B, 2nd about B and C. Re-order the statements (and use No/Some swaps) so the shared group B sits like this.</p><div class="tw"><table><tr><th>1st</th><th>2nd</th><th>About A and C</th></tr><tr><td>All A are B</td><td>All B are C</td><td>All A are C · Some A are C · Some C are A</td></tr><tr><td>All A are B</td><td>No B are C</td><td>No A are C · No C are A · Some A are not C · Some C are not A</td></tr><tr><td>All A are B</td><td>Some B are C</td><td>nothing</td></tr><tr><td>All A are B</td><td>Some B are not C</td><td>nothing</td></tr><tr><td>No A are B</td><td>All B are C</td><td>Some C are not A</td></tr><tr><td>No A are B</td><td>No B are C</td><td>nothing</td></tr><tr><td>No A are B</td><td>Some B are C</td><td>Some C are not A</td></tr><tr><td>No A are B</td><td>Some B are not C</td><td>nothing</td></tr><tr><td>Some A are B</td><td>All B are C</td><td>Some A are C · Some C are A</td></tr><tr><td>Some A are B</td><td>No B are C</td><td>Some A are not C</td></tr><tr><td>Some A are B</td><td>Some B are C</td><td>nothing</td></tr><tr><td>Some A are B</td><td>Some B are not C</td><td>nothing</td></tr><tr><td>Some A are not B</td><td>All B are C</td><td>nothing</td></tr><tr><td>Some A are not B</td><td>No B are C</td><td>nothing</td></tr><tr><td>Some A are not B</td><td>Some B are C</td><td>nothing</td></tr><tr><td>Some A are not B</td><td>Some B are not C</td><td>nothing</td></tr></table></div><div class="box">Some then All gives Some. All then Some gives nothing.</div><div class="box">Some-Some, No-No, Some-not anything: nothing definite about A and C.</div><p class="src">Syllogism structure (major premise, minor premise, conclusion, middle term): <a href="https://en.wikipedia.org/wiki/Syllogism">Wikipedia: Syllogism</a>. Venn pictures for testing: <a href="https://en.wikipedia.org/wiki/Venn_diagram">Wikipedia: Venn diagram</a>. The table and the screens are derived, Python-checked over every picture of three circles (218 valid ones with no circle empty) and over all four middle-group arrangements for the screens.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Some cats are dogs. All dogs are rats. Does “Some cats are rats” follow?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Draw cats and dogs overlapping. Mark the overlap: the cat-dogs.</div><div class="st">Step 2. Dogs sit fully inside rats, so the cat-dogs are inside rats.</div><div class="st">Step 3. So at least one cat is a rat.</div><div class="st">Step 4. Does “All cats are rats” follow? No: cats outside dogs may sit outside rats.</div><div class="st">Answer: <b>Some cats are rats</b> follows.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>No pens are books. All books are cups. What follows?</b></p><div class="stepbox" data-steps><div class="st">Step 1. Books are inside cups, and pens stay away from books.</div><div class="st">Step 2. The books are cups that are not pens. Books exist.</div><div class="st">Step 3. So <b>Some cups are not pens</b> follows.</div><div class="st">Step 4. Does “No pens are cups” follow? No: pens may sit in cups outside the books. Answer: only the Some-not.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Statements: Some tables are chairs. Some chairs are beds. Conclusion: Some tables are beds.</div><div class="st">Wrong move: Some plus Some gives Some. It sounds like a chain.</div><div class="st">Draw tables and beds far apart. Tables touch chairs in one spot, beds touch chairs in a different spot.</div><div class="st">Both statements are true and the conclusion is false. So it does <b>not</b> follow.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div><div class="trap" style="margin-top:10px"><div class="stepbox" data-steps><div class="st">Statements: All cats are dogs. Some dogs are rats. Conclusion: Some cats are rats.</div><div class="st">Wrong move: it looks like “Some then All”. But the order is All then Some.</div><div class="st">Draw cats inside dogs, and the rat-dogs in a different part of dogs.</div><div class="st">Right: nothing follows about cats and rats. (Some rats are dogs does follow, because it is the premise swapped.)</div><p class="prog"></p><button type="button" data-next>Show the second trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: break it in 10 seconds</h2><div class="tip"><b>Break-it routine.</b> (1) Screens: two Some-type or two negative statements? Cross out any conclusion linking the outer groups. (2) Line up the chain with the shared group in the middle. (3) Look the pair up in the table: that is the full list. (4) Anything else, try to draw one picture that breaks it. One picture is enough to kill a conclusion.</div><h3>Speed drill</h3><p class="prog">Premises on the left, conclusion after the bar.</p><div class="drill"><script type="application/json">[["All pens are books; All books are cups | All pens are cups?", "Follows (true in every picture)"], ["All pens are books; All books are cups | All cups are pens?", "Does not follow: only possible"], ["All pens are books; No books are cups | No pens are cups?", "Follows (true in every picture)"], ["All pens are books; No books are cups | Some cups are not pens?", "Follows (true in every picture)"], ["No pens are books; All books are cups | No pens are cups?", "Does not follow: only possible"], ["No pens are books; All books are cups | Some cups are not pens?", "Follows (true in every picture)"], ["Some pens are books; All books are cups | Some pens are cups?", "Follows (true in every picture)"], ["All pens are books; Some books are cups | Some pens are cups?", "Does not follow: only possible"], ["Some pens are books; No books are cups | Some pens are not cups?", "Follows (true in every picture)"], ["No pens are books; No books are cups | No pens are cups?", "Does not follow: only possible"], ["Some pens are not books; All books are cups | Some pens are not cups?", "Does not follow: only possible"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: two-statement tester</h2><p class="prog">Pick two statements and a conclusion. Try the Some/Some and All/Some cases from the traps.</p><label for="ch03-l2-p1-f">Statement 1</label><div class="opts"><select id="ch03-l2-p1-f"><option value="0">All</option><option value="1">No</option><option value="2" selected>Some</option><option value="3">Some … not</option><option value="4">Only a few</option></select><select id="ch03-l2-p1-x"><option value="0" selected>pens</option><option value="1">books</option><option value="2">cups</option></select><select id="ch03-l2-p1-y"><option value="0">pens</option><option value="1" selected>books</option><option value="2">cups</option></select></div><label for="ch03-l2-p2-f">Statement 2</label><div class="opts"><select id="ch03-l2-p2-f"><option value="0" selected>All</option><option value="1">No</option><option value="2">Some</option><option value="3">Some … not</option><option value="4">Only a few</option></select><select id="ch03-l2-p2-x"><option value="0">pens</option><option value="1" selected>books</option><option value="2">cups</option></select><select id="ch03-l2-p2-y"><option value="0">pens</option><option value="1">books</option><option value="2" selected>cups</option></select></div><label for="ch03-l2-c1-f">Conclusion I</label><div class="opts"><select id="ch03-l2-c1-f"><option value="0">All</option><option value="1">No</option><option value="2" selected>Some</option><option value="3">Some … not</option><option value="4">Only a few</option></select><select id="ch03-l2-c1-x"><option value="0" selected>pens</option><option value="1">books</option><option value="2">cups</option></select><select id="ch03-l2-c1-y"><option value="0">pens</option><option value="1">books</option><option value="2" selected>cups</option></select></div><div class="stepbox" style="margin-top:10px" id="ch03-l2-out"></div><script>(function(){function $(i){return document.getElementById(i)}
+var T=['pens','books','cups'],FL=['All','No','Some','Some … not','Only a few'],FK='AEIOF';
+var MODELS=(function(){var out=[];for(var m=0;m<256;m++){var ok=true;for(var t=0;t<3&&ok;t++){var any=false;for(var r=0;r<8;r++){if((m>>r&1)&&(r>>t&1))any=true}if(!any)ok=false}if(ok)out.push(m)}return out})();
+function ev(s,m){var k=s[0],x=s[1],y=s[2];
+ if(k==='F')return ev(['I',x,y],m)&&ev(['O',x,y],m);
+ var inx=false,iny=false,out=false;
+ for(var r=0;r<8;r++){if(!(m>>r&1))continue;if(r>>x&1){inx=true;if(r>>y&1)iny=true;else out=true}}
+ if(k==='A')return !out;if(k==='E')return !iny;if(k==='I')return iny;return out}
+function good(P,m){for(var i=0;i<P.length;i++)if(!ev(P[i],m))return false;return true}
+function sent(s){var x=T[s[1]],y=T[s[2]];return {A:'All '+x+' are '+y,E:'No '+x+' are '+y,I:'Some '+x+' are '+y,O:'Some '+x+' are not '+y,F:'Only a few '+x+' are '+y}[s[0]]}
+function analyse(P,C){var M=MODELS.filter(function(m){return good(P,m)});var res={n:M.length,c:[],either:false};
+ C.forEach(function(c){var t=0;M.forEach(function(m){if(ev(c,m))t++});res.c.push(t)});
+ if(C.length===2&&M.length){var all=true,none=true;M.forEach(function(m){if(!(ev(C[0],m)||ev(C[1],m)))all=false});res.either=all&&res.c[0]<M.length&&res.c[1]<M.length}
+ return res}
+var NP=2,NC=1,P0='ch03-l2';function rd(id){return [FK[parseInt($(id+'-f').value)],parseInt($(id+'-x').value),parseInt($(id+'-y').value)]}function run(){var out=$(P0+'-out'),P=[],C=[],bad=false,i;for(i=1;i<=NP;i++){var s=rd(P0+'-p'+i);if(s[1]===s[2])bad=true;P.push(s)}for(i=1;i<=NC;i++){var c=rd(P0+'-c'+i);if(c[1]===c[2])bad=true;C.push(c)}if(bad){out.innerHTML='<div class="st">Pick two different groups in each line.</div>';return}var r=analyse(P,C),h='';if(!r.n){out.innerHTML='<div class="st">These statements cannot all be true together (no picture fits).</div>';return}h+='<div class="st">'+r.n+' valid pictures fit your statements.</div>';C.forEach(function(c,k){var v=r.c[k]===r.n?'<b>Definitely follows</b> (true in all '+r.n+')':r.c[k]>0?'<b>Possible only</b> (true in '+r.c[k]+' of '+r.n+'): does NOT definitely follow':'<b>Never true</b> in any valid picture';h+='<div class="st">'+(NC>1?(k?'II. ':'I. '):'')+sent(c)+': '+v+'</div>'});if(NC===2){h+='<div class="st">'+(r.either?'<b>Either I or II</b>: neither alone is certain, but at least one is true in every picture.':(r.c[0]===r.n||r.c[1]===r.n)?'Either-or does not apply: one conclusion already follows.':'Either-or does not apply (a picture exists where both are false).')+'</div>'}out.innerHTML=h}["ch03-l2-p1", "ch03-l2-p2", "ch03-l2-c1"].forEach(function(id){$(id+'-f').addEventListener('change',run);$(id+'-x').addEventListener('change',run);$(id+'-y').addEventListener('change',run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“Statements: All A are B. Some B are C. Conclusions: I. Some A are C. II. Some C are B.” Options: Only I, Only II, Both, Neither (sometimes a fifth: Either).</li><li>Three-line sets with a middle group hidden in different positions.</li></ul><div class="tip"><b>How wrong options are built.</b> The tempting trap is the strong version of a true conclusion (All instead of Some), the chain that does not run (Some-Some), and the no-chain with reverse. Check strength: All, No, Some, Some-not.</div></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Typical style, written by us. Right = +0.8333, wrong = −0.25 (flat, as directed for this guide). Guess only if your chance of being right is above about 23% (0.25 ÷ 1.0833). Crossing out one option first improves the odds. Convention for every question: treat the statements as true even if they clash with real life; every group named has at least one member; Some means at least one.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "Statements:<br>All pens are books.<br>All books are cups.<br>Conclusions:<br>I. All pens are cups.<br>II. Some cups are pens.",
+  "o": [
+   "Only I follows",
+   "Only II follows",
+   "Neither I nor II follows",
+   "Both I and II follow"
+  ],
+  "a": 3,
+  "e": "Pens inside books inside cups: all pens are cups (I). Pens exist, so some cups are pens (II).",
+  "t": [
+   "II also follows: pens exist inside cups",
+   "I also follows: nested circles",
+   "Both follow",
+   ""
+  ]
+ },
+ {
+  "q": "Statements:<br>Some cats are dogs.<br>All dogs are rats.<br>Conclusions:<br>I. Some cats are rats.<br>II. All cats are rats.",
+  "o": [
+   "Only I follows",
+   "Only II follows",
+   "Both I and II follow",
+   "Neither I nor II follows"
+  ],
+  "a": 0,
+  "e": "The cats that are dogs are inside rats, so some cats are rats (I). Other cats may be outside rats, so II fails.",
+  "t": [
+   "",
+   "II fails: only the dog-cats are certainly rats",
+   "II fails: other cats may be outside rats",
+   "I follows: the cats that are dogs are rats"
+  ]
+ },
+ {
+  "q": "Statements:<br>All cats are dogs.<br>Some dogs are rats.<br>Conclusions:<br>I. Some cats are rats.<br>II. Some rats are dogs.",
+  "o": [
+   "Only I follows",
+   "Both I and II follow",
+   "Only II follows",
+   "Neither I nor II follows"
+  ],
+  "a": 2,
+  "e": "All-then-Some gives nothing about the outer groups (I fails: the rat-dogs may be non-cat dogs). II is just the premise swapped.",
+  "t": [
+   "I fails: the dogs that are rats may all be non-cats",
+   "I fails: see picture where cats sit in the dogs that are not rats",
+   "",
+   "II follows: Some swaps freely"
+  ]
+ },
+ {
+  "q": "Statements:<br>No pens are books.<br>All books are cups.<br>Conclusions:<br>I. No pens are cups.<br>II. Some cups are not pens.",
+  "o": [
+   "Only I follows",
+   "Only II follows",
+   "Both I and II follow",
+   "Neither I nor II follows"
+  ],
+  "a": 1,
+  "e": "Books are inside cups and away from pens, so some cups (the books) are not pens (II). But pens can still sit inside cups, so I fails.",
+  "t": [
+   "I fails: pens may sit in cups outside the books",
+   "",
+   "I fails: pens may be cups",
+   "II follows: books are cups and not pens"
+  ]
+ },
+ {
+  "q": "Statements:<br>Some tables are chairs.<br>Some chairs are beds.<br>Conclusions:<br>I. Some tables are beds.<br>II. Some beds are tables.",
+  "o": [
+   "Both I and II follow",
+   "Only I follows",
+   "Only II follows",
+   "Neither I nor II follows"
+  ],
+  "a": 3,
+  "e": "Two Some statements: draw tables and beds far apart, each touching chairs in a different spot. Nothing follows.",
+  "t": [
+   "One picture with tables and beds apart breaks both",
+   "A picture with tables and beds apart breaks I",
+   "A picture with tables and beds apart breaks II",
+   ""
+  ]
+ },
+ {
+  "q": "Statements:<br>Some pens are books.<br>No books are cups.<br>Which conclusion definitely follows?",
+  "o": [
+   "No pens are cups",
+   "Some cups are pens",
+   "Some pens are not cups",
+   "All pens are cups"
+  ],
+  "a": 2,
+  "e": "The pens that are books cannot be cups, so some pens are not cups.",
+  "t": [
+   "Not certain: pens outside the books may or may not be cups",
+   "Not certain: the pen-books are away from cups, other pens may be cups",
+   "",
+   "False: the pen-books are certainly not cups"
+  ]
+ },
+ {
+  "q": "Statements:<br>All bags are boxes.<br>No boxes are ropes.<br>Conclusions:<br>I. No bags are ropes.<br>II. Some ropes are not bags.",
+  "o": [
+   "Both I and II follow",
+   "Only I follows",
+   "Only II follows",
+   "Neither I nor II follows"
+  ],
+  "a": 0,
+  "e": "Bags are boxes, boxes avoid ropes, so bags avoid ropes (I). Ropes exist and none is a bag, so some ropes are not bags (II).",
+  "t": [
+   "",
+   "II also follows: ropes exist and none is a bag",
+   "I also follows: bags are boxes",
+   "Both follow"
+  ]
+ }
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) What is the middle group? (2) What do two Some statements give? (3) Some then All gives what? (4) All then Some gives what?</div><div class="mem"><b>Memorise this</b><br>1. Test = can ONE legal picture break it?<br>2. Some-Some: nothing. No-No: nothing.<br>3. Some then All: Some.<br>4. All then Some: nothing.<br>5. No after All: No. No before All: Some-not.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Syllogism">Wikipedia: Syllogism</a> · <a href="https://en.wikipedia.org/wiki/Venn_diagram">Wikipedia: Venn diagram</a><br><b>UNVERIFIED:</b> that every question you meet will use the same convention for “Some” and for empty groups.</p></section><section class="lesson" id="ch03-l3"><h2 class="lt">Lesson 3 · Possibility, either-or and “only a few”</h2><p class="oneline">In one line: Definite needs every picture, Possibility needs one, and Either-or covers two conclusions where one must be true.</p><section class="card"><h2><span class="n">1</span>Picture this</h2><p>Rahul has a ticket for a match on <b>either Saturday or Sunday</b>. Is it Saturday? Not certain. Is it Sunday? Not certain. Is it one of the two? Certain. That is <b>either-or</b>: neither alone is sure, but one of them must be true.</p><div class="bars" role="img" aria-label="Two days"><div class="row"><span class="a" style="width:50%">Saturday?</span><span class="b" style="width:50%">Sunday?</span></div></div><p class="cap">Compare: “Could it be Saturday?” is a <b>possibility</b>. One imaginable picture is enough.</p></section><section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2><div class="stepbox" data-steps><div class="st">Three verdicts for a conclusion: <b>Definite</b> (true in every picture), <b>Possible only</b> (true in some pictures), <b>Never</b> (true in none).</div><div class="st">A conclusion that starts with “Possibility that …” follows if the verdict is Definite or Possible only. It fails only if it is Never.</div><div class="st">Fast test for possibility: it fails only when its opposite definitely follows (All vs Some-not, No vs Some).</div><div class="st">Either-or: two conclusions about the same two groups. Neither is definite, but in every picture at least one is true.</div><div class="st">Pairs that work: Some A are B / No A is B. All A are B / Some A are not B. Some A are B / Some A are not B.</div><div class="st">Pair that does NOT work: All A are B / No A is B. Both can be false (some are, some are not).</div><div class="st"><b>Only a few A are B</b> (our convention): some A are B AND some A are not B. It gives Some A are B, Some B are A, Some A are not B. It does not give Some B are not A.</div><div class="st">Order of checking: test each conclusion for Definite. If neither, test either-or. If still no, answer Neither.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><p class="prog">Conventions used in this chapter (the usual exam-prep ones, stated so nothing is hidden): Some = at least one, possibly all. Every group named is not empty. Statements are true even if they clash with real life.</p></section><section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2><div class="box">Possibility fails ⇔ the opposite (All↔Some-not, No↔Some) definitely follows.</div><div class="box">Either-or: no conclusion definite alone, and one of the two is true in every picture. Works for the pairs Some/No, All/Some-not, Some/Some-not.</div><div class="box">Only a few A are B = Some A are B + Some A are not B.</div><p class="src">Contradictories (one always true, one always false), contraries (not both true), subcontraries (not both false): <a href="https://en.wikipedia.org/wiki/Square_of_opposition">Wikipedia: Square of opposition</a>. Intersection of circles: <a href="https://www.mathsisfun.com/sets/venn-diagrams.html">Math Is Fun: Venn Diagrams</a>. All three rules above are derived, Python-checked: possibility rule on 1,536 premise-and-conclusion cases (0 exceptions), either-or pairs over every picture of three circles. Only a few is an exam-prep convention defined by us; sources vary.</p></section><section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2><p><b>Some pens are books. All books are cups. I. All pens are cups. II. Some pens are not cups.</b></p><div class="stepbox" data-steps><div class="st">Step 1. Some pens are books, and books are inside cups. So some pens are cups (certain).</div><div class="st">Step 2. But the other pens may or may not be cups. So I is not certain, and II is not certain.</div><div class="st">Step 3. Each pen is a cup or not. One of the two sentences is true in every picture.</div><div class="st">Step 4. Answer: <b>Either I or II follows</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div><hr><p><b>Only a few pens are books. All books are cups. I. Some pens are cups. II. Some pens are not books.</b></p><div class="stepbox" data-steps><div class="st">Step 1. Only a few means some pens are books AND some pens are not books.</div><div class="st">Step 2. Pen-books are inside cups, so some pens are cups: I follows.</div><div class="st">Step 3. II is part of the meaning of Only a few: it follows.</div><div class="st">Step 4. Answer: <b>Both follow</b>.</div><p class="prog"></p><button type="button" data-next>Show next step</button></div></section><section class="card"><h2><span class="n">5</span>The trap</h2><div class="trap"><div class="stepbox" data-steps><div class="st">Statements: Some pens are cups. Some cups are bags. I. All pens are bags. II. No pens are bags.</div><div class="st">Wrong move: they look like opposites, so pick Either I or II.</div><div class="st">Draw: some pens in bags and some pens not in bags. Both conclusions are false in that picture.</div><div class="st">Right: All and No can both be false (contraries). Not either-or. Answer: <b>Neither follows</b>.</div><p class="prog"></p><button type="button" data-next>Show the trap</button></div></div><div class="trap" style="margin-top:10px"><div class="stepbox" data-steps><div class="st">Statements: No pens are books. All books are cups. Conclusion: Possibility that some pens are books.</div><div class="st">Wrong move: a possibility is easy to grant.</div><div class="st">But the statement No pens are books is the exact opposite, so Some pens are books can never be true here.</div><div class="st">Right: the possibility fails.</div><p class="prog"></p><button type="button" data-next>Show the second trap</button></div></div></section><section class="card"><h2><span class="n">6</span>Speed method: the decision ladder</h2><div class="tip"><b>Ladder.</b> (1) Is it a Possibility conclusion? Only check that the opposite does not definitely follow. (2) Otherwise test I and II for Definite. (3) Both Definite: Both. One Definite: Only that one. (4) Neither Definite and the pair is Some/No, All/Some-not or Some/Some-not about the same two groups: Either-or (the tester confirms). (5) Else Neither.</div><h3>Speed drill</h3><p class="prog">Premises on the left, conclusions after the bar.</p><div class="drill"><script type="application/json">[["All pens are books; Some books are cups | Possibility that all pens are cups?", "Possibility holds (one picture is enough)"], ["All pens are books; No books are cups | Possibility that some pens are cups?", "Possibility fails (no picture)"], ["Some pens are books | Possibility that some pens are not books?", "Possibility holds (one picture is enough)"], ["All pens are books | Possibility that all books are pens?", "Possibility holds (one picture is enough)"], ["Some pens are books; All books are cups | I. All pens are cups  II. Some pens are not cups", "Either I or II follows"], ["All pens are books; Some books are cups | I. Some pens are cups  II. No pens are cups", "Either I or II follows"], ["Some pens are books; Some books are cups | I. All pens are cups  II. No pens are cups", "Neither I nor II follows"], ["Only a few pens are books | Some books are pens?", "Follows (true in every picture)"], ["Only a few pens are books | Some books are not pens?", "Does not follow: only possible"]]</script></div></section><section class="card"><h2><span class="n">7</span>Lab: possibility and either-or tester</h2><p class="prog">Pick two statements and two conclusions. The tester shows the verdict for each and checks either-or.</p><label for="ch03-l3-p1-f">Statement 1</label><div class="opts"><select id="ch03-l3-p1-f"><option value="0">All</option><option value="1">No</option><option value="2" selected>Some</option><option value="3">Some … not</option><option value="4">Only a few</option></select><select id="ch03-l3-p1-x"><option value="0" selected>pens</option><option value="1">books</option><option value="2">cups</option></select><select id="ch03-l3-p1-y"><option value="0">pens</option><option value="1" selected>books</option><option value="2">cups</option></select></div><label for="ch03-l3-p2-f">Statement 2</label><div class="opts"><select id="ch03-l3-p2-f"><option value="0" selected>All</option><option value="1">No</option><option value="2">Some</option><option value="3">Some … not</option><option value="4">Only a few</option></select><select id="ch03-l3-p2-x"><option value="0">pens</option><option value="1" selected>books</option><option value="2">cups</option></select><select id="ch03-l3-p2-y"><option value="0">pens</option><option value="1">books</option><option value="2" selected>cups</option></select></div><label for="ch03-l3-c1-f">Conclusion I</label><div class="opts"><select id="ch03-l3-c1-f"><option value="0" selected>All</option><option value="1">No</option><option value="2">Some</option><option value="3">Some … not</option><option value="4">Only a few</option></select><select id="ch03-l3-c1-x"><option value="0" selected>pens</option><option value="1">books</option><option value="2">cups</option></select><select id="ch03-l3-c1-y"><option value="0">pens</option><option value="1">books</option><option value="2" selected>cups</option></select></div><label for="ch03-l3-c2-f">Conclusion II</label><div class="opts"><select id="ch03-l3-c2-f"><option value="0">All</option><option value="1">No</option><option value="2">Some</option><option value="3" selected>Some … not</option><option value="4">Only a few</option></select><select id="ch03-l3-c2-x"><option value="0" selected>pens</option><option value="1">books</option><option value="2">cups</option></select><select id="ch03-l3-c2-y"><option value="0">pens</option><option value="1">books</option><option value="2" selected>cups</option></select></div><div class="stepbox" style="margin-top:10px" id="ch03-l3-out"></div><script>(function(){function $(i){return document.getElementById(i)}
+var T=['pens','books','cups'],FL=['All','No','Some','Some … not','Only a few'],FK='AEIOF';
+var MODELS=(function(){var out=[];for(var m=0;m<256;m++){var ok=true;for(var t=0;t<3&&ok;t++){var any=false;for(var r=0;r<8;r++){if((m>>r&1)&&(r>>t&1))any=true}if(!any)ok=false}if(ok)out.push(m)}return out})();
+function ev(s,m){var k=s[0],x=s[1],y=s[2];
+ if(k==='F')return ev(['I',x,y],m)&&ev(['O',x,y],m);
+ var inx=false,iny=false,out=false;
+ for(var r=0;r<8;r++){if(!(m>>r&1))continue;if(r>>x&1){inx=true;if(r>>y&1)iny=true;else out=true}}
+ if(k==='A')return !out;if(k==='E')return !iny;if(k==='I')return iny;return out}
+function good(P,m){for(var i=0;i<P.length;i++)if(!ev(P[i],m))return false;return true}
+function sent(s){var x=T[s[1]],y=T[s[2]];return {A:'All '+x+' are '+y,E:'No '+x+' are '+y,I:'Some '+x+' are '+y,O:'Some '+x+' are not '+y,F:'Only a few '+x+' are '+y}[s[0]]}
+function analyse(P,C){var M=MODELS.filter(function(m){return good(P,m)});var res={n:M.length,c:[],either:false};
+ C.forEach(function(c){var t=0;M.forEach(function(m){if(ev(c,m))t++});res.c.push(t)});
+ if(C.length===2&&M.length){var all=true,none=true;M.forEach(function(m){if(!(ev(C[0],m)||ev(C[1],m)))all=false});res.either=all&&res.c[0]<M.length&&res.c[1]<M.length}
+ return res}
+var NP=2,NC=2,P0='ch03-l3';function rd(id){return [FK[parseInt($(id+'-f').value)],parseInt($(id+'-x').value),parseInt($(id+'-y').value)]}function run(){var out=$(P0+'-out'),P=[],C=[],bad=false,i;for(i=1;i<=NP;i++){var s=rd(P0+'-p'+i);if(s[1]===s[2])bad=true;P.push(s)}for(i=1;i<=NC;i++){var c=rd(P0+'-c'+i);if(c[1]===c[2])bad=true;C.push(c)}if(bad){out.innerHTML='<div class="st">Pick two different groups in each line.</div>';return}var r=analyse(P,C),h='';if(!r.n){out.innerHTML='<div class="st">These statements cannot all be true together (no picture fits).</div>';return}h+='<div class="st">'+r.n+' valid pictures fit your statements.</div>';C.forEach(function(c,k){var v=r.c[k]===r.n?'<b>Definitely follows</b> (true in all '+r.n+')':r.c[k]>0?'<b>Possible only</b> (true in '+r.c[k]+' of '+r.n+'): does NOT definitely follow':'<b>Never true</b> in any valid picture';h+='<div class="st">'+(NC>1?(k?'II. ':'I. '):'')+sent(c)+': '+v+'</div>'});if(NC===2){h+='<div class="st">'+(r.either?'<b>Either I or II</b>: neither alone is certain, but at least one is true in every picture.':(r.c[0]===r.n||r.c[1]===r.n)?'Either-or does not apply: one conclusion already follows.':'Either-or does not apply (a picture exists where both are false).')+'</div>'}out.innerHTML=h}["ch03-l3-p1", "ch03-l3-p2", "ch03-l3-c1", "ch03-l3-c2"].forEach(function(id){$(id+'-f').addEventListener('change',run);$(id+'-x').addEventListener('change',run);$(id+'-y').addEventListener('change',run)});run()})();</script></section><section class="card"><h2><span class="n">8</span>How the examiner asks</h2><p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>“Conclusions: I. Possibility that all A are C. II. Possibility that no A is C.”</li><li>Options usually include “Either I or II follows”. Check it only after both fail Definite.</li><li>“Only a few” statements, sometimes chained with an All statement.</li></ul><div class="tip"><b>How wrong options are built.</b> Common plants: calling contraries (All/No) an either-or pair, treating a Possibility as Definite, and reading Only a few as Some B are not A.</div><p class="src">Whether the real paper uses possibility, either-or or Only a few formats is not stated by the official notification.</p></section><section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2><p class="prog">Typical style, written by us. Right = +0.8333, wrong = −0.25 (flat, as directed for this guide). Guess only if your chance of being right is above about 23% (0.25 ÷ 1.0833). Crossing out one option first improves the odds. Convention for every question: treat the statements as true even if they clash with real life; every group named has at least one member; Some means at least one.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "Statements:<br>Some pens are books.<br>All books are cups.<br>Conclusions:<br>I. All pens are cups.<br>II. Some pens are not cups.",
+  "o": [
+   "Only I follows",
+   "Either I or II follows",
+   "Only II follows",
+   "Neither I nor II follows"
+  ],
+  "a": 1,
+  "e": "Neither is certain alone, but one of them must be true: each pen is either a cup or not. That is Either-or.",
+  "t": [
+   "All pens being cups is possible, not certain",
+   "",
+   "Some pens not being cups is possible, not certain",
+   "One of them must hold, so Either-or applies"
+  ]
+ },
+ {
+  "q": "Statements:<br>All pens are books.<br>Some books are cups.<br>Conclusions:<br>I. Some pens are cups.<br>II. Some pens are not cups.",
+  "o": [
+   "Either I or II follows",
+   "Only I follows",
+   "Both I and II follow",
+   "Only II follows"
+  ],
+  "a": 0,
+  "e": "Some pens are cups, or some pens are not cups: pens exist, so at least one of the two always holds. Neither alone is certain. Either-or.",
+  "t": [
+   "",
+   "Some pens being cups is possible, not certain",
+   "Both can be true, but neither is forced alone",
+   "Not certain alone"
+  ]
+ },
+ {
+  "q": "Statements:<br>Some pens are cups.<br>Some cups are bags.<br>Conclusions:<br>I. All pens are bags.<br>II. No pens are bags.",
+  "o": [
+   "Either I or II follows",
+   "Only I follows",
+   "Only II follows",
+   "Neither I nor II follows"
+  ],
+  "a": 3,
+  "e": "Contraries trap: All and No can both be false (some pens are bags and some are not). So it is not Either-or. Neither follows.",
+  "t": [
+   "Not Either-or: All and No are not complementary, both can be false",
+   "Not certain",
+   "Not certain",
+   ""
+  ]
+ },
+ {
+  "q": "Statements:<br>All pens are books.<br>Some books are cups.<br>Conclusions:<br>I. Possibility that all pens are cups.<br>II. Possibility that no pens are cups.",
+  "o": [
+   "Only I follows",
+   "Only II follows",
+   "Both I and II follow",
+   "Neither I nor II follows"
+  ],
+  "a": 2,
+  "e": "A picture exists where all pens are in the cups part, and another where no pen is. Both possibilities hold.",
+  "t": [
+   "II is possible too",
+   "I is possible too",
+   "",
+   "Both pictures can be drawn"
+  ]
+ },
+ {
+  "q": "Statements:<br>No pens are books.<br>All books are cups.<br>Conclusions:<br>I. Possibility that some pens are books.<br>II. Possibility that some pens are cups.",
+  "o": [
+   "Only I follows",
+   "Only II follows",
+   "Both I and II follow",
+   "Neither I nor II follows"
+  ],
+  "a": 1,
+  "e": "No pens are books, so 'some pens are books' is impossible. Pens can sit in cups outside the books, so II is possible.",
+  "t": [
+   "I is impossible: the premise says no pens are books",
+   "",
+   "I is impossible",
+   "II is possible"
+  ]
+ },
+ {
+  "q": "Statement:<br>Only a few pens are books.<br>Conclusions:<br>I. Some pens are not books.<br>II. Some books are not pens.",
+  "o": [
+   "Both I and II follow",
+   "Only II follows",
+   "Only I follows",
+   "Neither I nor II follows"
+  ],
+  "a": 2,
+  "e": "Only a few pens are books means some are and some are not. So some pens are not books (I). Nothing says anything about books outside pens.",
+  "t": [
+   "II does not follow: all books might be pens",
+   "II does not follow",
+   "",
+   "I follows from the meaning of Only a few"
+  ]
+ },
+ {
+  "q": "Statements:<br>Only a few pens are books.<br>All books are cups.<br>Conclusions:<br>I. Some pens are cups.<br>II. Some pens are not books.",
+  "o": [
+   "Only I follows",
+   "Only II follows",
+   "Neither I nor II follows",
+   "Both I and II follow"
+  ],
+  "a": 3,
+  "e": "Some pens are books and books are cups, so some pens are cups (I). Only a few also gives some pens not books (II).",
+  "t": [
+   "II also follows from Only a few",
+   "I also follows via books being cups",
+   "Both follow",
+   ""
+  ]
+ }
+]</script></div></section><section class="card"><h2><span class="n">10</span>Lock it in</h2><div class="tip"><b>Cover the page, say it out loud:</b> (1) When does a Possibility fail? (2) What makes an either-or pair? (3) Why are All and No not either-or? (4) What does Only a few A are B give?</div><div class="mem"><b>Memorise this</b><br>1. Definite = every picture. Possible = one picture.<br>2. Possibility fails only if the opposite follows.<br>3. Either-or: neither alone, but one of them in every picture.<br>4. All/No: both can be false. Not either-or.<br>5. Only a few A are B = Some A are B + Some A are not B.</div></section><p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Square_of_opposition">Wikipedia: Square of opposition</a> · <a href="https://www.mathsisfun.com/sets/venn-diagrams.html">Math Is Fun: Venn Diagrams</a><br><b>UNVERIFIED:</b> exact exam wording for Either-or and Only a few (exam-prep conventions differ between sites; ours is defined above and Python-checked); whether the real paper uses these formats.</p></section>
+</article>

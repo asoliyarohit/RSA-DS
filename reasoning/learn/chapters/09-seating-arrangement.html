@@ -1,0 +1,405 @@
+<article class="chapter" id="ch09" data-no="09" data-title="Seating Arrangement" data-tag="Linear, circular, two rows · 3 lessons · 15 Qs">
+<h1>Seating Arrangement (linear, circular, two rows)</h1>
+<section class="lesson" id="ch09-l1"><h2 class="lt">Lesson 1 · One row (linear)</h2>
+<p class="oneline">In one line: a seating puzzle is a row of empty slots; you fill them one clue at a time, and the only tricky word is "left" (it depends on which way the person faces).</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>Five friends sit in a row on a bench at Lucknow station, all looking at the platform ahead of them. Imagine you stand behind them and look at the backs of their heads. The friend on the far left of your view is also on the <b>left</b> of that friend. Everyone faces the same way you do, so left matches left.</p><p class="cap">Now picture the same bench with everyone turned to face you. Each person's left is now YOUR right. That one flip causes most seating mistakes.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Draw one box per person, in a line: <b>[1][2][3][4][5]</b>. Number them from the left end of YOUR drawing.</div>
+<div class="st">Decide the facing first. In a row, "facing north" means looking up the page. Then <b>their left = the left of your drawing</b> (west) and their right = the right of your drawing (east).</div>
+<div class="st">"Immediate left of X" means the box right next to X on X's left. "Between" means strictly inside: the two ends do not count.</div>
+<div class="st">"Second from the left end" is box 2. "Second from the right end" in a row of 5 is box 4.</div>
+<div class="st">Write the sure clues first (anyone at an end or given a fixed box). Then use "not at" clues to cross out boxes. When one name fits only one box, lock it in.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rule (only after the picture)</h2>
+<div class="box">All face North: their left = West = left of your drawing. All face South: their left = East = RIGHT of your drawing.</div><div class="box">Row of n people: k-th from the left = (n + 1 − k)-th from the right.</div><div class="box">Strictly between box a and box b (a &lt; b): b − a − 1 people.</div><p class="src">Facing north puts east on the right and west on the left: Wikipedia "Cardinal direction". The left/right rule for each heading and the place-from-right formula: derived, Python-checked (coordinates for every heading; all slot counts by enumeration).</p></section>
+<section class="card"><h2><span class="n">4</span>Worked example, one tap per step</h2>
+<p><b>Five people A, B, C, D, E sit in a row facing north. C is at the extreme left. E is second from the right end. D is not at the extreme right. A is not at either end. D sits somewhere to the left of A. Find the order, left to right.</b></p><div class="stepbox" data-steps>
+<div class="st">Step 1. Draw five boxes: [1][2][3][4][5].</div>
+<div class="st">Step 2. C is at the extreme left: <b>C in box 1</b>.</div>
+<div class="st">Step 3. E is second from the right end: box 4. <b>E in box 4</b>.</div>
+<div class="st">Step 4. Boxes left: 2, 3, 5 for A, B, D. D is not in 5, A is not in 5 (not at either end). So <b>B takes box 5</b>.</div>
+<div class="st">Step 5. A and D share boxes 2 and 3. D is to the left of A, so D in 2, A in 3.</div>
+<div class="st">Step 6. Answer: <b>C D A E B</b>. Check each clue once. Python brute force over all 120 orders found exactly 1 order that fits.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">A row faces SOUTH. A person at the extreme east end says "I have a neighbour on my left". Is that possible?</div>
+<div class="st">No. Facing south, left = east. At the east end there is nobody further east, so nobody on the left. The neighbour is on his <b>right</b> (west).</div>
+<div class="st">Rule: before using "left" or "right", write the compass facing above the row. If the row faces south, flip your drawing: left of the person = right of the drawing.</div>
+<div class="st">Python check: with a south-facing row of 4, the east-end seat has left neighbour: none, right neighbour: the next seat to the west.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Speed method and drill</h2>
+<p><b>Four-line method.</b> (1) Boxes. (2) Mark the facing. (3) Fix the sure clues. (4) For every "not" clue, cross boxes out. Skip a question if you have used 90 seconds and nothing is locked (suggested pacing, our judgement).</p><p><b>Elimination shortcut.</b> If an option names a person who is NOT in the box the question asks about, cross it out at once.</p><p class="prog">Say the answer out loud before you tap Show. Aim: under 5 seconds each.</p><div class="drill"><script type="application/json">[["Facing North: your left is?", "West"], ["Facing South: your left is?", "East"], ["Facing East: your left is?", "North"], ["Facing West: your left is?", "South"], ["Facing South: your right is?", "West"], ["Row of 9: 3rd from left is ? from right", "7th"], ["Row of 9: 4th from right is ? from left", "6th"], ["People strictly between box 3 and box 6", "2"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: row neighbour finder</h2>
+<label for="ch09-ln">People in the row (2 to 12)</label><input id="ch09-ln" type="number" value="5" min="2" max="12" inputmode="numeric"><label for="ch09-lf">Everyone faces</label><select id="ch09-lf"><option value="N">North</option><option value="S">South</option></select><label for="ch09-lk">Seat counted from the WEST (left of your drawing) end</label><input id="ch09-lk" type="number" value="2" min="1" max="12" inputmode="numeric"><div class="stepbox" style="margin-top:10px" id="ch09-lout"></div><script>(function(){function $(i){return document.getElementById(i)}
+function rowInfo(n,f,k){var o={},L=f==="N"?k-1:k+1,R=f==="N"?k+1:k-1;o.left=(L>=1&&L<=n)?L:null;o.right=(R>=1&&R<=n)?R:null;o.fromEast=n+1-k;return o}
+window.ch09RowInfo=rowInfo;
+function lab(){var n=parseInt($("ch09-ln").value),k=parseInt($("ch09-lk").value),f=$("ch09-lf").value,t=$("ch09-lout");if(!(n>=2&&n<=12)||!(k>=1&&k<=n)){t.innerHTML='<div class="st">Enter a row of 2 to 12 people and a seat from 1 to the row size.</div>';return}
+var o=rowInfo(n,f,k),fw=f==="N"?"North (left = West)":"South (left = East)";
+t.innerHTML='<div class="st">1. Facing '+fw+'. Seat '+k+' from the west end = seat '+o.fromEast+' from the east end.</div><div class="st">2. Immediate LEFT neighbour: '+(o.left?"seat "+o.left+" from the west":"nobody (end of the row)")+'</div><div class="st">3. Immediate RIGHT neighbour: '+(o.right?"seat "+o.right+" from the west":"nobody (end of the row)")+'</div>'}
+["ch09-ln","ch09-lf","ch09-lk"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"Six persons sit in a row facing north. P is third from the left end and Q is second from the right end. How many persons sit between them?"</li><li>"Who sits immediately to the left of T?" (read the facing line first).</li><li>"Which of the following is definitely true?" (an option may be possible but not certain).</li></ul><div class="tip"><b>How wrong options are built.</b> The examiner plants the neighbour on the wrong side (left and right swapped), the count that includes the two end people, and the option that is only possible, not certain. Use the "definitely" test: true in EVERY valid order.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25 (flat, as directed for this guide; the official wording is ¼ of the marks assigned). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Crossing out even one option lifts your odds.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "Six friends A, B, C, D, E, F sit in a row facing north. A is at the extreme left end and F at the extreme right end. B sits second to the right of A. C sits immediately to the right of B. D does not sit next to F. Who sits immediately to the left of F?",
+  "o": [
+   "C",
+   "E",
+   "D",
+   "B"
+  ],
+  "a": 1,
+  "e": "Boxes: A in 1, F in 6, B in 3, C in 4. D and E take 2 and 5; D cannot be next to F (box 5), so D = 2, E = 5. Order A D B C E F. Immediate left of F = box 5 = E.",
+  "t": [
+   "C is in box 4; F is in box 6, so one box lies between them (E's).",
+   "",
+   "D is told NOT to sit next to F; D is in box 2.",
+   "B is in box 3, three boxes from F."
+  ]
+ },
+ {
+  "q": "Five people P, Q, R, S, T sit in a row facing north. S is at the extreme right. Q sits second to the left of S. P sits immediately to the left of Q. R sits somewhere to the right of Q. How many people sit between T and S?",
+  "o": [
+   "1",
+   "2",
+   "4",
+   "3"
+  ],
+  "a": 3,
+  "e": "S = box 5, Q = box 3, P = box 2, R = box 4 (right of Q), T = box 1. Order T P Q R S. Between T and S: P, Q, R = 3.",
+  "t": [
+   "Counts only R. P, Q and R all sit between T and S.",
+   "Misses one of the three middle people.",
+   "Counts S as well; the two end people are never 'between'.",
+   ""
+  ]
+ },
+ {
+  "q": "Five people A, B, C, D, E sit in a row, ALL FACING SOUTH. A sits at the extreme east end. B sits immediately to the right of A. C sits at the extreme west end. D sits immediately to the left of C. Who sits immediately to the left of E?",
+  "o": [
+   "B",
+   "D",
+   "A",
+   "C"
+  ],
+  "a": 0,
+  "e": "Facing south: left = east, right = west. A in the east end; B is on A's right = west of A. C in the west end; D is on C's left = east of C. West to east: C D E B A. E's left = east = B.",
+  "t": [
+   "",
+   "D is on E's right: facing south, west is the right side.",
+   "A is two seats away to the east, not immediate.",
+   "C is at the far west end, on E's right side, two seats away."
+  ]
+ },
+ {
+  "q": "In a row of 9 people facing north, M is 3rd from the left end and N is 4th from the right end. How many people sit between M and N?",
+  "o": [
+   "1",
+   "3",
+   "2",
+   "4"
+  ],
+  "a": 2,
+  "e": "N is 4th from right = 6th from left. Boxes strictly between box 3 and box 6 are boxes 4 and 5: 2 people.",
+  "t": [
+   "Used 9 − 4 = 5 as N's place; 4th from the right is 9 − 4 + 1 = 6th from the left.",
+   "6 − 3 = 3 counts N himself; strictly between is 6 − 3 − 1.",
+   "",
+   "This is N's number from the right, not a count between them."
+  ]
+ },
+ {
+  "q": "Five people A, B, C, D, E sit in a row facing north. A sits somewhere to the left of B. B sits somewhere to the left of C. D sits immediately to the right of C. E sits at one of the two ends. Which statement is DEFINITELY true?",
+  "o": [
+   "E sits at the extreme left",
+   "B sits somewhere to the left of D",
+   "A sits at the extreme left",
+   "D sits at the extreme right"
+  ],
+  "a": 1,
+  "e": "The clues force the order A, B, C, D left to right, and E takes one end. So the two valid rows are E A B C D and A B C D E. B is left of D in both; the other options fail in one of them.",
+  "t": [
+   "Possible (E A B C D) but not certain: E may sit at the right end (A B C D E).",
+   "",
+   "False in E A B C D, where E is leftmost.",
+   "False in A B C D E, where E is rightmost."
+  ]
+ }
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Facing north, which side is left? (2) Facing south? (3) How many people strictly between box 3 and box 7? (4) What do I write before using "left"?</div><div class="mem"><b>Memorise this</b><br>1. Boxes first, facing line second.<br>2. North: left = west. South: left = east.<br>3. Between = b − a − 1.<br>4. k-th from left = (n + 1 − k)-th from right.<br>5. "Definitely" = true in every valid row.</div></section>
+<p class="src"><b>Lesson 1 sources:</b> <a href="https://en.wikipedia.org/wiki/Cardinal_direction">Wikipedia: Cardinal direction</a> · <a href="https://en.wikipedia.org/wiki/Permutation">Wikipedia: Permutation</a> (n! orders). Every worked example and quiz answer: derived, Python-checked by brute force over all seatings.<br><b>UNVERIFIED:</b> that the exam prints its "left/right" convention the same way (we state the convention in every item here; read the stem in the exam).</p></section>
+<section class="lesson" id="ch09-l2"><h2 class="lt">Lesson 2 · Round table (circular)</h2>
+<p class="oneline">In one line: a round table has no start and no end, so fix one person, number the seats clockwise, and remember that facing the centre makes "left" mean clockwise.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>Six cousins sit on cushions around a plate of laddoos at a Diwali dinner, everyone facing the plates in the middle. If you walk round the ring the way a clock hand moves, you pass each cousin in turn.</p><p class="cap">Each cousin has one neighbour on each side and exactly one person straight across the plates (in a ring with an even number of seats).</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Draw a circle with n dots. Number them <b>1, 2, 3 ... clockwise</b> (the way clock hands move).</div>
+<div class="st">Rotating the whole table gives the same seating. So put the first named person in seat 1. This is why a ring has (n − 1)! patterns, not n!.</div>
+<div class="st"><b>Facing the centre</b>: stand at the bottom of the circle looking up. Your left hand points west, and walking west from the bottom goes clockwise. So left neighbour = next seat clockwise, right neighbour = next seat anticlockwise.</div>
+<div class="st"><b>Facing outside</b> (back to the centre): everything flips. Left neighbour = anticlockwise, right neighbour = clockwise.</div>
+<div class="st"><b>Opposite</b> = n ÷ 2 seats away. Only rings with an even number of people have an exact opposite (our stated convention).</div>
+<div class="st">Fill sure clues (opposite pairs, fixed gaps), then use "immediate left/right" to add neighbours.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rule (only after the picture)</h2>
+<div class="box">Facing centre: left = clockwise, right = anticlockwise. Facing outside: left = anticlockwise, right = clockwise.</div><div class="box">Opposite of seat k in a ring of n (n even) = seat k + n/2 (wrap around).</div><div class="box">Rotations count as the same seating, so a ring of n has (n − 1)! patterns.</div><p class="src">Clockwise/anticlockwise definition and compass order: Wikipedia "Clockwise", "Cardinal direction". (n − 1)! circular arrangements: Wikipedia "Permutation". Left = clockwise when facing the centre: derived, Python-checked (coordinates, rings of 3 to 12 seats).</p></section>
+<section class="card"><h2><span class="n">4</span>Worked example, one tap per step</h2>
+<p><b>Six people A to F sit round a table, all facing the centre. A sits opposite D. B sits immediately to the left of A. F sits immediately to the right of D. C sits immediately to the right of A. Give the order clockwise from A.</b></p><div class="stepbox" data-steps>
+<div class="st">Step 1. Draw 6 dots numbered 1 to 6 clockwise. Put <b>A in seat 1</b> (rotations are equal).</div>
+<div class="st">Step 2. Opposite is 3 seats away. <b>D in seat 4</b>.</div>
+<div class="st">Step 3. Facing the centre, left = clockwise. B is immediately left of A, so <b>B in seat 2</b>.</div>
+<div class="st">Step 4. Right = anticlockwise. F is immediately right of D (seat 4), so go anticlockwise one seat: <b>F in seat 3</b>.</div>
+<div class="st">Step 5. C is immediately right of A (seat 1): anticlockwise one seat wraps to <b>seat 6</b>. E takes seat 5.</div>
+<div class="st">Step 6. Clockwise from A: <b>A, B, F, D, E, C</b>. Python tried all 720 seatings: 6 fit (the same ring turned 6 ways), so the ring is unique.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Six people sit facing the centre. B is immediately left of A. Now everyone turns round to face outside.</div>
+<div class="st">Wrong move: "B is still on A's left". The seats did not move, but each person's left and right swapped.</div>
+<div class="st">Facing outside, A's left is the anticlockwise neighbour. That is the person who was on A's RIGHT before.</div>
+<div class="st">Rule: re-read "facing in" or "facing out" for every clue. Mixed facing (some in, some out) is read person by person: use that person's own facing.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Speed method and drill</h2>
+<p><b>Method.</b> (1) Circle, seats numbered clockwise. (2) Write IN or OUT. (3) Fix the first person, then the opposite person. (4) Add immediate-left/right clues, using the left rule for this facing. (5) Remaining names go in the leftover seats using "not next to" clues.</p><p><b>Elimination shortcut.</b> An option that puts two people in the same seat, or puts the opposite person only 1 or 2 seats away, is wrong at once.</p><p class="prog">Say the answer out loud before you tap Show.</p><div class="drill"><script type="application/json">[["Facing centre: left neighbour is", "clockwise"], ["Facing centre: right neighbour is", "anticlockwise"], ["Facing outside: left neighbour is", "anticlockwise"], ["Facing outside: right neighbour is", "clockwise"], ["Ring of 8: opposite is how many seats away?", "4"], ["Ring of 12: opposite is how many seats away?", "6"], ["Ring of 7: is there an exact opposite?", "No (needs an even count)"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: round-table finder</h2>
+<label for="ch09-cn">People at the table (3 to 12)</label><input id="ch09-cn" type="number" value="8" min="3" max="12" inputmode="numeric"><label for="ch09-cf">Everyone faces</label><select id="ch09-cf"><option value="in">The centre</option><option value="out">Outside</option></select><label for="ch09-ck">Seat number (clockwise from 1)</label><input id="ch09-ck" type="number" value="1" min="1" max="12" inputmode="numeric"><div class="stepbox" style="margin-top:10px" id="ch09-cout"></div><script>(function(){function $(i){return document.getElementById(i)}
+function wrap(x,n){return ((x-1+n)%n+n)%n+1}
+function ringInfo(n,inside,k){var cw=wrap(k+1,n),acw=wrap(k-1,n);return {left:inside?cw:acw,right:inside?acw:cw,cw:cw,acw:acw,opp:n%2===0?wrap(k+n/2,n):null}}
+window.ch09RingInfo=ringInfo;
+function lab(){var n=parseInt($("ch09-cn").value),k=parseInt($("ch09-ck").value),inside=$("ch09-cf").value==="in",t=$("ch09-cout");if(!(n>=3&&n<=12)||!(k>=1&&k<=n)){t.innerHTML='<div class="st">Enter 3 to 12 people and a seat from 1 to the table size.</div>';return}
+var o=ringInfo(n,inside,k);
+t.innerHTML='<div class="st">1. Seat '+k+' faces '+(inside?"the centre":"outside")+'. Clockwise neighbour = seat '+o.cw+', anticlockwise neighbour = seat '+o.acw+'.</div><div class="st">2. Immediate LEFT = seat <b>'+o.left+'</b> ('+(inside?"clockwise":"anticlockwise")+').</div><div class="st">3. Immediate RIGHT = seat <b>'+o.right+'</b> ('+(inside?"anticlockwise":"clockwise")+').</div><div class="st">4. Opposite: '+(o.opp?"seat <b>"+o.opp+"</b>":"none (odd number of people)")+'</div>'}
+["ch09-cn","ch09-cf","ch09-ck"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"Eight persons sit around a circular table, all facing the centre. A sits opposite E ... Who sits opposite C?"</li><li>"Who sits second to the right of B?" (read the facing first).</li><li>"How many persons sit between P and Q when counted from the left of P?"</li></ul><div class="tip"><b>How wrong options are built.</b> The examiner gives you the neighbour on the wrong side, or the person at the opposite of the wrong seat. Check your final ring against every clue once, clockwise from A.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25 (flat, as directed for this guide; the official wording is ¼ of the marks assigned). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Crossing out even one option lifts your odds.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "Eight friends A, B, C, D, E, F, G, H sit around a round table, all facing the centre. A sits opposite E. B sits second to the right of A. C sits immediately to the left of E. D sits immediately to the left of B. G sits opposite B. H sits immediately to the left of A. Who sits opposite C?",
+  "o": [
+   "F",
+   "A",
+   "H",
+   "B"
+  ],
+  "a": 2,
+  "e": "Facing the centre, left = clockwise. Clockwise from A: A, H, G, F, E, C, B, D. C is 5 seats on; opposite is 4 further = the seat of H.",
+  "t": [
+   "F sits opposite D, not C.",
+   "A sits opposite E.",
+   "",
+   "B sits opposite G."
+  ]
+ },
+ {
+  "q": "Six people P, Q, R, S, T, U sit around a circle, ALL FACING OUTSIDE (away from the centre). P sits opposite S. Q sits immediately to the left of P. R sits immediately to the right of S. T does not sit next to P. Who sits opposite Q?",
+  "o": [
+   "T",
+   "U",
+   "R",
+   "S"
+  ],
+  "a": 0,
+  "e": "Facing outside, left = anticlockwise and right = clockwise. Clockwise from P: P, U, T, S, R, Q. Opposite Q is 3 seats on: T.",
+  "t": [
+   "",
+   "U sits next to P (that is why T is placed away from P); U is opposite R.",
+   "R sits opposite U.",
+   "S sits opposite P."
+  ]
+ },
+ {
+  "q": "Six people A, B, C, D, E, F sit around a round table facing the centre. B sits immediately to the left of A. C sits immediately to the left of B. D sits opposite A. E sits immediately to the right of A. Now everyone turns round and faces OUTSIDE. Who now sits immediately to the left of A?",
+  "o": [
+   "B",
+   "C",
+   "F",
+   "E"
+  ],
+  "a": 3,
+  "e": "Clockwise from A: A, B, C, D, F, E. Facing the centre A's left is B (clockwise). Facing outside A's left is anticlockwise: E.",
+  "t": [
+   "B was on A's left only while facing the centre; after turning, left and right swap.",
+   "C is two seats from A, not immediate.",
+   "F sits next to D, two seats from A.",
+   ""
+  ]
+ },
+ {
+  "q": "Ten people sit around a circular table. P sits exactly opposite Q. How many people sit between P and Q if you count along one side only?",
+  "o": [
+   "5",
+   "4",
+   "3",
+   "9"
+  ],
+  "a": 1,
+  "e": "Opposite in a ring of 10 means 5 seats apart, so 4 people lie between them on each side.",
+  "t": [
+   "P and Q are 5 seats apart, but the people strictly between are 5 − 1.",
+   "",
+   "One person too few: five seats apart leaves four in between.",
+   "That is everyone except P; the other 8 are split 4 and 4 on the two sides."
+  ]
+ },
+ {
+  "q": "People sit around a circular table, all facing the centre. A sits third to the right of B and also exactly opposite B. How many people sit at the table? (Opposite needs an even number.)",
+  "o": [
+   "4",
+   "8",
+   "6",
+   "10"
+  ],
+  "a": 2,
+  "e": "Opposite is n ÷ 2 seats away. Third to the right is 3 seats away (it counts the same either way round). So n ÷ 2 = 3 and n = 6. Python checked all even n from 4 to 20: only n = 6.",
+  "t": [
+   "In a ring of 4, third to the right is one seat to the left of B, not opposite (opposite is 2 seats away).",
+   "Opposite in a ring of 8 is 4 seats away, not 3.",
+   "",
+   "Opposite in a ring of 10 is 5 seats away, not 3."
+  ]
+ }
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Facing the centre, is left clockwise or anticlockwise? (2) Facing outside? (3) How far away is the opposite seat in a ring of 10? (4) Why fix the first person?</div><div class="mem"><b>Memorise this</b><br>1. Number seats clockwise; fix the first person.<br>2. Facing centre: left = clockwise.<br>3. Facing outside: left = anticlockwise.<br>4. Opposite = n/2 seats (even n only).<br>5. Turn everyone round: left and right swap.</div></section>
+<p class="src"><b>Lesson 2 sources:</b> <a href="https://en.wikipedia.org/wiki/Clockwise">Wikipedia: Clockwise</a> · <a href="https://en.wikipedia.org/wiki/Cardinal_direction">Wikipedia: Cardinal direction</a> · <a href="https://en.wikipedia.org/wiki/Permutation">Wikipedia: Permutation</a> (circular permutations). Every worked example and quiz answer: derived, Python-checked by brute force over all seatings.<br><b>UNVERIFIED:</b> exam-specific wording of "opposite" in odd rings (we state our own convention); coaching-site seating pages could not be fetched, so the left/right rule rests on compass geometry only.</p></section>
+<section class="lesson" id="ch09-l3"><h2 class="lt">Lesson 3 · Two rows facing each other</h2>
+<p class="oneline">In one line: in two parallel rows facing each other, people straight across are "opposite", and the two rows face opposite ways, so "left" points to opposite sides in each row.</p>
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>Two rows of chairs face each other in a Mumbai office meeting room: the top row looks toward the bottom of your page, the bottom row looks toward the top. A person in the top row and the person straight across from them look into each other's eyes.</p><p class="cap">When the top-row person lifts her left hand, it points to the same side of the room as the bottom-row person's RIGHT hand.</p></section>
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Draw two lines of boxes, one above the other, lined up. Add compass letters: west on the left of the page, east on the right.</div>
+<div class="st">Standard set-up used here: <b>Row 1 (top) faces South. Row 2 (bottom) faces North.</b></div>
+<div class="st">Row 2 faces north: left = west (left of the page). Row 1 faces south: left = east (right of the page).</div>
+<div class="st">"Opposite" means the box straight across: same compass position in the other row.</div>
+<div class="st">To be safe, give each clue the compass word first, then place the person.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">3</span>The rule (only after the picture)</h2>
+<div class="box">Row facing South: left = East, right = West. Row facing North: left = West, right = East.</div><div class="box">Opposite of seat i from the west in one row = seat i from the west in the other row.</div><div class="box">Two rows of m people give m opposite pairs.</div><p class="src">Compass facing: Wikipedia "Cardinal direction" (facing north: east on the right, west on the left). Row rules and pair count: derived, Python-checked (coordinates; brute force over all seatings).</p></section>
+<section class="card"><h2><span class="n">4</span>Worked example, one tap per step</h2>
+<p><b>Rows of three. Row 1 (faces south) holds A, B, C. Row 2 (faces north) holds D, E, F. C sits at the east end of row 1. A sits immediately to the right of C. D sits opposite C. E sits immediately to the left of D. Who sits immediately to the left of A?</b></p><div class="stepbox" data-steps>
+<div class="st">Step 1. Draw two rows of three boxes; label west and east.</div>
+<div class="st">Step 2. <b>C in the east box of row 1.</b></div>
+<div class="st">Step 3. Row 1 faces south, so right = west. A is immediately right of C: <b>A in the middle</b>, B in the west box.</div>
+<div class="st">Step 4. D sits opposite C: <b>D in the east box of row 2</b>.</div>
+<div class="st">Step 5. Row 2 faces north, so left = west. E is immediately left of D: <b>E in the middle</b>, F in the west box.</div>
+<div class="st">Step 6. Question: left of A. A faces south, so left = east = <b>C</b>. Python brute force over all 720 seatings (names kept in their own rows) found exactly one fit: row 1 B A C, row 2 F E D, west to east.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Four people sit in a row facing SOUTH. X sits at the extreme east end. Does X have a neighbour on his left?</div>
+<div class="st">Wrong move: "East end is on the right of my drawing, so his neighbour is on his left". The drawing is not his view.</div>
+<div class="st">Facing south, his left = east. Nobody is further east. His neighbour is on his <b>right</b> (west).</div>
+<div class="st">Same trap across rows: the top row's "immediate left" goes east, the bottom row's goes west. Always translate with compass words.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+<section class="card"><h2><span class="n">6</span>Speed method and drill</h2>
+<p><b>Method.</b> (1) Two rows of boxes with W and E. (2) Write each row's facing. (3) Place fixed people and opposite pairs first (they fill both rows at once). (4) Translate "left/right" clues with the row's own facing. (5) Count the leftover names.</p><p><b>Elimination shortcut.</b> If an option puts a person in the wrong row, cross it out immediately.</p><p class="prog">Say the answer out loud before you tap Show.</p><div class="drill"><script type="application/json">[["Row faces South: its left side is", "East"], ["Row faces North: its left side is", "West"], ["East end of a South-facing row: neighbour is on his", "Right"], ["East end of a North-facing row: neighbour is on his", "Left"], ["Opposite of seat 3 from the west in the other row", "Seat 3 from the west"], ["Two rows of 6: how many opposite pairs?", "6"]]</script></div></section>
+<section class="card"><h2><span class="n">7</span>Lab: two-row finder</h2>
+<label for="ch09-rm">People in each row (2 to 8)</label><input id="ch09-rm" type="number" value="4" min="2" max="8" inputmode="numeric"><label for="ch09-rr">Person sits in</label><select id="ch09-rr"><option value="1">Row 1 (faces South)</option><option value="2">Row 2 (faces North)</option></select><label for="ch09-rk">Seat counted from the WEST end</label><input id="ch09-rk" type="number" value="2" min="1" max="8" inputmode="numeric"><div class="stepbox" style="margin-top:10px" id="ch09-rout"></div><script>(function(){function $(i){return document.getElementById(i)}
+function rowsInfo(m,row,k){var south=row===1,L=south?k+1:k-1,R=south?k-1:k+1;return {left:(L>=1&&L<=m)?L:null,right:(R>=1&&R<=m)?R:null,leftSide:south?"East":"West",rightSide:south?"West":"East",oppRow:row===1?2:1,opp:k}}
+window.ch09RowsInfo=rowsInfo;
+function lab(){var m=parseInt($("ch09-rm").value),k=parseInt($("ch09-rk").value),row=parseInt($("ch09-rr").value),t=$("ch09-rout");if(!(m>=2&&m<=8)||!(k>=1&&k<=m)){t.innerHTML='<div class="st">Enter 2 to 8 people per row and a seat from 1 to the row size.</div>';return}
+var o=rowsInfo(m,row,k);
+t.innerHTML='<div class="st">1. Row '+row+' faces '+(row===1?"South":"North")+': left = '+o.leftSide+', right = '+o.rightSide+'.</div><div class="st">2. Immediate LEFT: '+(o.left?"seat "+o.left+" from the west, same row":"nobody (end of the row)")+'</div><div class="st">3. Immediate RIGHT: '+(o.right?"seat "+o.right+" from the west, same row":"nobody (end of the row)")+'</div><div class="st">4. Opposite: row '+o.oppRow+', seat <b>'+o.opp+'</b> from the west.</div>'}
+["ch09-rm","ch09-rr","ch09-rk"].forEach(function(i){$(i).addEventListener("input",lab)});lab()})();</script></section>
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p><ul><li>"Eight persons sit in two parallel rows of four. Row 1 faces south, row 2 faces north. ... Who sits opposite C?"</li><li>"Who sits to the immediate right of the person opposite R?" (two hops: opposite first, then right).</li><li>"How many persons sit between X and Y?" in a row.</li></ul><div class="tip"><b>How wrong options are built.</b> The examiner uses the person on the wrong side of the second hop, or the name from the other row. Do the two hops on the drawing, one at a time.</div></section>
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25 (flat, as directed for this guide; the official wording is ¼ of the marks assigned). Guess only if your chance of being right is above about 23%: 0.25 ÷ (0.8333 + 0.25) = 0.231. Crossing out even one option lifts your odds.</p><div class="quiz"><script type="application/json">[
+ {
+  "q": "Eight people sit in two rows of four facing each other, in west-to-east lines. Row 1 (P, Q, R, S) faces south; Row 2 (T, U, V, W) faces north. P sits at the east end of row 1. Q sits immediately to the right of P. R sits at the west end of row 1. T sits opposite S. U sits opposite P. V sits immediately to the left of T. Who sits immediately to the right of the person opposite R?",
+  "o": [
+   "T",
+   "Nobody",
+   "W",
+   "U"
+  ],
+  "a": 0,
+  "e": "Row 1 west to east: R S Q P. Row 2: V T W U. Opposite R is V. V faces north, right = east = T.",
+  "t": [
+   "",
+   "That would be V's LEFT: V is at the west end, with no one further west.",
+   "W is two seats east of V, not immediate.",
+   "U is at the east end, three seats from V."
+  ]
+ },
+ {
+  "q": "Four people sit in a row, all facing SOUTH. X sits at the extreme east end. Which statement is true?",
+  "o": [
+   "X has a neighbour on his left and nobody on his right",
+   "X has neighbours on both sides",
+   "X has a neighbour on his right and nobody on his left",
+   "X has nobody on either side"
+  ],
+  "a": 2,
+  "e": "Facing south, east is on X's left. At the east end there is nobody there. His neighbour to the west is on his right.",
+  "t": [
+   "Reversed: facing south, left = east, and nobody is east of X.",
+   "X is at the end of the row, so only one side is occupied.",
+   "",
+   "The row has four people, so X has one neighbour (to the west, on his right)."
+  ]
+ },
+ {
+  "q": "Two rows of four face each other. Row 1 (A, B, C, D) faces south; Row 2 (E, F, G, H) faces north. C sits opposite E. A sits at the east end of row 1. D sits immediately to the right of A. E sits at the west end of row 2. F sits opposite D. G sits immediately to the left of F. Who sits immediately to the left of the person opposite B?",
+  "o": [
+   "G",
+   "E",
+   "H",
+   "C"
+  ],
+  "a": 1,
+  "e": "Row 1 west to east: C B D A. Row 2: E G F H. Opposite B is G. G faces north, left = west = E.",
+  "t": [
+   "G is the person opposite B; the question asks for G's left neighbour.",
+   "",
+   "H is at the east end, two seats from G.",
+   "C is in the other row, opposite E."
+  ]
+ },
+ {
+  "q": "Two rows of five people face each other: row 1 faces south, row 2 faces north. X in row 1 is second from the west end. Y in row 2 is second from the east end. How many people sit between Y and the person opposite X?",
+  "o": [
+   "0",
+   "2",
+   "1",
+   "3"
+  ],
+  "a": 2,
+  "e": "Opposite X is seat 2 from the west in row 2. Y is second from the east = seat 4 from the west. Only seat 3 lies between: 1 person.",
+  "t": [
+   "That would make them neighbours; seats 2 and 4 from the west have seat 3 between.",
+   "That is the gap in seat numbers (4 − 2), not the people strictly between.",
+   "",
+   "Used 5 − 2 = 3 as Y's seat; second from the east in a row of 5 is the 4th from the west."
+  ]
+ },
+ {
+  "q": "Row 1 (A, B, C) faces south and row 2 (D, E, F) faces north; three seats each, west to east, one person per seat. A sits at the west end of row 1. D sits opposite C. E does not sit opposite A. Which statement is DEFINITELY true?",
+  "o": [
+   "D sits opposite A",
+   "C sits at the east end of row 1",
+   "F sits at the east end of row 2",
+   "E sits opposite B"
+  ],
+  "a": 3,
+  "e": "F must be opposite A, since D is opposite C and E is not opposite A. D and E fill the other two seats, so E is opposite whichever of B and C is not opposite D, namely B. Python found 2 valid models; E opposite B holds in both.",
+  "t": [
+   "False: E is not opposite A and D is opposite C, so F must be opposite A.",
+   "Possible but not certain: C may be in the middle (B at the east end).",
+   "False: F is opposite A, who is at the west end, so F is at the west end of row 2.",
+   ""
+  ]
+ }
+]</script></div></section>
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Which way do row 1 and row 2 face? (2) Left of a south-facing person points where? (3) What is opposite? (4) What do I do before a "left" clue?</div><div class="mem"><b>Memorise this</b><br>1. Row 1 faces South, row 2 faces North.<br>2. South-facing: left = East. North-facing: left = West.<br>3. Opposite = same seat number from the west.<br>4. Two hops: opposite first, then left or right.<br>5. "Definitely" = true in every valid arrangement.</div></section>
+<p class="src"><b>Lesson 3 sources:</b> <a href="https://en.wikipedia.org/wiki/Cardinal_direction">Wikipedia: Cardinal direction</a> · <a href="https://en.wikipedia.org/wiki/Permutation">Wikipedia: Permutation</a> (counting arrangements). Every worked example and quiz answer: derived, Python-checked by brute force over all seatings.<br><b>UNVERIFIED:</b> that the exam always uses "row 1 south, row 2 north" (some stems state the facing differently; always read it).</p></section>
+<p class="src"><b>Chapter sources and notes:</b> Wikipedia (Cardinal direction, Clockwise, Permutation). Exam facts: PFRDA 2026 notification (Reasoning 30 Q, 25 marks); the official notification lists no Reasoning topics, so this chapter is practice for a standard reasoning topic, not an official syllabus item. Marking here uses the flat −0.25 directed for this guide; the notification wording is 1/4 of the marks assigned.<br><b>UNVERIFIED:</b> exam-specific seating conventions (coaching pages indiabix, geeksforgeeks, testbook, adda247, careerpower, toppr and javatpoint could not be fetched: 404/403/503/DNS); number of seating questions in Paper 1.</p>
+</article>
