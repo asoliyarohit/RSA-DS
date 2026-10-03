@@ -17,6 +17,10 @@ Principle: scripts compute, Claude explains, the human executes. Never place ord
    `reports/journal.csv` so it can be forward-tested. If no thesis is convincing, say NO TRADE.
 5. Always state: notional, margin, stress loss in $, and that overnight gaps can exceed the stress loss.
 
+## Guardrail (enforced in code, not by judgment)
+Before ANY sizing, run `python -m analyst guard check --equity <bal> --risk <r>`. If it says BLOCKED or risk 0, there is no trade; do not argue
+with it, do not re-run with different numbers. After each closed trade run `guard record --equity-after <bal>`.
+
 ## Non-negotiables
 - Never promise the 1k -> 100k outcome; quote the solver's probability (`python -m analyst solve`).
 - Never raise risk after a loss to "get it back"; the drawdown throttle halves/quarters risk at -15%/-30%.

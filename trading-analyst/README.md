@@ -25,6 +25,11 @@ Result: it LOSES after costs (dev t=-2.8, holdout 2023+ t=-4.2, 44% win), so it 
 `python -m analyst journal quote|trade|call|settle|report`: manual Revolut quote/fill logger plus an automatic paper track record of the daily call.
 (No broker API is read; you type bid/ask and fills.) Needs 30+ quotes per instrument before spreads are trusted and 100+ settled calls before judging the call.
 
+`python -m analyst guard check|record|status|reset`: loss-limit guardrail enforced in code (`analyst/guard.py`): 5% max risk/trade, 4% daily and 8% weekly
+loss stops, 20% drawdown HALT (human reset), risk x0.5 after 3 straight losses (x0.25 after 5) and at 10% drawdown, no trades on Fed/CPI/jobs/geopolitics flags,
+and risk = 0 (paper only) until the journal shows 100+ settled calls with positive mean and t>1.65. It can only reduce or block risk, never raise it.
+It limits how fast you can lose; it cannot create an edge.
+
 ## What the evidence says (honest)
 | Setup | Out-of-sample result | Verdict |
 |---|---|---|

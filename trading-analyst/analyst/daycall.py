@@ -91,8 +91,12 @@ def run(args):
     for lbl, d_ in (("dev", dv), ("holdout", ho)):
         if len(d_):
             x = d_.iloc[0]; print(f"  measured {lbl}: win {x['win%']}% | avg {x['avg_net_bps']:+.1f} bps net | t {x['t']} | n {x['n']}")
+    from datetime import date as _d
+    from . import guard
     ok = len(ho) and ho.iloc[0]["avg_net_bps"] > 0 and ho.iloc[0]["t"] > 1.65
-    risk = min(args.risk[0], 0.05) if ok else 0.0
+    dec = guard.check(args.equity, args.risk[0], _d.today(), [], require_evidence=True)
+    risk = dec.risk if ok and dec.allowed else 0.0
+    print("  GUARD: " + ("OK" if dec.allowed else "BLOCKED") + " | " + "; ".join(dec.reasons))
     notional = min(risk / r["stop_pct"], 5.0) * args.equity if risk else 0.0
     print(f"  SIZE: {'$%.0f notional (%.0f%% account risk)' % (notional, risk * 100) if risk else 'PAPER ONLY - measured holdout edge is not statistically positive, so risking money is not justified.'}")
     if "ret" in r and day <= max(f.index[-1] for f in fr.values()):

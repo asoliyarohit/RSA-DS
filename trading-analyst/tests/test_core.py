@@ -70,3 +70,55 @@ def test_journal_math_and_calibration(tmp_path, monkeypatch):
     assert not j.calibrate()["US500"]["enough"]
     j.log_quote("US500", 7720.0, 7721.0)
     assert j.calibrate()["US500"]["enough"] and abs(j.calibrate()["US500"]["median_bps"] - 1.3) < 0.05
+
+
+def _guard(tmp_path, monkeypatch):
+    from analyst import guard
+    monkeypatch.setattr(guard, "STATE", tmp_path / "g.json")
+    monkeypatch.setattr(guard, "evidence_ok", lambda: (True, "ok"))
+    return guard
+
+
+def test_guard_caps_and_never_raises_risk(tmp_path, monkeypatch):
+    from datetime import date
+    g = _guard(tmp_path, monkeypatch)
+    d = g.check(1000, 0.20, date(2026, 1, 5))
+    assert d.allowed and d.risk <= g.RISK_CAP + 1e-12
+
+
+def test_guard_daily_limit_blocks_and_next_day_reopens(tmp_path, monkeypatch):
+    from datetime import date
+    g = _guard(tmp_path, monkeypatch)
+    g.check(1000, 0.02, date(2026, 1, 5))
+    assert not g.check(955, 0.02, date(2026, 1, 5)).allowed          # -4.5% in the day
+    assert g.check(955, 0.02, date(2026, 1, 6)).allowed
+
+
+def test_guard_drawdown_halts_until_reset(tmp_path, monkeypatch):
+    from datetime import date
+    g = _guard(tmp_path, monkeypatch)
+    g.check(1000, 0.02, date(2026, 1, 5))
+    assert not g.check(790, 0.02, date(2026, 1, 20)).allowed          # -21% from peak
+    assert not g.check(1000, 0.02, date(2026, 2, 20)).allowed         # still halted even after recovery
+    g.reset()
+    assert g.check(1000, 0.02, date(2026, 2, 21)).allowed
+
+
+def test_guard_loss_streak_halves_risk_and_event_blocks(tmp_path, monkeypatch):
+    from datetime import date
+    g = _guard(tmp_path, monkeypatch)
+    eq = 1000.0
+    for i in range(3):
+        g.check(eq, 0.02, date(2026, 1, 5 + i)); eq *= 0.99; g.record_close(eq, date(2026, 1, 5 + i))
+    d = g.check(eq, 0.04, date(2026, 1, 9))
+    assert d.allowed and abs(d.risk - 0.02) < 1e-9
+    assert not g.check(eq, 0.02, date(2026, 1, 10), ["Fed decision"]).allowed
+
+
+def test_guard_evidence_gate_blocks_real_money(tmp_path, monkeypatch):
+    from datetime import date
+    from analyst import guard
+    monkeypatch.setattr(guard, "STATE", tmp_path / "g.json")
+    monkeypatch.setattr(guard, "evidence_ok", lambda: (False, "paper record has 0/100"))
+    d = guard.check(1000, 0.02, date(2026, 1, 5))
+    assert not d.allowed and d.risk == 0.0 and "PAPER ONLY" in d.reasons[0]

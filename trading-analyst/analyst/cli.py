@@ -121,10 +121,27 @@ def cmd_journal(args):
         j.report()
 
 
+def cmd_guard(args):
+    from datetime import date
+    from . import guard, news
+    day = pd.Timestamp(args.date).date() if args.date else date.today()
+    a = args.action
+    if a == "check":
+        flags = [] if args.no_news else news.gather()["event_flags"]
+        d = guard.check(args.equity, args.risk[0], day, flags)
+        print(f"{'ALLOWED' if d.allowed else 'BLOCKED'} | risk {d.risk:.2%} of equity | " + "; ".join(d.reasons))
+    elif a == "record":
+        print(json.dumps(guard.record_close(args.equity_after, day), indent=1))
+    elif a == "reset":
+        guard.reset(); print("guard state cleared (human override)")
+    else:
+        print(json.dumps(guard.status(), indent=1))
+
+
 def main():
     ap = argparse.ArgumentParser(prog="analyst")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall), ("journal", cmd_journal)):
+    for name, fn in (("backtest", cmd_backtest), ("solve", cmd_solve), ("signal", cmd_signal), ("brief", cmd_brief), ("stocks", cmd_stocks), ("review", cmd_review), ("daycall", cmd_daycall), ("journal", cmd_journal), ("guard", cmd_guard)):
         p = sp.add_parser(name); p.set_defaults(fn=fn)
         p.add_argument("--leverage", type=float, default=0.0, help="override broker leverage cap")
         p.add_argument("--broker", choices=list(PROFILES), default="revolut")
@@ -137,8 +154,9 @@ def main():
         p.add_argument("--equity", type=float, default=1000.0)
         p.add_argument("--date", default=None, help="session to review, default last bar")
         p.add_argument("--gap-atr", dest="gap_atr", type=float, default=2.0)
-        p.add_argument("action", nargs="?", default="report", choices=["quote", "trade", "call", "settle", "report"], help="journal action")
+        p.add_argument("action", nargs="?", default="report", choices=["quote", "trade", "call", "settle", "report", "status", "check", "record", "reset"], help="journal action")
         p.add_argument("--instrument", default=""); p.add_argument("--bid", type=float); p.add_argument("--ask", type=float)
         p.add_argument("--side", choices=["buy", "sell"]); p.add_argument("--entry", type=float); p.add_argument("--exit", type=float)
+        p.add_argument("--equity-after", dest="equity_after", type=float); p.add_argument("--no-news", action="store_true")
         p.add_argument("--fee-bps", dest="fee_bps", type=float, default=0.0); p.add_argument("--note", default="")
     a = ap.parse_args(); a.fn(a)
