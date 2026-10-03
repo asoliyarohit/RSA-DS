@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PFRDA Quant Lab</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1c1b19;--mute:#5d5a52;--line:#d9d5c9;--acc:#1f5fbf;--accbg:#e4edfb;--ok:#17703a;--okbg:#e0f3e6;--bad:#a8281c;--badbg:#fbe4e1;--warn:#7a5200;--warnbg:#fff1cc;--bar:#3b7ddd;--bar2:#e08a1e;--r:12px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15161a;--card:#1f2127;--ink:#ecebe6;--mute:#a4a198;--line:#383b44;--acc:#7fb0ff;--accbg:#1f2d47;--ok:#6fd695;--okbg:#17301f;--bad:#ff8f84;--badbg:#3a1d1a;--warn:#f2c35c;--warnbg:#382c10;--bar:#7fb0ff;--bar2:#f2b04c}}
+:root[data-theme="dark"]{--bg:#15161a;--card:#1f2127;--ink:#ecebe6;--mute:#a4a198;--line:#383b44;--acc:#7fb0ff;--accbg:#1f2d47;--ok:#6fd695;--okbg:#17301f;--bad:#ff8f84;--badbg:#3a1d1a;--warn:#f2c35c;--warnbg:#382c10;--bar:#7fb0ff;--bar2:#f2b04c}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow-wrap:anywhere}
+main{max-width:680px;margin:0 auto;padding:12px 16px 80px}
+h1{font-size:1.6rem;margin:.3em 0}h2{font-size:1.15rem;margin:0 0 .5em;display:flex;gap:.5em;align-items:center}h3{font-size:1rem;margin:.8em 0 .3em}
+h2 .n{background:var(--acc);color:var(--bg);border-radius:99px;min-width:1.7em;height:1.7em;display:inline-grid;place-items:center;font-size:.85rem;flex:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin:14px 0}
+.oneline{background:var(--accbg);border-left:5px solid var(--acc);padding:12px;border-radius:var(--r);font-weight:600}
+.box{background:var(--accbg);border:2px solid var(--acc);border-radius:var(--r);padding:12px;margin:10px 0;font-weight:600}
+.trap{background:var(--badbg);border-left:5px solid var(--bad);padding:12px;border-radius:var(--r)}
+.tip{background:var(--warnbg);border-left:5px solid var(--warn);padding:12px;border-radius:var(--r);margin:10px 0}
+.mem{background:var(--okbg);border:2px solid var(--ok);border-radius:var(--r);padding:12px;margin-top:12px}
+button{font:inherit;min-height:44px;padding:8px 16px;border-radius:10px;border:2px solid var(--acc);background:var(--acc);color:var(--bg);font-weight:600;cursor:pointer}
+button.ghost{background:transparent;color:var(--acc)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--warn);outline-offset:2px}
+button:disabled{opacity:.5;cursor:default}
+.hid{display:none!important}
+.stepbox .st{padding:10px 12px;margin:8px 0;border-left:4px solid var(--acc);background:var(--bg);border-radius:8px}
+.prog{color:var(--mute);font-size:.85rem;margin:6px 0}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}th{background:var(--accbg)}
+.q{border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}
+.opts{display:grid;gap:8px;margin:8px 0}
+.opts button{background:var(--card);color:var(--ink);border-color:var(--line);text-align:left}
+.opts button.right{background:var(--okbg);border-color:var(--ok)}.opts button.wrong{background:var(--badbg);border-color:var(--bad)}
+.fb{padding:8px 10px;border-radius:8px;margin-top:6px}.fb.ok{background:var(--okbg)}.fb.no{background:var(--badbg)}
+.fb ul{margin:.4em 0 0;padding-left:1.2em;font-size:.92rem}
+input[type=number],input[type=text],select{font:inherit;width:100%;min-height:44px;padding:6px 10px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+label{display:block;font-weight:600;margin-top:8px}
+.big{font-size:1.4rem;font-weight:700}
+.src{font-size:.85rem;color:var(--mute)}
+a{color:var(--acc)}
+.bars{margin:10px 0}.bars .row{display:flex;height:30px;margin:6px 0;border-radius:6px;overflow:hidden;font-size:.85rem;color:#10131a;font-weight:600}
+.bars .row>span{display:flex;align-items:center;padding:0 8px;white-space:nowrap}.bars .a{background:var(--bar)}.bars .b{background:var(--bar2)}
+.cap{color:var(--mute);font-size:.85rem}
+.sort .item{display:block;width:100%;margin:6px 0;text-align:left;background:var(--card);color:var(--ink);border-color:var(--line)}
+.sort .item.sel{border-color:var(--acc);background:var(--accbg)}
+/* nav */
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;padding:8px 16px;max-width:none}
+.topbar .t{flex:1;font-weight:700;font-size:.95rem}
+.topbar button{min-height:40px;padding:4px 12px}
+#toc{position:fixed;inset:0;background:var(--bg);z-index:9;overflow:auto;padding:16px}
+#toc .in{max-width:680px;margin:0 auto}
+#toc a.ch{display:flex;gap:10px;align-items:center;padding:12px;margin:8px 0;border:1px solid var(--line);border-radius:var(--r);background:var(--card);text-decoration:none;color:var(--ink);min-height:48px}
+#toc a.ch .no{font-weight:700;color:var(--acc);min-width:2em}
+#toc a.ch.done::after{content:"\2713";margin-left:auto;color:var(--ok);font-weight:700}
+#toc .tag{font-size:.75rem;color:var(--mute)}
+.pager{display:flex;gap:8px;justify-content:space-between;margin:20px 0}
+.chapter{display:none}.chapter.on{display:block}
+@media (min-width:600px){.opts.two{grid-template-columns:1fr 1fr}}
+@media print{.topbar,.pager,button{display:none}}
+</style></head><body>
+<div class="topbar"><button class="ghost" id="tocBtn" type="button">Contents</button><span class="t" id="ttl">PFRDA Quant Lab</span><button class="ghost" id="themeBtn" type="button" aria-label="Toggle light or dark theme">Theme</button></div>
+<div id="toc" class="hid"><div class="in">
+<h1>PFRDA Grade A · Quant Lab</h1>
+<p class="src">Phase 1 · 15 Oct 2026 · Quant = 20 Q, 25 marks, −¼ per wrong answer (official PFRDA notification). Start at <b>Start Here</b>, then go in order. One lesson a sitting.</p>
+<div id="toclist"></div></div></div>
+<main id="app">
+<article class="chapter" id="ch04" data-no="4" data-title="Percentage" data-tag="Foundation for DI, P&L, SI/CI · ~25 min">
+<h1>Percentage</h1>
+<p class="oneline">In one line: a percentage is "out of 100", and almost every exam question is just "compare with the OLD number".</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A shop in Lucknow marks a shirt at ₹800 with a board: "15% off". Picture the ₹800 as a bar cut into 100 equal slices. 15% off means 15 of those slices are crossed out.</p>
+<div class="bars" role="img" aria-label="Bar of 100 slices, 15 slices highlighted as the discount"><div class="row"><span class="a" style="width:85%">85 slices you pay</span><span class="b" style="width:15%">15</span></div></div>
+<p class="cap">One slice = ₹8. So the discount is 15 × 8 = ₹120 and you pay ₹680.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">"Percent" means "per 100". So 1% is 1 out of 100.</div>
+<div class="st">50% is 50 out of 100, which is half. So 50% = 1/2.</div>
+<div class="st">To find a percent of a number: percent over 100, then multiply. 25% of 80 = 25/100 × 80 = 20.</div>
+<div class="st">Percentage <b>change</b> asks: how far did it move, compared with where it <b>started</b>?</div>
+<div class="st">Always divide by the <b>old</b> (starting) value. This one habit prevents most mistakes.</div>
+<div class="st">Two changes in a row do <b>not</b> add. The second change works on the already-changed number.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
+<div class="box">X% of N = (X ÷ 100) × N</div>
+<div class="box">% change = (New − Old) ÷ Old × 100</div>
+<div class="box">Successive changes: multiply the factors. +20% is factor 1.20, −20% is 0.80.</div>
+<p class="src">Definition of percentage and relative change: Wikipedia "Percentage"; Math Is Fun "Percentage Change" (see Sources).</p></section>
+
+<section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
+<p><b>A bag goes from ₹80 to ₹100. Percentage increase?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Old = 80, New = 100.</div>
+<div class="st">Step 2. Change = 100 − 80 = 20.</div>
+<div class="st">Step 3. Divide by the OLD: 20 ÷ 80 = 1/4.</div>
+<div class="st">Step 4. 1/4 = 25%. Answer: <b>25% increase</b>.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div>
+<hr>
+<p><b>Price rises 20%, then falls 20%. Net change?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Start at 100. +20% gives 120.</div>
+<div class="st">Step 2. −20% of <b>120</b> = 24, so 120 − 24 = 96.</div>
+<div class="st">Step 3. 96 versus 100 is −4. Answer: <b>4% decrease</b>, not 0%.</div>
+<div class="st">Check with factors: 1.20 × 0.80 = 0.96.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Price goes 100 → 125. That is +25%.</div>
+<div class="st">Wrong move: "so it must fall 25% to come back". 25% of 125 is 31.25, and 125 − 31.25 = 93.75. Not 100.</div>
+<div class="st">Right: it must fall 25 out of 125 = <b>20%</b>. Going down uses the new, bigger base.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Mental-math base: fraction to percent</h2>
+<p>Learn in chunks of four. Chunk 1 first: 1/2, 1/3, 1/4, 1/5.</p>
+<div class="tw"><table><tr><th>Fraction</th><th>%</th><th>Fraction</th><th>%</th></tr>
+<tr><td>1/2</td><td>50</td><td>1/9</td><td>11.11</td></tr><tr><td>1/3</td><td>33.33</td><td>1/10</td><td>10</td></tr>
+<tr><td>1/4</td><td>25</td><td>1/11</td><td>9.09</td></tr><tr><td>1/5</td><td>20</td><td>1/12</td><td>8.33</td></tr>
+<tr><td>1/6</td><td>16.67</td><td>1/13</td><td>7.69</td></tr><tr><td>1/7</td><td>14.29</td><td>1/14</td><td>7.14</td></tr>
+<tr><td>1/8</td><td>12.5</td><td>1/15</td><td>6.67</td></tr><tr><td colspan="2"></td><td>1/16</td><td>6.25</td></tr></table></div>
+<p class="prog">Each value is 100 ÷ n, rounded to 2 decimals.</p>
+<div class="tip"><b>Use it.</b> 12.5% = 1/8, so 12.5% of 640 = 640 ÷ 8 = 80. For 37.5% = 3/8: 640 ÷ 8 × 3 = 240. Convert to a fraction, then divide, then multiply.</div>
+<h3>Speed drill</h3>
+<p class="prog">Say the answer out loud before you tap Show. Aim: under 5 seconds each.</p>
+<div class="drill"><script type="application/json">[["1/3 = ?%","33.33%"],["1/6 = ?%","16.67%"],["1/7 = ?%","14.29%"],["1/8 = ?%","12.5%"],["1/9 = ?%","11.11%"],["1/12 = ?%","8.33%"],["1/16 = ?%","6.25%"],["37.5% = ? (fraction)","3/8"],["62.5% = ? (fraction)","5/8"],["83.33% = ? (fraction)","5/6"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: percent change calculator</h2>
+<label for="p4o">Old value</label><input id="p4o" type="number" value="80" inputmode="decimal">
+<label for="p4n">New value</label><input id="p4n" type="number" value="100" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="p4s1"></div>
+<hr><b>Successive changes</b>
+<label for="p4a">First change % (minus for a fall)</label><input id="p4a" type="number" value="20" inputmode="decimal">
+<label for="p4b">Second change %</label><input id="p4b" type="number" value="-20" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="p4s2"></div>
+<script>(function(){function f(x){return +(+x).toFixed(2)}function $(i){return document.getElementById(i)}
+function lab(){var o=parseFloat($('p4o').value),n=parseFloat($('p4n').value),t=$('p4s1');
+if(!(o>0)||isNaN(n)){t.innerHTML='<div class="st">Enter an old value above 0 and a new value.</div>'}else{var c=n-o,p=c/o*100;
+t.innerHTML='<div class="st">1. Change = '+n+' − '+o+' = '+f(c)+'</div><div class="st">2. Divide by OLD: '+f(c)+' ÷ '+o+' = '+f(c/o)+'</div><div class="st">3. × 100 = <b>'+f(p)+'% '+(p>0?'increase':p<0?'decrease':'(no change)')+'</b></div>'+(n>0?'<div class="st">Reverse trip: to get back, change by '+f((o-n)/n*100)+'% (base is now '+n+')</div>':'')}
+var a=parseFloat($('p4a').value),b=parseFloat($('p4b').value),s=$('p4s2');if(isNaN(a)||isNaN(b)){s.innerHTML='';return}
+var fa=1+a/100,fb=1+b/100;s.innerHTML='<div class="st">1. Factors: '+f(fa)+' and '+f(fb)+'</div><div class="st">2. Multiply: '+f(fa)+' × '+f(fb)+' = '+f(fa*fb)+'</div><div class="st">3. Net = <b>'+f((fa*fb-1)*100)+'%</b> (adding would wrongly give '+f(a+b)+'%)</div>'}
+['p4o','p4n','p4a','p4b'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>"A's salary is 25% more than B's. By what % is B's salary less than A's?"</li>
+<li>"The price rises by 25%. By what % must consumption fall so expenditure stays the same?"</li>
+<li>"A number is increased by 20% then decreased by 10%. Find the net change."</li>
+<li>In data interpretation sets: "what percent is X of Y?" and "% growth from year 1 to year 2". In 2025, DI was reported as the biggest block (8 questions) in memory-based exam analyses, so this skill is used everywhere.</li></ul>
+<p class="prog">Word clues: "of" means multiply. "than" points to the base. "from … to …" means old to new.</p>
+<div class="tip"><b>How the wrong options are built.</b> The examiner plants answers from common mistakes: dividing by the new value, adding successive percentages, mixing percentage with percentage points. If your answer matches a "tempting" option too easily, re-check the base.</div></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%: 0.3125 ÷ (1.25 + 0.3125) = 0.2. After you have crossed out one option, the odds improve.</p>
+<div class="quiz"><script type="application/json">[
+{
+"q": "What is 12.5% of 640?",
+"o": [
+"64",
+"96",
+"125",
+"80"
+],
+"a": 3,
+"e": "12.5% = 1/8. 640 ÷ 8 = 80.",
+"t": [
+"10% of 640 only: forgot the extra 2.5%",
+"12.5 mixed up with 15% (96)",
+"12.5 read as 125",
+""
+]
+},
+{
+"q": "Salary goes from ₹40,000 to ₹46,000. Percentage increase?",
+"o": [
+"15%",
+"13%",
+"6%",
+"12.5%"
+],
+"a": 0,
+"e": "Change = 6,000. 6,000 ÷ 40,000 (old) = 0.15 = 15%.",
+"t": [
+"",
+"6,000 ÷ 46,000 (divided by the NEW value) ≈ 13%",
+"Used 6 as the answer: change in thousands, not a percent",
+"6,000 ÷ 48,000: an arbitrary wrong base"
+]
+},
+{
+"q": "Sugar price rises 25%. By what % must a family cut its use to keep spending the same?",
+"o": [
+"25%",
+"20%",
+"30%",
+"12.5%"
+],
+"a": 1,
+"e": "Spend = price × quantity. 125 × q = 100, so q = 80% of old: a 20% cut (25 ÷ 125).",
+"t": [
+"Assumed up 25% means down 25% (wrong base)",
+"",
+"Added 5 for no reason",
+"Halved 25"
+]
+},
+{
+"q": "A number is increased by 20%, then decreased by 10%. Net change?",
+"o": [
+"+10%",
+"+12%",
+"+8%",
+"+9%"
+],
+"a": 2,
+"e": "1.20 × 0.90 = 1.08, so +8%.",
+"t": [
+"20 − 10: added the percentages",
+"Dropped the second step's smaller base",
+"",
+"Mis-multiplied 1.2 × 0.9"
+]
+},
+{
+"q": "A town of 50,000 grows 10%, then shrinks 10%. Population now?",
+"o": [
+"49,500",
+"49,000",
+"50,500",
+"50,000"
+],
+"a": 0,
+"e": "50,000 × 1.1 = 55,000. 55,000 × 0.9 = 49,500. Net −1%.",
+"t": [
+"",
+"Subtracted 2% of 50,000 wrongly",
+"Added 1% instead of subtracting",
+"Assumed +10% and −10% cancel"
+]
+}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What does percent mean? (2) Which number do I divide by for % change? (3) Do successive changes add? (4) What is 1/8 as a percent?</div>
+<div class="mem"><b>Memorise this</b><br>1. % = per 100.<br>2. % change = (New − Old) ÷ Old × 100.<br>3. Successive: multiply factors, never add.<br>4. Up 25% needs down 20% to return (1/4 up, 1/5 down).<br>5. 1/2=50, 1/3=33.3, 1/4=25, 1/5=20, 1/6=16.7, 1/8=12.5, 1/10=10.</div></section>
+
+<p class="src"><b>Sources:</b> <a href="https://en.wikipedia.org/wiki/Percentage">Wikipedia: Percentage</a> · <a href="https://www.mathsisfun.com/percentage.html">Math Is Fun: Percents</a> · <a href="https://www.mathsisfun.com/numbers/percentage-change.html">Math Is Fun: Percentage Change</a> · Exam facts: PFRDA 2026 notification. 2025 DI count: edutap exam analysis (memory-based). All worked numbers checked by Python.<br><b>UNVERIFIED:</b> how often plain percentage questions appear (none claimed); that the real paper uses 4 or 5 options (the 20% break-even holds either way).</p>
+</article>
+
+<div class="pager"><button class="ghost" id="prev" type="button">Previous</button><button id="next" type="button">Next chapter</button></div>
+</main>
+<script>
+(function(){
+var root=document.documentElement;
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+var th=ls('qlTheme');if(th)root.setAttribute('data-theme',th);
+document.getElementById('themeBtn').onclick=function(){var d=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);var n=d?'light':'dark';root.setAttribute('data-theme',n);ls('qlTheme',n)};
+/* step reveal */
+document.querySelectorAll('[data-steps]').forEach(function(b){var s=b.querySelectorAll('.st'),i=1,btn=b.querySelector('[data-next]'),p=b.querySelector('.prog');s.forEach(function(e,k){if(k>0)e.classList.add('hid')});
+function u(){p.textContent='Step '+i+' of '+s.length;if(i>=s.length){btn.textContent='Done';btn.disabled=true}}u();btn.onclick=function(){if(i<s.length){s[i].classList.remove('hid');i++;u()}}});
+/* quiz */
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+document.querySelectorAll('.quiz').forEach(function(box,qi){var Q=JSON.parse(box.querySelector('script').textContent),score=0,done=0,neg=0;
+ Q.forEach(function(x,k){var d=document.createElement('div');d.className='q';var h='<b>Q'+(k+1)+'. '+x.q+'</b><div class="opts two">';
+  x.o.forEach(function(t,j){h+='<button type="button" data-j="'+j+'">'+'ABCDE'[j]+'. '+t+'</button>'});d.innerHTML=h+'</div><div class="fb hid"></div>';box.appendChild(d);
+  var bs=d.querySelectorAll('button'),fb=d.querySelector('.fb'),lock=false;
+  bs.forEach(function(b){b.onclick=function(){if(lock)return;lock=true;var j=+b.dataset.j;bs[x.a].classList.add('right');if(j!==x.a){b.classList.add('wrong');neg++}else score++;done++;
+   var m=(j===x.a?'Correct. ':'Not quite. Answer '+'ABCDE'[x.a]+'. ')+x.e;fb.className='fb '+(j===x.a?'ok':'no');fb.textContent=m;
+   if(x.t){var ul=document.createElement('ul');x.t.forEach(function(t,jj){if(t&&jj!==x.a){var li=document.createElement('li');li.textContent='Option '+'ABCDE'[jj]+': '+t;ul.appendChild(li)}});if(ul.children.length)fb.appendChild(ul)}
+   if(done===Q.length){var r=document.createElement('p');r.className='big';r.textContent='Score '+score+'/'+Q.length+' · exam-scale marks '+(score*1.25-neg*0.3125).toFixed(2)+' of '+(Q.length*1.25).toFixed(2);box.appendChild(r)}}});
+ })});
+/* drill: [["prompt","answer"],...] */
+document.querySelectorAll('.drill').forEach(function(box){var D=JSON.parse(box.querySelector('script').textContent),cur,t0,n=0,tot=0;
+ box.insertAdjacentHTML('beforeend','<p class="big dq">Tap start</p><p class="da hid"></p><p class="prog dst"></p><button type="button" class="go">Start drill</button> <button type="button" class="ghost sh hid">Show answer</button> <button type="button" class="ghost nx hid">I knew it · next</button>');
+ var dq=box.querySelector('.dq'),da=box.querySelector('.da'),go=box.querySelector('.go'),sh=box.querySelector('.sh'),nx=box.querySelector('.nx'),st=box.querySelector('.dst');
+ function pick(){cur=D[Math.floor(Math.random()*D.length)];dq.textContent=cur[0];da.classList.add('hid');sh.classList.remove('hid');nx.classList.add('hid');t0=Date.now()}
+ go.onclick=function(){pick();go.textContent='Skip (did not know)'};
+ sh.onclick=function(){da.textContent=cur[1];da.classList.remove('hid');sh.classList.add('hid');nx.classList.remove('hid');go.textContent='Next (missed)'};
+ nx.onclick=function(){n++;tot+=(Date.now()-t0)/1000;st.textContent='Known: '+n+' · avg '+(tot/n).toFixed(1)+' s each (aim: under 5 s)';pick()};
+});
+/* chapters + nav */
+var chs=[].slice.call(document.querySelectorAll('.chapter')),list=document.getElementById('toclist'),toc=document.getElementById('toc');
+var seen=JSON.parse(ls('qlSeen')||'{}');
+chs.forEach(function(c,i){var a=document.createElement('a');a.className='ch'+(seen[c.id]?' done':'');a.href='#'+c.id;a.innerHTML='<span class="no">'+(c.dataset.no||i)+'</span><span><b>'+esc(c.dataset.title)+'</b><br><span class="tag">'+esc(c.dataset.tag||'')+'</span></span>';list.appendChild(a)});
+function show(id){var i=Math.max(0,chs.findIndex(function(c){return c.id===id}));chs.forEach(function(c,k){c.classList.toggle('on',k===i)});toc.classList.add('hid');document.getElementById('ttl').textContent=chs[i].dataset.title;
+ seen[chs[i].id]=1;ls('qlSeen',JSON.stringify(seen));list.children[i].classList.add('done');window.scrollTo(0,0);
+ document.getElementById('prev').style.visibility=i?'visible':'hidden';var nb=document.getElementById('next');nb.style.visibility=i<chs.length-1?'visible':'hidden';
+ document.getElementById('prev').onclick=function(){location.hash=chs[i-1].id};nb.onclick=function(){location.hash=chs[i+1].id}}
+function route(){var h=location.hash.slice(1);if(!h){toc.classList.remove('hid');chs.forEach(function(c){c.classList.remove('on')});document.getElementById('ttl').textContent='PFRDA Quant Lab';return}show(h)}
+window.addEventListener('hashchange',route);document.getElementById('tocBtn').onclick=function(){toc.classList.toggle('hid')};
+toc.addEventListener('click',function(e){if(e.target.closest('a'))setTimeout(function(){toc.classList.add('hid')},0)});
+route();
+})();
+</script></body></html>
