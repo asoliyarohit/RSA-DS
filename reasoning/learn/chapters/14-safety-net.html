@@ -1,18 +1,230 @@
 <article class="chapter" id="ch14" data-no="14" data-title="Safety Net: what to do when you blank" data-tag="Strategy, not facts · guess maths · time · reset · ~25 min">
 <h1>Safety Net: what to do when you blank</h1>
-<p class="oneline">In one line: when a question freezes you, you do not fight it. You run a fixed 3-step routine: cross out, decide, move on.</p>
-<p class="prog">Label: the maths here is checked in Python. The advice (skip rules, time plans, reset steps) is <b>our suggested strategy, not an official fact</b>. Marks used: +0.8333 per right, −0.25 per wrong (flat, as this guide assumes).</p>
+<p class="oneline">In one line: when a question freezes you, you do not fight it. You run a fixed routine: cross out, decide, move on.</p>
+<p class="prog">Label: the arithmetic here is checked in Python. The advice (skip rules, time plans, reset steps) is <b>our suggested strategy, not an official fact</b>. Marks used: +0.8333 per right answer, −0.25 per wrong answer (flat, as this guide assumes; the call letter settles the real rule).</p>
 
 <h2>Lesson 1 · Elimination and the guess rule</h2>
-<p class="oneline">In one line: a guess is only worth it when your chance of being right is above about 23%.</p>
+<p class="oneline">In one line: a guess is only worth making when your chance of being right is above about 23%.</p>
 
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
-<p>You are in a Pune chai shop with four snacks on the menu and you have no idea what is good. You cannot taste them first. Crossing out the two you already know are stale leaves two. Now picking one is a fair bet. Exam options work the same way: every option you can prove wrong makes the remaining guess better.</p></section>
+<p>You are in a Pune chai shop. The menu has four snacks and you cannot taste them first. You already know two are stale, so you cross them out. Now you pick between two. That is a fair bet, much better than picking from four. Exam options work the same way: every option you can prove wrong makes the remaining guess better.</p></section>
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
-<div class="st">Each option is either right or wrong. Only one is right.</div>
+<div class="st">Only one option is right. Your job is to cross out options, not to "find" the answer by force.</div>
 <div class="st"><b>Process of elimination</b> means finding the answer by excluding the options that cannot be it.</div>
-<div class="st>">placeholder</div>
-</div></section>
+<div class="st">Chance of being right if you guess among n options left = 1 out of n. Four left: 1/4 = 25%. Three left: 1/3 = 33%. Two left: 1/2 = 50%.</div>
+<div class="st"><b>Expected value</b> (EV) is the average result if you could repeat the same bet many times: multiply each outcome by its probability and add. Here: EV = p × 0.8333 − (1 − p) × 0.25, where p is your chance of being right.</div>
+<div class="st">If EV is above 0, guessing gains marks on average. If it is below 0, it loses marks on average. EV = 0 happens at p = 0.25 ÷ (0.8333 + 0.25), which is about <b>23%</b>.</div>
+<div class="st">So: blank with 4 options, EV is just above zero (+0.02). Cross out even one option and it jumps to +0.11.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rule (now that you get it)</h2>
+<div class="box">EV of a guess = p × 0.8333 − (1 − p) × 0.25</div>
+<div class="box">Answer if p is above about 23%. Skip if p is below it.</div>
+<div class="bars" role="img" aria-label="Chance of being right: 4 options 25 percent, 3 options 33 percent, 2 options 50 percent; break-even 23 percent"><div class="row"><span class="a" style="width:23%">23% break-even</span></div><div class="row"><span class="b" style="width:25%">4 left: 25%</span></div><div class="row"><span class="b" style="width:33%">3 left: 33%</span></div><div class="row"><span class="b" style="width:50%">2 left: 50%</span></div></div>
+<p class="src">Expected value as a probability-weighted sum: Wikipedia "Expected value". Elimination definition: Wikipedia "Process of elimination". Penalty-scoring context: Wikipedia "Multiple choice" (SAT Subject tests took a quarter-point off for a wrong answer; random guessing on four options gives about a 25% chance). The 23% break-even and every EV number: derived, Python-checked.</p></section>
+
+<section class="card"><h2><span class="n">4</span>Worked example, one tap per step</h2>
+<p><b>You have crossed out one of four options. Should you guess among the other three?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Three options left, so p = 1/3 = 33%.</div>
+<div class="st">Step 2. Gain part: 1/3 × 0.8333 = 0.2778.</div>
+<div class="st">Step 3. Loss part: 2/3 × 0.25 = 0.1667.</div>
+<div class="st">Step 4. EV = 0.2778 − 0.1667 = <b>+0.11</b>. And 33% is above 23%. Answer it.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Trap 1: "I will guess everything, it is free." It is not free. A blind guess from 4 options is only +0.02 on average, and from 5 options it is −0.03. One question gains nothing; 20 of them is a coin toss on your score.</div>
+<div class="st">Trap 2: "I crossed one out, so I am 50% sure." No. Crossing out one of four leaves three, so 33%.</div>
+<div class="st">Trap 3: crossing out an option because it "looks odd" is not elimination. Cross out only what you can <b>prove</b> wrong, for example a number that breaks a rule you have checked.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Speed method + drill</h2>
+<p>The 3-second routine: (1) read the question again, (2) cross out every option that breaks a fact you checked, (3) count what is left, then apply the rule: 3 or 2 left, answer; 4 left, only if you feel a pull toward one.</p>
+<div class="tip"><b>Quick EV table (4-option paper, derived, Python-checked).</b> 4 left: +0.02. 3 left: +0.11. 2 left: +0.29. 5 left (if a paper has 5 options): −0.03.</div>
+<h3>Speed drill</h3>
+<p class="prog">Say the answer before you tap Show.</p>
+<div class="drill"><script type="application/json">[["Break-even chance of being right?","about 23%"],["Guess chance with 3 options left?","33%"],["Guess chance with 2 options left?","50%"],["EV of a blind guess from 4 options?","+0.02"],["EV with 3 options left?","+0.11"],["EV with 2 options left?","+0.29"],["Is a 20% hunch worth answering?","No, below 23%"],["Is a 35% hunch worth answering?","Yes, above 23%"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: guess calculator</h2>
+<label for="ch14-n">Options in the question</label><input id="ch14-n" type="number" value="4" inputmode="numeric">
+<label for="ch14-e">Options you crossed out (proved wrong)</label><input id="ch14-e" type="number" value="1" inputmode="numeric">
+<div class="stepbox" style="margin-top:10px" id="ch14-s"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+function lab(){var n=parseInt($('ch14-n').value,10),e=parseInt($('ch14-e').value,10),t=$('ch14-s');
+if(!(n>=2)||isNaN(e)||e<0||e>n-2){t.innerHTML='<div class="st">Enter options of 2 or more, and crossed out between 0 and (options − 2).</div>';return}
+var k=n-e,p=1/k,ev=p*25/30-(1-p)*0.25;
+t.innerHTML='<div class="st">1. Options left: '+k+', so chance = 1/'+k+' = '+(p*100).toFixed(1)+'%</div><div class="st">2. EV = '+p.toFixed(3)+' × 0.8333 − '+(1-p).toFixed(3)+' × 0.25 = <b>'+(ev>=0?'+':'')+ev.toFixed(3)+'</b></div><div class="st">3. Break-even is 23.1%. Verdict: <b>'+(p>0.2308?'answer it':'skip it')+'</b></div>'}
+['ch14-n','ch14-e'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>You will never be asked "should you guess?". The exam simply gives you 4 or 5 options and silently tests your discipline.</li>
+<li>Wrong options are often built to look like the result of a common slip (a reversed direction, a missed "not", a swapped pair). If an option matches a slip you almost made, be suspicious of it.</li>
+<li>Reasoning has 30 questions in 2026 per the official notification, so a few good guesses and a few wise skips both matter.</li></ul></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25 (this guide's flat rule). Convention in this quiz: 4 options per question unless stated.</p>
+<div class="quiz"><script type="application/json">[
+{"q":"With +0.8333 for right and −0.25 for wrong, the break-even chance of being right is closest to:","o":["20%","23%","25%","33%"],"a":1,"e":"0.25 ÷ (0.8333 + 0.25) = 0.2308, about 23%.","t":["That is the break-even if the penalty were 0.2083 (a quarter of the marks); not our rule here","","That is just the chance on 4 options, not the break-even","That is the chance with 3 options left, not the break-even"]},
+{"q":"A blind guess among 4 options (nothing crossed out). Expected marks?","o":["+0.21","+0.02","−0.19","0.00"],"a":1,"e":"0.25 × 0.8333 − 0.75 × 0.25 = 0.2083 − 0.1875 = +0.02.","t":["Only the gain part (0.2083); forgot the loss part","","Only the loss part (0.1875); forgot the gain part","Rounded away: it is slightly positive, not zero"]},
+{"q":"You cross out 1 of 4 options and guess among the remaining 3. Expected marks?","o":["+0.02","+0.28","+0.11","−0.17"],"a":2,"e":"1/3 × 0.8333 = 0.2778; 2/3 × 0.25 = 0.1667; difference = +0.11.","t":["That is the blind 4-option value; the elimination was ignored","Only the gain part (0.2778)","","Only the loss part (0.1667), with a sign"]},
+{"q":"A paper has 5 options per question (hypothetical). A blind guess from all 5 has expected marks of:","o":["+0.17","+0.03","0.00","−0.03"],"a":3,"e":"1/5 × 0.8333 = 0.1667; 4/5 × 0.25 = 0.2; 0.1667 − 0.2 = −0.03. A blind 5-option guess loses a little.","t":["Only the gain part (0.1667)","Right size, wrong sign","The break-even is 23%, and 20% is below it, so it is not zero","" ]},
+{"q":"Which of these hunches is worth answering? Pick the chance of being right.","o":["35%","20%","15%","10%"],"a":0,"e":"Only 35% is above the 23% break-even. The EV at 35% is +0.13.","t":["","20% is below 23%: EV −0.03","15% is below 23%: EV −0.09","10% is below 23%: EV −0.14"]}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What is the break-even chance? (2) What is the chance with 3 options left? (3) What does "cross out" require? (4) Is a blind guess worth much?</div>
+<div class="mem"><b>Memorise this</b><br>1. Break-even about 23%.<br>2. 4 left +0.02, 3 left +0.11, 2 left +0.29.<br>3. Cross out only what you can prove wrong.<br>4. 3 or fewer left: answer. 4 left: only on a real pull.</div></section>
+
+<p class="src"><b>Sources (Lesson 1):</b> <a href="https://en.wikipedia.org/wiki/Expected_value">Wikipedia: Expected value</a> · <a href="https://en.wikipedia.org/wiki/Process_of_elimination">Wikipedia: Process of elimination</a> · <a href="https://en.wikipedia.org/wiki/Multiple_choice">Wikipedia: Multiple choice</a> · Exam facts: PFRDA 2026 notification. Break-even and EV numbers: derived, Python-checked.<br><b>UNVERIFIED:</b> the exact negative-marking value (official wording is 1/4 of marks assigned; this guide uses a flat −0.25 by instruction); the number of options in the real paper.</p>
+
+<h2>Lesson 2 · Time: skip rules and the last 10 minutes</h2>
+<p class="oneline">In one line: 60 minutes is one shared pot for 90 questions, so a stuck question steals time from easy marks elsewhere.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>You are at a railway ticket queue with 40 seconds for each person behind you. One passenger starts arguing about a fare for 3 minutes. Four or five people behind him wait for nothing. A hard question is that passenger: it eats the time of the easy questions behind it.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Paper 1 has 90 questions and one shared 60-minute timer (official notification).</div>
+<div class="st">Average time = 60 min × 60 s ÷ 90 = <b>40 seconds</b> per question.</div>
+<div class="st">Reasoning has 30 questions. At the average pace that is 30 × 40 s = 20 minutes of the pot.</div>
+<div class="st">Some questions take 15 seconds, some 2 minutes. The average only works if you stop the 2-minute ones from becoming 5-minute ones.</div>
+<div class="st"><b>Time-boxing</b> means giving a task a fixed block of time and stopping when it ends. Suggested strategy: after about 90 seconds on one question with no progress, mark it, take your best guess only if the rule from Lesson 1 allows, and move on.</div>
+<div class="st">One stalled 3-minute question costs 180 ÷ 40 = 4.5 average questions of time.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rule (now that you get it)</h2>
+<div class="box">Seconds per question = total seconds ÷ questions. Paper 1: 3600 ÷ 90 = 40 s.</div>
+<div class="box">Suggested skip rule (strategy): no progress by about 90 seconds, then mark and move on.</div>
+<div class="box">Suggested last-10-minutes plan (strategy): (1) go back to marked questions, (2) finish those with 2 or 3 options left, (3) leave 4-option blanks only if you have no pull toward any option.</div>
+<p class="src">Paper timing: PFRDA 2026 notification. Time-boxing idea (fixed blocks of focused time): Wikipedia "Time management" (Pomodoro technique). 40 s and 4.5 questions: derived, Python-checked. The 90-second cap and the 10-minute plan are our suggestions, not tested facts.</p></section>
+
+<section class="card"><h2><span class="n">4</span>Worked example, one tap per step</h2>
+<p><b>With 10 minutes left you have 12 unattempted questions. How much time can each get?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. 10 minutes = 600 seconds.</div>
+<div class="st">Step 2. 600 ÷ 12 = 50 seconds each.</div>
+<div class="st">Step 3. Split them: if 6 are easy (25 s) and 6 are hard (75 s) it still fits: 150 + 450 = 600.</div>
+<div class="st">Step 4. Do the 25-second ones first. They are the same marks for half the time.</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Trap: "I have already spent 4 minutes, so I must finish this puzzle." That is the <b>sunk cost fallacy</b>: letting time already spent decide a future choice.</div>
+<div class="st">The 4 minutes are gone either way. Ask only: what will the next 2 minutes buy here, versus on other questions?</div>
+<div class="st">Second trap: skipping and never returning. Mark skipped questions on your rough sheet by number so the last-10-minutes plan can find them.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Speed method + drill</h2>
+<p>Three passes (suggested): <b>Pass 1</b> take every question that starts moving within 10 seconds. <b>Pass 2</b> return to the marked ones. <b>Pass 3</b> in the final minutes apply the Lesson 1 rule to what is left.</p>
+<h3>Speed drill</h3>
+<div class="drill"><script type="application/json">[["Average seconds per question, Paper 1?","40 s"],["Reasoning share of the pot at average pace?","20 minutes"],["A 3-minute stall equals how many average questions?","4.5"],["10 minutes, 12 questions: seconds each?","50 s"],["10 minutes, 20 questions: seconds each?","30 s"],["Sunk cost: should past minutes decide?","No"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: time per question</h2>
+<label for="ch14-m">Minutes left</label><input id="ch14-m" type="number" value="10" inputmode="decimal">
+<label for="ch14-q">Questions still to try</label><input id="ch14-q" type="number" value="12" inputmode="numeric">
+<div class="stepbox" style="margin-top:10px" id="ch14-t"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+function lab(){var m=parseFloat($('ch14-m').value),q=parseInt($('ch14-q').value,10),t=$('ch14-t');
+if(!(m>0)||!(q>0)){t.innerHTML='<div class="st">Enter minutes above 0 and at least 1 question.</div>';return}
+var s=m*60/q;t.innerHTML='<div class="st">1. '+m+' min = '+(m*60)+' s</div><div class="st">2. '+(m*60)+' ÷ '+q+' = <b>'+s.toFixed(1)+' s per question</b></div><div class="st">3. '+(s<40?'Faster than the 40 s average: take only the quick ones first.':'At or above the 40 s average: you have room, still use the skip rule.')+'</div>'}
+['ch14-m','ch14-q'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>Nothing is asked about time directly. The timer is the question: all four sections share 60 minutes.</li>
+<li>Puzzle sets (one set, 5 questions) look expensive but pay 5 questions when solved, so they are the classic "skip first, return later" block.</li>
+<li>The 2026 pattern has more Reasoning questions (30), so timing mistakes here cost more than in earlier years, per the notification.</li></ul></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25. Convention: 4 options; Paper 1 = 90 Q in 60 minutes.</p>
+<div class="quiz"><script type="application/json">[
+{"q":"Paper 1 has 90 questions in one 60-minute timer. Average time per question?","o":["30 s","40 s","45 s","60 s"],"a":1,"e":"3600 s ÷ 90 = 40 s.","t":["That would be 120 questions in the hour","","That would be 80 questions in the hour (the older pattern)","That would be 60 questions; it ignores that 90 share the hour"]},
+{"q":"At the average pace, how long do the 30 Reasoning questions take?","o":["15 minutes","18 minutes","20 minutes","30 minutes"],"a":2,"e":"30 × 40 s = 1200 s = 20 minutes.","t":["30 s each, faster than the average","36 s each, not the average","","One minute each, which would use half the paper"]},
+{"q":"A question stalls you for 3 minutes. That equals how many 40-second questions?","o":["4.5","3","5","6"],"a":0,"e":"180 ÷ 40 = 4.5.","t":["","Counted minutes as questions","Rounded 4.5 up","Used 30 s per question"]},
+{"q":"6 questions are left, each narrowed to 2 options. Expected marks from guessing all 6?","o":["+5.00","+1.75","+0.88","+1.25"],"a":1,"e":"EV for one = 0.5 × 0.8333 − 0.5 × 0.25 = 0.2917. Times 6 = +1.75.","t":["That assumes all 6 are right (6 × 0.8333)","","Halved the correct answer again","Only the gain part, 6 × 0.2083 (forgot the loss part)"]},
+{"q":"10 minutes remain and 12 questions are untried. Equal time each?","o":["40 s","45 s","50 s","60 s"],"a":2,"e":"600 s ÷ 12 = 50 s.","t":["That is the full-paper average, not today's pace","Would need 13.3 questions","","Would only fit 10 questions"]}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) Seconds per question? (2) What is the sunk cost fallacy? (3) What are the three passes? (4) What do I do in the last 10 minutes?</div>
+<div class="mem"><b>Memorise this</b><br>1. 60 min ÷ 90 Q = 40 s each.<br>2. Reasoning at average pace: 20 min.<br>3. About 90 s without progress: mark and move on (strategy).<br>4. Past minutes never decide the next minute.<br>5. Last 10 min: marked ones, then 2-3 option guesses.</div></section>
+
+<p class="src"><b>Sources (Lesson 2):</b> <a href="https://en.wikipedia.org/wiki/Time_management">Wikipedia: Time management</a> · <a href="https://en.wikipedia.org/wiki/Sunk_cost">Wikipedia: Sunk cost</a> · Paper structure: PFRDA 2026 notification. Arithmetic: derived, Python-checked.<br><b>UNVERIFIED:</b> that 90 seconds is the best cap and that the three-pass plan beats others (our suggestion, no source).</p>
+
+<h2>Lesson 3 · Resetting after a hard puzzle</h2>
+<p class="oneline">In one line: a bad question is one question. Reset in 20 seconds and the next one is worth full marks again.</p>
+
+<section class="card"><h2><span class="n">1</span>Picture this</h2>
+<p>A batter in a local cricket match gets bowled for a duck in the first innings. The second innings still starts at zero. An exam works like that: the next question does not know that the last one went badly, and it is worth the same.</p></section>
+
+<section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
+<div class="stepbox" data-steps>
+<div class="st">Assumption (stated): every question in a section carries equal marks, as the notification's table suggests. Then a hard puzzle is worth 0.8333, the same as an easy one.</div>
+<div class="st">Hard questions cost more minutes for the same marks. A 5-question puzzle set that needs 8 minutes pays 5 × 0.8333 ÷ 8 = 0.52 marks per minute. Ten short questions at 36 s each pay 8.333 ÷ 6 = 1.39 marks per minute.</div>
+<div class="st">So when you are stuck, the best move is almost always to go where the marks per minute are higher.</div>
+<div class="st">One right answer wipes out a lot: +0.8333 covers three wrong answers (−0.75) with 0.083 to spare. A bad patch is recoverable.</div>
+<div class="st"><b>Reset routine</b> (suggested, about 20 seconds): put the pen down, take three slow breaths, say "next question", read it fresh. Slow breathing is described as helping with relaxation, though evidence varies.</div>
+<p class="prog"></p><button type="button" data-next>Next step</button></div></section>
+
+<section class="card"><h2><span class="n">3</span>The rule (now that you get it)</h2>
+<div class="box">Marks per minute = marks available ÷ minutes needed. Spend time where it is higher.</div>
+<div class="box">After a stall: pen down, 3 slow breaths, "next question". Strategy, not a fact.</div>
+<div class="box">3 wrong answers = −0.75. One right answer = +0.8333. One right puts you back above zero.</div>
+<p class="src">Sunk cost: Wikipedia "Sunk cost". Slow breathing and relaxation (with mixed evidence in some uses): Wikipedia "Diaphragmatic breathing". Marks per minute and the −0.75 versus +0.8333 comparison: derived, Python-checked. The 20-second routine is our suggestion, not a tested method.</p></section>
+
+<section class="card"><h2><span class="n">4</span>Worked example, one tap per step</h2>
+<p><b>A 5-question puzzle set needs about 8 minutes. Is it a good use of time early on?</b></p>
+<div class="stepbox" data-steps>
+<div class="st">Step 1. Marks available: 5 × 0.8333 = 4.167.</div>
+<div class="st">Step 2. Marks per minute: 4.167 ÷ 8 = 0.52.</div>
+<div class="st">Step 3. Short questions at 40 s each give 0.8333 ÷ (40 ÷ 60) = 1.25 marks per minute.</div>
+<div class="st">Step 4. So take the short ones first, then come back to the set with whatever time is left. (This changes if you are very fast at puzzles. Use your own mock times.)</div>
+<p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
+
+<section class="card"><h2><span class="n">5</span>The trap</h2>
+<div class="trap"><div class="stepbox" data-steps>
+<div class="st">Trap: carrying the last question's mood into the next one. Two wrong in a row make people read slowly and doubt correct answers.</div>
+<div class="st">Fix: the marks maths. Two wrong answers cost only −0.50, and one right answer gives back +0.8333.</div>
+<div class="st">Second trap: "changing" answers out of panic. Change an answer only if you can name the specific step you got wrong.</div>
+<p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
+
+<section class="card"><h2><span class="n">6</span>Speed method + drill</h2>
+<p>When you blank: (1) pen down, (2) three slow breaths, (3) re-read the question word by word, (4) cross out what you can prove wrong, (5) apply the 23% rule, (6) mark it and go. Six steps, about 30 seconds.</p>
+<h3>Speed drill</h3>
+<div class="drill"><script type="application/json">[["Marks for a hard question vs an easy one (equal-marks assumption)?","Same, 0.8333"],["3 wrong answers cost?","−0.75"],["One right answer after 3 wrong gives net?","+0.08"],["Marks per minute: 5 Q puzzle set in 8 min?","0.52"],["Marks per minute: one 40 s question?","1.25"],["First move when blank?","Pen down, 3 breaths"]]</script></div></section>
+
+<section class="card"><h2><span class="n">7</span>Lab: skip-or-stay</h2>
+<label for="ch14-qq">Marks you could earn if solved</label><input id="ch14-qq" type="number" value="0.8333" step="0.01" inputmode="decimal">
+<label for="ch14-mm">Minutes it will need</label><input id="ch14-mm" type="number" value="2" step="0.5" inputmode="decimal">
+<div class="stepbox" style="margin-top:10px" id="ch14-u"></div>
+<script>(function(){function $(i){return document.getElementById(i)}
+function lab(){var q=parseFloat($('ch14-qq').value),m=parseFloat($('ch14-mm').value),t=$('ch14-u');
+if(!(q>0)||!(m>0)){t.innerHTML='<div class="st">Enter marks above 0 and minutes above 0.</div>';return}
+var r=q/m,ref=25/30/(40/60);t.innerHTML='<div class="st">1. Marks per minute = '+q+' ÷ '+m+' = <b>'+r.toFixed(2)+'</b></div><div class="st">2. An average 40 s question gives '+ref.toFixed(2)+'</div><div class="st">3. Suggestion: <b>'+(r>=ref?'stay, this pays as well as an average question':'skip and come back later')+'</b></div>'}
+['ch14-qq','ch14-mm'].forEach(function(i){$(i).addEventListener('input',lab)});lab()})();</script></section>
+
+<section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
+<p class="prog">Typical style, written by us. Not copied from any paper.</p>
+<ul><li>There is no direct question. The exam tests you through its hardest sets: long puzzles and seating blocks that tempt you to spend 8 to 10 minutes.</li>
+<li>Long puzzle and seating sets are the usual place where time disappears. Use the marks-per-minute check on them first. (No question-count claim is made here.)</li></ul></section>
+
+<section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
+<p class="prog">Right = +0.8333, wrong = −0.25. Convention: every question carries equal marks.</p>
+<div class="quiz"><script type="application/json">[
+{"q":"You have already spent 4 minutes on a puzzle. Which fact should NOT influence whether you continue?","o":["The minutes still left in the paper","The 4 minutes already spent","How many questions are untried","Whether you can see the next step now"],"a":1,"e":"Time already spent is a sunk cost: it is gone either way. Only future costs and gains matter.","t":["It is a future resource, so it matters","","Untried questions are the alternative use of your time","Seeing a next step raises your chance of finishing soon; it is relevant"]},
+{"q":"A 5-question puzzle set needs 8 minutes. Marks per minute if all 5 are right?","o":["0.83","0.52","1.04","0.42"],"a":1,"e":"5 × 0.8333 = 4.167. 4.167 ÷ 8 = 0.52.","t":["That is the marks for one question, ignoring time","","4.167 ÷ 4: used 4 minutes, not 8","Used 5 × 0.8333 ÷ 10: wrong number of minutes"]},
+{"q":"A very hard puzzle question and an easy one. Marks for each, if every question carries equal marks (Reasoning: 25 marks, 30 Q)?","o":["More for the hard one, because it is harder","Less for the hard one, because few solve it","0.8333 each, the same","It depends on the topic"],"a":2,"e":"25 ÷ 30 = 0.8333 for each. Under the stated equal-marks convention, difficulty does not change marks.","t":["Difficulty is not paid for under the stated convention","Rarity of correct answers does not change marks","","Under the stated convention, topic does not change marks"]},
+{"q":"You have 3 wrong answers (−0.75). How many correct answers does it take to push your net above zero?","o":["4","3","2","1"],"a":3,"e":"One right answer gives +0.8333. −0.75 + 0.8333 = +0.083, above zero.","t":["Over-counted: one right answer is already enough","Assumed one right cancels one wrong","Assumed one right cancels one wrong and then some","" ]}
+]</script></div></section>
+
+<section class="card"><h2><span class="n">10</span>Lock it in</h2>
+<div class="tip"><b>Cover the page, say it out loud:</b> (1) What is sunk cost? (2) What are marks per minute? (3) How many wrong answers does one right answer cover? (4) What are my first three moves when I blank?</div>
+<div class="mem"><b>Memorise this</b><br>1. Hard or easy, a question is worth 0.8333 (equal-marks assumption).<br>2. Go where marks per minute are higher.<br>3. One right answer covers 3 wrong ones.<br>4. Pen down, 3 breaths, next question.</div></section>
+
+<p class="src"><b>Sources (Lesson 3):</b> <a href="https://en.wikipedia.org/wiki/Sunk_cost">Wikipedia: Sunk cost</a> · <a href="https://en.wikipedia.org/wiki/Diaphragmatic_breathing">Wikipedia: Diaphragmatic breathing</a> · Paper structure: PFRDA 2026 notification. Arithmetic: derived, Python-checked.<br><b>UNVERIFIED:</b> that a 20-second reset improves exam performance; that all questions carry equal marks (the notification gives section marks, not per-question marks); how often puzzle blocks appear.</p>
 </article>
