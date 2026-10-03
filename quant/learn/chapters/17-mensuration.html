@@ -14,8 +14,10 @@
 <div class="st">Perimeter = total length of the boundary. Its unit is a length (m, cm).</div>
 <div class="st">Area = how many 1-by-1 squares fit inside. Its unit is square (m², cm²).</div>
 <div class="st">Rectangle: rows × columns of squares, so area = length × width.</div>
-<div class="st">A triangle is half of a rectangle with the same base and height, so area = half × base × height.</div>
-<div class="st">A trapezium: average the two parallel sides, then multiply by the height between them.</div>
+<div class="st">A triangle is half of a rectangle with the same base and height, so area = half × base × height. (Base = the side it sits on. Height = the straight-up distance from the base to the opposite corner.)</div>
+<div class="st">A trapezium has two parallel sides (they never meet, like railway lines). Average those two sides, then multiply by the height between them.</div>
+<div class="st">A <b>diagonal</b> is the straight line from one corner to the opposite corner. The sign √ means square root: the number that, multiplied by itself, gives the number inside. √289 = 17 because 17 × 17 = 289. Also a² means a × a (so 5² = 25).</div>
+<div class="st">Percent change of a side: +10% means × 1.10, −10% means × 0.90 (percent factors, chapter 04). Area uses two sides, so multiply two factors: 1.10 × 1.10 = 1.21, a 21% rise.</div>
 <div class="st">A circle uses the number π (about 3.14159). Many questions say "take π = 22/7".</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
@@ -25,7 +27,7 @@
 <div class="box">Triangle: Area = ½ × base × height (height is at right angles to the base)</div>
 <div class="box">Circle (radius r): Circumference = 2πr · Area = πr²</div>
 <div class="box">Trapezium (parallel sides a, b; height h): Area = ½(a + b) × h</div>
-<p class="src">Formulas as stated on the Math Is Fun pages listed in Sources.</p></section>
+<p class="src">Formulas as stated on the Math Is Fun pages listed in Sources. a√2 means a × √2, about 1.41 × a.</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
 <p><b>Rectangle 15 m by 8 m. Find area, perimeter and diagonal.</b></p>
@@ -39,7 +41,7 @@
 <p><b>Circle of radius 7 cm, π = 22/7. Find area and circumference.</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Area = πr² = 22/7 × 7 × 7.</div>
-<div class="st">Step 2. The 7 cancels one 7: 22 × 7 = <b>154 cm²</b>.</div>
+<div class="st">Step 2. The 7 on the bottom cancels one of the 7s on top, leaving 22 × 7 = <b>154 cm²</b>.</div>
 <div class="st">Step 3. Circumference = 2πr = 2 × 22/7 × 7 = 2 × 22 = <b>44 cm</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
@@ -62,6 +64,7 @@
 <tr><td>7</td><td>44</td><td>154</td></tr><tr><td>14</td><td>88</td><td>616</td></tr>
 <tr><td>21</td><td>132</td><td>1386</td></tr><tr><td>28</td><td>176</td><td>2464</td></tr></table></div>
 <div class="tip"><b>Use it.</b> Radius 14: circumference is double that of 7 (44 to 88), but area is 4 times (154 to 616). The pattern is the trap from card 5.</div>
+<div class="tip"><b>Where the table comes from.</b> Area: r = 14 gives 22 × 2 × 14 = 616; r = 21 gives 22 × 3 × 21 = 1386; r = 28 gives 22 × 4 × 28 = 2464 (the 7 cancels, leaving r ÷ 7 as a small number). Circumference: 2 × 22 × (r ÷ 7), so 88, 132, 176.</div>
 <h3>Speed drill</h3>
 <p class="prog">Say the answer out loud before you tap Show. Take π = 22/7 where needed.</p>
 <div class="drill"><script type="application/json">[["Square side 9: area?","81"],["Square side 12: perimeter?","48"],["Rectangle 12 by 8: area?","96"],["Rectangle 12 by 8: perimeter?","40"],["Circle r = 7: area?","154"],["Circle r = 7: circumference?","44"],["Circle r = 14: circumference?","88"],["Circle r = 21: area?","1386"],["Triangle base 10, height 6: area?","30"],["Rectangle diagonal, sides 8 and 15?","17"]]</script></div></section>
@@ -85,9 +88,9 @@ c.innerHTML='<div class="st">With π = 22/7: area = <b>'+f(22/7*r*r)+'</b>, circ
 
 <section class="card"><h2><span class="n">8</span>How the examiner asks</h2>
 <p class="prog">Typical style, written by us. Not copied from any paper.</p>
-<ul><li>"The length of a rectangle is increased by 20% and the breadth decreased by 10%. Find the change in area." (Factors: 1.20 × 0.90 = 1.08, so +8%.)</li>
-<li>"The perimeter of a square equals the circumference of a circle of radius 14. Find the side." (Circumference 88, side 22.)</li>
-<li>"A rectangular park is 40 m by 25 m. A path 2 m wide runs inside along the boundary. Find the area of the path."</li>
+<ul><li>"The length of a rectangle is increased by 20% and the breadth decreased by 10%. Find the change in area." (Percent factors, chapter 04: 1.20 × 0.90 = 1.08, so +8%.)</li>
+<li>"The perimeter of a square equals the circumference of a circle of radius 14. Find the side." (Circumference 2 × 22/7 × 14 = 88, side 88 ÷ 4 = 22.)</li>
+<li>"A rectangular park is 40 m by 25 m. A path 2 m wide runs inside along the boundary. Find the area of the path." (Big: 40 × 25 = 1000. Inner rectangle loses 2 m on each side, so 36 × 21 = 756. Path = 1000 − 756 = 244 m².)</li>
 <li>Wording clues: "take π = 22/7" tells you to cancel with a multiple of 7; "area of the path" means big area minus small area.</li></ul>
 <p>A rectangle question was reported as 1 of 20 in 2025 in memory-based exam analyses (edutap). Mensuration also appears in a third-party topic list (Oliveboard, not official).</p></section>
 
@@ -112,18 +115,21 @@ c.innerHTML='<div class="st">With π = 22/7: area = <b>'+f(22/7*r*r)+'</b>, circ
 <p class="oneline">In one line: volume is how much a solid holds, surface area is how much paint covers its outside, and cone and sphere formulas hang off the cylinder.</p>
 
 <section class="card"><h2><span class="n">1</span>Picture this</h2>
-<p>A carton of tea packets measures 10 cm by 4 cm by 5 cm. How many 1 cm cubes fit inside? That count is the <b>volume</b>. How much brown paper wraps it with no overlap? That is the <b>surface area</b>.</p>
+<p>A carton (a box shape, called a <b>cuboid</b>) of tea packets measures 10 cm by 4 cm by 5 cm. How many 1 cm cubes fit inside? That count is the <b>volume</b>. How much brown paper wraps it with no overlap? That is the <b>surface area</b>.</p>
 <div class="bars" role="img" aria-label="Carton 10 by 4 by 5: volume 200 cubic centimetres, wrapping 220 square centimetres"><div class="row"><span class="a" style="width:62%">Volume 200 cm³</span><span class="b" style="width:38%">Paper 220 cm²</span></div></div>
 <p class="cap">Volume = 10 × 4 × 5 = 200. Paper = six faces: 2 × (40 + 50 + 20) = 220.</p></section>
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
 <div class="st">Volume unit is cubic (cm³, m³). Surface area unit is square (cm², m²).</div>
+<div class="st">Names: cuboid = a box. Cube = a box with all edges equal. Cylinder = a tin can. Cone = an ice-cream cone. Sphere = a ball. a³ means a × a × a.</div>
 <div class="st">A cuboid is layers of a rectangle: base area × height.</div>
 <div class="st">A cylinder is layers of a circle: base area × height = πr² × h.</div>
 <div class="st">A cone with the same base and height as a cylinder holds exactly one third as much.</div>
-<div class="st">Surface area = add up every face. A cylinder: two circles plus one curved sheet that unrolls into a rectangle.</div>
-<div class="st">A cone's curved side uses the slant height s (along the surface), not the straight height h.</div>
+<div class="st">Surface area = add up every face. A cube has 6 equal square faces, so 6a². A cylinder: two circles (2πr²) plus one curved sheet that unrolls into a rectangle (2πrh), total 2πr(r + h).</div>
+<div class="st">A cone's curved side uses the slant height s (along the surface), not the straight height h. Cone total = base πr² + curved πrs = πr(r + s).</div>
+<div class="st">Space diagonal = corner to the opposite corner through the inside of the box. It is Pythagoras twice (the right-triangle rule is taught in Lesson 3).</div>
+<div class="st">Scaling: if EVERY length is doubled, area is ×4 and volume ×8. If only a cylinder's radius is doubled (height unchanged), V = πr²h gets ×4 because r is squared. If a solid is melted and recast, its volume stays the same.</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
@@ -145,7 +151,7 @@ c.innerHTML='<div class="st">With π = 22/7: area = <b>'+f(22/7*r*r)+'</b>, circ
 <p><b>Cone, r = 7, h = 24, π = 22/7. Slant height, volume, curved surface?</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. s = √(7² + 24²) = √(49 + 576) = √625 = <b>25</b>.</div>
-<div class="st">Step 2. Volume = ⅓ × 22/7 × 49 × 24 = 22 × 7 × 8 = <b>1232</b>.</div>
+<div class="st">Step 2. Volume = ⅓ × 22/7 × 49 × 24. Cancel: 24 ÷ 3 = 8 and 49 ÷ 7 = 7. So 22 × 7 × 8 = <b>1232</b>.</div>
 <div class="st">Step 3. Curved = πrs = 22/7 × 7 × 25 = <b>550</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
@@ -153,14 +159,15 @@ c.innerHTML='<div class="st">With π = 22/7: area = <b>'+f(22/7*r*r)+'</b>, circ
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Volume = 4/3 × 22/7 × 21³ = 4/3 × 22/7 × 9261.</div>
 <div class="st">Step 2. 9261 ÷ 7 = 1323 and 1323 ÷ 3 = 441, so volume = 4 × 22 × 441 = <b>38808</b>.</div>
-<div class="st">Step 3. Surface = 4 × 22/7 × 21² = 4 × 22 × 63 = <b>5544</b>.</div>
+<div class="st">Step 3. Surface = 4 × 22/7 × 21². Here 21² = 441 and 441 ÷ 7 = 63, so 4 × 22 × 63 = <b>5544</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
 <div class="trap"><div class="stepbox" data-steps>
 <div class="st">A cube has edge 3, volume 27. The edge is doubled to 6.</div>
 <div class="st">Wrong move: "doubled edge, doubled volume" (54), or copying the area rule and saying 4 times (108).</div>
-<div class="st">Right: 6 × 6 × 6 = 216, which is <b>8 times</b> 27. Volume scales with the CUBE of length. Second trap: in a cone's volume use the straight height h, never the slant height s. For r = 3, h = 4, s = 5: right is ⅓π·9·4 = 12π, using s gives 15π (wrong).</div>
+<div class="st">Right: 6 × 6 × 6 = 216, which is <b>8 times</b> 27. Volume scales with the CUBE of length.</div>
+<div class="st">Second trap: in a cone's volume use the straight height h, never the slant height s. For r = 3, h = 4, s = 5: right is ⅓π·9·4 = 12π, using s gives 15π (wrong).</div>
 <p class="prog"></p><button type="button" data-next>Show the trap</button></div></div></section>
 
 <section class="card"><h2><span class="n">6</span>Mental-math shortcut: cubes table and the 3 : 1 : 2 rule</h2>
@@ -198,7 +205,7 @@ c.innerHTML='<div class="st">Cube: V = '+f(e*e*e)+' · surface = '+f(6*e*e)+'</d
 <p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance is above 20%.</p>
 <div class="quiz"><script type="application/json">[
 {"q":"The edges of a cuboid are 3 cm, 4 cm and 12 cm. Its space diagonal is:","o":["19 cm","7 cm","13 cm","12 cm"],"a":2,"e":"d = √(3² + 4² + 12²) = √(9 + 16 + 144) = √169 = 13 cm.","t":["Added the three edges","Added only 3 and 4","","Took the longest edge"]},
-{"q":"The total surface area of a cube is 150 cm². Its volume is:","o":["125 cm³","25 cm³","150 cm³","216 cm³"],"a":0,"e":"6a² = 150, so a² = 25 and a = 5. Volume = 5³ = 125 cm³.","t":["","25 is one face (a²), not the volume","Repeated the surface area number","216 is 6³, from mixing 6 and 3"]},
+{"q":"The total surface area of a cube is 150 cm². Its volume is:","o":["125 cm³","25 cm³","150 cm³","216 cm³"],"a":0,"e":"6a² = 150, so a² = 25 and a = 5 (because 5 × 5 = 25). Volume = 5³ = 125 cm³.","t":["","25 is one face (a²), not the volume","Repeated the surface area number","216 is 6³, from mixing 6 and 3"]},
 {"q":"A cone has radius 7 cm and height 24 cm. Taking π = 22/7, its curved surface area is:","o":["154 cm²","1232 cm²","1100 cm²","550 cm²"],"a":3,"e":"Slant s = √(49 + 576) = 25. Curved = πrs = 22/7 × 7 × 25 = 550 cm².","t":["That is the base area πr²","That is the VOLUME of this cone","Doubled the correct curved area","" ]},
 {"q":"The radius of a cylinder is doubled and its height stays the same. Its volume becomes:","o":["2 times","4 times","8 times","6 times"],"a":1,"e":"V = πr²h. Radius appears squared, so 2² = 4 times.","t":["Treated volume as linear in r","","Cubed the 2, which is the rule for a cube or sphere","No basis: mixes 2 and 3"]},
 {"q":"A cylinder has radius 7 cm and height 10 cm. Taking π = 22/7, its volume is:","o":["440 cm³","748 cm³","1540 cm³","154 cm³"],"a":2,"e":"V = πr²h = 22/7 × 49 × 10 = 1540 cm³.","t":["That is the curved surface area 2πrh","That is the total surface area","","That is the base area only"]}
@@ -225,8 +232,9 @@ c.innerHTML='<div class="st">Cube: V = '+f(e*e*e)+' · surface = '+f(6*e*e)+'</d
 <div class="st">Acute is below 90°. Right is exactly 90°. Obtuse is between 90° and 180°. Straight is exactly 180°. Reflex is above 180°.</div>
 <div class="st">Complementary angles add to 90°. Supplementary angles add to 180°. Memory aid: C for corner, S for straight.</div>
 <div class="st">The three angles inside any triangle add to 180°.</div>
-<div class="st">An exterior angle equals the sum of the two interior angles NOT next to it.</div>
-<div class="st">In a right triangle the longest side (hypotenuse) is opposite the right angle: a² + b² = c².</div>
+<div class="st">Extend one side of a triangle outwards: the angle formed outside is an <b>exterior angle</b>. It equals the sum of the two interior angles (the angles inside the triangle, at the other two corners, called vertices) NOT next to it.</div>
+<div class="st">Angles in a ratio such as 2 : 3 : 4 (ratio is chapter 05): add the parts (9), divide 180 by that (20 per part), then multiply each part.</div>
+<div class="st">In a right triangle (one angle is 90°) the longest side (hypotenuse) is opposite the right angle. The two shorter sides that meet at the right angle are the legs. Rule: a² + b² = c².</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
@@ -248,7 +256,7 @@ c.innerHTML='<div class="st">Cube: V = '+f(e*e*e)+' · surface = '+f(6*e*e)+'</d
 <p><b>A ladder 13 m long has its foot 5 m from the wall. Height reached?</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. The ladder is the hypotenuse: c = 13. One leg is 5.</div>
-<div class="st">Step 2. Missing leg² = 13² − 5² = 169 − 25 = 144.</div>
+<div class="st">Step 2. Missing leg² = 13² − 5². Here 13 × 13 = 169 and 5 × 5 = 25, so 169 − 25 = 144.</div>
 <div class="st">Step 3. √144 = <b>12 m</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
@@ -305,9 +313,9 @@ s.innerHTML='<div class="st">Type: '+(x<90?'acute':x===90?'right':x<180?'obtuse'
 <div class="quiz"><script type="application/json">[
 {"q":"The angles of a triangle are in the ratio 2 : 3 : 4. The largest angle is:","o":["80°","60°","40°","90°"],"a":0,"e":"2 + 3 + 4 = 9 parts = 180°, so a part is 20°. Largest = 4 × 20 = 80°.","t":["","That is the middle angle (3 parts)","That is the smallest angle (2 parts)","Guessed a right angle; the parts do not give 90°"]},
 {"q":"What is the complement of 65°?","o":["115°","90°","25°","65°"],"a":2,"e":"Complementary angles add to 90°: 90 − 65 = 25°.","t":["That is the supplement (180 − 65)","90° is the total, not the other angle","","Repeated the given angle"]},
-{"q":"The two legs of a right triangle are 9 cm and 12 cm. The hypotenuse is:","o":["21 cm","15 cm","108 cm","225 cm"],"a":1,"e":"81 + 144 = 225, and √225 = 15 cm (a 3-4-5 triple scaled by 3).","t":["Added the legs, forgetting squares","","Multiplied the legs","Forgot the final square root"]},
+{"q":"The two legs of a right triangle are 9 cm and 12 cm. The hypotenuse is:","o":["21 cm","15 cm","108 cm","225 cm"],"a":1,"e":"9 × 9 = 81 and 12 × 12 = 144. 81 + 144 = 225, and √225 = 15 cm (a 3-4-5 triple scaled by 3).","t":["Added the legs, forgetting squares","","Multiplied the legs","Forgot the final square root"]},
 {"q":"In a triangle, the two interior angles opposite (not next to) an exterior angle are 40° and 65°. That exterior angle is:","o":["25°","75°","140°","105°"],"a":3,"e":"Exterior angle = sum of the two far interior angles = 40 + 65 = 105°.","t":["Subtracted instead of added","75° is the interior angle next to it (180 − 105), not the exterior angle","140° is the supplement of 40°",""]},
-{"q":"A ladder 25 m long reaches 24 m up a wall. How far is its foot from the wall?","o":["7 m","32 m","18 m","26 m"],"a":0,"e":"Distance² = 25² − 24² = 625 − 576 = 49, so 7 m.","t":["","Added 25 and 24 instead of using squares","No valid rule gives 18; this is a guess","A leg must be shorter than the 25 m ladder (hypotenuse), so 26 is impossible"]}
+{"q":"A ladder 25 m long reaches 24 m up a wall. How far is its foot from the wall?","o":["7 m","32 m","18 m","26 m"],"a":0,"e":"Distance² = 25² − 24² = 625 − 576 = 49 (25 × 25 = 625, 24 × 24 = 576), so 7 m.","t":["","Added 25 and 24 instead of using squares","No valid rule gives 18; this is a guess","A leg must be shorter than the 25 m ladder (hypotenuse), so 26 is impossible"]}
 ]</script></div></section>
 
 <section class="card"><h2><span class="n">10</span>Lock it in</h2>

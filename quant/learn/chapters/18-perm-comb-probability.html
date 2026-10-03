@@ -20,14 +20,14 @@
 <div class="st">Now arrange 3 people (A, B, C) in 3 chairs. Chair 1: 3 choices. Chair 2: 2 left. Chair 3: 1 left.</div>
 <div class="st">So 3 × 2 × 1 = 6 arrangements. That "multiply down to 1" is called a <b>factorial</b>, written 3!.</div>
 <div class="st">A <b>permutation</b> is an ordered arrangement. "Gold, silver" is different from "silver, gold".</div>
-<div class="st">Choose and arrange only r out of n: multiply just r terms, starting at n and counting down.</div>
+<div class="st">Choose and arrange only r out of n (n = how many things you pick from, r = how many places you fill): multiply just r terms, starting at n and counting down. This is written nPr, so 10P2 means "arrange 2 out of 10".</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
 <div class="box">Counting principle: multiply the number of ways at each stage.</div>
 <div class="box">n! = n × (n−1) × … × 2 × 1, and by convention 0! = 1</div>
 <div class="box">nPr = n! ÷ (n−r)!   (order matters, no repeats)</div>
-<div class="box">Repeats allowed, r places: n × n × … = n<sup>r</sup></div>
+<div class="box">Repeats allowed, r places: n × n × … = n<sup>r</sup> (n multiplied by itself r times, e.g. 10<sup>4</sup> = 10 × 10 × 10 × 10)</div>
 <p class="src">Definitions and formulas: Math Is Fun "Combinations and Permutations" (see Sources).</p></section>
 
 <section class="card"><h2><span class="n">4</span>Worked examples, one tap per step</h2>
@@ -36,13 +36,13 @@
 <div class="st">Step 1. Order matters (1st is not 2nd). So this is a permutation: 10P2.</div>
 <div class="st">Step 2. First place: 10 choices. Second place: 9 left.</div>
 <div class="st">Step 3. 10 × 9 = <b>90</b>.</div>
-<div class="st">Check with the formula: 10! ÷ 8! = 10 × 9 = 90.</div>
+<div class="st">Check with the formula: 10! ÷ 8! = 10 × 9 = 90 (the 8 × 7 × … × 1 on top cancels the 8! below).</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
-<p><b>A 4-digit PIN uses digits 0 to 9. How many PINs if no digit may repeat?</b></p>
+<p><b>A 4-digit PIN (the secret number code for a bank card) uses digits 0 to 9. How many PINs if no digit may repeat?</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Digit 1: 10 choices. Digit 2: 9. Digit 3: 8. Digit 4: 7.</div>
-<div class="st">Step 2. 10 × 9 × 8 × 7 = <b>5,040</b> (that is 10P4).</div>
+<div class="st">Step 2. 10 × 9 = 90, then 90 × 8 = 720, then 720 × 7 = <b>5,040</b> (that is 10P4).</div>
 <div class="st">Step 3. If repeats were allowed: 10 × 10 × 10 × 10 = 10,000.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
@@ -82,7 +82,7 @@ t.innerHTML='<div class="st">1. Order matters, no repeats: '+(s.length?s.join(' 
 <li>"In how many ways can gold, silver and bronze medals be given to 8 runners?"</li>
 <li>"How many 3-digit codes can be made from digits 0 to 9 if no digit repeats?"</li></ul>
 <p class="prog">Word clues: "arranged", "in order", "rank", "first, second, third", "code" mean order matters. "No repetition" means the pool shrinks each stage.</p>
-<div class="tip"><b>How the wrong options are built.</b> The planted answers are usually the repeat-allowed number (n<sup>r</sup>), the order-ignored number (nCr), or a stage you forgot to multiply.</div></section>
+<div class="tip"><b>How the wrong options are built.</b> The planted answers are usually the repeat-allowed number (n<sup>r</sup>), the order-ignored number (nCr, a selection count taught in Lesson 2), or a stage you forgot to multiply.</div></section>
 
 <section class="card"><h2><span class="n">9</span>Quiz · exam-style marks</h2>
 <p class="prog">Right = +1.25, wrong = −0.3125 (official). Guess only if your chance of being right is above 20%.</p>
@@ -113,7 +113,7 @@ t.innerHTML='<div class="st">1. Order matters, no repeats: '+(s.length?s.join(' 
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
-<div class="st">A <b>combination</b> is a choice where the order does not matter.</div>
+<div class="st">A <b>combination</b> is a choice where the order does not matter. nCr means "the number of ways to choose r things out of n".</div>
 <div class="st">First count as if order mattered: 4P2 = 4 × 3 = 12.</div>
 <div class="st">But each pair got counted 2 times (AB and BA). 2 = 2!.</div>
 <div class="st">So divide: 12 ÷ 2 = 6 pairs. In general, nCr = nPr ÷ r!.</div>
@@ -131,16 +131,16 @@ t.innerHTML='<div class="st">1. Order matters, no repeats: '+(s.length?s.join(' 
 <p><b>A committee of 3 is chosen from 5 men and 4 women, exactly 2 men and 1 woman. How many ways?</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Choose 2 men from 5: 5C2 = (5 × 4) ÷ (2 × 1) = 10.</div>
-<div class="st">Step 2. Choose 1 woman from 4: 4C1 = 4.</div>
+<div class="st">Step 2. Choose 1 woman from 4: 4C1 = 4 (four people, any one of them).</div>
 <div class="st">Step 3. Both stages happen, so multiply: 10 × 4 = <b>40</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
 <p><b>Same 5 men and 4 women, committee of 3 with at least one woman?</b></p>
 <div class="stepbox" data-steps>
-<div class="st">Step 1. All committees of 3 from 9 people: 9C3 = (9 × 8 × 7) ÷ (3 × 2 × 1) = 84.</div>
-<div class="st">Step 2. Committees with NO woman (all men): 5C3 = 10.</div>
+<div class="st">Step 1. All committees of 3 from 9 people: 9C3 = (9 × 8 × 7) ÷ (3 × 2 × 1) = 504 ÷ 6 = 84.</div>
+<div class="st">Step 2. Committees with NO woman (all men): 5C3 = 5C2 (swap rule) = 10.</div>
 <div class="st">Step 3. At least one woman = 84 − 10 = <b>74</b>.</div>
-<div class="st">Check by adding cases (1, 2, 3 women): 4×10 + 6×5 + 4×1 = 40 + 30 + 4 = 74.</div>
+<div class="st">Check by adding cases. 1 woman: 4C1 × 5C2 = 4 × 10 = 40. 2 women: 4C2 × 5C1 = 6 × 5 = 30. 3 women: 4C3 × 5C0 = 4 × 1 = 4. Total 40 + 30 + 4 = 74.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
@@ -185,8 +185,8 @@ t.innerHTML='<div class="st">1. Arrangements (order matters): '+n+'P'+r+' = <b>'
 <div class="quiz"><script type="application/json">[
 {"q":"7C3 = ?","o":["21","35","210","42"],"a":1,"e":"(7 × 6 × 5) ÷ (3 × 2 × 1) = 210 ÷ 6 = 35.","t":["7 × 3: wrong operation","","210 is 7P3: forgot to divide by 3!","7 × 6: only two terms, no division"]},
 {"q":"10C8 = ?","o":["90","10","80","45"],"a":3,"e":"10C8 = 10C2 = (10 × 9) ÷ 2 = 45.","t":["10 × 9: two terms but no division by 2!","Confused with 10C1 or 10C9","10 × 8: not a combination formula",""]},
-{"q":"A committee of 3 from 6 men and 4 women has exactly 2 men and 1 woman. How many ways?","o":["60","19","120","24"],"a":0,"e":"6C2 × 4C1 = 15 × 4 = 60.","t":["","15 + 4: added the stages instead of multiplying","10C3 = 120: ignored the condition","6 × 4: ignored that 2 men are chosen"]},
-{"q":"A group of 4 is chosen from 5 boys and 3 girls with at least one girl. How many ways?","o":["70","15","5","65"],"a":3,"e":"All groups 8C4 = 70. No girl: 5C4 = 5. So 70 − 5 = 65.","t":["70 is the total with no condition applied","3 × 5: one girl and one boy, but the group needs 4 people","5 is only the all-boys groups, the ones to remove",""]},
+{"q":"A committee of 3 from 6 men and 4 women has exactly 2 men and 1 woman. How many ways?","o":["60","19","120","24"],"a":0,"e":"6C2 = (6 × 5) ÷ 2 = 15 and 4C1 = 4. Both stages happen: 15 × 4 = 60.","t":["","15 + 4: added the stages instead of multiplying","10C3 = 120: ignored the condition","6 × 4: ignored that 2 men are chosen"]},
+{"q":"A group of 4 is chosen from 5 boys and 3 girls with at least one girl. How many ways?","o":["70","15","5","65"],"a":3,"e":"All groups 8C4 = (8 × 7 × 6 × 5) ÷ (4 × 3 × 2 × 1) = 1680 ÷ 24 = 70. No girl: 5C4 = 5C1 = 5. So 70 − 5 = 65.","t":["70 is the total with no condition applied","3 × 5: one girl and one boy, but the group needs 4 people","5 is only the all-boys groups, the ones to remove",""]},
 {"q":"8 people at a meeting each shake hands with every other person exactly once. How many handshakes?","o":["56","64","28","16"],"a":2,"e":"Each handshake is a pair, order does not matter: 8C2 = (8 × 7) ÷ 2 = 28.","t":["8P2 = 56 counts each handshake twice","8 × 8: everyone with everyone including self","","8 × 2: not a count of pairs"]}
 ]</script></div></section>
 
@@ -209,12 +209,13 @@ t.innerHTML='<div class="st">1. Arrangements (order matters): '+n+'P'+r+' = <b>'
 
 <section class="card"><h2><span class="n">2</span>The idea, one tiny step at a time</h2>
 <div class="stepbox" data-steps>
-<div class="st">List every possible result of the experiment. This list is the <b>sample space</b>. One die: {1, 2, 3, 4, 5, 6}.</div>
+<div class="st">List every possible result of the experiment. This list is the <b>sample space</b>. One die (plural: dice) has faces {1, 2, 3, 4, 5, 6}. "Fair" means every result is equally likely. P(A) is short for "the probability of event A".</div>
 <div class="st">An <b>event</b> is one or more of those results. "Even number" = {2, 4, 6}.</div>
 <div class="st">Probability = number of ways the event can happen ÷ total number of outcomes. Even: 3 ÷ 6 = 1/2.</div>
 <div class="st">It is always from 0 (impossible) to 1 (certain).</div>
 <div class="st"><b>Not</b>: P(not A) = 1 − P(A). Often it is easier to count the "No" case and subtract from 1.</div>
-<div class="st"><b>And</b> for independent events: multiply. <b>Or</b> for events that cannot happen together: add. Drawing without putting back changes the next chance.</div>
+<div class="st"><b>And</b> for independent events (one does not change the other, like two coin tosses): multiply. <b>Or</b> for events that cannot happen together (mutually exclusive): add. Drawing "without replacement" (not putting the item back) changes the next chance.</div>
+<div class="st">Coin example: P(head) = 1/2. Two tosses both heads: 1/2 × 1/2 = 1/4. Three tosses all heads: 1/8.</div>
 <p class="prog"></p><button type="button" data-next>Next step</button></div></section>
 
 <section class="card"><h2><span class="n">3</span>The rules (now that you get it)</h2>
@@ -229,22 +230,22 @@ t.innerHTML='<div class="st">1. Arrangements (order matters): '+n+'P'+r+' = <b>'
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Sample space: 6 × 6 = 36 equally likely pairs.</div>
 <div class="st">Step 2. Sum 7: (1,6) (2,5) (3,4) (4,3) (5,2) (6,1). That is 6 pairs.</div>
-<div class="st">Step 3. 6 ÷ 36 = <b>1/6</b>.</div>
+<div class="st">Step 3. 6 ÷ 36, divide top and bottom by 6: <b>1/6</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
 <p><b>A bag has 4 red, 3 blue, 2 green balls. Two are drawn without putting back. Probability both are red?</b></p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Total 9 balls. First red: 4/9.</div>
 <div class="st">Step 2. A red is gone: 3 red left among 8 balls. Second red: 3/8.</div>
-<div class="st">Step 3. Multiply: 4/9 × 3/8 = 12/72 = <b>1/6</b>.</div>
+<div class="st">Step 3. Multiply: 4/9 × 3/8 = 12/72. Divide top and bottom by 12: <b>1/6</b>.</div>
 <div class="st">Check with counting: 4C2 ÷ 9C2 = 6 ÷ 36 = 1/6.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div>
 <hr>
-<p><b>A card is drawn from 52. Probability it is a heart or a king?</b></p>
+<p><b>A card is drawn from a pack of 52. Probability it is a heart or a king?</b> (A pack has 4 suits: hearts, diamonds, clubs, spades, 13 cards each. It has 4 kings and 4 queens.)</p>
 <div class="stepbox" data-steps>
 <div class="st">Step 1. Hearts: 13. Kings: 4. The king of hearts is in both lists.</div>
 <div class="st">Step 2. Cards that are heart or king: 13 + 4 − 1 = 16.</div>
-<div class="st">Step 3. 16 ÷ 52 = <b>4/13</b>.</div>
+<div class="st">Step 3. 16 ÷ 52, divide top and bottom by 4: <b>4/13</b>.</div>
 <p class="prog"></p><button type="button" data-next>Show next step</button></div></section>
 
 <section class="card"><h2><span class="n">5</span>The trap</h2>
@@ -260,7 +261,7 @@ t.innerHTML='<div class="st">1. Arrangements (order matters): '+n+'P'+r+' = <b>'
 <tr><td>2</td><td>1</td><td>8</td><td>5</td></tr><tr><td>3</td><td>2</td><td>9</td><td>4</td></tr>
 <tr><td>4</td><td>3</td><td>10</td><td>3</td></tr><tr><td>5</td><td>4</td><td>11</td><td>2</td></tr>
 <tr><td>6</td><td>5</td><td>12</td><td>1</td></tr><tr><td>7</td><td>6</td><td></td><td></td></tr></table></div>
-<div class="tip"><b>Use it.</b> Sum 10 or more = 3 + 2 + 1 = 6 ways, so 6/36 = 1/6. Deck facts you need: 52 cards, 4 kings, 13 hearts.</div>
+<div class="tip"><b>Use it.</b> Sum 10 or more = 3 + 2 + 1 = 6 ways, so 6/36 = 1/6. King or queen: 4 + 4 = 8 cards (no card is both), so 8/52 = 2/13. Deck facts you need: 52 cards, 4 kings, 13 hearts.</div>
 <h3>Speed drill</h3>
 <p class="prog">Say the answer out loud before you tap Show.</p>
 <div class="drill"><script type="application/json">[["Fair die: P(even)","1/2"],["Two dice: P(sum 2)","1/36"],["Two dice: P(sum 6)","5/36"],["Two dice: P(sum 10 or more)","1/6"],["52 cards: P(king)","1/13"],["52 cards: P(heart)","1/4"],["52 cards: P(not a heart)","3/4"],["3 coin tosses: P(all heads)","1/8"],["P(not A) if P(A) = 3/8","5/8"],["52 cards: P(king or queen)","2/13"]]</script></div></section>
