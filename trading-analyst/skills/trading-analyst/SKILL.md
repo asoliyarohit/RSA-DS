@@ -22,6 +22,7 @@ Principle: scripts compute, Claude explains, the human executes. Never place ord
 Scores volume (30), momentum (25), news (25), attention (20; skipped if no data) out of 100 and writes watchlist.csv marked REVIEW REQUIRED.
 It is NOT a trading signal: the weights are untested defaults, and our own arena found volume/gap continuation edges fragile. Use it to pick what to read, then verify at the original source.
 `scanner/sample_data.csv` is fictional EXAMPLE DATA.
+`python scanner/industry_scan.py` scans ~100 stocks in 10 categories (AI chips, AI software, AI infrastructure/power, defense/war, cyber, energy, gold/metals, financials, healthcare, consumer/industrial), top 3 per category, with BUY-/SELL-pressure side and AI/war headline counts. Caveat: the news component saturates (almost every large cap has 5+ items a week), so ranking is really volume + momentum.
 
 ## Guardrail (enforced in code, not by judgment)
 Before ANY sizing, run `python -m analyst guard check --equity <bal> --risk <r>`. If it says BLOCKED or risk 0, there is no trade; do not argue

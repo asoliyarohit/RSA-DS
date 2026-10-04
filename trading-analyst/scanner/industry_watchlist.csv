@@ -1,0 +1,31 @@
+category,ticker,price,d1,d5,vol_x,atr_pct,news7,ai,war,side,score,vol,mom,news,rank
+4 Defense & aerospace (war),NOC,478.0,-0.8,-6.4,3.06,2.4,18,1,5,SELL-pressure,88.6,37.5,19.9,31.2,1
+10 Consumer & industrial,NKE,33.87,-3.6,-5.3,3.72,3.3,15,2,1,SELL-pressure,85.1,37.5,16.4,31.2,2
+5 Cybersecurity,S,25.06,1.6,12.0,1.26,4.5,12,1,0,BUY-pressure,67.4,5.0,31.2,31.2,3
+3 AI infrastructure & power,VST,140.02,0.2,1.1,2.61,3.2,20,3,0,BUY-pressure,65.0,30.3,3.5,31.2,4
+9 Healthcare & pharma,JNJ,256.03,-1.0,-5.6,1.73,1.9,20,1,0,SELL-pressure,62.3,13.6,17.5,31.2,5
+1 AI chips & semis,QCOM,184.87,1.5,-8.5,0.68,5.0,20,8,0,SELL-pressure,57.7,0.0,26.5,31.2,6
+5 Cybersecurity,OKTA,211.49,-0.5,8.4,0.52,4.5,20,6,0,BUY-pressure,57.3,0.0,26.1,31.2,7
+5 Cybersecurity,RBRK,118.58,2.8,8.2,1.0,4.2,5,1,0,BUY-pressure,57.1,0.1,25.8,31.2,8
+4 Defense & aerospace (war),AVAV,140.82,0.4,-7.4,0.54,5.4,8,1,6,SELL-pressure,54.3,0.0,23.1,31.2,9
+6 Energy (war/oil),MPC,422.33,0.5,7.3,0.72,4.1,17,0,0,BUY-pressure,54.1,0.0,22.9,31.2,10
+1 AI chips & semis,ASML,1867.31,3.3,7.1,0.98,2.5,15,11,1,BUY-pressure,53.3,0.0,22.1,31.2,11
+9 Healthcare & pharma,REGN,735.2,0.1,-6.7,0.82,2.9,17,0,0,SELL-pressure,52.2,0.0,21.0,31.2,12
+4 Defense & aerospace (war),KTOS,43.07,0.6,-5.6,1.07,4.8,13,1,5,SELL-pressure,50.1,1.4,17.5,31.2,13
+"7 Gold, metals & uranium",AEM,183.69,1.7,-5.5,0.89,3.4,13,0,0,SELL-pressure,48.5,0.0,17.3,31.2,14
+6 Energy (war/oil),SLB,48.74,0.2,-5.4,0.92,3.1,9,0,0,SELL-pressure,48.2,0.0,17.0,31.2,15
+10 Consumer & industrial,GE,309.56,-0.9,-5.4,0.96,2.7,20,1,2,SELL-pressure,47.9,0.0,16.7,31.2,16
+1 AI chips & semis,NVDA,233.95,1.3,3.9,1.23,2.2,20,6,0,BUY-pressure,47.8,4.3,12.3,31.2,17
+8 Financials,BAC,53.75,0.0,-5.2,0.91,2.1,17,4,0,SELL-pressure,47.5,0.0,16.3,31.2,18
+6 Energy (war/oil),VLO,406.3,-0.5,4.9,0.65,4.4,15,0,0,BUY-pressure,46.6,0.0,15.4,31.2,19
+"7 Gold, metals & uranium",NEM,115.56,0.8,-4.8,0.59,3.2,15,0,0,SELL-pressure,46.3,0.0,15.1,31.2,20
+"7 Gold, metals & uranium",WPM,136.28,2.1,-4.6,0.81,3.8,5,0,0,SELL-pressure,45.7,0.0,14.5,31.2,21
+8 Financials,C,128.5,1.2,-4.3,0.76,2.7,19,0,0,SELL-pressure,44.7,0.0,13.5,31.2,22
+9 Healthcare & pharma,VRTX,504.73,-0.4,-4.1,0.94,2.3,8,0,0,SELL-pressure,43.9,0.0,12.7,31.2,23
+8 Financials,MS,190.31,1.2,-3.1,1.16,2.4,16,4,0,SELL-pressure,43.8,3.0,9.6,31.2,24
+2 AI software & cloud,ORCL,142.3,3.1,3.8,0.99,4.5,15,5,0,BUY-pressure,43.1,0.0,11.9,31.2,25
+10 Consumer & industrial,WMT,104.26,0.0,-3.4,1.04,2.0,15,2,0,SELL-pressure,42.7,0.7,10.8,31.2,26
+3 AI infrastructure & power,CEG,257.49,-0.6,-2.2,1.21,3.9,19,3,0,SELL-pressure,42.0,3.9,6.9,31.2,27
+3 AI infrastructure & power,GEV,988.7,0.1,3.2,1.02,3.3,18,2,0,BUY-pressure,41.6,0.3,10.1,31.2,28
+2 AI software & cloud,META,728.08,0.3,-3.1,0.54,4.0,16,8,0,SELL-pressure,41.0,0.0,9.8,31.2,29
+2 AI software & cloud,SNOW,341.04,-0.3,1.5,0.62,4.0,20,2,0,BUY-pressure,35.9,0.0,4.7,31.2,30
