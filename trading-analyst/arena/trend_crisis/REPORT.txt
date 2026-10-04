@@ -1,0 +1,120 @@
+trend_crisis - diversified cross-asset LONG/SHORT trend / crisis-alpha book, daily capture via CLOSE and OPEN slots
+=====================================================================================================================
+Dev data only (<= 2022-12-31). --final never run. Judge and analyst/ untouched. N_TRIALS = 122 (tally at the end).
+Scope (owner change mid-round): indices, commodities and single stocks only; no crypto, no FX, no rates ETFs.
+
+0. USER HYPOTHESIS UNDER TEST
+   "A short book makes money when markets tank, so direction is irrelevant; a long/short trend book earns in 2008,
+   2020 Q1 and 2022 as well as in bull years." We test it net of the judge's per-instrument costs, with the only slots
+   available (OPEN: open->close with stop; CLOSE: close->next open), on dev data, with pre-registered hypotheses.
+
+1. PRE-REGISTERED HYPOTHESES AND VERDICTS
+   H1 TSMOM (sign of 12-1m return, Moskowitz-Ooi-Pedersen 2012; also 1/3/6/12m vote) held each night via CLOSE on
+      cheap classes beats the per-slot cost.                                    -> REJECTED in every class (table A).
+   H2 Same, held each day via OPEN (intraday leg).                               -> REJECTED in every class (table A).
+   H3 The SHORT side of that book earns in 2008 / 2020Q1 / 2022 net of costs.    -> Gross yes, net ~0 for indices:
+      index CLOSE short 2008 +8.2 bps net (t~1.7 with the vote signal), 2022 +4.1 bps net (t~0.3), 2000-02 +4.6.
+      2020Q1: 12-1m momentum was still LONG (short share 4%) -> -93 bps/slot. The vote signal flipped faster: +75 bps
+      on shorts, but only ~140 short-slots. Shorts do not pay in bull years (-3 to -10 bps net). See tables A/B.
+   H4 Selectivity (|signal| strength, relative vol, full lookback agreement, VIX>25 & term inversion, breadth) lifts
+      daily TSMOM above cost.                                                    -> REJECTED. Best cell: index CLOSE in
+      crisis regime +5.6 bps net, t 1.17, n 2345; everything else negative. Commodity OPEN shorts in crisis +24 bps
+      t 2.06 n 1085 is one cell out of ~50 (2008 and 2020 oil) and is not credible after the trial count.
+   H5 Purged walk-forward ridge stacking of 18 trend/reversal/regime features (refit each 1 Jan, 21-day embargo, pooled
+      vol-normalised target, trade only when |E[ret]| > k x cost) earns after cost.
+      -> CLOSE leg positive on dev but NOT VALIDATED by the judge (t 1.75, DSR 0.20, CI95 [-0.7, +12.8] bps).
+         OPEN leg negative at every k. And what the model learned is NOT trend: the three largest coefficients are
+         IBS (-), last-month return (-) and 12-1m momentum (+) = short-horizon reversal plus slow trend. Fast trend
+         features (EMA 8/24, 16/48, 1m z) carry negative or ~0 weight for the next-night return.
+
+2. JUDGE --dev RESULT (frozen strategy.py: 7 major-index ETFs + GLD, CLOSE only, ridge lam 300, k = 2.0)
+   lookahead_ok true | slots 1796 | trades 3937 | slots_per_year 105.8 | avg_bps_slot 6.0 | t_slot 1.75
+   dsr 0.198 (N_TRIALS 122) | ci95_bps [-0.7, 12.8] | win_rate 0.541 | worst_trade -1374 bps | top5_share 0.39
+   best_policy_5y: risk 5%, no throttle, p_goal 0.0, p_ruin 0.0, median_end 1373, p10 832, p90 2207, hist_end 2856,
+   hist_maxdd 0.432 | required_bps_50pct_3y 162.6 | required_bps_50pct_10y 162.6 | closeness_to_10y_goal 0.04
+   VERDICT: NOT VALIDATED (do not trade). P(1k -> 100k) = 0 in 5 years at every risk level the judge sweeps.
+
+3. BEAR vs BULL, judge-consistent fills of the frozen strategy (top-3 per slot, net of costs, dev)
+   regime                 slots  bps/slot   t    short%  short_bps  long_bps   cum%
+   2008                    207     18.2   1.40   0.65     26.3       4.5     +37.7
+   GFC Oct07-Mar09         308     20.9   2.02   0.59     24.6      12.6     +64.4
+   2020Q1 (20Feb-31Mar)     24    -65.3  -0.71   0.04    147.6     -64.9     -15.7   <- model was LONG into the crash
+   2022                    125      8.5   0.70   0.65     13.1      15.0     +10.7
+   2011 H2                 105     -0.6  -0.03   0.53      8.7       1.2      -0.6
+   2018 Q4                  29      0.0   0.00   0.32    -21.8      29.8       0.0
+   bull 2009Q2-2010        277     12.6   1.68   0.32      2.6      10.7     +34.8
+   bull 2013-2017          274      3.0   0.38   0.37      2.0       0.5      +8.2
+   2021                     50      5.1   0.43   0.00      n/a      -0.6      +2.6
+   first half 2006-2014   1229      9.2   2.25   0.34     13.5       6.7    +113.6
+   second half 2015-2022   567     -0.9  -0.14   0.44     -2.9       1.5      -5.2   <- edge gone after 2014
+   Short book overall: n 1454, +7.7 bps, t 1.71.  Long book: n 2483, +5.3 bps, t 1.70.
+   Per year bps/slot: 06 +15 | 07 +9 | 08 +18 | 09 +18 | 10 +12 | 11 -7 | 12 -6 | 13 +2 | 14 +16 | 15 -10 | 16 +8 |
+   17 +14 (9 slots) | 18 0 | 19 +12 | 20 -15 | 21 +5 | 22 +9.
+   Reading: the book did earn in 2008 and 2022, mostly from shorts, and it did so with a t-stat of 1.4 and 0.7. It
+   LOST 16% in 2020 Q1 because reversal-flavoured signals buy the dip. "Direction is irrelevant" is false in the
+   way that matters: the bear-year profit is not large or reliable enough to carry the bull-year churn, and the
+   post-2014 half is flat. Where it earns (EWJ +31 bps n 358, EWU +21 bps n 555) is the overnight lead-lag of
+   foreign-index ETFs, not a cross-asset trend premium; SPY, QQQ and EWG are negative.
+
+4. TABLE A - naive daily-capture TSMOM (12-1m sign), net bps per slot and t, all dev years (r1_decomp.py)
+   class    leg    n       gross   net     t      | 2008 net | 2020Q1 net | 2022 net | bull13-17 net
+   index    CLOSE  38041   +2.1   -3.6   -6.8     |  -0.2    |  -92.5     |  -0.8    |  -4.6
+   index    OPEN   38034   -0.4   -4.4   -8.3     |  -1.7    |  -10.9     |  -9.4    |  -3.4
+   gold     CLOSE   9657   +3.0   -5.8   -8.0     |  -6.5    |  +21.9     |  -7.6    |  -5.7
+   gold     OPEN    9655   -0.7   -7.7   -8.6     | -19.1    |  -43.8     | -12.1    |  -6.0
+   commod   CLOSE  24998   -0.6  -14.0  -16.6     | -17.0    |   +6.8     | -12.7    | -12.2
+   commod   OPEN   24993   +3.3   -8.7   -6.3     |  -3.6    |  +84.3     |  -9.7    |  -6.4
+   stock    CLOSE 159132   +1.2  -66.5 -209       | -68.8    | -138.8     | -67.0    | -63.9
+   stock    OPEN  159102   +0.3  -65.7 -151       | -59.9    |  -47.3     | -67.3    | -66.1
+   Gross daily capture of a trend signal is 0-3 bps per slot; the cheapest slot costs 4 bps (index) and the
+   per-night financing on longs another 1.9 bps. Per-year net is negative in 21 of 22 years for index CLOSE
+   (2001 +5.4 is the only positive year). Stocks at 66 bps round trip lose ~65 bps/slot in every year and regime.
+   VIX buckets: no bucket is positive for any class/leg; high-VIX slots have larger gross but also wider losses.
+
+5. TABLE B - the short book alone (12-1m sign, net bps): index CLOSE 2000-02 bear +4.6 | 2008 +8.2 | 2020Q1 +139 (8
+   trades) | 2022 +4.1 | bull 2013-17 -3.2 | all years -1.9. Index OPEN shorts: 2008 -1.0, 2022 -8.3, all -7.8.
+   So the overnight short leg on indices is roughly break-even-to-slightly-positive in bear years and a steady loser
+   in bull years; the intraday short leg loses even in bear years.
+
+6. WHAT WAS TRIED THAT DID NOT WORK (all counted in N_TRIALS)
+   - Yahoo continuous futures (GC, CL, BZ, NG, SI, HG) looked best in the stacking (NG=F +34 bps/trade) but their
+     close->open return embeds contract ROLL gaps (NG=F averages +12.9 bps/night, -6.5 intraday: a contango artefact).
+     A CFD never pays or receives the roll gap, so this is fake edge; futures were dropped from the frozen strategy.
+   - Single stocks: dead at 66 bps round trip (-65 bps/slot everywhere).
+   - OPEN leg: negative for every signal, class and filter; the stop (2.5 ATR) does not help.
+   - Crisis filter (VIX>25 and VIX/VIX3M>1) short-only on indices: +3.7 bps net, t 0.68, n 2021 -> not usable.
+   - Breadth gating, |z| strength deciles, relative-vol deciles: monotone nowhere, all negative.
+   - Stacking per class instead of pooled: similar; pooled chosen a priori for fewer parameters.
+
+7. KNOWN WEAKNESSES (top three first)
+   1. The surviving edge sits almost entirely in EWJ/EWU/FEZ overnight (US close -> US open spans the Tokyo/London
+      sessions). The judge prices them as 20x / 4 bps "major index" CFDs. The real Revolut Japan 225 / UK 100 CFDs
+      trade almost around the clock, so a "US-close to US-open" position in them is a different trade with a
+      different price path; EWJ/EWU themselves would be 5x / 66 bps equity CFDs. The number may not be tradable.
+   2. Decay: 2006-2014 +9.2 bps t 2.25; 2015-2022 -0.9 bps t -0.14. The 2020 Q1 loss (-16%) is the worst drawdown
+      and came from longs; nothing in the feature set protected against it.
+   3. Multiple testing: 122 trials, DSR 0.20, CI95 straddles zero. Judge-visible numbers (6 bps/slot) are below the
+      15 bps daily-bar resolution floor noted in RESULTS.md. The required edge for the 10y goal is ~160 bps/slot at
+      this slot rate and sizing; we are at 4% of it.
+   Also: closes stand in for 15:55 fills; overnight gap risk is unstopped (worst -1374 bps on a single trade); GLD
+   proxies gold at 7 bps; costs on foreign-index CFDs are the judge's assumption, not measured quotes.
+
+8. CONCLUSION FOR THE USER
+   A diversified long/short trend/crisis book, implemented in the only slots this account has, does not earn after
+   costs on 2001-2022 data. Its short side made money in 2008 and 2022 (about +26 and +13 bps per short trade) but lost
+   or sat out in 2020 Q1 and bleeds in bull years; net over everything the book is +6 bps/slot with t 1.75 and a
+   deflated Sharpe of 0.2, which the judge correctly refuses. The user's premise ("direction is irrelevant because the
+   short book pays when markets tank") is not supported: shorts help in slow bears and fail in fast crashes, and
+   the per-slot cost eats the daily capture of any slow trend signal. 1k -> 100k remains unsupported (P = 0%).
+
+9. N_TRIALS TALLY (every configuration evaluated on dev data, dead ends included)
+   r1_decomp: 2 signals x 2 legs x 4 classes = 16 (regime/VIX splits are diagnostics of the same configs)
+   r2_filters: per leg: 6 |comp| buckets + 6 rvol buckets + 3 classes x 4 filters + 2 top-3 variants = 26; x2 legs = 52
+   r3_stack:  2 legs x 2 (pooled/by-class) x 2 lambda x 5 thresholds = 40
+   r4_decompose: 7 universe/threshold variants of the CLOSE stacking = 7
+   r5/judge: 1 frozen configuration run through the judge once = 1; universe-scope decisions (drop futures, drop stocks,
+   drop OPEN) = 3 judgement calls counted as trials; final features list fixed before r3 (not tuned) = 3 more for the
+   feature-set / embargo / stop choices.                                                            TOTAL = 122
+
+Files: strategy.py (frozen), common.py, panel.py, r1_decomp.py, r2_filters.py, r3_stack.py, r4_decompose.py, r5_regimes.py.
+Reproduce: cd trading-analyst && python arena/trend_crisis/r1_decomp.py && ... && python -m arena.judge arena/trend_crisis/strategy.py --dev

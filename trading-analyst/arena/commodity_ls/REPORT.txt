@@ -1,0 +1,75 @@
+commodity_ls - round 2 arena report (dev data <= 2022-12-31 only; --final never run)
+=====================================================================================
+VERDICT: NEGATIVE RESULT. No commodity long/short OPEN-slot rule survived even the DEV walk-forward. Do not trade.
+
+Scope history: assigned crypto first; the user changed scope to commodities before any crypto backtest was run
+(only a data download / funding-API probe happened; those crypto CSVs were deleted). No crypto trials exist.
+
+1. Data audit (done first, recorded in PREREGISTRATION.txt, committed before any backtest)
+- Yahoo '=F' metal futures are unusable for open-based trading: share of bars with open==high/low/close per year
+  GC=F 30-80% until 2020 (clean only from 2021), SI=F 40-85%, PL=F/PA=F 75-95%, HG=F 35-65%. Stale opens -> excluded.
+- Energy CL/BZ/NG/HO/RB 2-8% (ok). Grains ZC/ZW/ZS 8-18% after 2007 (borderline ok). Softs/livestock 10-35% -> excluded.
+- '=F' close->next-open gaps are 50-300 bp every day in CL/NG (close = settlement, ~14:30 ET; trading continues) and
+  contain contract-roll jumps. CLOSE slots on futures would book roll artifacts as P&L -> futures traded OPEN only.
+  Features use a roll-free price = cumulative open->close returns (futures) / close-to-close (GLD).
+- GLD is the clean gold proxy (real 9:30 opens; judge maps it to gold CFD 20x, 7 bp round trip).
+- SLV/USO/UNG/DBC get stock-CFD costs (25 bp/side) in the judge -> uneconomic, excluded.
+- CL=F printed a NEGATIVE close on 2020-04-20. The judge books a short that day at +312% of notional (+3,121 bp). That
+  single artifact turned H1 from -1.8 bp to +1.0 bp/slot. CL=F was removed from the shipped universe (BZ=F keeps oil);
+  this post-hoc change makes results MORE conservative and is counted as a trial.
+Final universe: GLD, BZ=F, NG=F, HO=F, RB=F, ZC=F, ZW=F, ZS=F. Trades 2008-2022. Stop = 1.5 x 60d std of open->close
+returns (median 2.4%). Costs per judge: futures 12 bp round trip at 10x, GLD 7 bp at 20x.
+
+2. Pre-registered hypotheses and dev results (judge fills(), OPEN slots, top 3 by score per day)
+                                          all 08-22          design 08-15       validation 16-22   gross bp/trade
+   H1 TSMOM (mom20/60/120, vol-scaled)    +1.0bp t 0.25      -2.1 t -0.62       +4.5 t 0.62        12.4   (with CL)
+   H2 fade after |z|>2 day                -16.5 t -2.36      -14.7 t -1.60      -18.5 t -1.74      -5.7
+   H3 Donchian-20 breakout state          +0.7 t 0.13        -5.5 t -1.50       +8.0 t 0.71        11.1
+   H4 cross-sectional momentum (60d)      -5.9 t -2.86       -7.2 t -2.71       -4.4 t -1.37       5.2
+   H5 carry proxy from roll gaps          -6.1 t -2.62       -3.1 t -1.01       -9.6 t -2.70       5.9
+   H6 ridge combiner (annual refit,       -2.2 t -0.60       -4.3 t -1.31       +0.1 t 0.02        9.3
+      expanding, 5d embargo, alpha 100)
+   Pre-registered kill criterion (validation t < 1.0 for all) was HIT.
+   Post-kill variants (counted): H7 continuation after extreme day -9.7 bp t -1.38; H8 H1 with 3-sigma stop +1.2 t 0.29;
+   H9 'gold night effect' GLD long close->open -7.2 bp t -5.57 (gross ~+2 bp, eaten by 7 bp cost + financing);
+   H10 GLD short open->close -6.7 bp t -5.72. Trial 11 = removal of CL=F.
+   N_TRIALS = 11.
+
+   Reading: trend rules (H1, H3, H6) have a real-looking GROSS edge of ~9-12 bp/trade on commodity day trades, i.e. the
+   whole edge equals the 12 bp CFD cost. Net is ~0. Same structural finding as round 1: daily edges are of the order of costs.
+
+3. Shipped strategy.py = H1 (best design-period t among pre-registered rules, per the pre-registered fallback). NOT VALIDATED.
+   python -m arena.judge arena/commodity_ls/strategy.py --dev:
+     verdict NOT VALIDATED (do not trade); lookahead_ok true; slots 3777, trades 11327, slots_per_year 251.9
+     avg_bps_slot -2.4, t_slot -0.95, ci95 [-7.2, +2.5] bp, dsr 0.005, win 0.476, worst trade -1059 bp
+     best_policy_5y: {} (empty: no risk level kept historical drawdown <= 50%)
+     required_bps_50pct_10y 35.2 (at ~252 slots/yr, 10x, 2.4% stop) -> closeness_to_10y_goal -0.07
+   Historical account (1k start): 1% risk -> 480 (maxdd 69%); 3% -> 83; 5% -> 10.
+
+   Per-year H1 (bp/slot, t):
+   2008 +24.3 (1.67) | 2009 +1.9 | 2010 -1.8 | 2011 -14.6 (-1.9) | 2012 -11.9 | 2013 -11.4 (-2.5) | 2014 -0.1 | 2015 -10.5
+   2016 -5.0 | 2017 -16.2 (-2.8) | 2018 -2.2 | 2019 -20.2 (-3.6) | 2020 +17.7 (1.1) | 2021 +4.4 | 2022 +9.8 (0.8)
+   Regimes (causal, as of t-1):
+     commodity bear (equal-weight index >20% below 252d high): 938 slots, +7.3 bp, t 0.99
+     not bear: 2839 slots, -5.5 bp, t -2.48
+     Brent >50% below 252d high (2008-09, 2015-16, 2020): 640 slots, -0.8 bp, t -0.08
+   So: trend-following makes a little in crashes (2008, 2020, 2022 shocks) and bleeds in calm/choppy years. It is a
+   crisis-convexity profile, not a goal-reaching engine.
+
+4. Goal arithmetic
+   Even 10x leverage and 252 slots/yr need ~35 bp/slot NET for P(1k->100k in 10y) >= 50%. Best gross edge found is ~12 bp,
+   i.e. 3x short before costs. 1k->100k is not supported by any commodity rule tested here.
+
+5. Top weaknesses / caveats
+   1) No net edge: gross trend edge (~10-12 bp) == assumed CFD cost (12 bp); conclusion hinges on unverified Revolut
+      commodity spreads (assumed 8 bp + 2x2 bp slippage). If real costs were ~4 bp, H1/H3 would be ~+8 bp gross-ish -
+      still far below the 35 bp goal and not significant.
+   2) Data quality: Yahoo continuous futures have stale opens (metals unusable), roll gaps, an ambiguous open time
+      (probably the 18:00 ET Globex open vs 14:30 settlement close) and the negative-WTI print. A real CFD tracks a
+      different contract with its own roll schedule; fills here are approximations.
+   3) Universe/selection: 8 instruments chosen after a data audit; Revolut may not offer heating oil, gasoline or grains
+      as CFDs. CL=F removal was post-hoc (conservative). Term structure only via a noisy roll-gap proxy (H5 failed);
+      real curve data (CFTC/exchange settlements) was not reachable free with clean history.
+
+Files: PREREGISTRATION.txt (committed before backtests), strategy.py (frozen H1), research.py (H1-H6 harness using the
+judge's fills), explore.py (H7-H10). Judge and analyst/ untouched. --final never run; no data after 2022-12-31 inspected.

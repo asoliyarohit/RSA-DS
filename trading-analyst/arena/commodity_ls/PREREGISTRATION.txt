@@ -1,0 +1,32 @@
+commodity_ls PRE-REGISTRATION (written and committed BEFORE any hypothesis was backtested)
+Scope: commodity CFDs long/short (user scope change: no crypto, no FX). Dev data <= 2022-12-31 only.
+(Crypto work was stopped before any crypto backtest; only a data download/probe happened. No crypto trials.)
+
+Data audit done before this file:
+- Yahoo metal futures GC=F (pre-2021), SI=F, PL=F, PA=F, HG=F: 40-95% of bars have open==high/low/close -> stale opens. EXCLUDED.
+- Softs/livestock (KC, CT, CC, SB, LE, HE): 10-35% stale opens and likely not offered as Revolut CFDs. EXCLUDED.
+- Energy (CL, BZ, NG, HO, RB): 2-8% stale opens. Grains (ZC, ZW, ZS): 8-18% after 2007 electronic trading. KEPT.
+- GLD for gold: clean real 9:30 opens; judge maps GLD -> gold CFD 20x, 7bp round trip. KEPT.
+- SLV/USO/UNG/DBC map to stock-CFD costs (25bp/side commission) in judge: uneconomic. EXCLUDED.
+- '=F' close->next-open gaps are large every day (50-300bp in CL/NG) and contain contract rolls: CLOSE slots on futures
+  would book roll artifacts as P&L -> only OPEN slots are traded on futures. CL=F printed negative prices in Apr-2020 (kept, reported).
+- Roll-free price for features: futures = cumulative open->close log returns only (no gaps); GLD = close-to-close.
+
+Universe (fixed): GLD, CL=F, BZ=F, NG=F, HO=F, RB=F, ZC=F, ZW=F, ZS=F. Trading from 2008-01-01 (2007 = warmup).
+Kind: OPEN only. Stop (fixed a priori): stop_pct = 1.5 x 60-day std of open->close returns (causal, info <= t-1).
+All features use info <= t-1. sig = 60d std of roll-free daily returns.
+
+Hypotheses (each a fixed rule, no tuning):
+H1 TSMOM: s = mean(mom20, mom60, mom120), mom_k = sum of last k roll-free returns / (sig*sqrt(k)); dir=sign(s), score=|s|.
+H2 Reversal after extreme: z = yesterday's roll-free return / sig; if |z|>2 then dir=-sign(z), score=|z|.
+H3 Donchian-20 breakout state: dir=+1 if yesterday's roll-free price >= 20d max, -1 if <= 20d min; score=|mom20|.
+H4 Cross-sectional momentum: rank of mom60 across instruments scaled to [-1,1]; dir=sign, score=|rank|.
+H5 Carry proxy (term structure from roll gaps): c = -sum of last 60 close->open log gaps / (sig*sqrt(60)) for futures; dir=sign(c), score=|c|.
+H6 Ridge combiner of the features above (+ VIX z-score), pooled across instruments, target = open->close return / sig,
+   refit every 1 Jan on all data before that date (expanding, 5-day embargo), alpha fixed = 100 on standardized features; dir=sign(pred), score=|pred|.
+
+Selection rule (fixed): design period 2008-2015, validation 2016-2022 (H6 trades 2011+, trained from 2007).
+Candidate must have t>0 in design AND t>1.65 in validation using the judge's fills(). If several pass, take the highest validation t
+(this selection is counted in N_TRIALS). If none pass: report negative result, ship the best-design one flagged NOT VALIDATED.
+Kill criterion: validation t < 1.0 for all -> negative result.
+N_TRIALS starts at 6 and every further variant is added.
