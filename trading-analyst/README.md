@@ -39,6 +39,8 @@ Result so far: first-hour->last-half-hour (721 days) and opening-range breakout 
 Frozen model (trained to 2026-04-06, indices SPY/QQQ/DIA, 180-day sim: +18.6 bps/trade, t 1.68, NOT significant). `analyst/guard.py` keeps real-money risk at 0
 until 100 settled live trades show a positive mean with t>1.65. Refresh news with `python -m analyst.gdelt` (needs ~3 min; stale news is ignored). Reports: `reports/sim_180d.md`.
 
+`scanner/` - research-only Early-Signal Scanner (stdlib; sample data + free live builder). Reading list, not a signal: weights are untested defaults.
+
 ## What the evidence says (honest)
 | Setup | Out-of-sample result | Verdict |
 |---|---|---|

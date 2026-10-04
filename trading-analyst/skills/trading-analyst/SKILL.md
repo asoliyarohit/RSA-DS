@@ -17,6 +17,12 @@ Principle: scripts compute, Claude explains, the human executes. Never place ord
    `reports/journal.csv` so it can be forward-tested. If no thesis is convincing, say NO TRADE.
 5. Always state: notional, margin, stress loss in $, and that overnight gaps can exceed the stress loss.
 
+## Early-signal scanner (research reading list only)
+`python scanner/build_live.py` (free yfinance volume/5-day change + Yahoo RSS news count) then `python scanner/scanner.py scanner/live_data.csv`.
+Scores volume (30), momentum (25), news (25), attention (20; skipped if no data) out of 100 and writes watchlist.csv marked REVIEW REQUIRED.
+It is NOT a trading signal: the weights are untested defaults, and our own arena found volume/gap continuation edges fragile. Use it to pick what to read, then verify at the original source.
+`scanner/sample_data.csv` is fictional EXAMPLE DATA.
+
 ## Guardrail (enforced in code, not by judgment)
 Before ANY sizing, run `python -m analyst guard check --equity <bal> --risk <r>`. If it says BLOCKED or risk 0, there is no trade; do not argue
 with it, do not re-run with different numbers. After each closed trade run `guard record --equity-after <bal>`.

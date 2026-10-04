@@ -1,0 +1,6 @@
+candidate,volume_today,volume_avg_20d,price_change_5d_pct,news_items_7d,mentions_7d,mentions_avg_7d
+Candidate A,2400000,800000,6.5,4,310,120
+Candidate B,950000,900000,1.2,1,80,75
+Candidate C,1800000,600000,-2.0,6,520,140
+Candidate D,400000,500000,0.4,0,20,25
+Candidate E,1300000,650000,3.1,2,150,130
